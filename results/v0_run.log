@@ -1,0 +1,45 @@
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 12025.81it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12016.39it/s]
+lambda (median dev C_norm over 30 probes) = 0.05319
+dialogue 1/40  elapsed 25s
+dialogue 2/40  elapsed 48s
+dialogue 3/40  elapsed 67s
+dialogue 4/40  elapsed 88s
+dialogue 5/40  elapsed 107s
+dialogue 6/40  elapsed 130s
+dialogue 7/40  elapsed 152s
+dialogue 8/40  elapsed 172s
+dialogue 9/40  elapsed 194s
+dialogue 10/40  elapsed 214s
+dialogue 11/40  elapsed 235s
+dialogue 12/40  elapsed 256s
+dialogue 13/40  elapsed 282s
+dialogue 14/40  elapsed 302s
+dialogue 15/40  elapsed 321s
+dialogue 16/40  elapsed 341s
+dialogue 17/40  elapsed 362s
+dialogue 18/40  elapsed 384s
+dialogue 19/40  elapsed 405s
+dialogue 20/40  elapsed 427s
+dialogue 21/40  elapsed 447s
+dialogue 22/40  elapsed 472s
+dialogue 23/40  elapsed 492s
+dialogue 24/40  elapsed 512s
+dialogue 25/40  elapsed 531s
+dialogue 26/40  elapsed 547s
+dialogue 27/40  elapsed 572s
+dialogue 28/40  elapsed 592s
+dialogue 29/40  elapsed 611s
+dialogue 30/40  elapsed 809s
+dialogue 31/40  elapsed 856s
+dialogue 32/40  elapsed 882s
+dialogue 33/40  elapsed 907s
+dialogue 34/40  elapsed 933s
+dialogue 35/40  elapsed 960s
+dialogue 36/40  elapsed 988s
+dialogue 37/40  elapsed 1011s
+dialogue 38/40  elapsed 1042s
+dialogue 39/40  elapsed 1065s
+dialogue 40/40  elapsed 1092s
+done {"model": "Qwen/Qwen2.5-1.5B-Instruct", "embedder": "sentence-transformers/all-MiniLM-L6-v2", "n_dialogues": 40, "n_probes": 120, "seed": 0, "dev_seed": 1, "dev_n": 10, "lam": 0.053194697804894386, "window": 4, "k": 4, "graph_cfg": {"use_S": true, "use_T": true, "use_E": true, "use_R": true, "gamma"

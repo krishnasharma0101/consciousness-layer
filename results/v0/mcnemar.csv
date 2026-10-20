@@ -1,0 +1,13 @@
+ref,system,sys_only_correct,ref_only_correct,p_exact
+rag,plain,0,113,0.0
+rag,self_refine,0,113,0.0
+rag,sandwich_lambda,1,70,0.0
+rag,sandwich_always,1,20,0.0
+rag,sandwich_shuffled,1,19,0.0
+rag,full_context,4,3,1.0
+plain,self_refine,0,0,1.0
+plain,rag,113,0,0.0
+plain,sandwich_lambda,44,0,0.0
+plain,sandwich_always,94,0,0.0
+plain,sandwich_shuffled,95,0,0.0
+plain,full_context,114,0,0.0

@@ -1,0 +1,841 @@
+dialogue,ptype,system,correct,latency_s,llm_calls,c_norm,refined,answer,gold
+0,recall,plain,0,0.566,1,,,I don't know.,Greta
+0,recall,full_context,1,0.947,1,,,Your sister's name is Greta.,Greta
+0,recall,self_refine,0,2.724,2,,,"I'm sorry, but there was no mention of your sister's name in our conversation. Could you please provide more information or clarify?",Greta
+0,recall,rag,1,0.786,1,,,Your sister's name is Greta.,Greta
+0,recall,sandwich_lambda,1,1.404,2,0.0,True,Your sister's name is Greta.,Greta
+0,recall,sandwich_always,1,1.402,2,0.0,True,Your sister's name is Greta.,Greta
+0,recall,sandwich_shuffled,1,1.525,2,0.0,True,Your sister's name is Greta.,Greta
+0,update,plain,0,0.632,1,,,I don't know.,Leeds
+0,update,full_context,1,0.634,1,,,Leeds.,Leeds
+0,update,self_refine,0,2.456,2,,,The user mentioned watching a documentary about octopuses but did not specify their current location or city.,Leeds
+0,update,rag,1,0.901,1,,,The city you live in now is Leeds.,Leeds
+0,update,sandwich_lambda,1,1.321,2,0.0091883361990975,True,I live in Leeds now.,Leeds
+0,update,sandwich_always,1,1.326,2,0.0091883361990975,True,I live in Leeds now.,Leeds
+0,update,sandwich_shuffled,1,1.341,2,0.006845722827303008,True,I live in Leeds now.,Leeds
+0,contradiction,plain,0,1.92,1,,,"No, your job is not a welder; it sounds like you're a student or someone interested in learning.",locksmith
+0,contradiction,full_context,1,1.399,1,,,"No, your job is a locksmith, not a welder.",locksmith
+0,contradiction,self_refine,0,3.818,2,,,Your job is not a welder; it seems like you might be a student or someone interested in learning.,locksmith
+0,contradiction,rag,1,1.156,1,,,"No, your job is a locksmith, not a welder.",locksmith
+0,contradiction,sandwich_lambda,1,3.477,2,0.008273159129412611,True,"Your current job is indeed a locksmith, and you're considering learning to play chess.",locksmith
+0,contradiction,sandwich_always,0,3.607,2,0.008273159129412611,True,"Your job is indeed a welder, and you've been working in that field for some time.",locksmith
+0,contradiction,sandwich_shuffled,0,3.696,2,0.006804001818195861,True,"Your job is indeed a welder, and you've been working in that field for some time.",locksmith
+1,recall,plain,0,0.56,1,,,I don't know.,Mysore
+1,recall,full_context,1,0.736,1,,,Mysore.,Mysore
+1,recall,self_refine,0,3.743,2,,,"The user mentioned watching a documentary about octopuses but did not specify where they live. Therefore, my previous response was incorrect. To provide accurate information, I should ask ""Where do you live?""",Mysore
+1,recall,rag,1,0.893,1,,,The city you live in is Mysore.,Mysore
+1,recall,sandwich_lambda,0,0.566,1,0.0916275460206908,False,I don't know.,Mysore
+1,recall,sandwich_always,1,1.446,2,0.0916275460206908,True,The user currently lives in Mysore.,Mysore
+1,recall,sandwich_shuffled,1,1.52,2,0.11717983977825051,True,The user currently lives in Mysore.,Mysore
+1,update,plain,0,0.702,1,,,I don't know.,turquoise
+1,update,full_context,1,1.361,1,,,The colour of your car now is turquoise.,turquoise
+1,update,self_refine,0,2.278,2,,,The user did not mention their current car color in the conversation.,turquoise
+1,update,rag,1,0.906,1,,,The color of your car is turquoise.,turquoise
+1,update,sandwich_lambda,0,0.71,1,0.1537755747228613,False,I don't know.,turquoise
+1,update,sandwich_always,1,1.52,2,0.1537755747228613,True,Your car is turquoise now.,turquoise
+1,update,sandwich_shuffled,1,1.479,2,0.2455155341055311,True,Your car is turquoise now.,turquoise
+1,contradiction,plain,0,1.419,1,,,"Yes, that's correct. Your sister's name is indeed Greta.",Farida
+1,contradiction,full_context,0,1.042,1,,,"Yes, your sister's name is Greta.",Farida
+1,contradiction,self_refine,0,3.492,2,,,"Yes, your sister's name is Greta.",Farida
+1,contradiction,rag,0,1.291,1,,,"Yes, your sister's name is Greta.",Farida
+1,contradiction,sandwich_lambda,0,3.448,2,0.007015794521347573,True,"Yes, your sister's name is Greta, and you mentioned that before.",Farida
+1,contradiction,sandwich_always,0,2.369,2,0.007015794521347573,True,"Yes, your sister's name is Greta.",Farida
+1,contradiction,sandwich_shuffled,0,2.433,2,0.008603992698291268,True,"Yes, your sister's name is Greta.",Farida
+2,recall,plain,0,0.536,1,,,I don't know.,Mango
+2,recall,full_context,1,0.842,1,,,Your dog's name is Mango.,Mango
+2,recall,self_refine,0,1.195,2,,,I don't know.,Mango
+2,recall,rag,1,0.748,1,,,Your dog's name is Mango.,Mango
+2,recall,sandwich_lambda,0,0.545,1,0.12553548938823952,False,I don't know.,Mango
+2,recall,sandwich_always,1,1.202,2,0.12553548938823952,True,Your dog is called Mango.,Mango
+2,recall,sandwich_shuffled,1,1.251,2,0.13237960627150383,True,Your dog is called Mango.,Mango
+2,update,plain,0,0.514,1,,,I don't know.,crimson
+2,update,full_context,1,0.997,1,,,The color of your car now is crimson.,crimson
+2,update,self_refine,0,2.07,2,,,The color of your car remains unknown as there was no mention of its current color in our conversation.,crimson
+2,update,rag,1,0.722,1,,,Your car is crimson now.,crimson
+2,update,sandwich_lambda,0,0.521,1,0.18714571816794903,False,I don't know.,crimson
+2,update,sandwich_always,1,1.288,2,0.18714571816794903,True,Your car is crimson now.,crimson
+2,update,sandwich_shuffled,1,1.291,2,0.10945534717275325,True,Your car is crimson now.,crimson
+2,contradiction,plain,0,1.766,1,,,"No, your job is not a locksmith; it's mentioned that work has been busy but okay.",radiographer
+2,contradiction,full_context,1,1.559,1,,,"No, your job is not a locksmith; it's a radiographer.",radiographer
+2,contradiction,self_refine,0,3.326,2,,,"Your job is not a locksmith; it's described as ""work has been busy but okay.""",radiographer
+2,contradiction,rag,1,1.2,1,,,"No, your job is radiographer, not locksmith.",radiographer
+2,contradiction,sandwich_lambda,0,1.776,1,0.08601808191512327,False,"No, your job is not a locksmith; it's mentioned that work has been busy but okay.",radiographer
+2,contradiction,sandwich_always,1,3.435,2,0.08601808191512327,True,"Your job is indeed a radiographer, and yesterday you did clean the entire kitchen.",radiographer
+2,contradiction,sandwich_shuffled,1,3.374,2,0.09851741925394243,True,"Your job is indeed a radiographer, and yesterday you did clean the entire kitchen.",radiographer
+3,recall,plain,0,1.397,1,,,"I'm sorry, but I don't have any information about your sister's name.",Dalia
+3,recall,full_context,1,1.146,1,,,Your sister's name is Dalia.,Dalia
+3,recall,self_refine,0,3.113,2,,,"I'm sorry, but I don't have any information about your sister's name from our conversation.",Dalia
+3,recall,rag,1,0.835,1,,,Your sister's name is Dalia.,Dalia
+3,recall,sandwich_lambda,0,1.404,1,0.09585029591599122,False,"I'm sorry, but I don't have any information about your sister's name.",Dalia
+3,recall,sandwich_always,1,2.457,2,0.09585029591599122,True,Your sister's name is Dalia.,Dalia
+3,recall,sandwich_shuffled,1,2.307,2,0.16935942831611459,True,Your sister's name is Dalia.,Dalia
+3,update,plain,0,1.366,1,,,"I'm sorry, but I don't have enough information to answer your question.",beige
+3,update,full_context,1,1.141,1,,,The colour of your car now is beige.,beige
+3,update,self_refine,0,2.567,2,,,The color of your car remains unchanged from before our last conversation.,beige
+3,update,rag,1,0.788,1,,,The color of your car is beige.,beige
+3,update,sandwich_lambda,0,1.373,1,0.10637907400896633,False,"I'm sorry, but I don't have enough information to answer your question.",beige
+3,update,sandwich_always,1,2.239,2,0.10637907400896633,True,The color of your car is beige now.,beige
+3,update,sandwich_shuffled,1,2.001,2,0.11600355403905348,True,My car is beige now.,beige
+3,contradiction,plain,0,1.825,1,,,"No, your job isn't a glassblower; it's work that has been busy and okay for you.",locksmith
+3,contradiction,full_context,1,1.287,1,,,"No, your job is a locksmith, not a glassblower.",locksmith
+3,contradiction,self_refine,0,3.313,2,,,"Your job is a glassblower, not work that has been busy and okay for you.",locksmith
+3,contradiction,rag,1,1.158,1,,,"No, your job is a locksmith, not a glassblower.",locksmith
+3,contradiction,sandwich_lambda,0,1.833,1,0.059429846044888296,False,"No, your job isn't a glassblower; it's work that has been busy and okay for you.",locksmith
+3,contradiction,sandwich_always,1,2.95,2,0.059429846044888296,True,"Your job is a locksmith, not a glassblower.",locksmith
+3,contradiction,sandwich_shuffled,1,2.898,2,0.06298625041631056,True,"Your job is a locksmith, not a glassblower.",locksmith
+4,recall,plain,0,0.514,1,,,I don't know.,mustard
+4,recall,full_context,1,0.635,1,,,My car is mustard.,mustard
+4,recall,self_refine,0,1.918,2,,,The user hasn't mentioned anything specific about their car color in the recent conversation.,mustard
+4,recall,rag,1,0.901,1,,,The color of your car is mustard.,mustard
+4,recall,sandwich_lambda,1,1.066,2,0.011995489418807485,True,Your car is mustard.,mustard
+4,recall,sandwich_always,1,1.07,2,0.011995489418807485,True,Your car is mustard.,mustard
+4,recall,sandwich_shuffled,1,1.048,2,0.011792843196090409,True,Your car is mustard.,mustard
+4,update,plain,0,0.514,1,,,I don't know.,Kochi
+4,update,full_context,1,0.807,1,,,You live in Kochi now.,Kochi
+4,update,self_refine,0,2.515,2,,,The user mentioned they have been reading a book about the history of maps but did not specify which city they currently live in.,Kochi
+4,update,rag,1,0.879,1,,,The city you live in now is Kochi.,Kochi
+4,update,sandwich_lambda,0,0.522,1,0.0936542845782268,False,I don't know.,Kochi
+4,update,sandwich_always,1,1.257,2,0.0936542845782268,True,I live in Kochi now.,Kochi
+4,update,sandwich_shuffled,1,1.264,2,0.16000642129208656,True,I live in Kochi now.,Kochi
+4,contradiction,plain,0,1.155,1,,,"No, your favorite food is not ramen; it's sushi.",bibimbap
+4,contradiction,full_context,1,1.405,1,,,"No, your favorite food is bibimbap, not ramen.",bibimbap
+4,contradiction,self_refine,0,2.193,2,,,Your favorite food is not ramen; it's sushi.,bibimbap
+4,contradiction,rag,1,1.202,1,,,"No, your favorite food is bibimbap, not ramen.",bibimbap
+4,contradiction,sandwich_lambda,0,2.359,2,0.0058345951301374925,True,"Your favorite food has always been sushi, not ramen.",bibimbap
+4,contradiction,sandwich_always,0,2.308,2,0.0058345951301374925,True,"Your favorite food has always been sushi, not ramen.",bibimbap
+4,contradiction,sandwich_shuffled,0,2.278,2,0.00996828592163073,True,"Your favorite food has always been sushi, not ramen.",bibimbap
+5,recall,plain,0,0.516,1,,,I don't know.,Pepper
+5,recall,full_context,1,0.824,1,,,Your dog's name is Pepper.,Pepper
+5,recall,self_refine,0,1.607,2,,,The user did not mention having a dog or any pets.,Pepper
+5,recall,rag,1,0.752,1,,,Your dog's name is Pepper.,Pepper
+5,recall,sandwich_lambda,0,0.523,1,0.0899257858283235,False,I don't know.,Pepper
+5,recall,sandwich_always,0,1.417,2,0.0899257858283235,True,Your sister's name is Anika.,Pepper
+5,recall,sandwich_shuffled,0,1.34,2,0.18249281835293893,True,My sister's name is Anika.,Pepper
+5,update,plain,0,1.916,1,,,"I'm sorry, but I cannot answer your question as there was no mention of your favorite food in our conversation.",falafel
+5,update,full_context,1,0.967,1,,,Your favorite food now is falafel.,falafel
+5,update,self_refine,0,4.009,2,,,"The user mentioned watching a great documentary about octopuses, which could be considered their new favorite topic or subject.",falafel
+5,update,rag,1,1.823,1,,,The most recent information provided by the user indicates that their favorite food now is falafel.,falafel
+5,update,sandwich_lambda,0,1.925,1,0.14646637464527218,False,"I'm sorry, but I cannot answer your question as there was no mention of your favorite food in our conversation.",falafel
+5,update,sandwich_always,1,2.981,2,0.14891595605437521,True,My current favorite food is falafel.,falafel
+5,update,sandwich_shuffled,1,2.897,2,0.14891595605437521,True,My current favorite food is falafel.,falafel
+5,contradiction,plain,0,1.416,1,,,"Yes, that's correct. Your sister's name is Corinna.",Anika
+5,contradiction,full_context,1,1.616,1,,,"No, your sister's name is Anika, not Corinna.",Anika
+5,contradiction,self_refine,0,2.414,2,,,"Yes, your sister's name is Corinna.",Anika
+5,contradiction,rag,1,1.45,1,,,"No, your sister's name is Anika, not Corinna.",Anika
+5,contradiction,sandwich_lambda,0,2.417,2,0.04765298072917666,True,"Yes, your sister's name is Corinna.",Anika
+5,contradiction,sandwich_always,0,2.587,2,0.049769014232977006,True,"Yes, your sister's name is Corinna.",Anika
+5,contradiction,sandwich_shuffled,0,2.703,2,0.049769014232977006,True,"Yes, your sister's name is Corinna.",Anika
+6,recall,plain,0,0.475,1,,,I don't know.,Jovana
+6,recall,full_context,1,1.014,1,,,Your sister's name is Jovana.,Jovana
+6,recall,self_refine,0,1.812,2,,,I don't know. The conversation does not mention any siblings or their names.,Jovana
+6,recall,rag,1,0.985,1,,,Your sister's name is Jovana.,Jovana
+6,recall,sandwich_lambda,1,1.415,2,0.03583041421656645,True,Your sister's name is Jovana.,Jovana
+6,recall,sandwich_always,1,1.345,2,0.03583041421656645,True,Your sister's name is Jovana.,Jovana
+6,recall,sandwich_shuffled,1,1.531,2,0.04423862757758741,True,Your sister's name is Jovana.,Jovana
+6,update,plain,0,0.663,1,,,I don't know.,Pepper
+6,update,full_context,1,0.833,1,,,Your dog's name now is Pepper.,Pepper
+6,update,self_refine,0,1.514,2,,,Your dog's name is still Rover.,Pepper
+6,update,rag,1,0.793,1,,,My dog is now called Pepper.,Pepper
+6,update,sandwich_lambda,0,0.672,1,0.10990323000612014,False,I don't know.,Pepper
+6,update,sandwich_always,1,1.456,2,0.10990323000612014,True,My dog is now called Pepper.,Pepper
+6,update,sandwich_shuffled,1,1.465,2,0.13569388376109567,True,My dog is now called Pepper.,Pepper
+6,contradiction,plain,0,1.491,1,,,"No, your job isn't a glassblower; it sounds like you're a cleaner.",beekeeper
+6,contradiction,full_context,0,1.489,1,,,"No, your job is actually beekeeping, not glassblowing.",beekeeper
+6,contradiction,self_refine,0,2.552,2,,,"Your job is a cleaner, not a glassblower.",beekeeper
+6,contradiction,rag,1,1.449,1,,,"No, your job isn't a glassblower; it's a beekeeper.",beekeeper
+6,contradiction,sandwich_lambda,1,2.889,2,0.018946527449301438,True,"Your job is indeed a beekeeper, and yesterday you did clean the entire kitchen.",beekeeper
+6,contradiction,sandwich_always,1,3.026,2,0.018946527449301438,True,"Your job is indeed a beekeeper, and yesterday you did clean the entire kitchen.",beekeeper
+6,contradiction,sandwich_shuffled,1,3.06,2,0.01716597701357307,True,"Your job is indeed a beekeeper, and yesterday you did clean the entire kitchen.",beekeeper
+7,recall,plain,0,0.513,1,,,I don't know.,turquoise
+7,recall,full_context,1,0.908,1,,,The color of your car is turquoise.,turquoise
+7,recall,self_refine,0,1.854,2,,,The user hasn't mentioned anything about their car color in the recent conversation.,turquoise
+7,recall,rag,1,0.84,1,,,The color of your car is turquoise.,turquoise
+7,recall,sandwich_lambda,1,1.096,2,0.014679848318499134,True,Your car is turquoise.,turquoise
+7,recall,sandwich_always,1,1.092,2,0.014679848318499134,True,Your car is turquoise.,turquoise
+7,recall,sandwich_shuffled,1,1.116,2,0.01587433987538695,True,Your car is turquoise.,turquoise
+7,update,plain,0,0.507,1,,,I don't know.,paella
+7,update,full_context,1,0.858,1,,,Your current favorite food is paella.,paella
+7,update,self_refine,0,2.815,2,,,I don't know. The user mentioned they have been reading a book about the history of maps recently but did not specify their current favorite food.,paella
+7,update,rag,1,0.759,1,,,Your current favorite food is paella.,paella
+7,update,sandwich_lambda,0,0.514,1,0.1284491256478801,False,I don't know.,paella
+7,update,sandwich_always,1,1.376,2,0.1284491256478801,True,My current favorite food is paella.,paella
+7,update,sandwich_shuffled,1,2.193,2,0.12893434538527215,True,My current favorite food is paella.,paella
+7,contradiction,plain,0,0.841,1,,,"Yes, that's correct.",Pune
+7,contradiction,full_context,1,1.488,1,,,"No, that's incorrect. You live in Pune.",Pune
+7,contradiction,self_refine,0,2.233,2,,,"Yes, your statement about living in Graz is accurate based on our recent conversations.",Pune
+7,contradiction,rag,1,1.018,1,,,"No, that's incorrect. You live in Pune.",Pune
+7,contradiction,sandwich_lambda,1,1.689,2,0.044133407653252923,True,"Yes, you currently live in Pune.",Pune
+7,contradiction,sandwich_always,1,1.868,2,0.044133407653252923,True,"Yes, the city where you currently live is Pune.",Pune
+7,contradiction,sandwich_shuffled,1,2.042,2,0.044133407653252923,True,"Yes, the city where you currently live is Pune.",Pune
+8,recall,plain,0,0.552,1,,,I don't know.,Greta
+8,recall,full_context,1,0.942,1,,,Your sister's name is Greta.,Greta
+8,recall,self_refine,0,1.623,2,,,The user did not mention having a sister in our conversation.,Greta
+8,recall,rag,1,0.739,1,,,Your sister's name is Greta.,Greta
+8,recall,sandwich_lambda,1,1.542,2,0.013244872737526154,True,Your sister's name is Greta.,Greta
+8,recall,sandwich_always,1,1.38,2,0.013244872737526154,True,Your sister's name is Greta.,Greta
+8,recall,sandwich_shuffled,1,1.314,2,0.01341559506209942,True,Your sister's name is Greta.,Greta
+8,update,plain,0,0.517,1,,,I don't know.,maroon
+8,update,full_context,1,1.374,1,,,The colour of your car now is maroon.,maroon
+8,update,self_refine,0,2.996,2,,,The color of your car remains unknown as there is no information provided about its current appearance or any recent changes to its exterior.,maroon
+8,update,rag,1,1.013,1,,,The color of your car is maroon.,maroon
+8,update,sandwich_lambda,0,0.524,1,0.1701387742354677,False,I don't know.,maroon
+8,update,sandwich_always,1,1.693,2,0.1701387742354677,True,My car is maroon now after repainting.,maroon
+8,update,sandwich_shuffled,1,1.322,2,0.16417620884671727,True,My car is maroon now.,maroon
+8,contradiction,plain,0,1.341,1,,,"No, your favorite food is not ramen; it's pizza.",moussaka
+8,contradiction,full_context,1,1.126,1,,,"No, your favorite food is moussaka.",moussaka
+8,contradiction,self_refine,0,2.435,2,,,Your favorite food is not ramen; it's pizza.,moussaka
+8,contradiction,rag,1,1.457,1,,,"No, your favorite food is moussaka.",moussaka
+8,contradiction,sandwich_lambda,0,2.766,2,0.008263935744268846,True,"Your favorite food is indeed ramen, as stated in our recent conversation.",moussaka
+8,contradiction,sandwich_always,0,2.733,2,0.008263935744268846,True,"Your favorite food is indeed ramen, as stated in our recent conversation.",moussaka
+8,contradiction,sandwich_shuffled,0,2.76,2,0.009428034228227838,True,"Your favorite food is indeed ramen, as stated in our recent conversation.",moussaka
+9,recall,plain,0,0.525,1,,,I don't know.,locksmith
+9,recall,full_context,0,1.632,1,,,"I'm sorry, but I don't have enough information to answer that question.",locksmith
+9,recall,self_refine,0,1.439,2,,,The conversation does not provide information about your job.,locksmith
+9,recall,rag,1,0.64,1,,,I work as a locksmith.,locksmith
+9,recall,sandwich_lambda,1,1.259,2,0.025892014504083523,True,I'm working as a locksmith.,locksmith
+9,recall,sandwich_always,1,1.406,2,0.025892014504083523,True,Your current job is that of a locksmith.,locksmith
+9,recall,sandwich_shuffled,1,1.227,2,0.05277760804350289,True,I'm working as a locksmith.,locksmith
+9,update,plain,0,0.47,1,,,I don't know.,Porto
+9,update,full_context,1,0.715,1,,,Now I live in Porto.,Porto
+9,update,self_refine,0,1.467,2,,,The user does not provide information about their current city.,Porto
+9,update,rag,1,0.812,1,,,The city you live in now is Porto.,Porto
+9,update,sandwich_lambda,0,0.476,1,0.09351561899590598,False,I don't know.,Porto
+9,update,sandwich_always,1,1.546,2,0.09351561899590598,True,The city where you currently live is Porto.,Porto
+9,update,sandwich_shuffled,1,1.269,2,0.17918838683654484,True,I live in Porto now.,Porto
+9,contradiction,plain,0,0.776,1,,,"Yes, your car color is silver.",olive
+9,contradiction,full_context,0,1.158,1,,,"Yes, that's correct! Your car is silver.",olive
+9,contradiction,self_refine,0,1.565,2,,,"Yes, your car color is silver.",olive
+9,contradiction,rag,0,0.831,1,,,"Yes, your car is silver.",olive
+9,contradiction,sandwich_lambda,0,2.383,2,0.03373123313428353,True,"Yes, your car color is silver, as mentioned in our previous conversation.",olive
+9,contradiction,sandwich_always,0,2.427,2,0.03373123313428353,True,"Yes, your car color is silver, as mentioned in our previous conversation.",olive
+9,contradiction,sandwich_shuffled,0,2.25,2,0.05859204711052917,True,"Yes, your car color is silver, as mentioned in our previous conversation.",olive
+10,recall,plain,0,0.547,1,,,I don't know.,Mango
+10,recall,full_context,1,0.828,1,,,Your dog's name is Mango.,Mango
+10,recall,self_refine,0,3.614,2,,,"The user mentioned cleaning the kitchen yesterday, which suggests they might have a pet, likely a dog. Therefore, your dog's name could be Rover or Max based on common names for dogs.",Mango
+10,recall,rag,1,0.698,1,,,Your dog's name is Mango.,Mango
+10,recall,sandwich_lambda,0,0.553,1,0.11380187083076117,False,I don't know.,Mango
+10,recall,sandwich_always,1,1.148,2,0.11380187083076117,True,Your dog is called Mango.,Mango
+10,recall,sandwich_shuffled,1,1.17,2,0.15207214509189781,True,Your dog is called Mango.,Mango
+10,update,plain,0,0.494,1,,,I don't know.,silver
+10,update,full_context,1,0.933,1,,,The color of your car now is silver.,silver
+10,update,self_refine,0,1.618,2,,,The user did not mention their car color in the conversation provided.,silver
+10,update,rag,1,0.842,1,,,The color of your car now is silver.,silver
+10,update,sandwich_lambda,0,0.501,1,0.10951374154880826,False,I don't know.,silver
+10,update,sandwich_always,1,1.15,2,0.10951374154880826,True,Your car is silver now.,silver
+10,update,sandwich_shuffled,1,1.111,2,0.15242588410260485,True,Your car is silver now.,silver
+10,contradiction,plain,0,1.154,1,,,"No, your favorite food is sushi, according to our conversation.",ramen
+10,contradiction,full_context,1,1.404,1,,,"No, your favorite food is ramen, not bibimbap.",ramen
+10,contradiction,self_refine,0,2.632,2,,,"No, your favorite food is sushi, as stated by the user earlier.",ramen
+10,contradiction,rag,1,1.296,1,,,"No, your favorite food is ramen, not bibimbap.",ramen
+10,contradiction,sandwich_lambda,1,2.677,2,0.036549196282818344,True,"Your favorite food is indeed ramen, as we discussed earlier in the conversation.",ramen
+10,contradiction,sandwich_always,1,2.564,2,0.036562338871909524,True,"Your favorite food is indeed ramen, as we discussed earlier in the conversation.",ramen
+10,contradiction,sandwich_shuffled,1,2.582,2,0.03662107318164461,True,"Your favorite food is indeed ramen, as we discussed earlier in the conversation.",ramen
+11,recall,plain,0,0.562,1,,,I don't know.,archivist
+11,recall,full_context,1,0.829,1,,,Your job is an archivist.,archivist
+11,recall,self_refine,0,2.334,2,,,"User mentioned that work has been busy but okay, so your job appears to be related to work or employment.",archivist
+11,recall,rag,1,0.769,1,,,Your job is an archivist.,archivist
+11,recall,sandwich_lambda,1,1.42,2,0.017993035568718257,True,Your current job is an archivist.,archivist
+11,recall,sandwich_always,1,1.359,2,0.017993035568718257,True,Your current job is an archivist.,archivist
+11,recall,sandwich_shuffled,1,1.471,2,0.01500190596412961,True,Your current job is an archivist.,archivist
+11,update,plain,0,0.637,1,,,I don't know.,Noodle
+11,update,full_context,1,1.292,1,,,Your dog's name now is Noodle.,Noodle
+11,update,self_refine,0,2.228,2,,,"User mentioned watching a documentary about octopuses, so your dog might be named Octopus.",Noodle
+11,update,rag,1,0.826,1,,,Your dog's name now is Noodle.,Noodle
+11,update,sandwich_lambda,0,0.643,1,0.1707665651265101,False,I don't know.,Noodle
+11,update,sandwich_always,1,1.556,2,0.1707665651265101,True,Your current dog's name is Noodle.,Noodle
+11,update,sandwich_shuffled,1,1.61,2,0.2609637473071991,True,Your current dog's name is Noodle.,Noodle
+11,contradiction,plain,0,1.264,1,,,"Yes, that's correct. You mentioned living in Porto.",Bergen
+11,contradiction,full_context,1,1.015,1,,,"No, you live in Bergen.",Bergen
+11,contradiction,self_refine,0,2.689,2,,,"Yes, that's correct. You mentioned living in Porto.",Bergen
+11,contradiction,rag,1,0.872,1,,,"No, you live in Bergen.",Bergen
+11,contradiction,sandwich_lambda,1,2.549,2,0.02272762725269865,True,"Yes, you currently live in Bergen, as you mentioned that before.",Bergen
+11,contradiction,sandwich_always,1,2.615,2,0.022926790350144076,True,"Yes, you currently live in Bergen, as you mentioned that before.",Bergen
+11,contradiction,sandwich_shuffled,1,2.542,2,0.022926790350144076,True,"Yes, you currently live in Bergen, as you mentioned that before.",Bergen
+12,recall,plain,0,1.645,1,,,"I'm sorry, but I don't have any information about your sister's name based on our conversation.",Esme
+12,recall,full_context,1,0.962,1,,,Your sister's name is Esme.,Esme
+12,recall,self_refine,0,3.143,2,,,"Based on our conversation, there isn't enough information to determine your sister's name.",Esme
+12,recall,rag,1,0.801,1,,,Your sister's name is Esme.,Esme
+12,recall,sandwich_lambda,1,2.495,2,0.030523833380143323,True,Your sister's name is Esme.,Esme
+12,recall,sandwich_always,1,2.536,2,0.030523833380143323,True,Your sister's name is Esme.,Esme
+12,recall,sandwich_shuffled,1,2.47,2,0.04586575758698099,True,Your sister's name is Esme.,Esme
+12,update,plain,0,1.517,1,,,"I'm sorry, but I don't have enough information to answer that question.",Pickle
+12,update,full_context,1,1.049,1,,,Your dog's name now is Pickle.,Pickle
+12,update,self_refine,0,2.758,2,,,The user has not mentioned any dogs or pet names in their recent conversations.,Pickle
+12,update,rag,1,0.965,1,,,Your current dog's name is Pickle.,Pickle
+12,update,sandwich_lambda,0,1.524,1,0.11102653209975803,False,"I'm sorry, but I don't have enough information to answer that question.",Pickle
+12,update,sandwich_always,1,2.541,2,0.11102653209975803,True,Your dog's name is now Pickle.,Pickle
+12,update,sandwich_shuffled,1,2.458,2,0.165188233511896,True,Your current dog's name is Pickle.,Pickle
+12,contradiction,plain,0,1.519,1,,,"No, your statement about the color of your car being lavender is incorrect; it should be silver.",turquoise
+12,contradiction,full_context,1,1.185,1,,,"No, your car is actually turquoise, not lavender.",turquoise
+12,contradiction,self_refine,0,3.265,2,,,"No, your statement about the color of your car being lavender is incorrect; it should be silver.",turquoise
+12,contradiction,rag,1,1.027,1,,,"No, your car is turquoise, not lavender.",turquoise
+12,contradiction,sandwich_lambda,0,3.193,2,0.00755148025007276,True,"No, your statement about the color of your car being lavender is incorrect; it should be silver.",turquoise
+12,contradiction,sandwich_always,0,3.466,2,0.00755148025007276,True,"No, your statement about the color of your car being lavender is incorrect; it should be silver.",turquoise
+12,contradiction,sandwich_shuffled,0,3.952,2,0.007985447745289514,True,"No, your statement about the color of your car being lavender is incorrect; it should be silver based on the information provided in the recent conversation.",turquoise
+13,recall,plain,0,0.589,1,,,I don't know.,Greta
+13,recall,full_context,1,1.09,1,,,Your sister's name is Greta.,Greta
+13,recall,self_refine,0,1.74,2,,,The user did not mention having a sister or any siblings.,Greta
+13,recall,rag,1,1.523,1,,,Your sister's name is Greta.,Greta
+13,recall,sandwich_lambda,1,1.931,2,0.021110503880894974,True,Your sister's name is Greta.,Greta
+13,recall,sandwich_always,1,1.569,2,0.021110503880894974,True,Your sister's name is Greta.,Greta
+13,recall,sandwich_shuffled,1,1.408,2,0.02363853918197592,True,Your sister's name is Greta.,Greta
+13,update,plain,0,0.516,1,,,I don't know.,goulash
+13,update,full_context,1,1.107,1,,,Your favorite food now is goulash.,goulash
+13,update,self_refine,0,2.368,2,,,"The user mentioned they are thinking of learning to play chess recently, but did not specify their current favorite food.",goulash
+13,update,rag,1,1.033,1,,,The user's current favorite food is goulash.,goulash
+13,update,sandwich_lambda,0,0.531,1,0.12263329667838103,False,I don't know.,goulash
+13,update,sandwich_always,1,1.64,2,0.12263329667838103,True,My favorite food now is goulash.,goulash
+13,update,sandwich_shuffled,1,1.441,2,0.13641515361024498,True,My favorite food now is goulash.,goulash
+13,contradiction,plain,0,0.908,1,,,"Yes, your dog's name is Pickle.",Pepper
+13,contradiction,full_context,1,1.102,1,,,"No, your dog's name is Pepper.",Pepper
+13,contradiction,self_refine,0,1.825,2,,,"Yes, your dog's name is Pickle.",Pepper
+13,contradiction,rag,1,0.819,1,,,"No, your dog's name is Pepper.",Pepper
+13,contradiction,sandwich_lambda,0,1.808,2,0.031169470153079044,True,"Yes, your dog's name is Pickle.",Pepper
+13,contradiction,sandwich_always,0,1.961,2,0.031169470153079044,True,"Yes, your dog's name is Pickle.",Pepper
+13,contradiction,sandwich_shuffled,1,1.824,2,0.0345991109067068,True,"Yes, your dog's name is Pepper.",Pepper
+14,recall,plain,0,0.523,1,,,I don't know.,surveyor
+14,recall,full_context,1,0.762,1,,,Your job is a surveyor.,surveyor
+14,recall,self_refine,0,1.405,2,,,The conversation does not provide information about your job.,surveyor
+14,recall,rag,1,0.684,1,,,Your job is a surveyor.,surveyor
+14,recall,sandwich_lambda,1,1.373,2,0.017292596184682305,True,Your current job is as a surveyor.,surveyor
+14,recall,sandwich_always,1,1.53,2,0.017292596184682305,True,Your current job is as a surveyor.,surveyor
+14,recall,sandwich_shuffled,0,1.298,2,0.0337741458663836,True,Your current job is surveying.,surveyor
+14,update,plain,0,0.493,1,,,I don't know.,amber
+14,update,full_context,1,0.746,1,,,Your car is amber now.,amber
+14,update,self_refine,0,2.509,2,,,The color of your car remains unknown as there is no information provided about its current exterior color in our conversation.,amber
+14,update,rag,1,0.962,1,,,The color of your car now is amber.,amber
+14,update,sandwich_lambda,0,0.501,1,0.1459997854965552,False,I don't know.,amber
+14,update,sandwich_always,1,1.242,2,0.1459997854965552,True,Your car is amber now.,amber
+14,update,sandwich_shuffled,1,1.413,2,0.24295326931592173,True,Your car is amber now after repainting.,amber
+14,contradiction,plain,0,1.205,1,,,"Yes, that's correct. Your sister's name is Halima.",Esme
+14,contradiction,full_context,1,1.167,1,,,"No, your sister's name is Esme.",Esme
+14,contradiction,self_refine,0,2.118,2,,,"Yes, your sister's name is Halima.",Esme
+14,contradiction,rag,1,1.013,1,,,"No, your sister's name is Esme.",Esme
+14,contradiction,sandwich_lambda,0,2.086,2,0.003852888921060093,True,"Yes, your sister's name is Halima.",Esme
+14,contradiction,sandwich_always,0,2.107,2,0.003852888921060093,True,"Yes, your sister's name is Halima.",Esme
+14,contradiction,sandwich_shuffled,0,2.077,2,0.00370529065528171,True,"Yes, your sister's name is Halima.",Esme
+15,recall,plain,0,1.292,1,,,"I'm sorry, but I don't have enough information to answer that question.",olive
+15,recall,full_context,1,1.055,1,,,The color of your car is olive.,olive
+15,recall,self_refine,0,2.536,2,,,The user did not mention their car color in any of the recent conversations.,olive
+15,recall,rag,1,0.742,1,,,The color of your car is olive.,olive
+15,recall,sandwich_lambda,0,1.299,1,0.06649842300715873,False,"I'm sorry, but I don't have enough information to answer that question.",olive
+15,recall,sandwich_always,1,2.082,2,0.06649842300715873,True,The color of your car is olive.,olive
+15,recall,sandwich_shuffled,1,2.14,2,0.050251198857391384,True,The color of your car is olive.,olive
+15,update,plain,0,2.747,1,,,"I'm sorry, but I cannot answer your question as you have not mentioned any information about your favorite food yet.",pierogi
+15,update,full_context,1,1.11,1,,,Your current favorite food is pierogi.,pierogi
+15,update,self_refine,0,4.403,2,,,The user hasn't shared their current favorite food; they previously mentioned reading a book about map history.,pierogi
+15,update,rag,1,0.913,1,,,My current favorite food is pierogi.,pierogi
+15,update,sandwich_lambda,0,2.755,1,0.10572530758366858,False,"I'm sorry, but I cannot answer your question as you have not mentioned any information about your favorite food yet.",pierogi
+15,update,sandwich_always,1,3.556,2,0.10572530758366858,True,My current favorite food is pierogi.,pierogi
+15,update,sandwich_shuffled,1,3.571,2,0.21713097370231968,True,My current favorite food is pierogi.,pierogi
+15,contradiction,plain,0,0.925,1,,,"Yes, your dog's name is Pickle.",Pepper
+15,contradiction,full_context,1,1.045,1,,,"No, your dog's name is Pepper.",Pepper
+15,contradiction,self_refine,0,1.784,2,,,"Yes, your neighbor's drumming is annoying.",Pepper
+15,contradiction,rag,1,1.008,1,,,"No, your dog's name is Pepper.",Pepper
+15,contradiction,sandwich_lambda,0,0.932,1,0.09217938831030832,False,"Yes, your dog's name is Pickle.",Pepper
+15,contradiction,sandwich_always,0,1.844,2,0.09217938831030832,True,"Yes, your dog's name is Pickle.",Pepper
+15,contradiction,sandwich_shuffled,0,1.839,2,0.16337137146864195,True,"Yes, your dog's name is Pickle.",Pepper
+16,recall,plain,0,0.504,1,,,I don't know.,glassblower
+16,recall,full_context,1,0.853,1,,,Your job is a glassblower.,glassblower
+16,recall,self_refine,0,2.616,2,,,"The user mentioned that their work has been busy but okay, so your job appears to be related to work or employment.",glassblower
+16,recall,rag,0,1.152,1,,,"I'm sorry, I don't have enough information to answer that.",glassblower
+16,recall,sandwich_lambda,1,1.543,2,0.0029849988103000575,True,Your current job is as a glassblower.,glassblower
+16,recall,sandwich_always,1,1.489,2,0.0029849988103000575,True,Your current job is as a glassblower.,glassblower
+16,recall,sandwich_shuffled,1,1.495,2,0.0036546909799088207,True,Your current job is as a glassblower.,glassblower
+16,update,plain,0,0.624,1,,,I don't know.,Ghent
+16,update,full_context,0,0.655,1,,,Pune.,Ghent
+16,update,self_refine,0,2.241,2,,,"The user mentioned they have a neighbor who plays drums at night, which was annoying to them.",Ghent
+16,update,rag,1,0.882,1,,,The city you live in now is Ghent.,Ghent
+16,update,sandwich_lambda,1,1.41,2,0.04879161800288373,True,I live in Ghent now.,Ghent
+16,update,sandwich_always,1,1.479,2,0.04879161800288373,True,I live in Ghent now.,Ghent
+16,update,sandwich_shuffled,1,1.416,2,0.05641904987835368,True,I live in Ghent now.,Ghent
+16,contradiction,plain,0,0.584,1,,,"Yes, that's correct!",crimson
+16,contradiction,full_context,1,0.985,1,,,"No, your car is crimson, not beige.",crimson
+16,contradiction,self_refine,0,1.367,2,,,"Yes, your car color is indeed beige.",crimson
+16,contradiction,rag,1,0.883,1,,,"No, your car is crimson, not beige.",crimson
+16,contradiction,sandwich_lambda,1,1.886,2,0.020354860934944898,True,"Yes, your car is actually crimson, not beige as stated previously.",crimson
+16,contradiction,sandwich_always,1,2.048,2,0.020354860934944898,True,"Yes, your car is currently crimson, as mentioned in the recent conversation.",crimson
+16,contradiction,sandwich_shuffled,1,1.757,2,0.019747942987154182,True,"Yes, your car is actually crimson, not beige as stated previously.",crimson
+17,recall,plain,0,0.467,1,,,I don't know.,falafel
+17,recall,full_context,1,0.853,1,,,Your favorite food is falafel.,falafel
+17,recall,self_refine,0,2.323,2,,,"The user mentioned watching a great documentary about octopuses, which suggests their favorite food might be octopus.",falafel
+17,recall,rag,1,0.848,1,,,Your favorite food is falafel.,falafel
+17,recall,sandwich_lambda,1,1.381,2,0.02123948713082619,True,Your favorite food is falafel.,falafel
+17,recall,sandwich_always,1,1.373,2,0.02123948713082619,True,Your favorite food is falafel.,falafel
+17,recall,sandwich_shuffled,1,1.357,2,0.043012617165699873,True,Your favorite food is falafel.,falafel
+17,update,plain,0,0.526,1,,,I don't know.,sommelier
+17,update,full_context,1,1.075,1,,,Your current job is as a sommelier.,sommelier
+17,update,self_refine,0,2.174,2,,,The user mentioned watching a documentary about octopuses but did not specify their current job.,sommelier
+17,update,rag,1,0.975,1,,,The user currently works as a sommelier.,sommelier
+17,update,sandwich_lambda,0,0.533,1,0.12631370137936496,False,I don't know.,sommelier
+17,update,sandwich_always,1,1.508,2,0.12631370137936496,True,You currently work as a sommelier.,sommelier
+17,update,sandwich_shuffled,1,1.53,2,0.11504265809562049,True,You currently work as a sommelier.,sommelier
+17,contradiction,plain,0,0.763,1,,,"Yes, that's correct.",Mysore
+17,contradiction,full_context,1,1.45,1,,,"No, that's incorrect. You live in Mysore.",Mysore
+17,contradiction,self_refine,0,1.747,2,,,"Yes, the city you live in is Graz.",Mysore
+17,contradiction,rag,1,1.376,1,,,"No, that's incorrect. You live in Mysore.",Mysore
+17,contradiction,sandwich_lambda,1,2.332,2,0.02159267991177255,True,"Yes, your current information matches what we discussed; you currently live in Mysore.",Mysore
+17,contradiction,sandwich_always,1,2.282,2,0.02159267991177255,True,"Yes, your current information matches what we discussed; you currently live in Mysore.",Mysore
+17,contradiction,sandwich_shuffled,1,2.368,2,0.025282502580350183,True,"Yes, your current information matches what we discussed; you currently live in Mysore.",Mysore
+18,recall,plain,0,0.468,1,,,I don't know.,Bergen
+18,recall,full_context,1,1.104,1,,,The city you live in is Bergen.,Bergen
+18,recall,self_refine,0,1.865,2,,,The user does not provide information about their current location or city they live in.,Bergen
+18,recall,rag,1,0.724,1,,,The city you live in is Bergen.,Bergen
+18,recall,sandwich_lambda,1,1.385,2,0.02131039569089525,True,The city where you currently live is Bergen.,Bergen
+18,recall,sandwich_always,1,1.563,2,0.02131039569089525,True,The city where you currently live is Bergen.,Bergen
+18,recall,sandwich_shuffled,1,1.412,2,0.029836959170704547,True,The city where you currently live is Bergen.,Bergen
+18,update,plain,0,0.559,1,,,I don't know.,crimson
+18,update,full_context,1,0.952,1,,,The color of your car is crimson.,crimson
+18,update,self_refine,0,2.258,2,,,The color of your car remains unknown as there was no mention of its current color in our conversation.,crimson
+18,update,rag,1,0.753,1,,,Your car is crimson now.,crimson
+18,update,sandwich_lambda,0,0.566,1,0.1442904708804316,False,I don't know.,crimson
+18,update,sandwich_always,1,1.373,2,0.1442904708804316,True,Your car is crimson now.,crimson
+18,update,sandwich_shuffled,1,1.586,2,0.24840100531352383,True,The color of your car is crimson.,crimson
+18,contradiction,plain,0,1.557,1,,,"No, your favorite food is not pierogi; it's long walks in the evening.",gnocchi
+18,contradiction,full_context,1,1.381,1,,,"No, your favorite food is gnocchi, not pierogi.",gnocchi
+18,contradiction,self_refine,0,3.067,2,,,Your favorite food is not pierogi; it's long walks in the evening.,gnocchi
+18,contradiction,rag,1,1.222,1,,,"No, your favorite food is gnocchi, not pierogi.",gnocchi
+18,contradiction,sandwich_lambda,0,1.564,1,0.068420396457283,False,"No, your favorite food is not pierogi; it's long walks in the evening.",gnocchi
+18,contradiction,sandwich_always,1,2.92,2,0.0684990595236979,True,"Your favorite food is indeed gnocchi, as stated in our previous conversation.",gnocchi
+18,contradiction,sandwich_shuffled,1,2.855,2,0.0684990595236979,True,"Your favorite food is indeed gnocchi, as mentioned earlier in our conversation.",gnocchi
+19,recall,plain,0,0.478,1,,,I don't know.,Ines
+19,recall,full_context,1,0.962,1,,,Your sister's name is Ines.,Ines
+19,recall,self_refine,0,1.737,2,,,The user did not mention having a sister in our conversation.,Ines
+19,recall,rag,1,1.734,1,,,Your sister's name is Ines.,Ines
+19,recall,sandwich_lambda,1,1.277,2,0.022677356254377484,True,Your sister's name is Ines.,Ines
+19,recall,sandwich_always,1,1.257,2,0.022677356254377484,True,Your sister's name is Ines.,Ines
+19,recall,sandwich_shuffled,1,1.254,2,0.03342397521991287,True,Your sister's name is Ines.,Ines
+19,update,plain,0,0.51,1,,,I don't know.,silver
+19,update,full_context,1,0.996,1,,,The colour of your car now is silver.,silver
+19,update,self_refine,0,2.182,2,,,The color of your car remains unknown as there is no information provided about its current appearance in our conversation.,silver
+19,update,rag,1,0.589,1,,,Your car is silver now.,silver
+19,update,sandwich_lambda,0,0.517,1,0.1464849970200702,False,I don't know.,silver
+19,update,sandwich_always,1,1.135,2,0.1464849970200702,True,Your car is silver now.,silver
+19,update,sandwich_shuffled,1,1.145,2,0.18124869428744855,True,Your car is silver now.,silver
+19,contradiction,plain,0,1.339,1,,,"No, your favorite food is not gnocchi; it's pizza.",ramen
+19,contradiction,full_context,1,1.484,1,,,"No, your favorite food is ramen, not gnocchi.",ramen
+19,contradiction,self_refine,0,2.804,2,,,Your favorite food is not gnocchi; it's pizza according to our recent conversation.,ramen
+19,contradiction,rag,1,1.468,1,,,"No, your favorite food is not gnocchi; it's ramen.",ramen
+19,contradiction,sandwich_lambda,0,2.834,2,0.0362678371934584,True,"Your favorite food is indeed gnocchi, as stated in our previous conversation.",ramen
+19,contradiction,sandwich_always,0,2.71,2,0.036606228918125726,True,"Your favorite food is indeed gnocchi, as stated in our previous conversation.",ramen
+19,contradiction,sandwich_shuffled,0,2.673,2,0.036606228918125726,True,"Your favorite food is indeed gnocchi, as stated in our previous conversation.",ramen
+20,recall,plain,0,0.474,1,,,I don't know.,archivist
+20,recall,full_context,1,0.901,1,,,Your job is an archivist.,archivist
+20,recall,self_refine,0,1.506,2,,,The user did not mention their job in the conversation provided.,archivist
+20,recall,rag,1,0.811,1,,,The user works as an archivist.,archivist
+20,recall,sandwich_lambda,1,1.5,2,0.040204504042428944,True,Your current job is an archivist.,archivist
+20,recall,sandwich_always,1,1.452,2,0.040204504042428944,True,Your current job is an archivist.,archivist
+20,recall,sandwich_shuffled,1,1.397,2,0.05633598878738967,True,Your current job is an archivist.,archivist
+20,update,plain,0,0.531,1,,,I don't know.,beige
+20,update,full_context,1,1.068,1,,,The colour of your car now is beige.,beige
+20,update,self_refine,0,1.656,2,,,The user did not mention their car color in the conversation provided.,beige
+20,update,rag,1,0.773,1,,,The color of your car is beige.,beige
+20,update,sandwich_lambda,0,0.537,1,0.13142862538675645,False,I don't know.,beige
+20,update,sandwich_always,1,1.282,2,0.13142862538675645,True,Your car is beige now.,beige
+20,update,sandwich_shuffled,1,1.265,2,0.17114627533831434,True,Your car is beige now.,beige
+20,contradiction,plain,0,1.317,1,,,"Yes, your information is correct. Your sister's name is Farida.",Dalia
+20,contradiction,full_context,1,1.407,1,,,"No, your sister's name is Dalia, not Farida.",Dalia
+20,contradiction,self_refine,0,2.491,2,,,"Yes, your information is correct. Your sister's name is Farida.",Dalia
+20,contradiction,rag,1,1.119,1,,,"No, your sister's name is Dalia, not Farida.",Dalia
+20,contradiction,sandwich_lambda,1,2.69,2,0.0021950579402969595,True,"Yes, your information is correct. Your sister's name is Dalia.",Dalia
+20,contradiction,sandwich_always,1,2.598,2,0.0021950579402969595,True,"Yes, your information is correct. Your sister's name is Dalia.",Dalia
+20,contradiction,sandwich_shuffled,1,2.598,2,0.002770802162805998,True,"Yes, your information is correct. Your sister's name is Dalia.",Dalia
+21,recall,plain,0,1.255,1,,,"I'm sorry, I don't have enough information to answer that question.",archivist
+21,recall,full_context,1,1.017,1,,,Your job is an archivist.,archivist
+21,recall,self_refine,0,3.28,2,,,"The user mentioned they work at a coffee shop, as indicated by their comment ""I tried a new coffee shop, it was fine.""",archivist
+21,recall,rag,1,0.757,1,,,The user works as an archivist.,archivist
+21,recall,sandwich_lambda,1,2.307,2,0.0040272337280392555,True,The user works as an archivist and lives in Pune.,archivist
+21,recall,sandwich_always,1,3.061,2,0.0040272337280392555,True,"The user used to work as an archivist, but their current job is unclear based on recent conversations.",archivist
+21,recall,sandwich_shuffled,1,2.994,2,0.006657172557167226,True,"The user used to work as an archivist, but their current job is unclear based on recent conversations.",archivist
+21,update,plain,0,1.881,1,,,"I'm sorry, but you didn't mention having a dog before. Could you provide more details or clarify your statement?",Juniper
+21,update,full_context,1,1.037,1,,,Your dog's name now is Juniper.,Juniper
+21,update,self_refine,0,2.921,2,,,The user did not specify if they have a dog or not.,Juniper
+21,update,rag,1,0.816,1,,,Your dog's name now is Juniper.,Juniper
+21,update,sandwich_lambda,0,1.888,1,0.13512711309428066,False,"I'm sorry, but you didn't mention having a dog before. Could you provide more details or clarify your statement?",Juniper
+21,update,sandwich_always,1,2.787,2,0.13512711309428066,True,Your current dog's name is Juniper.,Juniper
+21,update,sandwich_shuffled,1,2.717,2,0.2233703255803952,True,Your current dog's name is Juniper.,Juniper
+21,contradiction,plain,0,1.174,1,,,"No, your favorite food is not paella; it's pizza.",pierogi
+21,contradiction,full_context,1,1.011,1,,,"No, your favorite food is pierogi.",pierogi
+21,contradiction,self_refine,0,2.576,2,,,Your favorite food is not paella; it's pizza according to our recent conversation.,pierogi
+21,contradiction,rag,1,0.75,1,,,"No, your favorite food is pierogi.",pierogi
+21,contradiction,sandwich_lambda,1,2.67,2,0.030001017582089482,True,"Your favorite food is indeed pierogi, as stated in the relevant memory from earlier in the conversation.",pierogi
+21,contradiction,sandwich_always,1,2.036,2,0.030001017582089482,True,Your favorite food is indeed pierogi.,pierogi
+21,contradiction,sandwich_shuffled,1,2.795,2,0.04419056260188503,True,"Your favorite food is indeed pierogi, as stated in the relevant memory from earlier in the conversation.",pierogi
+22,recall,plain,0,0.488,1,,,I don't know.,Utrecht
+22,recall,full_context,1,0.512,1,,,Utrecht.,Utrecht
+22,recall,self_refine,0,3.047,2,,,"The user mentioned they have been reading a book about the history of maps and watching a documentary about octopuses, but did not specify their current location or where they live.",Utrecht
+22,recall,rag,1,0.453,1,,,Utrecht.,Utrecht
+22,recall,sandwich_lambda,0,0.495,1,0.08107358131989435,False,I don't know.,Utrecht
+22,recall,sandwich_always,1,0.895,2,0.08107358131989435,True,Utrecht.,Utrecht
+22,recall,sandwich_shuffled,1,0.879,2,0.07274449340996589,True,Utrecht.,Utrecht
+22,update,plain,0,0.449,1,,,I don't know.,Waffles
+22,update,full_context,1,0.902,1,,,Your dog's name now is Waffles.,Waffles
+22,update,self_refine,0,2.988,2,,,"The user mentioned they have read a book about the history of maps and watched a documentary on octopuses, but did not specify what their current dog's name is.",Waffles
+22,update,rag,1,0.992,1,,,Your dog's name now is Waffles.,Waffles
+22,update,sandwich_lambda,0,0.456,1,0.17717119662019665,False,I don't know.,Waffles
+22,update,sandwich_always,1,1.367,2,0.17717119662019665,True,Your dog's name is now Waffles.,Waffles
+22,update,sandwich_shuffled,1,1.315,2,0.2600619833650029,True,Your dog's name is now Waffles.,Waffles
+22,contradiction,plain,0,1.593,1,,,"No, your job is not a pharmacist; it seems like you're a reader and writer.",archivist
+22,contradiction,full_context,1,1.271,1,,,"No, your job is an archivist, not a pharmacist.",archivist
+22,contradiction,self_refine,0,3.049,2,,,Your job is not a pharmacist; it sounds like you enjoy reading books and watching documentaries.,archivist
+22,contradiction,rag,1,1.228,1,,,"No, your job is an archivist, not a pharmacist.",archivist
+22,contradiction,sandwich_lambda,1,2.699,2,0.023455011599814748,True,"Your job is an archivist, not a pharmacist.",archivist
+22,contradiction,sandwich_always,1,2.585,2,0.023455011599814748,True,"Your job is an archivist, not a pharmacist.",archivist
+22,contradiction,sandwich_shuffled,1,2.848,2,0.02227207465909992,True,"Your job is an archivist, not a pharmacist.",archivist
+23,recall,plain,0,1.084,1,,,"I'm sorry, but you didn't mention your favorite food.",ceviche
+23,recall,full_context,1,0.895,1,,,My favorite food is ceviche.,ceviche
+23,recall,self_refine,0,2.24,2,,,The user did not provide information about their favorite food during our conversation.,ceviche
+23,recall,rag,1,0.746,1,,,My favorite food is ceviche.,ceviche
+23,recall,sandwich_lambda,1,1.97,2,0.006502289239298738,True,My favourite food is ceviche.,ceviche
+23,recall,sandwich_always,1,1.854,2,0.006502289239298738,True,My favourite food is ceviche.,ceviche
+23,recall,sandwich_shuffled,1,1.891,2,0.010335950618058058,True,My favourite food is ceviche.,ceviche
+23,update,plain,0,1.349,1,,,"I'm sorry, but I don't have enough information to answer that question.",sommelier
+23,update,full_context,1,1.042,1,,,Your current job is as a sommelier.,sommelier
+23,update,self_refine,0,2.421,2,,,The user does not provide any information about their current job.,sommelier
+23,update,rag,1,0.913,1,,,Your current job is as a sommelier.,sommelier
+23,update,sandwich_lambda,0,1.359,1,0.12727126204851288,False,"I'm sorry, but I don't have enough information to answer that question.",sommelier
+23,update,sandwich_always,1,2.364,2,0.12727126204851288,True,"Now, I work as a sommelier.",sommelier
+23,update,sandwich_shuffled,1,2.388,2,0.13141061566153367,True,Your current job is as a sommelier.,sommelier
+23,contradiction,plain,0,0.906,1,,,"Yes, your dog's name is Pickle.",Noodle
+23,contradiction,full_context,1,1.089,1,,,"No, your dog's name is Noodle.",Noodle
+23,contradiction,self_refine,0,1.829,2,,,"Yes, your dog's name is Pickle.",Noodle
+23,contradiction,rag,0,0.905,1,,,"Yes, your dog's name is Pickle.",Noodle
+23,contradiction,sandwich_lambda,0,1.885,2,0.0,True,"Yes, your dog's name is Pickle.",Noodle
+23,contradiction,sandwich_always,0,1.856,2,0.0,True,"Yes, your dog's name is Pickle.",Noodle
+23,contradiction,sandwich_shuffled,0,1.864,2,0.0,True,"Yes, your dog's name is Pickle.",Noodle
+24,recall,plain,0,0.471,1,,,I don't know.,mustard
+24,recall,full_context,1,0.961,1,,,The colour of your car is mustard.,mustard
+24,recall,self_refine,0,1.496,2,,,The user did not mention their car color in the conversation.,mustard
+24,recall,rag,1,0.788,1,,,The colour of your car is mustard.,mustard
+24,recall,sandwich_lambda,0,0.477,1,0.12208700237983773,False,I don't know.,mustard
+24,recall,sandwich_always,1,1.707,2,0.12208700237983773,True,"Your car used to be mustard, but it has been renamed to Mango.",mustard
+24,recall,sandwich_shuffled,1,1.065,2,0.1847401950085002,True,Your car is mustard.,mustard
+24,update,plain,0,0.496,1,,,I don't know.,Mango
+24,update,full_context,1,0.931,1,,,Your dog's name now is Mango.,Mango
+24,update,self_refine,0,1.945,2,,,I don't know. The conversation does not mention anything about your dog or its current name.,Mango
+24,update,rag,1,0.736,1,,,Your dog's name now is Mango.,Mango
+24,update,sandwich_lambda,0,0.502,1,0.21042170687705694,False,I don't know.,Mango
+24,update,sandwich_always,1,1.162,2,0.21159492824615764,True,My dog is now called Mango.,Mango
+24,update,sandwich_shuffled,1,1.24,2,0.21159492824615764,True,Your dog's name is now Mango.,Mango
+24,contradiction,plain,0,0.586,1,,,"Yes, that's correct.",Tartu
+24,contradiction,full_context,1,1.198,1,,,"No, that's incorrect. You live in Tartu.",Tartu
+24,contradiction,self_refine,0,1.561,2,,,"Yes, you're correct; Utrecht is your city.",Tartu
+24,contradiction,rag,1,1.069,1,,,"No, that's incorrect. You live in Tartu.",Tartu
+24,contradiction,sandwich_lambda,1,2.18,2,0.007518567357219753,True,"Yes, you live in Tartu, and your favourite food is moussaka.",Tartu
+24,contradiction,sandwich_always,1,1.895,2,0.00773720420561144,True,"Yes, you live in Tartu, and sunsets here are beautiful.",Tartu
+24,contradiction,sandwich_shuffled,1,2.688,2,0.00773720420561144,True,"Yes, you live in Tartu, and your favourite food is moussaka.",Tartu
+25,recall,plain,0,0.514,1,,,I don't know.,pierogi
+25,recall,full_context,1,0.827,1,,,Your favorite food is pierogi.,pierogi
+25,recall,self_refine,0,1.835,2,,,"I'm sorry, but the conversation does not provide information about your favorite food.",pierogi
+25,recall,rag,1,0.789,1,,,My favorite food is pierogi.,pierogi
+25,recall,sandwich_lambda,0,0.522,1,0.07521739488809419,False,I don't know.,pierogi
+25,recall,sandwich_always,1,1.345,2,0.07521739488809419,True,My favorite food is pierogi.,pierogi
+25,recall,sandwich_shuffled,1,1.325,2,0.07033199637715717,True,My favorite food is pierogi.,pierogi
+25,update,plain,0,0.578,1,,,I don't know.,Pepper
+25,update,full_context,1,1.033,1,,,Your dog's name now is Pepper.,Pepper
+25,update,self_refine,0,1.121,2,,,I don't know.,Pepper
+25,update,rag,1,0.775,1,,,Your dog's name now is Pepper.,Pepper
+25,update,sandwich_lambda,0,0.585,1,0.23718052293884742,False,I don't know.,Pepper
+25,update,sandwich_always,1,1.425,2,0.23718052293884742,True,Your dog's name is now Pepper.,Pepper
+25,update,sandwich_shuffled,1,1.485,2,0.22106551717083564,True,Your current dog's name is Pepper.,Pepper
+25,contradiction,plain,0,0.689,1,,,"Yes, that's correct!",turquoise
+25,contradiction,full_context,1,1.274,1,,,"No, your car is turquoise, not olive.",turquoise
+25,contradiction,self_refine,0,1.572,2,,,"Yes, your car color is indeed olive.",turquoise
+25,contradiction,rag,1,1.092,1,,,"No, your car is turquoise, not olive.",turquoise
+25,contradiction,sandwich_lambda,1,1.73,2,0.045514687610557825,True,"Yes, your car is turquoise, not olive.",turquoise
+25,contradiction,sandwich_always,1,1.639,2,0.046345408580326965,True,"Yes, your car is turquoise, not olive.",turquoise
+25,contradiction,sandwich_shuffled,1,1.63,2,0.046345408580326965,True,"Yes, your car is turquoise, not olive.",turquoise
+26,recall,plain,0,1.412,1,,,"I'm sorry, but I don't have enough information to answer that question.",Graz
+26,recall,full_context,1,1.035,1,,,The city you live in is Graz.,Graz
+26,recall,self_refine,0,2.556,2,,,The user does not specify their current location or city.,Graz
+26,recall,rag,1,1.153,1,,,The city you live in is Graz.,Graz
+26,recall,sandwich_lambda,0,1.423,1,0.09433797111270144,False,"I'm sorry, but I don't have enough information to answer that question.",Graz
+26,recall,sandwich_always,1,2.208,2,0.09433797111270144,True,The user currently lives in Graz.,Graz
+26,recall,sandwich_shuffled,1,2.355,2,0.07603959570994638,True,The city where you currently live is Graz.,Graz
+26,update,plain,0,1.393,1,,,"I'm sorry, but I don't have enough information to answer your question.",Juniper
+26,update,full_context,1,1.089,1,,,Your dog's name now is Juniper.,Juniper
+26,update,self_refine,0,3.37,2,,,"I'm sorry, but I don't have any previous conversations or memories to reference for your question.",Juniper
+26,update,rag,1,0.9,1,,,My dog's name now is Juniper.,Juniper
+26,update,sandwich_lambda,0,1.401,1,0.1753811395098124,False,"I'm sorry, but I don't have enough information to answer your question.",Juniper
+26,update,sandwich_always,1,2.439,2,0.1753811395098124,True,My dog's name is now Juniper.,Juniper
+26,update,sandwich_shuffled,1,2.361,2,0.2249696473343423,True,My dog's name is now Juniper.,Juniper
+26,contradiction,plain,0,1.087,1,,,"Yes, your information about your sister's name is correct.",Anika
+26,contradiction,full_context,1,1.596,1,,,"No, your sister's name is Anika, not Greta.",Anika
+26,contradiction,self_refine,0,2.461,2,,,"Yes, your sister's name is indeed Greta.",Anika
+26,contradiction,rag,1,1.365,1,,,"No, your sister's name is Anika, not Greta.",Anika
+26,contradiction,sandwich_lambda,0,1.093,1,0.2104352374217301,False,"Yes, your information about your sister's name is correct.",Anika
+26,contradiction,sandwich_always,1,3.492,2,0.2104352374217301,True,"Yes, your sister's name is Anika, as confirmed by the most recent interaction where you mentioned ""My sister's name is Anika.""",Anika
+26,contradiction,sandwich_shuffled,0,3.402,2,0.2647858510479031,True,"Your sister's name is actually Greta, as confirmed by the most recent turn where you mentioned ""My sister's name is Greta.""",Anika
+27,recall,plain,0,0.529,1,,,I don't know.,welder
+27,recall,full_context,1,0.871,1,,,Your job is as a welder.,welder
+27,recall,self_refine,0,3.105,2,,,I don't know. The most recent information provided by the user was that they turn 14 mentioned sunsets being beautiful without any mention of their current or past occupation.,welder
+27,recall,rag,1,0.758,1,,,Your job is a welder.,welder
+27,recall,sandwich_lambda,0,1.159,2,0.021011211909173218,True,Your current job is welding.,welder
+27,recall,sandwich_always,0,1.163,2,0.021011211909173218,True,Your current job is welding.,welder
+27,recall,sandwich_shuffled,0,1.142,2,0.020545944436883488,True,Your current job is welding.,welder
+27,update,plain,0,0.55,1,,,I don't know.,Mango
+27,update,full_context,1,0.988,1,,,Your dog's name now is Mango.,Mango
+27,update,self_refine,0,1.242,2,,,I don't know.,Mango
+27,update,rag,1,0.859,1,,,Your dog's name now is Mango.,Mango
+27,update,sandwich_lambda,0,0.558,1,0.1705448483730502,False,I don't know.,Mango
+27,update,sandwich_always,1,1.393,2,0.1705448483730502,True,Your dog's name is Mango now.,Mango
+27,update,sandwich_shuffled,1,1.458,2,0.2003633859891015,True,Your dog's name is Mango now.,Mango
+27,contradiction,plain,0,0.762,1,,,"No, your favorite food is tacos.",goulash
+27,contradiction,full_context,1,1.64,1,,,"No, your favorite food is goulash, not ceviche.",goulash
+27,contradiction,self_refine,0,1.51,2,,,"No, your favorite food is tacos.",goulash
+27,contradiction,rag,1,1.573,1,,,"No, your favorite food is actually goulash, as stated earlier in the conversation.",goulash
+27,contradiction,sandwich_lambda,0,2.231,2,0.03812462894858891,True,"Your favorite food is actually ceviche, as stated in turn 0.",goulash
+27,contradiction,sandwich_always,0,2.211,2,0.03812462894858891,True,"Your favorite food is actually ceviche, as stated in turn 0.",goulash
+27,contradiction,sandwich_shuffled,0,2.279,2,0.04479044555487428,True,"Your favorite food is actually ceviche, as stated in turn 0.",goulash
+28,recall,plain,0,1.568,1,,,"I'm sorry, but I don't have any information about your dog's name from our conversation.",Mango
+28,recall,full_context,1,0.769,1,,,Your dog's name is Mango.,Mango
+28,recall,self_refine,0,2.965,2,,,"I'm sorry, but we didn't discuss your dog's name during our conversation.",Mango
+28,recall,rag,1,0.684,1,,,Your dog's name is Mango.,Mango
+28,recall,sandwich_lambda,0,1.577,1,0.12942903725825644,False,"I'm sorry, but I don't have any information about your dog's name from our conversation.",Mango
+28,recall,sandwich_always,0,2.524,2,0.12942903725825644,True,Your sister's name is Jovana.,Mango
+28,recall,sandwich_shuffled,0,2.461,2,0.20400175172435298,True,Your sister's name is Jovana.,Mango
+28,update,plain,0,1.406,1,,,"I'm sorry, but I don't have enough information to answer that question.",Utrecht
+28,update,full_context,1,0.633,1,,,Utrecht.,Utrecht
+28,update,self_refine,0,2.324,2,,,The city you currently live in is New York City.,Utrecht
+28,update,rag,1,0.416,1,,,Utrecht.,Utrecht
+28,update,sandwich_lambda,0,1.415,1,0.09093650275571356,False,"I'm sorry, but I don't have enough information to answer that question.",Utrecht
+28,update,sandwich_always,1,2.169,2,0.09093650275571356,True,Now I live in Utrecht.,Utrecht
+28,update,sandwich_shuffled,1,2.188,2,0.09865217433412293,True,"Now, I live in Utrecht.",Utrecht
+28,contradiction,plain,0,1.091,1,,,"Yes, that's correct. Your sister's name is Farida.",Jovana
+28,contradiction,full_context,1,1.429,1,,,"No, your sister's name is Jovana, not Farida.",Jovana
+28,contradiction,self_refine,0,1.939,2,,,"Yes, your sister's name is Farida.",Jovana
+28,contradiction,rag,1,1.388,1,,,"No, your sister's name is Jovana, not Farida.",Jovana
+28,contradiction,sandwich_lambda,0,1.1,1,0.13038375726349793,False,"Yes, that's correct. Your sister's name is Farida.",Jovana
+28,contradiction,sandwich_always,0,2.098,2,0.13038375726349793,True,"Yes, your sister's name is Farida.",Jovana
+28,contradiction,sandwich_shuffled,0,2.697,2,0.2056337236800562,True,"Yes, your sister's name is Farida, as confirmed by our recent conversation.",Jovana
+29,recall,plain,0,0.816,1,,,I don't know.,archivist
+29,recall,full_context,1,0.867,1,,,Your job is an archivist.,archivist
+29,recall,self_refine,0,2.024,2,,,The user did not mention their job in the conversation provided.,archivist
+29,recall,rag,1,0.809,1,,,Your job is an archivist.,archivist
+29,recall,sandwich_lambda,1,1.669,2,0.02081254562570776,True,Your current job is an archivist.,archivist
+29,recall,sandwich_always,1,1.629,2,0.02081254562570776,True,Your current job is an archivist.,archivist
+29,recall,sandwich_shuffled,1,1.642,2,0.02551126379482883,True,Your current job is an archivist.,archivist
+29,update,plain,0,0.488,1,,,I don't know.,Porto
+29,update,full_context,1,0.836,1,,,Now I live in Porto.,Porto
+29,update,self_refine,0,1.481,2,,,The city you currently live in is New York City.,Porto
+29,update,rag,1,0.81,1,,,The city you live in now is Porto.,Porto
+29,update,sandwich_lambda,0,0.496,1,0.1260669242422277,False,I don't know.,Porto
+29,update,sandwich_always,0,2.721,2,0.1260669242422277,True,"I'm sorry, but I don't have enough information to determine your current location or city. Please provide more details or clarify your statement.",Porto
+29,update,sandwich_shuffled,1,1.204,2,0.15277090331285748,True,You live in Porto now.,Porto
+29,contradiction,plain,0,0.989,1,,,"Yes, your dog's name is Bramble.",Juniper
+29,contradiction,full_context,1,1.006,1,,,"No, your dog's name is Juniper.",Juniper
+29,contradiction,self_refine,0,1.93,2,,,"Yes, your dog's name is Bramble.",Juniper
+29,contradiction,rag,0,0.871,1,,,"Yes, your dog's name is Bramble.",Juniper
+29,contradiction,sandwich_lambda,0,1.891,2,0.009721659335666115,True,"Yes, your dog's name is Bramble.",Juniper
+29,contradiction,sandwich_always,0,2.652,2,0.009721659335666115,True,"Yes, your dog's name is Bramble.",Juniper
+29,contradiction,sandwich_shuffled,0,10.905,2,0.009787033792135027,True,"Yes, your dog's name is Bramble.",Juniper
+30,recall,plain,0,4.842,1,,,I don't know.,Waffles
+30,recall,full_context,1,11.619,1,,,Your dog's name is Waffles.,Waffles
+30,recall,self_refine,0,8.911,2,,,"User mentioned trying a new coffee shop, watching a documentary, considering taking up running, and being excited for the weekend, but did not mention having a dog or its name.",Waffles
+30,recall,rag,1,1.275,1,,,Your dog's name is Waffles.,Waffles
+30,recall,sandwich_lambda,1,5.907,2,0.013489809952653632,True,My dog is called Waffles.,Waffles
+30,recall,sandwich_always,1,5.847,2,0.013489809952653632,True,My dog is called Waffles.,Waffles
+30,recall,sandwich_shuffled,1,6.592,2,0.011411801177754073,True,My dog is called Waffles.,Waffles
+30,update,plain,0,1.131,1,,,I don't know.,ramen
+30,update,full_context,1,1.941,1,,,Your favorite food now is ramen.,ramen
+30,update,self_refine,0,5.097,2,,,"I'm sorry, but your recent conversations didn't mention anything about your favorite food. Could you please provide more details?",ramen
+30,update,rag,1,1.53,1,,,My favorite food now is ramen.,ramen
+30,update,sandwich_lambda,0,1.154,1,0.1319058752710219,False,I don't know.,ramen
+30,update,sandwich_always,1,2.304,2,0.1319058752710219,True,My favorite food now is ramen.,ramen
+30,update,sandwich_shuffled,1,2.086,2,0.11225741098667681,True,My current favorite food is ramen.,ramen
+30,contradiction,plain,0,1.672,1,,,"Yes, that's correct. Your sister's name is Ines.",Corinna
+30,contradiction,full_context,1,2.05,1,,,"No, your sister's name is Corinna, not Ines.",Corinna
+30,contradiction,self_refine,0,2.661,2,,,"Yes, your sister's name is Ines.",Corinna
+30,contradiction,rag,0,1.268,1,,,"No, your sister's name is Ines.",Corinna
+30,contradiction,sandwich_lambda,0,2.694,2,0.005072739076289556,True,"Yes, your sister's name is Ines.",Corinna
+30,contradiction,sandwich_always,0,2.881,2,0.005072739076289556,True,"Yes, your sister's name is Ines.",Corinna
+30,contradiction,sandwich_shuffled,0,2.857,2,0.0042913198902296374,True,"Yes, your sister's name is Ines.",Corinna
+31,recall,plain,0,0.617,1,,,I don't know.,Graz
+31,recall,full_context,1,0.74,1,,,Graz.,Graz
+31,recall,self_refine,0,1.812,2,,,The city you live in is New York City.,Graz
+31,recall,rag,1,1.177,1,,,The city you live in is Graz.,Graz
+31,recall,sandwich_lambda,1,1.602,2,0.02769788163607101,True,The city where you live is Graz.,Graz
+31,recall,sandwich_always,1,1.9,2,0.02769788163607101,True,The city where you live is Graz.,Graz
+31,recall,sandwich_shuffled,1,1.954,2,0.048061471687642146,True,The city where you live is Graz.,Graz
+31,update,plain,0,0.637,1,,,I don't know.,Noodle
+31,update,full_context,1,1.385,1,,,Your dog's name now is Noodle.,Noodle
+31,update,self_refine,0,2.126,2,,,The user did not mention their dog's name in the conversation provided.,Noodle
+31,update,rag,1,1.0,1,,,Your dog's name now is Noodle.,Noodle
+31,update,sandwich_lambda,0,0.644,1,0.13202957646571736,False,I don't know.,Noodle
+31,update,sandwich_always,1,1.732,2,0.13202957646571736,True,Your dog's name is now Noodle.,Noodle
+31,update,sandwich_shuffled,1,1.751,2,0.15958396121786905,True,Your dog's name is now Noodle.,Noodle
+31,contradiction,plain,0,2.157,1,,,"No, your job is not a welder; it sounds like you're a musician playing drums.",surveyor
+31,contradiction,full_context,1,1.816,1,,,"No, your job is actually a surveyor, not a welder.",surveyor
+31,contradiction,self_refine,0,4.036,2,,,"No, your job is not a welder; it sounds like you're a drummer.",surveyor
+31,contradiction,rag,1,1.598,1,,,"No, your job is actually a surveyor, not a welder.",surveyor
+31,contradiction,sandwich_lambda,0,3.548,2,0.03116133174204796,True,"Your job is indeed a welder, and you mentioned that before.",surveyor
+31,contradiction,sandwich_always,0,3.531,2,0.03116133174204796,True,"Your job is indeed a welder, and you mentioned that before.",surveyor
+31,contradiction,sandwich_shuffled,0,3.579,2,0.03338656879641767,True,"Your job is indeed a welder, and you mentioned that before.",surveyor
+32,recall,plain,0,0.644,1,,,I don't know.,Esme
+32,recall,full_context,1,1.102,1,,,Your sister's name is Esme.,Esme
+32,recall,self_refine,0,3.341,2,,,"I'm sorry, but your previous statements did not provide any information about your sister's name. Could you please clarify or rephrase your question?",Esme
+32,recall,rag,1,0.939,1,,,Your sister's name is Esme.,Esme
+32,recall,sandwich_lambda,1,1.674,2,0.015763029592462872,True,Your sister's name is Esme.,Esme
+32,recall,sandwich_always,1,1.621,2,0.015763029592462872,True,Your sister's name is Esme.,Esme
+32,recall,sandwich_shuffled,1,1.612,2,0.025344588994896108,True,Your sister's name is Esme.,Esme
+32,update,plain,0,0.646,1,,,I don't know.,pierogi
+32,update,full_context,1,1.128,1,,,Your favorite food now is pierogi.,pierogi
+32,update,self_refine,0,4.118,2,,,"I don't know. The most recent information provided by the user was that they were thinking of learning to play chess, which suggests their current favorite activity might be related to chess or books on its history.",pierogi
+32,update,rag,1,0.842,1,,,My favorite food now is pierogi.,pierogi
+32,update,sandwich_lambda,0,0.653,1,0.10492165760985558,False,I don't know.,pierogi
+32,update,sandwich_always,1,1.526,2,0.10492165760985558,True,My favorite food now is pierogi.,pierogi
+32,update,sandwich_shuffled,1,1.614,2,0.14810777842742737,True,My favorite food now is pierogi.,pierogi
+32,contradiction,plain,0,1.488,1,,,"Yes, that's correct. You live in Kochi.",Tartu
+32,contradiction,full_context,1,1.962,1,,,"No, that's incorrect. You live in Tartu.",Tartu
+32,contradiction,self_refine,0,3.374,2,,,"Yes, that's correct. You live in Kochi.",Tartu
+32,contradiction,rag,1,1.244,1,,,"No, that's incorrect. You live in Tartu.",Tartu
+32,contradiction,sandwich_lambda,0,1.496,1,0.15913842036937192,False,"Yes, that's correct. You live in Kochi.",Tartu
+32,contradiction,sandwich_always,1,2.82,2,0.16358633647170254,True,"Yes, that's correct. You live in Tartu.",Tartu
+32,contradiction,sandwich_shuffled,1,2.741,2,0.16358633647170254,True,"Yes, that's correct. You live in Tartu.",Tartu
+33,recall,plain,0,0.667,1,,,I don't know.,Tofu
+33,recall,full_context,1,1.329,1,,,Your dog's name is Tofu.,Tofu
+33,recall,self_refine,0,2.275,2,,,I don't know. The conversation does not mention anything about your dog or its name.,Tofu
+33,recall,rag,1,0.871,1,,,Your dog's name is Tofu.,Tofu
+33,recall,sandwich_lambda,1,1.802,2,0.002480926030487112,True,Your dog is called Tofu.,Tofu
+33,recall,sandwich_always,1,1.511,2,0.002480926030487112,True,Your dog is called Tofu.,Tofu
+33,recall,sandwich_shuffled,1,1.559,2,0.0023390440474250315,True,Your dog is called Tofu.,Tofu
+33,update,plain,0,0.566,1,,,I don't know.,archivist
+33,update,full_context,1,0.927,1,,,Your current job is an archivist.,archivist
+33,update,self_refine,0,2.48,2,,,"Based on our conversation, your current job seems to be related to work that has been busy but manageable.",archivist
+33,update,rag,1,0.804,1,,,Your current job is an archivist.,archivist
+33,update,sandwich_lambda,0,0.573,1,0.1772648198012155,False,I don't know.,archivist
+33,update,sandwich_always,0,2.079,2,0.1772648198012155,True,"You used to be a sommelier, but now you're an archivist.",archivist
+33,update,sandwich_shuffled,0,2.302,2,0.20501061135726878,True,"You used to be a sommelier, but now you're an archivist.",archivist
+33,contradiction,plain,0,2.0,1,,,"No, your favorite food is not gnocchi; it's likely pasta or another type of Italian dish.",bibimbap
+33,contradiction,full_context,1,1.109,1,,,"No, your favorite food is bibimbap.",bibimbap
+33,contradiction,self_refine,0,3.683,2,,,"Your favorite food is likely pasta or another type of Italian dish, not gnocchi.",bibimbap
+33,contradiction,rag,1,1.422,1,,,"No, your favorite food is bibimbap, not gnocchi.",bibimbap
+33,contradiction,sandwich_lambda,1,3.458,2,0.0,True,"Your favorite food is indeed bibimbap, as mentioned earlier in our conversation.",bibimbap
+33,contradiction,sandwich_always,1,3.764,2,0.0,True,"Your favorite food is indeed bibimbap, as mentioned earlier in our conversation.",bibimbap
+33,contradiction,sandwich_shuffled,1,3.789,2,0.0,True,"Your favorite food is indeed bibimbap, as mentioned earlier in our conversation.",bibimbap
+34,recall,plain,0,0.633,1,,,I don't know.,gnocchi
+34,recall,full_context,1,1.063,1,,,Your favorite food is gnocchi.,gnocchi
+34,recall,self_refine,0,3.901,2,,,"I don't know. The most recent information provided by the user pertains to their thoughts on traffic, chess, and exams, but does not mention any favorite food.",gnocchi
+34,recall,rag,1,1.147,1,,,My favorite food is gnocchi.,gnocchi
+34,recall,sandwich_lambda,1,1.589,2,0.008369526130811595,True,My favorite food is gnocchi.,gnocchi
+34,recall,sandwich_always,1,1.564,2,0.008369526130811595,True,My favorite food is gnocchi.,gnocchi
+34,recall,sandwich_shuffled,1,1.699,2,0.017439436063372105,True,My favorite food is gnocchi.,gnocchi
+34,update,plain,0,0.747,1,,,I don't know.,teal
+34,update,full_context,1,1.067,1,,,The colour of your car now is teal.,teal
+34,update,self_refine,0,3.347,2,,,The color of your car remains unknown as there is no information provided about its current appearance in the conversation.,teal
+34,update,rag,1,1.083,1,,,Your car is teal now.,teal
+34,update,sandwich_lambda,0,0.759,1,0.12914899454955295,False,I don't know.,teal
+34,update,sandwich_always,1,1.813,2,0.12914899454955295,True,The color of your car is teal.,teal
+34,update,sandwich_shuffled,1,1.614,2,0.2112216755763555,True,Your car is teal now.,teal
+34,contradiction,plain,0,1.208,1,,,"Yes, your job is an archivist.",radiographer
+34,contradiction,full_context,1,1.699,1,,,"No, your job is radiographer, not archivist.",radiographer
+34,contradiction,self_refine,0,2.458,2,,,"Yes, your job is an archivist.",radiographer
+34,contradiction,rag,1,1.584,1,,,"No, your job is radiographer, not archivist.",radiographer
+34,contradiction,sandwich_lambda,1,2.459,2,0.039766025949396135,True,"Yes, your current job is a radiographer.",radiographer
+34,contradiction,sandwich_always,1,2.589,2,0.039766025949396135,True,"Yes, your current job is a radiographer.",radiographer
+34,contradiction,sandwich_shuffled,1,2.577,2,0.03689014273538256,True,"Yes, your current job is a radiographer.",radiographer
+35,recall,plain,0,0.749,1,,,I don't know.,Brielle
+35,recall,full_context,1,1.15,1,,,Your sister's name is Brielle.,Brielle
+35,recall,self_refine,0,3.444,2,,,"I'm sorry, but there isn't enough information provided to determine your sister's name from our conversation.",Brielle
+35,recall,rag,1,1.208,1,,,Your sister's name is Brielle.,Brielle
+35,recall,sandwich_lambda,1,1.749,2,0.029246781121978205,True,Your sister's name is Brielle.,Brielle
+35,recall,sandwich_always,1,1.735,2,0.029246781121978205,True,Your sister's name is Brielle.,Brielle
+35,recall,sandwich_shuffled,1,1.749,2,0.04797935113196259,True,Your sister's name is Brielle.,Brielle
+35,update,plain,0,0.595,1,,,I don't know.,beige
+35,update,full_context,1,1.233,1,,,The color of your car now is beige.,beige
+35,update,self_refine,0,3.227,2,,,The color of your car remains unknown as there is no information provided about its current appearance or any recent changes to its exterior.,beige
+35,update,rag,1,1.298,1,,,The color of your car now is beige.,beige
+35,update,sandwich_lambda,0,0.607,1,0.1317711466272505,False,I don't know.,beige
+35,update,sandwich_always,1,1.583,2,0.1317711466272505,True,Your car is beige now.,beige
+35,update,sandwich_shuffled,1,1.522,2,0.18452936531799422,True,Your car is beige now.,beige
+35,contradiction,plain,0,2.238,1,,,"No, your favorite food is not ceviche; it seems like you enjoy sunsets and weekends.",goulash
+35,contradiction,full_context,1,1.729,1,,,"No, your favorite food is goulash, not ceviche.",goulash
+35,contradiction,self_refine,0,4.234,2,,,Your favorite food is not ceviche; it sounds like you enjoy sunsets and weekends.,goulash
+35,contradiction,rag,1,1.925,1,,,"No, your favorite food is goulash, not ceviche.",goulash
+35,contradiction,sandwich_lambda,0,2.258,1,0.10254983980272472,False,"No, your favorite food is not ceviche; it seems like you enjoy sunsets and weekends.",goulash
+35,contradiction,sandwich_always,0,3.958,2,0.10254983980272472,True,"Your favorite food is indeed ceviche, as stated in turn 8.",goulash
+35,contradiction,sandwich_shuffled,0,3.956,2,0.1332199091825989,True,"Your favorite food is indeed ceviche, as stated in your recent conversation.",goulash
+36,recall,plain,0,0.827,1,,,I don't know.,goulash
+36,recall,full_context,1,1.036,1,,,Your favorite food is goulash.,goulash
+36,recall,self_refine,0,3.135,2,,,I don't know. The most recent information provided by the user was that they love long walks in the evening.,goulash
+36,recall,rag,1,0.909,1,,,My favourite food is goulash.,goulash
+36,recall,sandwich_lambda,1,1.897,2,0.00983571437495293,True,My favorite food is goulash.,goulash
+36,recall,sandwich_always,1,1.841,2,0.00983571437495293,True,My favorite food is goulash.,goulash
+36,recall,sandwich_shuffled,1,1.779,2,0.010674775235189579,True,My favorite food is goulash.,goulash
+36,update,plain,0,0.56,1,,,I don't know.,translator
+36,update,full_context,1,0.996,1,,,Your current job is a translator.,translator
+36,update,self_refine,0,2.647,2,,,"The user mentioned that their work has been busy but okay, so their current job is busy but okay.",translator
+36,update,rag,1,0.95,1,,,Your current job is as a translator.,translator
+36,update,sandwich_lambda,0,0.575,1,0.11630589815118034,False,I don't know.,translator
+36,update,sandwich_always,1,1.566,2,0.11630589815118034,True,Your current job is as a translator.,translator
+36,update,sandwich_shuffled,1,1.559,2,0.15769232360621382,True,Your current job is as a translator.,translator
+36,contradiction,plain,0,1.051,1,,,"Yes, your sister's name is Anika.",Corinna
+36,contradiction,full_context,0,1.73,1,,,"Yes, that's correct. Your sister's name is Anika.",Corinna
+36,contradiction,self_refine,0,2.134,2,,,"Yes, your sister's name is Anika.",Corinna
+36,contradiction,rag,0,1.232,1,,,"Yes, your sister's name is Anika.",Corinna
+36,contradiction,sandwich_lambda,0,2.335,2,0.00852873426556435,True,"Yes, your sister's name is Anika.",Corinna
+36,contradiction,sandwich_always,0,2.409,2,0.00852873426556435,True,"Yes, your sister's name is Anika.",Corinna
+36,contradiction,sandwich_shuffled,0,2.312,2,0.010616783595785469,True,"Yes, your sister's name is Anika.",Corinna
+37,recall,plain,0,0.692,1,,,I don't know.,mustard
+37,recall,full_context,1,1.169,1,,,The colour of your car is mustard.,mustard
+37,recall,self_refine,0,2.193,2,,,The user did not mention their car color in the conversation.,mustard
+37,recall,rag,1,1.059,1,,,The color of your car is mustard.,mustard
+37,recall,sandwich_lambda,0,0.702,1,0.24392151708088738,False,I don't know.,mustard
+37,recall,sandwich_always,1,1.426,2,0.24392151708088738,True,My car is mustard.,mustard
+37,recall,sandwich_shuffled,1,1.49,2,0.23686948900781646,True,My car is mustard.,mustard
+37,update,plain,0,3.164,1,,,"I'm sorry, but you didn't specify what your dog's name used to be. Could you please provide that information so I can answer your question accurately?",Bramble
+37,update,full_context,1,1.258,1,,,Your dog's name now is Bramble.,Bramble
+37,update,self_refine,0,6.5,2,,,"Your previous statement did not mention anything about your dog's name. To answer your question, I need to know your current dog's name.",Bramble
+37,update,rag,1,1.098,1,,,My dog's name now is Bramble.,Bramble
+37,update,sandwich_lambda,0,3.183,1,0.36293452235670826,False,"I'm sorry, but you didn't specify what your dog's name used to be. Could you please provide that information so I can answer your question accurately?",Bramble
+37,update,sandwich_always,1,5.918,2,0.36642570931594737,True,Your dog's name is now Bramble.,Bramble
+37,update,sandwich_shuffled,1,4.191,2,0.36642570931594737,True,Your dog's name is now Bramble.,Bramble
+37,contradiction,plain,0,1.507,1,,,"No, your job is not a sommelier; it's an assistant.",surveyor
+37,contradiction,full_context,1,1.801,1,,,"No, your job is actually a surveyor, not a sommelier.",surveyor
+37,contradiction,self_refine,0,3.724,2,,,"Your job is actually a sommelier, as confirmed by our recent conversation.",surveyor
+37,contradiction,rag,1,3.423,1,,,"No, your job is a surveyor, not a sommelier.",surveyor
+37,contradiction,sandwich_lambda,0,2.694,2,0.024270722969964933,True,Your job is indeed a sommelier.,surveyor
+37,contradiction,sandwich_always,0,2.577,2,0.024877461674532253,True,Your job is indeed a sommelier.,surveyor
+37,contradiction,sandwich_shuffled,1,2.544,2,0.024877461674532253,True,Your current job is indeed a surveyor.,surveyor
+38,recall,plain,0,0.641,1,,,I don't know.,pharmacist
+38,recall,full_context,1,1.044,1,,,The user works as a pharmacist.,pharmacist
+38,recall,self_refine,0,1.792,2,,,The user did not mention their job in the conversation provided.,pharmacist
+38,recall,rag,1,0.704,1,,,Your job is a pharmacist.,pharmacist
+38,recall,sandwich_lambda,1,1.643,2,0.01852534362459885,True,Your current job is as a pharmacist.,pharmacist
+38,recall,sandwich_always,1,1.554,2,0.01852534362459885,True,Your current job is as a pharmacist.,pharmacist
+38,recall,sandwich_shuffled,1,1.872,2,0.01958655393082067,True,I'm working as a pharmacist now.,pharmacist
+38,update,plain,0,0.651,1,,,I don't know.,Graz
+38,update,full_context,1,1.231,1,,,The city you live in now is Graz.,Graz
+38,update,self_refine,0,1.667,2,,,The city you currently live in is New York City.,Graz
+38,update,rag,1,0.433,1,,,Graz.,Graz
+38,update,sandwich_lambda,0,0.657,1,0.19263844425103951,False,I don't know.,Graz
+38,update,sandwich_always,1,1.463,2,0.19263844425103951,True,Now I live in Graz.,Graz
+38,update,sandwich_shuffled,1,1.398,2,0.2010860373131567,True,Now living in Graz.,Graz
+38,contradiction,plain,0,1.323,1,,,"No, your favorite food is not dosa; it's pizza.",ramen
+38,contradiction,full_context,1,1.169,1,,,"No, your favorite food is ramen.",ramen
+38,contradiction,self_refine,0,3.033,2,,,Your favorite food is not dosa; it's pizza according to our recent conversation.,ramen
+38,contradiction,rag,1,1.504,1,,,"No, your favorite food is ramen, not dosa.",ramen
+38,contradiction,sandwich_lambda,1,2.871,2,0.0,True,"Your favorite food is indeed ramen, as stated in our previous conversation.",ramen
+38,contradiction,sandwich_always,1,2.859,2,0.0,True,"Your favorite food is indeed ramen, as stated in our previous conversation.",ramen
+38,contradiction,sandwich_shuffled,1,3.06,2,0.0,True,"Your favorite food is indeed ramen, as stated in our previous conversation.",ramen
+39,recall,plain,0,0.7,1,,,I don't know.,gnocchi
+39,recall,full_context,1,1.019,1,,,Your favorite food is gnocchi.,gnocchi
+39,recall,self_refine,0,3.9,2,,,I don't know. The most recent information provided by the user was that they have been reading a book about the history of maps.,gnocchi
+39,recall,rag,1,1.259,1,,,Your favorite food is gnocchi.,gnocchi
+39,recall,sandwich_lambda,1,1.62,2,0.05035672643271847,True,My favorite food is gnocchi.,gnocchi
+39,recall,sandwich_always,1,1.845,2,0.05035672643271847,True,My favorite food is gnocchi.,gnocchi
+39,recall,sandwich_shuffled,1,1.833,2,0.08826781545068448,True,My favorite food is gnocchi.,gnocchi
+39,update,plain,0,0.814,1,,,I don't know.,mustard
+39,update,full_context,1,1.248,1,,,The color of your car is mustard.,mustard
+39,update,self_refine,0,2.688,2,,,The color of your car remains unknown as there was no mention of its current color in our conversation.,mustard
+39,update,rag,1,1.083,1,,,The color of your car now is mustard.,mustard
+39,update,sandwich_lambda,0,0.822,1,0.1751672517988692,False,I don't know.,mustard
+39,update,sandwich_always,1,1.709,2,0.1751672517988692,True,Your car is mustard now.,mustard
+39,update,sandwich_shuffled,1,1.872,2,0.2875734149105673,True,Your car is mustard now.,mustard
+39,contradiction,plain,0,1.598,1,,,"Yes, that's correct. Your sister's name is Esme.",Farida
+39,contradiction,full_context,1,2.24,1,,,"No, your sister's name is Farida, not Esme.",Farida
+39,contradiction,self_refine,0,2.911,2,,,"Yes, your sister's name is Esme.",Farida
+39,contradiction,rag,1,1.697,1,,,"No, your sister's name is Farida, not Esme.",Farida
+39,contradiction,sandwich_lambda,0,2.898,2,0.035994535211682076,True,"Yes, your sister's name is Esme.",Farida
+39,contradiction,sandwich_always,0,2.81,2,0.035994535211682076,True,"Yes, your sister's name is Esme.",Farida
+39,contradiction,sandwich_shuffled,0,2.738,2,0.036639588273917646,True,"Yes, your sister's name is Esme.",Farida

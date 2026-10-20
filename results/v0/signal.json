@@ -1,0 +1,6 @@
+{
+  "auroc_lowC_predicts_plain_wrong": NaN,
+  "auroc_lowC_predicts_sandwich_wrong": 0.6585515548281505,
+  "n_plain_wrong": 120,
+  "refine_rate_lambda": 0.5166666666666667
+}

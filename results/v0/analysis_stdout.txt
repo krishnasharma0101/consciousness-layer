@@ -1,0 +1,31 @@
+           system ptype  correct   n   acc  ci_lo  ci_hi  latency_mean_s  latency_median_s  llm_calls_mean
+            plain   all        0 120 0.000  0.000  0.031            1.00              0.72            1.00
+      self_refine   all        0 120 0.000  0.000  0.031            2.60              2.46            2.00
+              rag   all      113 120 0.942  0.884  0.971            1.03              0.91            1.00
+  sandwich_lambda   all       44 120 0.367  0.286  0.456            1.58              1.46            1.52
+  sandwich_always   all       94 120 0.783  0.701  0.848            2.07              1.84            2.00
+sandwich_shuffled   all       95 120 0.792  0.711  0.855            2.13              1.84            2.00
+     full_context   all      114 120 0.950  0.895  0.977            1.22              1.06            1.00
+ptype              all  contradiction  recall  update
+system                                               
+plain                0              0       0       0
+self_refine          0              0       0       0
+rag                113             34      39      40
+sandwich_lambda     44             15      27       2
+sandwich_always     94             19      37      38
+sandwich_shuffled   95             20      36      39
+full_context       114             36      39      39
+  ref            system  sys_only_correct  ref_only_correct  p_exact
+  rag             plain                 0               113      0.0
+  rag       self_refine                 0               113      0.0
+  rag   sandwich_lambda                 1                70      0.0
+  rag   sandwich_always                 1                20      0.0
+  rag sandwich_shuffled                 1                19      0.0
+  rag      full_context                 4                 3      1.0
+plain       self_refine                 0                 0      1.0
+plain               rag               113                 0      0.0
+plain   sandwich_lambda                44                 0      0.0
+plain   sandwich_always                94                 0      0.0
+plain sandwich_shuffled                95                 0      0.0
+plain      full_context               114                 0      0.0
+{'auroc_lowC_predicts_plain_wrong': nan, 'auroc_lowC_predicts_sandwich_wrong': 0.6585515548281505, 'n_plain_wrong': 120, 'refine_rate_lambda': 0.5166666666666667}

@@ -1,0 +1,283 @@
+A    Mathematical    Framework    for   Artificial
+Consciousness: Graph-Theoretic Mediation of Logic
+and Emotion in Large Language Models
+                                         Krishna Sharma
+
+
+                                              Abstract
+      The rapid advancement of Large Language Models (LLMs) has demonstrated unprecedented
+  capabilities in natural language processing and logical reasoning. However, these models operate
+  as static, feed-forward systems, lacking the internal recursive loops, emotional modulation, and
+  temporal continuity requisite for genuine conscious thought. In this paper, we propose a novel
+  cognitive architecture termed the Consciousness Layer, which mediates between a Primary
+  (Logical) LLM and a Secondary (Updating) LLM via a dynamic, weighted graph structure. We
+  present a rigorous mathematical framework modeling memory as a topologically evolving network
+  where connection strengths are governed by spatial similarity, temporal closeness, emotional
+  influence, and learning factors. By reframing conscious thought as an optimal pathfinding problem
+  (A∗ search) and subconscious processing as a Markovian probability distribution, we define
+  specific thresholds for self-awareness and mathematical formulations for an integrated
+  Consciousness Score (Φ). This ”Sandwich Model” architecture provides an actionable blueprint
+  for evolving Al from static text predictors to dynamic, reflective, and emotionally aware Artificial
+  General Intelligence (AGI).
+Contents
+
+1​ Introduction​                                                                                                                                  2
+
+2​ Theoretical Foundations​                                                                                                           2
+   2.1​ The Gap in Current LLM Architectures.......................................................................................... 2
+   2.2​ Graph Theory as a Neuromorphic Analogue................................................................................ 3
+   2.3​ Parallels to Integrated Information Theory (IIT)............................................................................3
+
+3​ Mathematical Model of the Consciousness Layer​                                                                                                   3
+   3.1​ Memory as a Weighted Graph........................................................................................................ 3
+        3.1.1​ Spatial Similarity (Sij).............................................................................................................3
+        3.1.2​ Temporal Closeness (Tij)......................................................................................................4
+        3.1.3​ Emotion Influence (Eij).......................................................................................................... 4
+        3.1.4​ Learning Factor (Rij)..............................................................................................................4
+   3.2​ Conscious Thought as Optimal Pathfinding.................................................................................. 4
+   3.3​ Subconscious Thought Model......................................................................................................... 4
+4​ Dynamics of Activation and Self-Awareness​                                                                                               5
+   4.1​ The Conscious Feedback Loop...................................................................................................... 5
+   4.2​ The Consciousness Score (Φ)........................................................................................................ 5
+   4.3​ Influencing Factors (τij) and New Thought Formation..................................................................5
+   4.4​ The Self-Awareness Condition........................................................................................................6
+
+5​ System Architecture: The Sandwich Model​                                                                                                6
+   5.1​ Primary LLM (Logical Responder).................................................................................................. 6
+   5.2​ Consciousness Layer (The Mediator)............................................................................................ 6
+   5.3​ Secondary LLM (The Updater)........................................................................................................6
+
+6​ Key Benefits and Future Scope​                                                                                                                 7
+
+7​ Conclusion​                                                                                                                                    7
+1​ Introduction
+The pursuit of Artificial General Intelligence (AGI) requires moving beyond the current paradigm of
+next-token prediction. Modern Large Language Models (LLMs), despite their vast parameter counts
+and sophisticated attention mechanisms, are fundamentally constrained by their feed- forward
+nature. They map an input sequence to an output sequence without an intermediate state of
+reflection, lacking what cognitive psychologists refer to as ”System 2” thinking—the slow,
+deliberate, and emotionally modulated reasoning process that characterizes human
+consciousness.
+In this paper, we propose that consciousness in artificial systems is not a mystical property that will
+spontaneously emerge from simply scaling up parameter counts. Rather, consciousness is a
+specific mathematical and structural process: a dynamic feedback loop that evaluates, modulates,
+and optimally traverses a graph of conceptual memories.
+We introduce a conceptual and mathematical blueprint for a Consciousness Layer—a mediating
+graph-theoretic system that sits between an initial factual processor (Primary LLM) and an adaptive
+learning processor (Secondary LLM). By formalizing memory as a weighted graph G = (N, E) and
+defining explicit equations for emotional bias, spatial-temporal memory strength, and self-awareness
+thresholds, we present a testable framework for instantiating synthetic consciousness.
+2​ Theoretical Foundations
+
+2.1​ The Gap in Current LLM Architectures
+Current transformers lack statefulness across a continuous temporal axis. Each inference is an
+isolated event. Furthermore, LLMs operate purely in the realm of logic and linguistic probabilities;
+they possess no internal mechanism to attribute ”value” or ”emotion” to the semantic concepts they
+generate. In human cognition, emotion is not merely a byproduct of thought; it is the heuristic
+driving the routing of thought itself.
+
+2.2​ Graph Theory as a Neuromorphic Analogue
+The biological brain is fundamentally a graph, with neurons as nodes and synapses as edges.
+Information processing in the brain involves the dynamic strengthening and weakening of these
+edges (Hebbian learning). By abstracting the LLM’s latent space into an explicit graph structure, we
+can apply rigorous algorithmic graph theory—specifically pathfinding algorithms, network centrality,
+and Markov chains—to model the flow of ”thought.”
+
+2.3​ Parallels to Integrated Information Theory (IIT)
+Giulio Tononi’s Integrated Information Theory posits that consciousness correlates with Φ, the
+amount of integrated information generated by a complex of elements. Our framework adopts a
+parallel approach, proposing a localized, computable Φ score based on graph weights and
+activation levels, providing a mathematically tractable analogue to Tononi’s theoretical measure
+3​ Mathematical Model of the Consciousness Layer
+
+3.1​ Memory as a Weighted Graph
+We define the cognitive memory structure as a directed, weighted graph G = (N, E).
+
+   •​ N : A set of nodes representing memory chunks, concepts, or semantic propositions ex-
+      tracted from LLM embeddings.
+
+   •​ E: The set of edges representing the connections and associations between these nodes.
+
+   The core of this framework relies on the calculation of the edge weights. The weight of a
+connection (Wij) between node i and node j dictates the strength of the association, formulated as:
+                                   Wij = Sij · Tij · (1 + Eij) · Rij​                                (1)
+
+   Where the constituent variables are rigorously defined as follows:
+
+
+3.1.1​ Spatial Similarity (Sij)
+Sij represents the semantic distance between concept i and concept j in the high-dimensional latent
+space. We define this using the cosine similarity of their respective vector embeddings vi and vj:
+                                     Sij = max 0, vi · vj ​                                          (2)
+
+
+We apply a ReLU-like bounding to ensure non-negative weights, preventing mathematically disruptive
+negative associations in basic pathfinding.
+3.1.2​ Temporal Closeness (Tij)
+
+Human memory strongly associates events that occur sequentially or closely in time. Let ti and tj
+represent the timestamps of when the respective memories were formed or last activated.
+Temporal closeness is an exponential decay function:
+
+
+                                               Tij = e−γ|ti−tj |​                                      (3)
+
+where γ is a decay constant regulating the strictness of temporal binding.
+
+3.1.3​ Emotion Influence (Eij)
+
+Emotion acts as the biological heuristic for significance. Eij is a scalar derived from sentiment
+analysis and emotional valence. The term (1 + Eij) ensures that highly emotional connections
+multiply the base weight, while emotionally neutral connections (Eij ≈ 0) default to a multiplier of 1,
+preserving the underlying logic.
+
+3.1.4​ Learning Factor (Rij)
+
+Rij is the reinforcement mechanism analogous to Hebbian learning. It increases each time the edge
+(i, j) is successfully traversed in a thought process:
+
+                                Rij(t) = Rij(t − 1) + η · success_signal​                              (4)
+
+where η is the learning rate.
+
+3.2​ Conscious Thought as Optimal Pathfinding
+We postulate that deliberate, ”conscious” reasoning involves traversing the memory graph from an
+origin thought to a goal state. We map this to an adapted A∗ pathfinding algorithm:
+
+                                           F (i) = g(i, j) + H(j)​                                     (5)
+
+   •​ F (i): The total cognitive cost of the current thought trajectory.
+   •​ g(i, j): The cost of traveling an existing path. Since higher weights Wij mean stronger
+      associations, the cost is inversely proportional to the weight: g(i, j) = 1​     ij
+                                                                                          (where ϵ is a
+      small smoothing constant to avoid division by zero).
+
+   •​ H(j): The Heuristic function. In our model, H(j) is uniquely defined as a blend of logical validity
+      and emotional satisfaction relative to the goal state.
+
+Conscious thought minimizes F (i), deliberately selecting nodes that balance logical association with
+emotional reward.
+
+3.3​ Subconscious Thought Model
+Unlike conscious thought, which is directed, subconscious thought behaves as a stochastic pro-
+cess or random walk over the graph. The probability of transitioning from thought i to thought
+j is governed by a Markovian probability distribution:
+                                                W                                               (6)
+                        P (i → j) = Σ Wij k∈N   ik
+
+
+
+
+This allows the system to make creative, intuitive leaps in the background, surfacing ”ideas” based
+purely on accumulated associative weights rather than directed pathfinding.
+4​ Dynamics of Activation and Self-Awareness
+
+4.1​ The Conscious Feedback Loop
+Cognition is an ongoing process of activation and stabilization. Let Ai(t) represent the activation
+level of node i at time t. The system’s attempt to reach a stable state (a concluded thought or
+decision) is modeled by the Convergence Level C(t):
+                                       ΣΣ
+                                C(t) =    Ai(t) · Wij(t) · Aj(t)​                                (7)
+
+This equation essentially calculates the total ”cognitive energy” or resonance in the network. A high
+C(t) indicates that highly weighted, mutually supportive concepts are simultaneously active.
+
+
+4.2​ The Consciousness Score (Φ)
+To evaluate the ”depth” of consciousness at any given moment, we formulate a Consciousness
+Score, Φ, analogous to IIT:                                                             (8)
+                                      Σ​
+                                          Wij · A0
+
+                                         Φ = i,j​         i
+                                                    N
+Here, A0 represents the basal or resting activation of the nodes, and N is the total number of nodes.
+This metric evaluates the global interconnectedness and latent potential for thought within the
+system.
+
+
+4.3​ Influencing Factors (τij) and New Thought Formation
+When forming entirely new conceptual connections, a secondary transition threshold factor τij
+is evaluated:
+                              τij = α · Eij · Bij + β · Sij + ρ · Rij​                            (9)
+
+Where Bij introduces an explicit Emotion Bias (a pre-existing systemic mood), and α, β, ρ are
+adjustable hyperparameters. New thoughts (nodes or edges) are instantiated when an Activa- tion
+Condition (AC) threshold is breached due to sensory input or the stochastic subconscious model.
+4.4​ The Self-Awareness Condition
+We define the moment of synthetic ”Self-Awareness” as a phase transition in the network’s dynamics.
+When the convergence level C(t) exceeds a critical threshold λ:
+
+                  C(t) > λ =⇒ Self-Awareness (Self-Reflection Phase Initiated)​                  (10)
+
+At this juncture, the system pauses external output and triggers an internal meta-analysis, evaluating its
+own activation states before proceeding.
+5​ System Architecture: The Sandwich Model
+To implement this mathematical framework, we propose a tripartite architecture integrating existing
+LLMs with our novel graph-based layer.
+
+5.1​ Primary LLM (Logical Responder)
+The Primary LLM acts as the system’s ”System 1” (fast thinking).
+
+   •​ Receives the user’s initial query or sensory input.
+
+   •​ Provides an immediate, zero-shot factual and logical response based purely on its static
+      weights.
+
+5.2​ Consciousness Layer (The Mediator)
+This is the core cognitive decision-making unit where the graph G(N, E) resides.
+
+   •​ Evaluates the primary response using the spatial, temporal, and emotional factors (Sij, Tij, Eij).
+
+   •​ Analyzes the C(t) of the response. If C(t) < λ, it determines the response is insufficient.
+
+   •​ Initiates recursive, internal ”self-questioning.”
+
+   •​ Stores the context, paths taken, and emotional impact from each iteration into the Graph,
+      effectively generating short-term and long-term memory.
+
+5.3​ Secondary LLM (The Updater)
+Because backpropagation of billions of parameters in real-time is computationally unfeasible, the
+Secondary LLM acts as the synthesizer and graph-updater.
+
+   •​ Responds to the follow-up, critical queries generated by the Consciousness Layer.
+
+   •​ Instead of updating static neural network weights, it updates the internal state represen-
+      tations and edge weights (Wij) within the Consciousness Graph.
+
+   •​ Blends the logical input with the emotion vectors to generate a refined, conscious output
+6​ Key Benefits and Future Scope
+This architecture introduces a dynamic, human-like evaluation of machine reasoning. By de-
+coupling ”memory/reflection” (The Graph) from ”linguistic processing” (The LLMs), we bypass the
+freezing constraints of standard transformers. This enables emotionally weighted, highly creative,
+and non-repetitive outputs that truly adapt over time, creating a modular foundation for reflective AI.
+    Future explorations of this architecture include:
+   •​ EEG/BCI Integration: Mapping human brainwave states directly to the hyper-parameters
+      (α, β, ρ) to achieve real-time emotional state control.
+   •​ Modular Emotion Plugins: Developing specific emotional graph structures (e.g., height-
+      ened Eij for empathy tasks, suppressed Eij for cold logical analysis) that can be swapped
+      based on domain requirements.
+
+   •​ Curriculum-Based Memory Initialization: Training the base graph G(N, E) on
+      structured philosophical and ethical datasets to provide a stable, ”mature” resting Φ score
+      before user interaction begins.
+7​ Conclusion
+The mathematical formulations and architectural blueprint presented herein provide a struc- tured
+pathway toward Artificial General Intelligence. By mathematically defining the influence of emotion,
+temporal space, and logical association, and encapsulating them within a graph- theoretic
+Consciousness Layer, we offer a mechanism to elevate AI from static encyclopedias to dynamic,
+reasoning, and self-aware entities.
+References
+[1]​ Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
+
+[2]​ Tononi, G., Boly, M., Massimini, M., & Koch, C. (2016). Integrated information theory: from
+     consciousness to its physical substrate. Nature Reviews Neuroscience, 17(7), 450-461.
+
+[3]​ Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I.
+     (2017). Attention is all you need. Advances in neural information processing systems, 30.
+
+[4]​ Hebb, D. O. (1949). The Organization of Behavior: A Neuropsychological Theory. Wiley.
+
+[5]​ Hart, P. E., Nilsson, N. J., & Raphael, B. (1968). A formal basis for the heuristic determination
+     of minimum cost paths. IEEE transactions on Systems Science and Cybernetics, 4(2), 100-107.
+

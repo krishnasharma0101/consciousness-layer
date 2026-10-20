@@ -1,0 +1,121 @@
+dialogue,ptype,system,correct,latency_s,answer,gold
+0,recall,sandwich_nodraft,1,0.908,Your sister's name is Greta.,Greta
+0,update,sandwich_nodraft,1,0.988,The city you live in now is Leeds.,Leeds
+0,contradiction,sandwich_nodraft,1,1.453,"No, your job is a locksmith, not a welder.",locksmith
+1,recall,sandwich_nodraft,1,1.244,The city you live in is Mysore.,Mysore
+1,update,sandwich_nodraft,1,0.975,The color of your car is turquoise.,turquoise
+1,contradiction,sandwich_nodraft,0,1.412,"Yes, your sister's name is Greta.",Farida
+2,recall,sandwich_nodraft,1,0.907,Your dog's name is Mango.,Mango
+2,update,sandwich_nodraft,1,0.879,The color of your car is crimson.,crimson
+2,contradiction,sandwich_nodraft,1,1.709,"No, your job is not a locksmith; it's a radiographer.",radiographer
+3,recall,sandwich_nodraft,1,0.972,Your sister's name is Dalia.,Dalia
+3,update,sandwich_nodraft,1,1.112,The color of your car now is beige.,beige
+3,contradiction,sandwich_nodraft,1,1.969,"No, your job is a locksmith, not a glassblower.",locksmith
+4,recall,sandwich_nodraft,1,1.549,The color of your car is mustard.,mustard
+4,update,sandwich_nodraft,1,1.138,The city you live in now is Kochi.,Kochi
+4,contradiction,sandwich_nodraft,1,1.383,"No, your favorite food is bibimbap, not ramen.",bibimbap
+5,recall,sandwich_nodraft,1,1.067,Your dog's name is Pepper.,Pepper
+5,update,sandwich_nodraft,1,1.324,The user's current favorite food is falafel.,falafel
+5,contradiction,sandwich_nodraft,1,1.527,"No, your sister's name is Anika, not Corinna.",Anika
+6,recall,sandwich_nodraft,1,0.994,Your sister's name is Jovana.,Jovana
+6,update,sandwich_nodraft,1,0.967,My dog is now called Pepper.,Pepper
+6,contradiction,sandwich_nodraft,1,1.8,"No, your job isn't a glassblower; it's a beekeeper.",beekeeper
+7,recall,sandwich_nodraft,1,1.269,The color of your car is turquoise.,turquoise
+7,update,sandwich_nodraft,1,0.949,My current favorite food is paella.,paella
+7,contradiction,sandwich_nodraft,1,1.447,"No, that's incorrect. You live in Pune.",Pune
+8,recall,sandwich_nodraft,1,1.068,Your sister's name is Greta.,Greta
+8,update,sandwich_nodraft,1,1.072,The color of your car is maroon.,maroon
+8,contradiction,sandwich_nodraft,1,1.567,"No, your favorite food is moussaka, not ramen.",moussaka
+9,recall,sandwich_nodraft,1,0.873,Your job is a locksmith.,locksmith
+9,update,sandwich_nodraft,1,1.133,The city you live in now is Porto.,Porto
+9,contradiction,sandwich_nodraft,1,1.271,"No, your car is olive, not silver.",olive
+10,recall,sandwich_nodraft,1,0.921,My dog is called Mango.,Mango
+10,update,sandwich_nodraft,1,0.768,Your car is silver now.,silver
+10,contradiction,sandwich_nodraft,1,1.723,"No, your favorite food is not bibimbap; it's ramen.",ramen
+11,recall,sandwich_nodraft,1,0.709,Your job is an archivist.,archivist
+11,update,sandwich_nodraft,1,0.914,Your dog's name now is Noodle.,Noodle
+11,contradiction,sandwich_nodraft,1,0.682,"No, you live in Bergen.",Bergen
+12,recall,sandwich_nodraft,1,0.767,Your sister's name is Esme.,Esme
+12,update,sandwich_nodraft,1,0.909,Your dog's name now is Pickle.,Pickle
+12,contradiction,sandwich_nodraft,1,1.751,"No, your car is actually turquoise, as stated in turn 4 of our conversation.",turquoise
+13,recall,sandwich_nodraft,1,0.864,Your sister's name is Greta.,Greta
+13,update,sandwich_nodraft,1,1.076,The user's current favorite food is goulash.,goulash
+13,contradiction,sandwich_nodraft,1,1.125,"No, your dog's name is Pepper.",Pepper
+14,recall,sandwich_nodraft,1,0.863,Your job is a surveyor.,surveyor
+14,update,sandwich_nodraft,1,0.853,Your car is amber now.,amber
+14,contradiction,sandwich_nodraft,1,1.176,"No, your sister's name is Esme.",Esme
+15,recall,sandwich_nodraft,1,0.855,The color of your car is olive.,olive
+15,update,sandwich_nodraft,1,0.814,Your current favorite food is pierogi.,pierogi
+15,contradiction,sandwich_nodraft,1,1.063,"No, your dog's name is Pepper.",Pepper
+16,recall,sandwich_nodraft,0,0.722,I don't know.,glassblower
+16,update,sandwich_nodraft,1,1.103,The city you live in now is Ghent.,Ghent
+16,contradiction,sandwich_nodraft,1,1.081,"No, your car is crimson, not beige.",crimson
+17,recall,sandwich_nodraft,1,0.909,Your favorite food is falafel.,falafel
+17,update,sandwich_nodraft,1,1.094,The user currently works as a sommelier.,sommelier
+17,contradiction,sandwich_nodraft,1,1.489,"No, that's incorrect. You live in Mysore.",Mysore
+18,recall,sandwich_nodraft,1,0.96,The city you live in is Bergen.,Bergen
+18,update,sandwich_nodraft,1,1.2,The color of your car now is crimson.,crimson
+18,contradiction,sandwich_nodraft,1,1.452,"No, your favorite food is gnocchi, not pierogi.",gnocchi
+19,recall,sandwich_nodraft,1,0.899,Your sister's name is Ines.,Ines
+19,update,sandwich_nodraft,1,0.904,The color of your car is silver.,silver
+19,contradiction,sandwich_nodraft,1,1.607,"No, your favorite food is ramen, not gnocchi.",ramen
+20,recall,sandwich_nodraft,1,1.005,The user works as an archivist.,archivist
+20,update,sandwich_nodraft,1,1.179,The color of your car now is beige.,beige
+20,contradiction,sandwich_nodraft,1,1.425,"No, your sister's name is Dalia, not Farida.",Dalia
+21,recall,sandwich_nodraft,1,0.946,The user works as an archivist.,archivist
+21,update,sandwich_nodraft,1,0.982,Your dog's name now is Juniper.,Juniper
+21,contradiction,sandwich_nodraft,1,1.242,"No, your favorite food is actually pierogi.",pierogi
+22,recall,sandwich_nodraft,1,0.581,Utrecht.,Utrecht
+22,update,sandwich_nodraft,1,1.16,Your dog's name now is Waffles.,Waffles
+22,contradiction,sandwich_nodraft,1,1.343,"No, your job is an archivist, not a pharmacist.",archivist
+23,recall,sandwich_nodraft,1,0.998,My favorite food is ceviche.,ceviche
+23,update,sandwich_nodraft,1,1.262,Your current job is as a sommelier.,sommelier
+23,contradiction,sandwich_nodraft,0,1.071,"Yes, your dog's name is Pickle.",Noodle
+24,recall,sandwich_nodraft,1,0.834,The colour of your car is mustard.,mustard
+24,update,sandwich_nodraft,1,0.883,Your dog's name now is Mango.,Mango
+24,contradiction,sandwich_nodraft,1,1.376,"No, that's incorrect. You live in Tartu.",Tartu
+25,recall,sandwich_nodraft,1,0.831,Your favorite food is pierogi.,pierogi
+25,update,sandwich_nodraft,1,1.0,Your dog's name now is Pepper.,Pepper
+25,contradiction,sandwich_nodraft,1,1.29,"No, your car is turquoise, not olive.",turquoise
+26,recall,sandwich_nodraft,1,0.916,The city you live in is Graz.,Graz
+26,update,sandwich_nodraft,1,1.051,My dog's name now is Juniper.,Juniper
+26,contradiction,sandwich_nodraft,1,1.462,"No, your sister's name is Anika, not Greta.",Anika
+27,recall,sandwich_nodraft,1,0.771,Your job is a welder.,welder
+27,update,sandwich_nodraft,1,0.827,Your dog's name now is Mango.,Mango
+27,contradiction,sandwich_nodraft,1,1.575,"No, your favorite food is goulash, not ceviche.",goulash
+28,recall,sandwich_nodraft,1,0.832,Your dog's name is Mango.,Mango
+28,update,sandwich_nodraft,1,0.56,Utrecht.,Utrecht
+28,contradiction,sandwich_nodraft,1,1.458,"No, your sister's name is Jovana, not Farida.",Jovana
+29,recall,sandwich_nodraft,1,0.787,Your job is an archivist.,archivist
+29,update,sandwich_nodraft,1,1.211,The city you live in now is Porto.,Porto
+29,contradiction,sandwich_nodraft,0,1.254,"Yes, your dog's name is Bramble.",Juniper
+30,recall,sandwich_nodraft,1,0.942,Your dog's name is Waffles.,Waffles
+30,update,sandwich_nodraft,1,1.012,My favorite food now is ramen.,ramen
+30,contradiction,sandwich_nodraft,0,1.031,"Yes, your sister's name is Ines.",Corinna
+31,recall,sandwich_nodraft,1,1.025,The city you live in is Graz.,Graz
+31,update,sandwich_nodraft,1,0.85,Your dog's name now is Noodle.,Noodle
+31,contradiction,sandwich_nodraft,1,1.329,"No, your job is actually a surveyor, not a welder.",surveyor
+32,recall,sandwich_nodraft,1,0.824,Your sister's name is Esme.,Esme
+32,update,sandwich_nodraft,1,0.784,My favorite food now is pierogi.,pierogi
+32,contradiction,sandwich_nodraft,1,1.192,"No, that's incorrect. You live in Tartu.",Tartu
+33,recall,sandwich_nodraft,1,0.935,Your dog's name is Tofu.,Tofu
+33,update,sandwich_nodraft,1,0.938,Your current job is an archivist.,archivist
+33,contradiction,sandwich_nodraft,1,1.395,"No, your favorite food is bibimbap, not gnocchi.",bibimbap
+34,recall,sandwich_nodraft,1,0.819,My favorite food is gnocchi.,gnocchi
+34,update,sandwich_nodraft,1,0.996,The color of your car now is teal.,teal
+34,contradiction,sandwich_nodraft,1,1.157,"No, your job is radiographer, not archivist.",radiographer
+35,recall,sandwich_nodraft,1,0.747,Your sister's name is Brielle.,Brielle
+35,update,sandwich_nodraft,1,0.611,Your car is beige now.,beige
+35,contradiction,sandwich_nodraft,1,1.508,"No, your favorite food is goulash, not ceviche.",goulash
+36,recall,sandwich_nodraft,1,0.945,My favorite food is goulash.,goulash
+36,update,sandwich_nodraft,1,0.839,Your current job is as a translator.,translator
+36,contradiction,sandwich_nodraft,0,0.968,"Yes, your sister's name is Anika.",Corinna
+37,recall,sandwich_nodraft,1,0.788,The colour of your car is mustard.,mustard
+37,update,sandwich_nodraft,1,0.964,Your dog's name now is Bramble.,Bramble
+37,contradiction,sandwich_nodraft,1,1.413,"No, your job is a surveyor, not a sommelier.",surveyor
+38,recall,sandwich_nodraft,1,0.712,Your job is as a pharmacist.,pharmacist
+38,update,sandwich_nodraft,1,0.542,Graz.,Graz
+38,contradiction,sandwich_nodraft,1,1.12,"No, your favorite food is ramen, not dosa.",ramen
+39,recall,sandwich_nodraft,1,0.757,My favorite food is gnocchi.,gnocchi
+39,update,sandwich_nodraft,1,0.801,The color of your car now is mustard.,mustard
+39,contradiction,sandwich_nodraft,1,1.248,"No, your sister's name is Farida, not Esme.",Farida

@@ -1,0 +1,7 @@
+retriever,contradiction,recall,update,all
+rag,40,40,40,120
+sandwich(default),40,40,40,120
+sandwich_noE,40,40,40,120
+sandwich_noT,40,40,40,120
+sandwich_onlyS,40,40,40,120
+sandwich_shuffled,40,40,40,120
