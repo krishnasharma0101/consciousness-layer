@@ -171,3 +171,127 @@ Interpretation / decision: cache is usable. Proceed to E3 (R-2026-10-26-02) smok
 `--limit 10`, commit a5b2039, 9.1 s wall. Code runs end to end, all output files written
 (results/R-2026-10-26-02s/). Numbers (n=10) not interpreted, as pre-registered. Runtime ≈0.9 s/question with
 7 processes ⇒ full run expected ≈ 7–10 min, below the pre-registered 10–40 min.
+
+---
+
+## R-2026-10-26-03 — E2: does v1 C_norm predict failure? (no LLM)
+
+Written 2026-10-26 17:59 IST, while R-2026-10-26-02 is running and before I have seen any of its output.
+
+**PRE-REGISTRATION**
+- Tests ledger P-18 / V-08 ("C < λ ⇒ response insufficient", i.e. low C_norm predicts failure).
+- Part A (synthetic, answers from R-2026-10-20-01, no new LLM calls): rebuild each of the 40 dialogues as a
+  v1 graph (THEORY_V1 defaults, h = 13.86 turns), compute C_norm for each of the 120 probes with two cues:
+  question + logged plain draft (as in v0) and question only. Labels: wrong[sandwich_always] (26 wrong),
+  wrong[rag], wrong[sandwich_nodraft]. Score = −C_norm. Baseline scores: −max cosine(cue, turn), −Φ_dyn, and the
+  v0-logged C_norm.
+- Part B (LongMemEval-S, from R-2026-10-26-02 per_question.csv): label = miss@10 for v1, cosine, bm25
+  retrievers; score = −C_norm(v1); baselines −Φ_dyn, −max cosine(question, any turn); and −residual of C_norm
+  after linear regression on max cosine (does C_norm add anything beyond retrieval confidence?). Per-qtype
+  AUROCs reported as a confound check.
+- AUROC with stratified percentile bootstrap 95% CI, B = 5,000, seed 0.
+- Predictions:
+  1. Part A, wrong[sandwich_always], −C_norm[q+draft]: AUROC ≈ 0.6 (v0 value 0.659 used a different
+     normalisation), CI will include 0.5 or barely exclude it (only 26 positives). Main driver expected to be the
+     probe-type confound (update probes have high C_norm and are mostly correct for sandwich_always), so I
+     expect −C_norm to look predictive for the wrong reason.
+  2. Part B, miss@10[v1], −C_norm: AUROC in [0.45, 0.65]; −max cosine will be ≥ −C_norm (retrieval confidence
+     is the obvious baseline); −resid(C_norm | maxcos) AUROC CI will include 0.5.
+- Falsification: P-18/V-08 counts as **supported** only if an AUROC CI for −C_norm lies above 0.5 in Part B
+  *and* the residualised AUROC CI also lies above 0.5 (i.e. it adds information beyond max cosine). If the
+  −C_norm CI lies below 0.5, the direction of §5.2 is refuted (high C predicts failure). Otherwise untested /
+  "no detectable signal".
+- Command: `.venv/bin/python experiments/e2_cnorm_signal.py --run-id R-2026-10-26-03 --e3 results/R-2026-10-26-02`
+
+### R-2026-10-26-02 — RESULTS (appended 2026-10-26 18:01 IST)
+
+Run: commit ef0b518, clean tree; 470 questions; 35.4 s wall (pre-registered
+10–40 min — far faster because graphs are per-question, N≈494, dense numpy). Files:
+results/R-2026-10-26-02/{per_question,summary,paired_vs_cosine,primary_holm,ablation_vs_v1,by_qtype}.csv, recall_at10.png.
+
+turn_any@k (mean, 95% bootstrap CI), n = 470:
+
+| retriever | @1 | @5 | @10 [CI] | nDCG@10 | sess_all@10 |
+|---|---|---|---|---|---|
+| bm25 | 0.538 | 0.783 | 0.857 [0.826, 0.887] | 0.639 | 0.840 |
+| cosine | 0.353 | 0.749 | 0.855 [0.823, 0.887] | 0.522 | 0.823 |
+| v1 | 0.164 | 0.719 | 0.819 [0.783, 0.853] | 0.420 | 0.734 |
+| v1_shuffledW | 0.243 | 0.726 | 0.826 [0.791, 0.860] | 0.460 | 0.770 |
+| v1_randomtopo | 0.338 | 0.717 | 0.757 [0.719, 0.796] | 0.457 | 0.696 |
+| v1_noS | 0.187 | 0.732 | 0.819 [0.783, 0.853] | 0.432 | 0.736 |
+| v1_noT | 0.177 | 0.721 | 0.826 [0.789, 0.860] | 0.434 | 0.770 |
+| v1_noE | 0.209 | 0.726 | 0.834 [0.800, 0.868] | 0.441 | 0.734 |
+| v1_noR | 0.164 | 0.717 | 0.819 [0.783, 0.853] | 0.420 | 0.734 |
+| v1_noAstar | 0.164 | 0.713 | 0.817 [0.781, 0.851] | 0.401 | 0.732 |
+| x_v1_recency | 0.157 | 0.713 | 0.815 [0.779, 0.849] | 0.403 | 0.670 |
+| x_v1_zeta0.5 | 0.272 | 0.749 | 0.836 [0.802, 0.868] | 0.467 | 0.719 |
+| x_v1_zeta0.15 | 0.334 | 0.749 | 0.834 [0.800, 0.868] | 0.491 | 0.717 |
+
+Primary (turn_any@10, paired vs cosine, sign-flip p, Holm over 8):
+v1 −0.036 [−0.062, −0.011], p = 0.009, Holm 0.055 (wins/losses 11/28); shuffledW −0.030 [−0.055, −0.004],
+Holm 0.089; randomtopo −0.098 [−0.128, −0.070], Holm 0.0004; noS −0.036, Holm 0.055; noT −0.030, Holm 0.089;
+noE −0.021 [−0.047, +0.004], Holm 0.133; noR −0.036, Holm 0.055; noAstar −0.038 [−0.064, −0.013], Holm 0.030.
+bm25 − cosine: @10 +0.002 [−0.034, +0.038]; @1 +0.185 [+0.130, +0.238]; nDCG@10 +0.117 [+0.084, +0.148].
+
+Ablations vs v1 (Δ = variant − v1; turn_any@10 / nDCG@10):
+shuffledW +0.006 [−0.015, 0.028] / +0.040 [0.026, 0.055]; randomtopo −0.062 [−0.085, −0.038] / +0.038 [0.020, 0.056];
+noS 0.000 / +0.012 [0.004, 0.020]; noT +0.006 [−0.006, 0.019] / +0.014 [0.008, 0.021];
+noE +0.015 [0.000, 0.030] / +0.021 [0.011, 0.032]; noR 0.000 / −0.0002; noAstar −0.002 [−0.006, 0] / −0.018 [−0.024, −0.013];
+x_recency −0.004 / −0.017 [−0.028, −0.006]; x_ζ0.5 +0.017 [0.000, 0.034] / +0.048; x_ζ0.15 +0.015 [−0.004, 0.034] / +0.071.
+
+By question type (turn_any@10): v1 loses most on multi-session (0.760 vs cosine 0.868); BM25 wins on
+temporal-reasoning (0.858 vs 0.748) and loses on single-session-preference (0.433 vs 0.700).
+Recency on the input hurt knowledge-update (0.889 vs v1 0.944).
+
+Diagnostics (means): v1 C_norm 0.074, Φ_dyn 0.077, 81 iterations to tol, 2,272 undirected edges per graph
+(≈4.6 per node), start ≠ goal in 66.8 % of questions, mean path length 1.87 nodes, goal is a gold turn in 16.4 %
+(cosine top-1 is gold in 35.3 %).
+
+Prediction check:
+1. v1 − cosine point −0.04, range [−0.10, 0]: **observed −0.036 — correct.**
+2. |bm25 − cosine| < 0.10 at @10: correct (+0.002). Not predicted: BM25 is much better at @1 / nDCG.
+3. v1_noR identical to v1: **wrong.** @10 and session metrics identical, but 11/470 A* paths differ and
+   1 question changes at @5. Cause (verified on one question, ids printed in the session): A* cost −log W is
+   not invariant to rescaling W; dropping R halves W_max, which removes a log 2 per-hop penalty and permits
+   longer paths. With cost_mode="inverse" the two paths are identical. Not a code bug; an error in THEORY_V1 §4's
+   claim, which only holds for P/A. C_norm also doubles (0.149 vs 0.074) because it is normalised by W_max —
+   C_norm is not comparable across configs with different W_max.
+4. randomtopo < v1 by ≥0.02: correct (−0.062). shuffledW within ±0.02 of v1: correct (+0.006).
+5. |Δ| < 0.02 for −S, −T, −E at @10: correct (0.000, +0.006, +0.015), but every removal *raises* nDCG with CI
+   excluding 0 — the factors are mildly harmful as weights.
+6. start == goal in > 50 %: **wrong** (33 %). |noAstar − v1| < 0.01: correct (−0.002).
+7. Lower ζ moves toward cosine: correct (monotone in ζ on @1 and nDCG). Recency helps KU: **wrong** (hurts).
+
+Observations / surprises:
+- Spreading activation is the thing that hurts. The ranking gets *worse the more the activation spreads*
+  (ζ 0.15 → 0.5 → 0.85: nDCG 0.491 → 0.467 → 0.420; @1 0.334 → 0.272 → 0.164), and none of the graph variants
+  beats plain cosine on any metric. The goal node (argmax A) is a hub, not the best match: it is gold only 16 %
+  of the time vs 35 % for cosine top-1.
+- Shuffling the weights over the same edges *improves* nDCG (+0.040). The real W concentrates activation on
+  hubs more than random weights do; W carries no useful ranking signal here.
+- Random topology destroys recall@10 but *improves* @1 and nDCG relative to v1, because with random edges the
+  activation barely spreads usefully and stays on the seeds (cosine top-5): n_iter 32, C_norm 0.007.
+- Multi-session questions (evidence spread over sessions) suffer most: diffusion stays near the top seed's
+  neighbourhood, which is the opposite of what a "memory graph that links related events" should do.
+- BM25 vs cosine: ties at @10 but BM25 is far better at rank 1. Consistent with 34 % truncation in the
+  dense embeddings (R-2026-10-26-01) — a confound, not just "lexical is better".
+
+Interpretation: On a non-saturated benchmark the v1 graph is a worse retriever than the cosine scores it is
+built from; the S/T/E weights add nothing at @10 and slightly harm ranking quality; A* adds a little nDCG but
+no recall. Pre-registered verdicts: V-04 refuted (CI below 0; Holm-adjusted p = 0.055, so "refuted at the CI
+level, borderline after multiplicity"), V-05 refuted for weights (shuffled ≈ real) though topology matters,
+V-06 not supported for S, T, E (and mildly refuted on nDCG), V-07 not supported on recall (small nDCG gain).
+
+Intuition update: Before — "the graph is probably redundant with cosine (≈ or slightly worse)". Now — it is
+*harmful as a first-stage ranker*, by a mechanism I can name (PPR diffusion towards hubs). The only way the
+graph term could add value is as a *re-ranker / expansion on top of a strong first stage* (e.g. add neighbours
+of strong hits for multi-hop questions), not as a replacement. That is a different claim and must be tested
+on held-out data, not on these numbers.
+
+Decision:
+- THEORY_V1 → v1.1: fix §4 (R-rescaling claim; per-hop penalty of −log cost; C_norm comparability), mark ζ=0.85
+  and "rank by A" as refuted for retrieval. Propose a v1.2 hybrid ranking (first-stage score + graph bonus)
+  and test it as E3b with a dev/test split (R-2026-10-26-04) — parameters chosen on dev only.
+- E4 (synthetic full ablation): **reduced**, because no graph term (S, T, E, A*, real W) showed a CI-excluding-0
+  benefit on the primary metric (pre-registered rule). Reduced E4 = the E3b hybrid test plus the A*-cost
+  ablation already contained in E3.
