@@ -295,3 +295,61 @@ Decision:
 - E4 (synthetic full ablation): **reduced**, because no graph term (S, T, E, A*, real W) showed a CI-excluding-0
   benefit on the primary metric (pre-registered rule). Reduced E4 = the E3b hybrid test plus the A*-cost
   ablation already contained in E3.
+
+### R-2026-10-26-03 — RESULTS (appended 2026-10-26 18:02 IST)
+
+Run: commit/dirty/wall = 0fadbba False 32.1 s. Files: results/R-2026-10-26-03/{auroc.csv, partA_per_probe.csv, partB_per_question.csv};
+post-hoc: experiments/e2_posthoc_within_ptype.py → posthoc_within_ptype.csv.
+
+AUROC of −score for failure (stratified bootstrap 95% CI, B = 5,000):
+
+| part | label (n, positives) | −C_norm | −max cos | −resid(C_norm \| maxcos) |
+|---|---|---|---|---|
+| A synthetic | wrong sandwich_always (120, 26) | 0.671 [0.556, 0.782] (q+draft); 0.662 (q only) | 0.601 [0.495, 0.704] | — |
+| A synthetic | wrong rag (120, 7) | 0.886 [0.767, 0.971] | 0.645 | — |
+| A synthetic | wrong sandwich_nodraft (120, 6) | 0.939 [0.889, 0.978] | 0.624 | — |
+| B LongMemEval | miss@10 v1 (470, 85) | 0.653 [0.584, 0.719] | 0.719 [0.658, 0.776] | 0.564 [0.495, 0.630] |
+| B LongMemEval | miss@10 cosine (470, 68) | 0.679 [0.601, 0.754] | 0.736 [0.668, 0.800] | 0.590 [0.517, 0.664] |
+| B LongMemEval | miss@10 bm25 (470, 67) | 0.625 [0.548, 0.696] | 0.603 [0.526, 0.678] | 0.578 [0.504, 0.648] |
+
+Φ_dyn gives the same AUROCs as C_norm to 3 decimals (it is the trajectory mean of C_norm and the
+trajectory converges; Φ_dyn ≈ C_norm(A*)). v0-logged C_norm on synthetic: 0.659 (matches the backfill).
+
+Post-hoc (NOT pre-registered) within probe type, sandwich_always: contradiction (40, 21 wrong) 0.576
+[0.393, 0.754]; recall (40, 3) 0.270; update (40, 2) 0.711 [0.395, 0.974]. Mean C_norm by probe type:
+contradiction 0.0065, recall 0.0073, update 0.0224; sandwich_always error rate 52.5 % / 7.5 % / 5.0 %.
+
+Prediction check:
+1. Part A ≈ 0.6, CI including or barely excluding 0.5: observed 0.671 [0.556, 0.782] — roughly right. The
+   predicted confound is real but the mechanism differs slightly: the signal is driven by *contradiction* probes
+   (lowest C_norm, 52.5 % wrong); within that type the AUROC is 0.576 with CI including 0.5.
+2. Part B −C_norm in [0.45, 0.65]: observed 0.653 for v1 misses — at the top edge; 0.679 for cosine misses —
+   above my range. −maxcos ≥ −C_norm: correct for v1 and cosine misses, wrong for bm25 misses (0.603 < 0.625).
+   Residual CI includes 0.5: correct for v1 misses (0.564 [0.495, 0.630]); **wrong** for cosine (0.590
+   [0.517, 0.664]) and bm25 misses (0.578 [0.504, 0.648]), whose CIs barely exclude 0.5.
+
+Pre-registration flaw (logged so it is not hidden): I listed three Part-B labels but did not name a primary
+one, so the falsification rule is ambiguous. Reading it strictly per label: criterion met for cosine and bm25
+misses, not for v1 misses. With three labels, a Bonferroni-style 98.3 % interval would likely include 0.5 for
+all three (not computed). Verdict: **weak evidence**, not "supported".
+
+Observations:
+- The direction of §5.2 (low C ⇒ failure) holds in every pooled analysis; no CI lies below 0.5. This is the
+  first paper claim with a consistently positive (if small) signal.
+- Most of C_norm's predictive power is retrieval confidence: max cosine alone is better (0.719 vs 0.653), and
+  after removing the linear max-cosine component only 0.56–0.59 remains.
+- Part A's high AUROCs for rag / no-draft (0.89 / 0.94) rest on 7 and 6 errors, concentrated in contradiction
+  probes — too few to trust.
+- Φ_dyn adds nothing over C_norm(A*) under the v1 activation rule (it converges); "dynamic Φ" as defined is
+  redundant. Would only differ if activation were truncated before convergence.
+
+Interpretation: C_norm is a weak failure detector whose information is mostly "how well does the cue match
+anything in memory". Using it as a refine trigger (P-19) is not justified by these numbers: even a perfect
+trigger would need AUROC well above 0.7 to beat "always refine" in v0.
+
+Intuition update: Before — "C_norm will look predictive only via confounds". Now — mostly confound
+(probe type on synthetic, retrieval confidence on LongMemEval), plus a small residual (~0.06–0.09 AUROC
+above chance) that might be real. Worth one confirmatory test on a held-out set with a single pre-named label.
+
+Decision: ledger P-18/V-08 → "weak evidence (R-2026-10-26-03), mostly explained by max-cosine"; Φ_dyn marked
+redundant in THEORY_V1 v1.1; keep the trigger default "always refine".

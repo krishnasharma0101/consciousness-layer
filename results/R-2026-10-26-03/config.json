@@ -1,0 +1,86 @@
+{
+  "run_id": "R-2026-10-26-03",
+  "start_ist": "2026-10-26T18:01:32+05:30",
+  "end_ist": "2026-10-26T18:02:05+05:30",
+  "wall_clock_s": 32.1,
+  "status": "done",
+  "git": {
+    "commit": "0fadbba4c85c6a7d92f6cf2db92d1b7e4e4222d0",
+    "short": "0fadbba",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/e2_cnorm_signal.py --run-id R-2026-10-26-03 --e3 results/R-2026-10-26-02",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.6.1",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "e3_dir": "results/R-2026-10-26-02",
+    "auroc_bootstrap_B": 5000,
+    "positive_class": "failure (wrong answer / retrieval miss)",
+    "score_direction": "-C_norm: low C_norm predicts failure (paper \u00a75.2)",
+    "partA_graph": {
+      "use_S": true,
+      "use_T": true,
+      "use_E": true,
+      "use_R": true,
+      "half_life": 13.86,
+      "time_unit": "turns",
+      "kappa_E": 1.0,
+      "r_init": 1.0,
+      "r_max": 2.0,
+      "eta": 0.1,
+      "r_decay": 0.0,
+      "alpha": 0.2,
+      "beta": 0.7,
+      "rho": 0.1,
+      "theta": 0.2,
+      "mood": 0.0,
+      "mood_omega": 0.1,
+      "k_edges": 8,
+      "zeta": 0.85,
+      "seed_k": 5,
+      "max_iter": 100,
+      "tol": 1e-08,
+      "use_recency": false,
+      "recency_half_life": 30.0,
+      "use_astar": true,
+      "cost_mode": "neglog",
+      "mu": 0.7,
+      "eps": 1e-06,
+      "lam": 0.05,
+      "lam_direction": "below",
+      "success_threshold": 0.5,
+      "control": "none",
+      "control_seed": 0
+    },
+    "partA_k": 4,
+    "partB_graph": "v1 config of the E3 run"
+  },
+  "files": [
+    "partA_per_probe.csv",
+    "partB_per_question.csv",
+    "auroc.csv"
+  ],
+  "notes": [],
+  "summary": {
+    "n_partA": 120,
+    "n_partB": 470
+  }
+}
