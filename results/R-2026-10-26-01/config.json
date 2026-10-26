@@ -1,9 +1,9 @@
 {
   "run_id": "R-2026-10-26-01",
   "start_ist": "2026-10-26T17:38:45+05:30",
-  "end_ist": null,
-  "wall_clock_s": null,
-  "status": "running",
+  "end_ist": "2026-10-26T17:56:38+05:30",
+  "wall_clock_s": 1073.5,
+  "status": "done",
   "git": {
     "commit": "3aec7996b22d6a14643bdc04c399908616ffe0a9",
     "short": "3aec799",
@@ -37,10 +37,19 @@
     "normalize": true,
     "batch": 64,
     "max_seq_length": 256,
-    "device": "cpu"
+    "device": "cpu",
+    "max_seq_length_actual": 256,
+    "torch_threads": 8
   },
   "files": [],
   "notes": [
     "2026-10-26T17:38:49+05:30 190015 unique texts (turns + questions)"
-  ]
+  ],
+  "summary": {
+    "n_texts": 190015,
+    "embed_s": 1063.5,
+    "emb_sha256": "684ef8b54f26fccf10cbe37aa5796ff9c128800b99502cd4e6ee5cc0e834cfb8",
+    "frac_truncated_sample": 0.3396474611944225,
+    "n_sampled_for_trunc": 3801
+  }
 }

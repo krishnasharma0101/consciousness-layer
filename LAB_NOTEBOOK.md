@@ -144,3 +144,25 @@ pre-registration is committed).
 - Compute expectation: ~470 × 11 graph builds (N≈500 dense), 7 processes, 10–40 min.
 - Smoke test first: `--limit 10` under run ID R-2026-10-26-02s (only checks the code runs; its numbers are
   not interpreted).
+
+### R-2026-10-26-01 — RESULTS (appended 2026-10-26 17:58 IST)
+
+| item | value |
+|---|---|
+| status | done |
+| start / end | 2026-10-26 17:38:45 / 17:56:38 IST (1,073.5 s wall; 1,063.5 s embedding) |
+| git | 3aec799, clean |
+| texts embedded | 190,015 (189,515 unique turns + questions) |
+| embedding file sha256 | 684ef8b54f26fccf10cbe37aa5796ff9c128800b99502cd4e6ee5cc0e834cfb8 |
+| fraction truncated at 256 word-pieces | 0.340 (sample of 3,801 texts, every 50th by length order) |
+
+Observations:
+- **Surprise:** 34 % of texts exceed MiniLM's 256-word-piece window, far more than I assumed when I wrote
+  "truncation hurts long assistant turns" (I had no number). Dense retrieval sees only the first ~200 words of a
+  third of the turns; BM25 sees everything. This biases E3 toward BM25 and must be listed as a limitation of
+  every dense/graph result. Possible later fix: chunk long turns, or mean-pool over windows (not done now; it
+  would change the node definition).
+- Wall time matched the pre-registered 10–40 min expectation (18 min).
+- Progress was non-linear because texts were sorted by length (short first).
+
+Interpretation / decision: cache is usable. Proceed to E3 (R-2026-10-26-02) smoke test then full run.
