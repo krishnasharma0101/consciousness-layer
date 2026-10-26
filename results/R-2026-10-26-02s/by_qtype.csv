@@ -1,0 +1,14 @@
+retriever,qtype,turn_any@10,sess_any@10,turn_frac@10
+bm25,single-session-user,0.8,1.0,0.75
+cosine,single-session-user,0.9,1.0,0.85
+v1,single-session-user,0.9,1.0,0.85
+v1_noAstar,single-session-user,0.9,1.0,0.85
+v1_noE,single-session-user,0.9,1.0,0.85
+v1_noR,single-session-user,0.9,1.0,0.85
+v1_noS,single-session-user,0.9,1.0,0.85
+v1_noT,single-session-user,0.9,1.0,0.85
+v1_randomtopo,single-session-user,0.7,1.0,0.65
+v1_shuffledW,single-session-user,0.9,1.0,0.85
+x_v1_recency,single-session-user,0.9,1.0,0.85
+x_v1_zeta0.15,single-session-user,0.9,1.0,0.9
+x_v1_zeta0.5,single-session-user,0.9,1.0,0.85

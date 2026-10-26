@@ -1,0 +1,165 @@
+{
+  "run_id": "R-2026-10-26-02s",
+  "start_ist": "2026-10-26T17:58:56+05:30",
+  "end_ist": "2026-10-26T17:59:04+05:30",
+  "wall_clock_s": 7.4,
+  "status": "done",
+  "git": {
+    "commit": "a5b203957ea6deeab3325d7448ee678535179227",
+    "short": "a5b2039",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/e3_lme_retrieval.py --run-id R-2026-10-26-02s --limit 10",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.6.1",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset": "longmemeval_s_cleaned.json",
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "emb_sha256": "684ef8b54f26fccf10cbe37aa5796ff9c128800b99502cd4e6ee5cc0e834cfb8",
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "ks": [
+      1,
+      5,
+      10
+    ],
+    "nodes": "all turns (user+assistant), haystack order",
+    "time": "days since first haystack session + turn_index/1440",
+    "half_life_days": 7.0,
+    "cue": "question embedding only (no LLM draft)",
+    "exclude": "abstention questions (_abs)",
+    "valence": "conslayer.sentiment lexicon",
+    "bm25": "rank_bm25.BM25Okapi defaults, lowercase [a-z0-9]+ tokens",
+    "graph_base": {
+      "use_S": true,
+      "use_T": true,
+      "use_E": true,
+      "use_R": true,
+      "half_life": 7.0,
+      "time_unit": "days",
+      "kappa_E": 1.0,
+      "r_init": 1.0,
+      "r_max": 2.0,
+      "eta": 0.1,
+      "r_decay": 0.0,
+      "alpha": 0.2,
+      "beta": 0.7,
+      "rho": 0.1,
+      "theta": 0.2,
+      "mood": 0.0,
+      "mood_omega": 0.1,
+      "k_edges": 8,
+      "zeta": 0.85,
+      "seed_k": 5,
+      "max_iter": 100,
+      "tol": 1e-08,
+      "use_recency": false,
+      "recency_half_life": 30.0,
+      "use_astar": true,
+      "cost_mode": "neglog",
+      "mu": 0.7,
+      "eps": 1e-06,
+      "lam": 0.05,
+      "lam_direction": "below",
+      "success_threshold": 0.5,
+      "control": "none",
+      "control_seed": 0
+    },
+    "graph_variants": {
+      "v1": {},
+      "v1_shuffledW": {
+        "control": "shuffle"
+      },
+      "v1_randomtopo": {
+        "control": "random_topology"
+      },
+      "v1_noS": {
+        "use_S": false
+      },
+      "v1_noT": {
+        "use_T": false
+      },
+      "v1_noE": {
+        "use_E": false
+      },
+      "v1_noR": {
+        "use_R": false
+      },
+      "v1_noAstar": {
+        "use_astar": false
+      },
+      "x_v1_recency": {
+        "use_recency": true,
+        "recency_half_life": 30.0
+      },
+      "x_v1_zeta0.5": {
+        "zeta": 0.5
+      },
+      "x_v1_zeta0.15": {
+        "zeta": 0.15
+      }
+    },
+    "confirmatory": [
+      "v1",
+      "v1_shuffledW",
+      "v1_randomtopo",
+      "v1_noS",
+      "v1_noT",
+      "v1_noE",
+      "v1_noR",
+      "v1_noAstar"
+    ],
+    "primary_metric": "turn_any@10 (questions with >=1 has_answer turn)",
+    "bootstrap_B": 10000,
+    "bootstrap_seed": 0
+  },
+  "files": [
+    "per_question.csv",
+    "summary.csv",
+    "paired_vs_cosine.csv",
+    "primary_holm.csv",
+    "by_qtype.csv",
+    "ablation_vs_v1.csv",
+    "recall_at10.png"
+  ],
+  "notes": [
+    "2026-10-26T17:59:00+05:30 LIMIT 10 questions (smoke test)"
+  ],
+  "summary": {
+    "n_questions": 10,
+    "n_questions_turn_level": 10,
+    "mean_sec_per_question": {
+      "bm25": 0.02921125429966196,
+      "cosine": 0.0002399273005721625,
+      "v1": 0.031422224500056474,
+      "v1_noAstar": 0.021146307900198735,
+      "v1_noE": 0.0221730575995025,
+      "v1_noR": 0.023360523100200224,
+      "v1_noS": 0.023490056999798982,
+      "v1_noT": 0.02189925369930279,
+      "v1_randomtopo": 0.03692866649980715,
+      "v1_shuffledW": 0.027587661499273962,
+      "x_v1_recency": 0.02464373410002736,
+      "x_v1_zeta0.15": 0.012563612200028728,
+      "x_v1_zeta0.5": 0.015339178199064918
+    },
+    "wall_s": 3.8
+  }
+}

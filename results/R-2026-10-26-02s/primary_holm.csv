@@ -1,0 +1,9 @@
+retriever,metric,n,diff_vs_cosine,lo,hi,p_signflip,wins,losses,p_holm
+v1,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_shuffledW,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_randomtopo,turn_any@10,10,-0.2,-0.5,0.0,0.49237538123093844,0,2,1.0
+v1_noS,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_noT,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_noE,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_noR,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0
+v1_noAstar,turn_any@10,10,0.0,-0.3,0.3,1.0,1,1,1.0

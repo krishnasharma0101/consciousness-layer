@@ -166,3 +166,8 @@ Observations:
 - Progress was non-linear because texts were sorted by length (short first).
 
 Interpretation / decision: cache is usable. Proceed to E3 (R-2026-10-26-02) smoke test then full run.
+
+### R-2026-10-26-02s — E3 smoke test (appended 2026-10-26 17:59 IST)
+`--limit 10`, commit a5b2039, 9.1 s wall. Code runs end to end, all output files written
+(results/R-2026-10-26-02s/). Numbers (n=10) not interpreted, as pre-registered. Runtime ≈0.9 s/question with
+7 processes ⇒ full run expected ≈ 7–10 min, below the pre-registered 10–40 min.
