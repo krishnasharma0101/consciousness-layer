@@ -1,0 +1,46 @@
+{
+  "run_id": "R-2026-10-26-01",
+  "start_ist": "2026-10-26T17:38:45+05:30",
+  "end_ist": null,
+  "wall_clock_s": null,
+  "status": "running",
+  "git": {
+    "commit": "3aec7996b22d6a14643bdc04c399908616ffe0a9",
+    "short": "3aec799",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/lme_embed.py --run-id R-2026-10-26-01",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.6.1",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": null,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset": "xiaowu0162/longmemeval-cleaned longmemeval_s_cleaned.json",
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "normalize": true,
+    "batch": 64,
+    "max_seq_length": 256,
+    "device": "cpu"
+  },
+  "files": [],
+  "notes": [
+    "2026-10-26T17:38:49+05:30 190015 unique texts (turns + questions)"
+  ]
+}

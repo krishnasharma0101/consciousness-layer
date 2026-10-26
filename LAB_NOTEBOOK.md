@@ -85,3 +85,62 @@ ADDENDUM 2026-10-26 17:50 IST (aborted attempt, logged per protocol): first laun
 before doing any work — `git commit` failed (no git identity on the box, repo-local identity set to the
 previous commit's author "Krishna Sharma <krishna@local>"), so the tree was dirty and `runlog.Run` refused
 to start, as designed. No results were produced; `results/R-2026-10-26-01/` was not created. Relaunched after commit.
+
+CORRECTION 2026-10-26 17:43 IST (box clock): the ADDENDUM above is stamped "17:50 IST", but it was written
+before commit 3aec799 (17:38:44 +05:30). The stamp was estimated, not read from the clock; the true time was
+≈17:37 IST. The "17:35 IST" infra note is likewise approximate (±5 min). From now on every stamp is taken
+from `date` at write time.
+
+---
+
+## R-2026-10-26-02 — E3: LongMemEval-S turn retrieval recall@k, v1 graph vs BM25 / cosine (no LLM)
+
+Written 2026-10-26 17:45 IST, before any E3 code was executed on data (the smoke test below runs after this
+pre-registration is committed).
+
+**PRE-REGISTRATION**
+
+- Question: does the THEORY_V1 graph (personalised-PageRank activation over the τ-kNN graph with W=S·T·F·R,
+  then A* start→goal) retrieve the evidence turns of LongMemEval-S better than plain cosine over the same
+  MiniLM embeddings? Which terms matter? Tests ledger V-04, V-05, V-06, V-07 (and P-04..P-08, P-11, P-12 on a
+  non-saturated benchmark).
+- Data: `xiaowu0162/longmemeval-cleaned`, `longmemeval_s_cleaned.json` (sha256 d6f21ea9…), all 470
+  non-abstention questions (all 470 have ≥1 `has_answer` turn). One graph per question over all its haystack
+  turns (user + assistant, ≈494 nodes). Node time = days since the first haystack session + turn_index/1440.
+  Cue = question embedding only. Embeddings from R-2026-10-26-01.
+- Retrievers: bm25, cosine; confirmatory graph family: v1, v1_shuffledW, v1_randomtopo, v1_noS, v1_noT,
+  v1_noE, v1_noR, v1_noAstar; exploratory (labelled x_): x_v1_recency (30-day recency on the input),
+  x_v1_zeta0.5, x_v1_zeta0.15. v1 defaults from THEORY_V1 §4 except h = 7 days [arbitrary].
+  NB on ablations: −S/−T/−E replace the factor by 1 *in W only*; the topology is still built from τ (= β·S
+  when mood=0 and R=1), so −S tests S as a weight, not as an edge-selection criterion.
+- Metrics: primary = turn_any@10 (any gold turn in the top 10). Secondary: turn_any@1/@5, turn_frac@k,
+  sess_any@k, sess_all@k, turn_ndcg@10. 95% percentile bootstrap CIs (B=10,000, seed 0); paired difference
+  vs cosine with bootstrap CI and paired sign-flip permutation p (B=20,000); Holm over the 8 confirmatory
+  graph retrievers on the primary metric, α = 0.05.
+- Predictions (my prior, written down so it can be wrong):
+  1. v1 − cosine on turn_any@10: point −0.04, expected range [−0.10, 0.00]. Reason: v1's top 10 = ~5 cosine
+     seeds + their graph neighbours, which are similar to the seeds, not to the question. A turn-level
+     similarity graph is mostly redundant with cosine.
+  2. bm25 vs cosine: no directional prediction; |diff| < 0.10. MiniLM truncation at 256 word-pieces hurts
+     long assistant turns.
+  3. v1_noR is *identical* to v1 on every question (no learning ⇒ R≡1; THEORY_V1 §4). Any difference = bug.
+  4. v1_randomtopo < v1 by ≥ 0.02 (random edges carry activation to irrelevant turns).
+     v1_shuffledW within ±0.02 of v1 (seeds dominate the ranking).
+  5. |v1_noS − v1|, |v1_noT − v1|, |v1_noE − v1| < 0.02 each. No direction for T (7-day half-life could help
+     same-session evidence or hurt multi-session evidence).
+  6. start == goal in > 50 % of questions, so |v1_noAstar − v1| < 0.01.
+  7. Exploratory: lower ζ moves v1 toward cosine (ζ=0.15 closer to cosine than ζ=0.85). Recency helps
+     knowledge-update questions (by_qtype) — no numeric prediction.
+- Falsification / decision criteria:
+  - V-04 "graph ≥ cosine" is **supported** if the v1 − cosine 95% CI lies above 0 and Holm p < 0.05;
+    **refuted** if the CI lies entirely below 0; otherwise "no detectable difference" (with the CI width).
+  - V-05 "real W matters" is supported only if both v1_shuffledW and v1_randomtopo are below v1 with CIs
+    excluding 0 (ablation_vs_v1.csv). If shuffledW ≈ v1 the weights carry no ranking information here.
+  - V-06 (per factor): factor "contributes" if removing it lowers turn_any@10 with CI excluding 0.
+  - V-07: A* contributes if v1_noAstar < v1 with CI excluding 0.
+  - Decision for E4: run the full synthetic ablation only if some graph term (S, T, E, A*, real W) shows a
+    CI-excluding-0 benefit here; otherwise reduced E4 with that reason.
+- Config/seeds: everything in `results/R-2026-10-26-02/config.json`; bootstrap seed 0; control_seed 0.
+- Compute expectation: ~470 × 11 graph builds (N≈500 dense), 7 processes, 10–40 min.
+- Smoke test first: `--limit 10` under run ID R-2026-10-26-02s (only checks the code runs; its numbers are
+  not interpreted).

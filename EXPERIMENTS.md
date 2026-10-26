@@ -2,6 +2,13 @@
 
 Every run gets an entry. Real numbers only; copy from `results/<run>/` files, never retype from memory.
 
+## Index (one row per run; details in LAB_NOTEBOOK.md, artifacts in results/<run>/)
+
+| Run ID | Date (IST) | What | Pre-registered | Headline result | Notebook | Results |
+|---|---|---|---|---|---|---|
+| R-2026-10-20-01 | 2026-10-20 | E1/v0 synthetic Sandwich vs baselines (entry below) | no (backfill) | RAG 113/120, Sandwich-always 94/120, shuffled 95/120, no-draft 114/120 | LAB_NOTEBOOK.md#r-2026-10-20-01 | results/v0/ |
+| R-2026-10-26-01 | 2026-10-26 | LongMemEval-S MiniLM embedding cache (preprocessing) | yes | running | LAB_NOTEBOOK.md#r-2026-10-26-01 | results/R-2026-10-26-01/ |
+
 ## Template
 
 ```
