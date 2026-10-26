@@ -140,6 +140,8 @@ def test_recency_changes_input():
 
 def test_trigger_and_proxy_and_mood():
     g = _rand_graph(lam=0.1)
+    assert g.should_refine(1.0)            # v1.1 default: always
+    g.cfg.lam_direction = "below"
     assert g.should_refine(0.05) and not g.should_refine(0.2)
     g.cfg.lam_direction = "above"
     assert g.should_refine(0.2)
@@ -180,3 +182,15 @@ def test_runlog_writes_config_and_refuses_reuse(tmp_path):
     assert "+05:30" in meta["start_ist"]
     with pytest.raises(RuntimeError):
         runlog.Run("R-test-01", {}, seed=0, results_root=str(tmp_path), check_git=False)
+
+
+def test_hybrid_rank_w0_is_first_stage_and_bonus_reorders():
+    from conslayer.theory_v1 import rrf
+    g = _rand_graph()
+    first = np.random.default_rng(3).random(g.N)
+    assert list(g.hybrid_rank(first, 0.0)) == list(np.argsort(-first, kind="stable"))
+    r1 = g.hybrid_rank(first, 1.0)
+    A = g.activate_from_scores(first)
+    assert np.isclose(A.sum(), 1.0) and r1[0] == int(np.argmax(A))
+    s = rrf([np.arange(5), np.arange(5)[::-1]], k=60)
+    assert np.allclose(s, s[::-1])         # symmetric fusion of reversed lists

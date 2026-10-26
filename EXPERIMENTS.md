@@ -7,7 +7,10 @@ Every run gets an entry. Real numbers only; copy from `results/<run>/` files, ne
 | Run ID | Date (IST) | What | Pre-registered | Headline result | Notebook | Results |
 |---|---|---|---|---|---|---|
 | R-2026-10-20-01 | 2026-10-20 | E1/v0 synthetic Sandwich vs baselines (entry below) | no (backfill) | RAG 113/120, Sandwich-always 94/120, shuffled 95/120, no-draft 114/120 | LAB_NOTEBOOK.md#r-2026-10-20-01 | results/v0/ |
-| R-2026-10-26-01 | 2026-10-26 | LongMemEval-S MiniLM embedding cache (preprocessing) | yes | running | LAB_NOTEBOOK.md#r-2026-10-26-01 | results/R-2026-10-26-01/ |
+| R-2026-10-26-01 | 2026-10-26 | LongMemEval-S MiniLM embedding cache (preprocessing) | yes | 190,015 texts embedded in 1,073 s; sha256 684ef8b5…cfb8 | LAB_NOTEBOOK.md#r-2026-10-26-01 | results/R-2026-10-26-01/ |
+| R-2026-10-26-02s | 2026-10-26 | E3 smoke test (few questions, code check only) | yes | smoke only, no conclusions | LAB_NOTEBOOK.md#r-2026-10-26-02s | — |
+| R-2026-10-26-02 | 2026-10-26 | E3 LongMemEval-S retrieval: v1 graph vs BM25/cosine + controls/ablations (n=470) | yes | turn_any@10: cosine 0.855, BM25 0.857, v1 0.819; v1−cos −0.036 [−0.062, −0.011], Holm 0.055; random topology −0.098; S/T/E removal raises nDCG | LAB_NOTEBOOK.md#r-2026-10-26-02 | results/R-2026-10-26-02/ |
+| R-2026-10-26-03 | 2026-10-26 | E2 C_norm as a failure predictor (synthetic + LongMemEval) | yes (no primary label named; logged flaw) | AUROC 0.65–0.67, ≤ max-cosine; residual 0.56–0.59; within probe type 0.576 [0.393, 0.754] | LAB_NOTEBOOK.md#r-2026-10-26-03 | results/R-2026-10-26-03/ |
 
 ## Template
 

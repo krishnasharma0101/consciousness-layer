@@ -353,3 +353,33 @@ above chance) that might be real. Worth one confirmatory test on a held-out set 
 
 Decision: ledger P-18/V-08 → "weak evidence (R-2026-10-26-03), mostly explained by max-cosine"; Φ_dyn marked
 redundant in THEORY_V1 v1.1; keep the trigger default "always refine".
+
+---
+
+## R-2026-10-26-04 — E3b: graph activation as a re-ranking bonus (v1.2 candidate) — PRE-REGISTRATION
+Written: 2026-10-26 18:05 IST, before any E3b numbers exist (a 3-question code smoke check ran on the test harness only, no metrics read beyond "runs").
+Parent commit at writing: 9ae7ba2 (pre-reg, code and the ledger/v1.1 update are committed together next).
+
+Why: E3 refuted the graph as a *first-stage* retriever, but showed (a) topology matters (random topology −0.062 recall@10 vs v1), and
+(b) less diffusion is better. The remaining constructive hypothesis: the graph helps only as a small bonus on top of a strong first stage
+(this is how graph-augmented RAG is usually used). This replaces the rest of E4 per the reduction rule logged in R-2026-10-26-02.
+
+Design:
+- Data: LongMemEval-S cleaned, same 470 non-abstention questions, same MiniLM cache (sha256 684ef8b5…cfb8). **These questions were already seen in E3**,
+  so this is not a fresh test set; the dev/test split below only protects against tuning the hybrid on the test half.
+- Split: sha1(question_id) parity: even → dev, odd → test.
+- First stages: (1) cosine; (2) RRF(BM25 rank, cosine rank), k = 60.
+- Hybrid score = (1−w)·minmax(first) + w·minmax(A), where A = PPR activation with I seeded by the first stage's top-5 (weights ∝ minmax score).
+- Grid (12 per first stage): W ∈ {v1 (S·T·F), S-only}, ζ ∈ {0.5, 0.85}, w ∈ {0.1, 0.25, 0.5}. Each also run with shuffled W (control). h = 7 days, everything else is the V1Config default.
+- Selection: on dev only, max turn_any@10, ties → nDCG@10, then smaller w. One config per first stage.
+- Primary: test-half turn_any@10, chosen hybrid minus its own first stage (paired, bootstrap 95% CI, sign-flip p), Holm over the 2 first stages.
+- Secondary: turn_any@5, nDCG@10, sess_all@10, the multi-session subset, and the same config with shuffled W.
+
+Predictions (written before running):
+- Primary Δ ≤ +0.01, with a CI that includes 0, for both first stages (i.e. no useful gain).
+- The dev-chosen w will be the smallest (0.1), because E3 says diffusion hurts.
+- Shuffled W ≈ real W (|Δ| < 0.01), as in E3.
+
+Decision rule: if the primary Δ has CI > 0 after Holm for either first stage AND real W beats shuffled W on test, write THEORY_V1 v1.2 with
+the hybrid as the retrieval definition. Otherwise V-12 is refuted, P-12 stays refuted, and the graph's remaining value claim rests only on topology.
+CPU estimate: ~1 s/question/7 procs → ~2 min.

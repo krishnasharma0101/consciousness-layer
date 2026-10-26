@@ -61,7 +61,7 @@ class V1Config:
     eps: float = 1e-6
     # trigger (Eq. 10 / sec 5.2, audit 3)
     lam: float = 0.05
-    lam_direction: str = "below"
+    lam_direction: str = "always"   # v1.1 default (THEORY_V1 §5); "below" = paper §5.2
     # success proxy (audit 7)
     success_threshold: float = 0.5
     # control: 'none' | 'shuffle' (permute W over edges) | 'random_topology' (same #edges, random pairs)
@@ -287,6 +287,23 @@ class V1Graph:
         return {"ids": order, "A": A, "I": I, "path": path, "c_norm": self.c_norm(A),
                 "phi_dyn": self.phi_dyn(traj), "n_iter": len(traj) - 1, "start": start, "goal": goal}
 
+    # ---------- v1.2 candidate: graph as a re-ranking bonus on a first-stage score ----------
+    def activate_from_scores(self, first: np.ndarray) -> np.ndarray:
+        """Seed I from the top-m nodes of an arbitrary first-stage score (min-max scaled, >= 0)."""
+        f = _minmax(np.asarray(first, np.float64))
+        I = np.zeros(self.N)
+        top = np.argsort(-f, kind="stable")[: min(self.cfg.seed_k, self.N)]
+        I[top] = f[top] + 1e-12
+        return self.activate(I / I.sum())
+
+    def hybrid_rank(self, first: np.ndarray, w: float) -> np.ndarray:
+        """score = (1-w) * minmax(first) + w * minmax(A); w = 0 reproduces the first-stage ranking."""
+        f = _minmax(np.asarray(first, np.float64))
+        if w == 0:
+            return np.argsort(-f, kind="stable")
+        A = self.activate_from_scores(first)
+        return np.argsort(-((1 - w) * f + w * _minmax(A)), kind="stable")
+
     # ---------- learning ----------
     def reinforce(self, path, success: float):
         """Eq. (4) with the audit-6 saturating rule, directional (traversed i->j only)."""
@@ -309,6 +326,20 @@ class V1Graph:
         if d == "never":
             return False
         raise ValueError(d)
+
+
+def _minmax(x: np.ndarray) -> np.ndarray:
+    lo, hi = float(np.min(x)), float(np.max(x))
+    return np.zeros_like(x) if hi <= lo else (x - lo) / (hi - lo)
+
+
+def rrf(rank_lists, k: int = 60, n: int | None = None) -> np.ndarray:
+    """Reciprocal-rank-fusion score per item (higher = better)."""
+    n = n or len(rank_lists[0])
+    s = np.zeros(n)
+    for r in rank_lists:
+        s[np.asarray(r)] += 1.0 / (k + 1 + np.arange(len(r)))
+    return s
 
 
 def success_proxy(answer_emb, retrieved_embs, threshold: float = 0.5) -> float:

@@ -1,6 +1,6 @@
 # THEORY v1 — a fully specified Consciousness Layer (memory-graph) model
 
-Version history is at the bottom; **current version: v1.0** (2026-10-26). Code: `src/conslayer/theory_v1.py`
+Version history is at the bottom; **current version: v1.1** (2026-10-26). Code: `src/conslayer/theory_v1.py`
 (`V1Config`, `V1Graph`), tests: `tests/test_v1.py`.
 
 **Scope.** v1 is a specification of a *graph memory layer between two LLM calls*. It makes no claim about
@@ -85,26 +85,49 @@ nodes) [M, audit 15].
 | α, β, ρ, θ, k_e | 0.2, 0.7, 0.1, 0.2, 8 | [A] (with b=0, R̃=0: edge iff S > θ/β = 0.286, top-8) |
 | m (seed nodes), ζ | 5, 0.85 | [A] (v0 values) |
 | μ, cost | 0.7, −log W | [A] |
-| λ, direction | dev quantile, "below" | [P], contested [E:R-2026-10-20-01] |
+| λ, direction | v1.1 default: always refine (λ = +∞); "below" with a dev quantile kept as the tested option | [E:R-2026-10-20-01, R-2026-10-26-03] |
 | Secondary prompt | memories + query, no draft | [E:R-2026-10-20-01] (114/120 vs 94/120 with draft; exploratory) |
 | conflict edges (audit 18) | not implemented in v1.0 | open |
 
 Known structural facts (follow from the definitions, verified by unit tests):
-- Without learning (R ≡ R_0) dropping R only rescales W, so P, A and the ranking are unchanged
+- Without learning (R ≡ R_0) dropping R only rescales W, so P, A and the activation ranking are unchanged
   (`test_drop_R_without_learning_does_not_change_P`). Any experiment without R updates cannot test R.
+  **v1.1 correction [E:R-2026-10-26-02]:** this does *not* hold for the A* path. With cost −log W, rescaling
+  W by c adds −log c to every edge, i.e. a per-hop penalty; dropping R (W_max 4 → 2) changed 11/470 paths.
+  The normalisation constant W_max is therefore an implicit path-length prior. Use cost "inverse" if
+  scale-invariance of paths is wanted.
+- **v1.1 [E:R-2026-10-26-02]:** C_norm is normalised by the theoretical W_max, so its scale depends on which
+  factors are switched on (v1_noR C_norm 0.149 vs v1 0.074 on identical activations). Compare C_norm only
+  within one configuration; thresholds λ must be recalibrated per configuration.
+- **v1.1 [E:R-2026-10-26-03]:** Φ_dyn = mean trajectory C_norm is numerically ≈ C_norm(A*) when activation runs to
+  convergence (identical AUROCs to 3 d.p.). It is redundant unless activation is truncated.
 - With b = 0 and R ≡ R_0, τ depends only on S, so the topology is a thresholded cosine kNN graph; the
   T, E factors only re-weight edges that S already created.
 - Ranking by the fixed point A* means retrieval = personalised PageRank seeded by the top-m cosine nodes
   (HippoRAG-like, arXiv:2405.14831, but over turns instead of entities).
 
-## 5. Dropped or re-labelled paper claims
+## 5. Empirical status of the v1 components (added v1.1)
+
+| Component | Evidence | Status |
+|---|---|---|
+| Rank memories by PPR activation A (ζ = 0.85) | E3: turn recall@10 0.819 vs cosine 0.855, Δ −0.036 [−0.062, −0.011]; @1 0.164 vs 0.353; worse the more it spreads (exploratory ζ sweep) | refuted as first-stage retriever (R-2026-10-26-02) |
+| W weights (S·T·F·R) vs shuffled on same edges | E3: shuffled +0.006 [−0.015, 0.028] @10, +0.040 nDCG | no useful ranking information (R-2026-10-26-02) |
+| Topology (τ-kNN) vs random | E3: random −0.062 [−0.085, −0.038] @10 | topology matters (it is a cosine kNN graph) |
+| S, T, F as weights | E3: removing each changes @10 by 0.000 / +0.006 / +0.015 and *raises* nDCG (CIs > 0) | not useful, mildly harmful (R-2026-10-26-02) |
+| A* path appended to ranking | E3: −A* −0.002 @10, −0.018 nDCG | no recall effect, small nDCG gain |
+| Recency on input (30 d) | E3 exploratory: −0.004 @10; KU 0.889 vs 0.944 | not useful |
+| C_norm as failure signal | E2: AUROC 0.65–0.68 pooled, but max-cosine 0.72–0.74; residual 0.56–0.59 | weak; mostly retrieval confidence (R-2026-10-26-03) |
+| λ trigger "refine iff C_norm < λ" | v0: 44/120 vs always 94/120 | default changed to *always refine* (λ = +∞) until a confirmatory E2 shows AUROC ≳ 0.75 |
+
+## 6. Dropped or re-labelled paper claims
 
 - "C(t) > λ ⇒ self-awareness" (Eq. 10): dropped; λ is only a refine trigger [audit 3, 19].
 - Φ (Eq. 8) as a consciousness score / IIT analogue: replaced by Φ_dyn (engineering); not IIT [audit 1].
 - "Secondary LLM updates W": replaced by "Secondary LLM output defines s" [audit 15].
 
-## 6. Version history
+## 7. Version history
 
 | Version | Date (IST) | Change | Motivated by |
 |---|---|---|---|
 | v1.0 | 2026-10-26 | First full specification (this document) | MATH_AUDIT #1–#17; R-2026-10-20-01 (no-draft prompt) |
+| v1.1 | 2026-10-26 | (a) R-rescaling claim restricted to P/A; −log cost has an implicit per-hop penalty log W_max. (b) C_norm not comparable across configurations. (c) Φ_dyn redundant at convergence. (d) Status table added as §5: ranking by A (ζ = 0.85) refuted as a first-stage retriever; S/T/E weights not useful; λ trigger default "always". Code: `lam_direction` default changed to "always"; `hybrid_rank` and `rrf` added for the v1.2 candidate (not part of v1.1 claims). Definitions of W, A, C_norm unchanged. | R-2026-10-26-02, R-2026-10-26-03 |
