@@ -21,7 +21,7 @@ Updated after every run; the change log at the bottom records what changed and w
 | P-09 | Hebbian reinforcement R improves behaviour with use (Eq. 4) | untested | E3 cannot test (no learning ⇒ R≡1, see THEORY_V1 §4). Needs E9 (multi-session). |
 | P-10 | (1+E_ij) is a valid multiplier (Eq. 1) | refuted (math, MATH_AUDIT #8) | E ∈ [−1,1] gives zero/negative weights; v1 uses 1+κ_E·arousal. |
 | P-11 | Conscious thought = A* optimal path with an emotion+logic heuristic (§3.2) | mixed (math ✓; usefulness ✗ for recall) | Optimality holds for admissible H (tests). Usefulness (R-2026-10-26-02): removing A* changes recall@10 by −0.002 [−0.006, 0.000] but nDCG@10 by −0.018 [−0.024, −0.013], so the path only reorders the top-10 a little. start ≠ goal in 66.8% of questions; goal is a gold turn in 16.4%. |
-| P-12 | Random-walk "subconscious" surfaces useful associations (Eq. 6) | refuted as a first-stage retriever (R-2026-10-26-02); hybrid tested in R-2026-10-26-04 | Ranking by PPR activation (ζ = 0.85) is worse than ranking by the seed similarity itself (v1 vs cosine above). Less diffusion helps: ζ 0.5 nDCG +0.048, ζ 0.15 +0.071 vs ζ 0.85, i.e. the closer to plain cosine, the better. Multi-session (where associations should help most): v1 0.760 vs cosine 0.868. |
+| P-12 | Random-walk "subconscious" surfaces useful associations (Eq. 6) | refuted as first stage (R-2026-10-26-02) and as re-ranking bonus (R-2026-10-26-04) | Ranking by PPR activation (ζ = 0.85) is worse than ranking by the seed similarity itself (v1 vs cosine above). Less diffusion helps: ζ 0.5 nDCG +0.048, ζ 0.15 +0.071 vs ζ 0.85, i.e. the closer to plain cosine, the better. Multi-session (where associations should help most): v1 0.760 vs cosine 0.868. |
 | P-13 | High C(t) means mutually supportive concepts are active (Eq. 7) | refuted on synthetic (R-2026-10-20-01, exploratory) | C_norm was highest on update probes (0.142 vs 0.039–0.046), i.e. when *conflicting* facts were co-active. |
 | P-14 | Φ (Eq. 8) measures depth of consciousness at a moment | not testable / refuted as a dynamic quantity | Consciousness: not testable. Eq. 8 has no time dependence (MATH_AUDIT #1). v1 Φ_dyn equals C_norm at convergence in every LongMemEval question (R-2026-10-26-03), so it adds nothing. |
 | P-15 | Φ is a tractable analogue of IIT Φ (§2.3) | refuted (math, MATH_AUDIT #1) | Eq. 8 is a weighted degree sum; no partition/integration term. |
@@ -50,17 +50,17 @@ Updated after every run; the change log at the bottom records what changed and w
 | V-09 | Secondary prompt without the draft avoids anchoring on a wrong draft | supported on synthetic (R-2026-10-20-01, exploratory) | 114/120 vs 94/120; not pre-registered. |
 | V-10 | Recency-weighted input helps knowledge-update questions | refuted (R-2026-10-26-02, exploratory) | Knowledge-update questions: recency 0.889 vs plain v1 0.944 recall@10; overall nDCG −0.017 [−0.028, −0.006]. |
 | V-11 | Every −log W path cost is invariant to rescaling R (THEORY_V1 v1.0 §4) | refuted (spec error, R-2026-10-26-02) | The −log cost adds a per-hop penalty of log W_max; 11/470 paths changed. Corrected in v1.1. Invariance holds for P and A only. |
-| V-12 | Graph activation as a re-ranking bonus on a first stage improves recall@10 (v1.2 candidate) | untested | R-2026-10-26-04 (pre-registered) |
+| V-12 | Graph activation as a re-ranking bonus on a first stage improves recall@10 (v1.2 candidate) | refuted (R-2026-10-26-04) | Test half n=247, dev-chosen config: cosine Δ 0.000 [−0.016, 0.016]; RRF Δ 0.000 [0.000, 0.000]; Holm 1.0 both; shuffled W identical recall; larger w hurts (RRF w0.5 ζ0.85: 0.874 vs 0.907). |
 
 ## Counts (36 claims: 24 paper, 12 v1)
 
 | Status | Count |
 |---|---|
 | supported | 5 (P-03, V-01, V-02, V-03, V-09) |
-| refuted (empirical, math, or spec error) | 15 (P-04, P-05, P-06, P-07, P-08, P-10, P-12, P-13, P-15, P-19, V-04, V-06, V-07, V-10, V-11) |
+| refuted (empirical, math, or spec error) | 16 (P-04, P-05, P-06, P-07, P-08, P-10, P-12, P-13, P-15, P-19, V-04, V-06, V-07, V-10, V-11, V-12) |
 | mixed | 3 (P-11, P-20, V-05) |
 | weak evidence | 2 (P-18, V-08) |
-| untested | 4 (P-09, P-16, P-22, V-12) |
+| untested | 3 (P-09, P-16, P-22) |
 | not testable | 7 (P-01, P-02, P-14, P-17, P-21, P-23, P-24) |
 
 ## Change log
@@ -70,3 +70,4 @@ Updated after every run; the change log at the bottom records what changed and w
 | 2026-10-26 | Ledger created; statuses from v0 backfill and MATH_AUDIT | R-2026-10-20-01 |
 | 2026-10-26 | P-04, V-04 refuted on LongMemEval-S. P-05 refuted for weights (topology matters), V-05 mixed. P-06/07/08, V-06 refuted (removing S/T/E raises nDCG). P-11 usefulness ✗ for recall; V-07 refuted. P-12 refuted as first stage. V-10 refuted. V-11 added (spec error, fixed in THEORY_V1 v1.1). V-12 added (pre-registered hybrid). Counts redone; P-14 now counted under not testable only. | R-2026-10-26-02 |
 | 2026-10-26 | P-18, V-08 → weak evidence (AUROC > 0.5, but explained mostly by probe type / max-cosine). P-14: Φ_dyn = C_norm at convergence. | R-2026-10-26-03 |
+| 2026-10-26 | V-12 refuted (graph bonus adds 0.000 on held-out half); P-12 extended to "refuted as bonus". Not a ledger claim, but noted: RRF(BM25, cosine) 0.913 beats both singles by +0.055–0.057 (exploratory). | R-2026-10-26-04 |

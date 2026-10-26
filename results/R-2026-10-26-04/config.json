@@ -1,0 +1,76 @@
+{
+  "run_id": "R-2026-10-26-04",
+  "start_ist": "2026-10-26T18:05:49+05:30",
+  "end_ist": "2026-10-26T18:06:14+05:30",
+  "wall_clock_s": 24.9,
+  "status": "done",
+  "git": {
+    "commit": "65f87ad04791c2cc548c88436069cfa30e4eef21",
+    "short": "65f87ad",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/e3b_hybrid.py --run-id R-2026-10-26-04",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.6.1",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "emb_sha256": "684ef8b54f26fccf10cbe37aa5796ff9c128800b99502cd4e6ee5cc0e834cfb8",
+    "first_stages": [
+      "cosine",
+      "rrf"
+    ],
+    "rrf_k": 60,
+    "W_variants": {
+      "v1W": {},
+      "Sonly": {
+        "use_T": false,
+        "use_E": false
+      }
+    },
+    "zetas": [
+      0.5,
+      0.85
+    ],
+    "weights": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "seed_k": 5,
+    "half_life_days": 7.0,
+    "split": "sha1(question_id) % 2 == 0 -> dev",
+    "selection": "dev: max turn_any@10, tie nDCG@10, then smaller w",
+    "primary": "test turn_any@10, chosen hybrid vs its own first stage, paired; Holm over 2 first stages",
+    "bootstrap_B": 10000
+  },
+  "files": [
+    "per_question.csv",
+    "grid_means.csv",
+    "test_results.csv",
+    "primary_holm.csv"
+  ],
+  "notes": [],
+  "summary": {
+    "n": 470,
+    "n_dev": 223,
+    "wall_s": 21.7
+  }
+}

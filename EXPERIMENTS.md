@@ -11,6 +11,8 @@ Every run gets an entry. Real numbers only; copy from `results/<run>/` files, ne
 | R-2026-10-26-02s | 2026-10-26 | E3 smoke test (few questions, code check only) | yes | smoke only, no conclusions | LAB_NOTEBOOK.md#r-2026-10-26-02s | — |
 | R-2026-10-26-02 | 2026-10-26 | E3 LongMemEval-S retrieval: v1 graph vs BM25/cosine + controls/ablations (n=470) | yes | turn_any@10: cosine 0.855, BM25 0.857, v1 0.819; v1−cos −0.036 [−0.062, −0.011], Holm 0.055; random topology −0.098; S/T/E removal raises nDCG | LAB_NOTEBOOK.md#r-2026-10-26-02 | results/R-2026-10-26-02/ |
 | R-2026-10-26-03 | 2026-10-26 | E2 C_norm as a failure predictor (synthetic + LongMemEval) | yes (no primary label named; logged flaw) | AUROC 0.65–0.67, ≤ max-cosine; residual 0.56–0.59; within probe type 0.576 [0.393, 0.754] | LAB_NOTEBOOK.md#r-2026-10-26-03 | results/R-2026-10-26-03/ |
+| R-2026-10-26-04 | 2026-10-26 | E3b graph activation as re-ranking bonus on cosine / RRF first stage (dev/test split) | yes | test Δ turn_any@10: cosine 0.000 [−0.016, 0.016], RRF 0.000 [0, 0]; Holm 1.0; exploratory: RRF alone 0.913 vs cosine 0.855 (+0.057 [0.028, 0.087]) | LAB_NOTEBOOK.md#r-2026-10-26-04 | results/R-2026-10-26-04/ |
+| (E5/E6) | 2026-10-26 | skipped, reason logged before running | — | synthetic saturated; end-to-end QA needs paid judge or GPU | LAB_NOTEBOOK.md#e5e6--skipped | — |
 
 ## Template
 

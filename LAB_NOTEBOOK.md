@@ -383,3 +383,48 @@ Predictions (written before running):
 Decision rule: if the primary Δ has CI > 0 after Holm for either first stage AND real W beats shuffled W on test, write THEORY_V1 v1.2 with
 the hybrid as the retrieval definition. Otherwise V-12 is refuted, P-12 stays refuted, and the graph's remaining value claim rests only on topology.
 CPU estimate: ~1 s/question/7 procs → ~2 min.
+
+### R-2026-10-26-04 — RESULTS   (run 18:05:47–18:06:14 IST, wall 21.7 s compute, commit 65f87ad, clean tree)
+Files: results/R-2026-10-26-04/{config.json, per_question.csv, grid_means.csv, test_results.csv, primary_holm.csv}. Split: dev 223, test 247.
+
+Dev selection (turn_any@10):
+- cosine first stage: base 0.865, and the best hybrids tie at 0.870 (v1W ζ0.5 w0.1/0.25, v1W ζ0.85 w0.1, Sonly ζ0.5 w0.25). The tie-break picked **v1W, ζ 0.5, w 0.1**.
+- RRF first stage: base 0.919, and several hybrids tie at 0.919. The tie-break picked **S-only, ζ 0.5, w 0.1**.
+
+Primary (test, n = 247), hybrid − own first stage, turn_any@10:
+- cosine: 0.846 → 0.846, Δ 0.000 [−0.016, +0.016], p 1.0, Holm 1.0.
+- RRF: 0.907 → 0.907, Δ 0.000 [0.000, 0.000], p 1.0, Holm 1.0.
+
+Secondary (test):
+- nDCG@10: cosine −0.003 [−0.010, +0.003]; RRF −0.004 [−0.014, +0.005].
+- Multi-session (n = 66): cosine recall@10 −0.030 [−0.076, 0.000]; RRF nDCG −0.016 [−0.035, −0.002]; RRF sess_all −0.015 [−0.046, 0].
+- Shuffled W with the same config gives the same recall@10 as real W. On nDCG, shuffled is slightly *higher* than real (cosine 0.4951 vs 0.4905).
+- Larger w hurts on the test half. RRF with v1W, ζ 0.85, w 0.5: 0.874 vs base 0.907.
+
+Prediction check:
+- Primary Δ ≤ +0.01 with a CI containing 0: ✓ for both first stages.
+- Chosen w = 0.1: ✓ for both.
+- Shuffled ≈ real: ✓.
+
+Unplanned but important observation (baseline, not the graph). RRF(BM25, cosine) alone, all 470 questions:
+- turn_any@10 = 0.913 [0.887, 0.938].
+- vs cosine 0.855: Δ +0.057 [0.028, 0.087], p 0.0002.
+- vs BM25 0.857 (E3 file): Δ +0.055 [0.030, 0.081], p < 0.0001.
+
+This is exploratory: the RRF baseline was pre-registered as a first stage, but not as a comparison against BM25 or cosine. It is the single largest gain seen in any run, and it comes from fusing lexical and dense retrieval, not from the graph. It also partly answers the 256-token truncation confound, since BM25 sees the full text.
+
+Interpretation: across 12 configs per first stage, the graph bonus never beat the first stage on held-out questions. A small bonus changes nothing, and a large bonus hurts. Real weights are no better than shuffled ones. V-12 is refuted. There is no evidence for the graph on LongMemEval-S retrieval in any of the forms tested: first stage (E3), weight terms (E3 ablations), or re-ranking bonus (E3b). The only positive graph-side finding is "top-k τ topology beats random topology", and that only says the kNN edges are better than random edges.
+
+Intuition update: the "associative subconscious" (P-12) has nothing to add on a single-hop fact-retrieval benchmark where the question's words or embedding already point at the evidence. If the graph has value, it would be on tasks needing multi-hop chaining (A → B → C where C shares nothing with the query). LongMemEval multi-session is the closest test here, and the graph was *worse* there in every run. This is a real negative, not a power problem: the CIs exclude gains bigger than about +0.016.
+
+Decision: do not write v1.2. Mark V-12 refuted. Recommend RRF(BM25, dense) as the retrieval layer for any further Sandwich work, and keep the graph only as an optional, tested-negative module.
+
+### E5/E6 — SKIPPED (decision logged 2026-10-26 18:07 IST, before running anything)
+Reason:
+- (1) The v0 synthetic benchmark is saturated for retrieval (recall 120/120 for every retriever). Scaling it up cannot separate graph memory from RAG, so it cannot test the graph's claims; it could only re-measure the prompt effects (V-09, P-19, P-20).
+- (2) The discriminating end-to-end test is LongMemEval QA with an LLM reader. That needs either a judge (the official one is GPT-4o, paid, so excluded) or exact-match scoring that is unreliable for free-form answers.
+- (3) A CPU 0.5B-class reader over 470 × ~10 retrieved turns is several hours and would mostly measure reader weakness.
+- (4) The λ sweep (E6) is moot. E2 showed C_norm adds only ~0.06–0.09 AUROC beyond max-cosine, and the trigger default is already "always refine".
+
+Left for Krishna's decision: a GPU or paid judge for end-to-end QA, and a multi-hop dataset where association could matter.
+CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well under the 8 h budget.
