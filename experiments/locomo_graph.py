@@ -1,6 +1,9 @@
 """R-2026-11-03-03: LoCoMo multi-hop evidence retrieval; pre-registered test 'v1 graph beats RRF by >= 0.03 on all-evidence@10'.
 Usage: python experiments/locomo_graph.py --run-id R-2026-11-03-03 [--limit-convs N]"""
-import argparse, itertools, os, sys, time
+import os
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[_v] = "1"  # must precede the numpy import: 8 worker procs x multi-threaded BLAS made attempt 1 of R-2026-11-03-03 ~50x slower
+import argparse, itertools, sys, time
 from multiprocessing import Pool
 import numpy as np, pandas as pd
 sys.path.insert(0, os.path.dirname(__file__))

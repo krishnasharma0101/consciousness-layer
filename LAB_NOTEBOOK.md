@@ -539,3 +539,26 @@ CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well 
   Absolute F1 for A: 0.15–0.35. Falsifier for "graph helps the reader": CI upper bound of B − A < +0.02.
 - Caveat fixed in advance: B and A share most of their context, so B − A has low power by construction; C is the real test of the original retrieval design. 1.5B reader, one seed (greedy), one dataset, partial-F1 rewards lexical overlap.
 - Command (script to be added): `.venv/bin/python experiments/locomo_qa.py --run-id R-2026-11-03-04`.
+
+### R-2026-11-03-02 — results (written after the run)
+- Command as pre-registered; N = 1,536 (cat 1–4, ≥ 1 valid evidence turn), 10 conversations. Files: `results/R-2026-11-03-02/{summary,paired,primary,cluster_sensitivity}.csv`.
+- **Primary (all_ev@10):** cosine 0.391 [0.367, 0.415]; BM25 0.467 [0.443, 0.492]; **RRF 0.493 [0.469, 0.518]**.
+  - RRF − cosine = **+0.102** [+0.081, +0.124], sign-flip p_Holm = 1.0e-4.
+  - RRF − BM25 = **+0.026** [+0.007, +0.045], sign-flip p_Holm = 0.010.
+  - **H1 confirmed** under the pre-registered rule (both diffs > 0, both Holm p < 0.05).
+- Prediction check: RRF − BM25 (+0.026) inside the predicted [0.00, +0.06]. **RRF − cosine (+0.102) is outside the predicted [+0.02, +0.08]** — I under-estimated how much worse MiniLM cosine is than lexical match on short, entity-heavy LoCoMo turns.
+- Secondary / sensitivity (not decision-bearing):
+  - all_ev@5: RRF − BM25 = +0.007 [−0.014, +0.027] (not distinguishable). The RRF gain over BM25 shows at @10, not @5.
+  - Conversation-cluster view (mean of 10 per-conversation diffs): RRF − cosine +0.101 [+0.082, +0.121], RRF better in 10/10 conversations; **RRF − BM25 +0.027 [−0.006, +0.063], better in 7/10** — the CI includes 0 once questions are clustered by conversation. So the BM25 comparison is the fragile one.
+  - Multi-evidence subset (≥ 2 evidence turns, N = 413): all_ev@10 RRF 0.121, cosine 0.102, BM25 0.070; RRF − cosine = +0.019 [−0.010, +0.048], i.e. on questions that need several turns, RRF is **not** distinguishable from cosine. All three retrievers are poor there (≤ 12 % of questions get all evidence into the top-10).
+- Observations: absolute numbers are low for multi-evidence questions; this is the headroom the graph claims to address (see -03).
+- Surprises: MiniLM cosine is 7.6 points below BM25 on all_ev@10 (0.391 vs 0.467). I did not predict the cosine-vs-BM25 gap, only the RRF differences.
+- Bugs: none in this run. Note: the cluster bootstrap here is a mean of 10 conversation-level diffs with a bootstrap over conversations (n = 10, crude).
+- Interpretation: the "hybrid beats either part" finding transfers to a second dataset in direction, with magnitude largest vs the dense retriever. A claim that RRF beats BM25 *robustly* is not supported once conversation clustering is considered. This is a replication on a **different dataset**, not a held-out split of LME-S.
+- Intuition update: dense MiniLM-L6 on conversational turns is weak; I should expect any graph built on MiniLM edges to inherit that weakness.
+- Decision: proceed to -03 (already pre-registered).
+
+### R-2026-11-03-03 — ABORTED attempt 1 (logged dead end; no result was produced or looked at)
+- Attempt 1 was started at 11:31 IST (box clock) with the pre-registered command. After ~10 min wall-clock the pool's 3 slowest workers had used 20+ CPU-minutes each (load average 24 on 8 cores) and no result file existed, while the other workers had finished their conversations in 30–50 CPU-s.
+- Diagnosis (py-spy + a single-process timing): `locomo_graph.py` imports numpy **before** `locomo_retr.py` sets `OMP_NUM_THREADS=1`, so 8 worker processes each ran multi-threaded BLAS on tiny (≈600×600) matmuls — oversubscription. With threads pinned to 1, one `v1` retrieval costs 14 ms.
+- Action: killed the run, moved its half-written directory to `results/R-2026-11-03-03_ABORTED_attempt1/` (contains only config.json), pinned the BLAS env vars at the top of `locomo_graph.py` (no change to any retriever, metric, config, population or statistic), committed, re-ran under the same run ID. The pre-registration above is unchanged.

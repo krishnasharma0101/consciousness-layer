@@ -1,0 +1,105 @@
+{
+  "run_id": "R-2026-11-03-02",
+  "start_ist": "2026-11-03T11:31:09+05:30",
+  "end_ist": "2026-11-03T11:31:20+05:30",
+  "wall_clock_s": 11.0,
+  "status": "done",
+  "git": {
+    "commit": "85e5c302ea7d72c7b2faeddea2e927e89a03b55e",
+    "short": "85e5c30",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/locomo_rrf.py --run-id R-2026-11-03-02",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.7",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.1",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "emb_sha256": "60dafbdab0796ee9aa6a8df9eafc91281fc0c27d46c7dd6eca59513d56ba9163",
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "population": "categories 1-4 (multi-hop, temporal, open-domain, single-hop) with >=1 valid evidence turn",
+    "primary_metric": "all_ev@10",
+    "primary_comparisons": [
+      "rrf - cosine",
+      "rrf - bm25"
+    ],
+    "rrf_k": 60,
+    "tests": "two-sided paired sign-flip (B=20000, seed 0), Holm over the 2 primary comparisons; paired percentile bootstrap CI (B=10000, seed 0) over questions",
+    "confirm_rule": "CONFIRMED iff both diffs > 0 and both Holm-adjusted p < 0.05",
+    "bm25": "rank_bm25.BM25Okapi defaults, [a-z0-9]+ lowercase tokens",
+    "sensitivity": "conversation-cluster bootstrap (10 clusters) reported, not used for the decision"
+  },
+  "files": [
+    "per_question.csv",
+    "summary.csv",
+    "paired.csv",
+    "primary.csv",
+    "cluster_sensitivity.csv"
+  ],
+  "notes": [],
+  "summary": {
+    "verdict": "CONFIRMED",
+    "n_questions": 1536,
+    "primary": [
+      {
+        "subset": "all_cat1-4",
+        "n": 1536,
+        "metric": "all_ev@10",
+        "comparison": "rrf-cosine",
+        "diff": 0.1022,
+        "lo": 0.0814,
+        "hi": 0.1237,
+        "p_signflip": 0.0,
+        "p_holm": 0.0001,
+        "confirmed_part": true
+      },
+      {
+        "subset": "all_cat1-4",
+        "n": 1536,
+        "metric": "all_ev@10",
+        "comparison": "rrf-bm25",
+        "diff": 0.026,
+        "lo": 0.0072,
+        "hi": 0.0449,
+        "p_signflip": 0.01,
+        "p_holm": 0.01,
+        "confirmed_part": true
+      }
+    ],
+    "cluster": [
+      {
+        "comparison": "rrf-cosine",
+        "conv_mean_of_means": 0.1015,
+        "lo": 0.0819,
+        "hi": 0.121,
+        "n_convs_rrf_better": 10,
+        "n_convs": 10
+      },
+      {
+        "comparison": "rrf-bm25",
+        "conv_mean_of_means": 0.0266,
+        "lo": -0.0059,
+        "hi": 0.0631,
+        "n_convs_rrf_better": 7,
+        "n_convs": 10
+      }
+    ]
+  }
+}

@@ -194,3 +194,14 @@ def test_hybrid_rank_w0_is_first_stage_and_bonus_reorders():
     assert np.isclose(A.sum(), 1.0) and r1[0] == int(np.argmax(A))
     s = rrf([np.arange(5), np.arange(5)[::-1]], k=60)
     assert np.allclose(s, s[::-1])         # symmetric fusion of reversed lists
+
+
+def test_locomo_f1():
+    from conslayer.locomo_eval import normalize_answer, f1_score, f1_multi, score
+    assert normalize_answer("The Cat, and a Dog!") == "cat dog"
+    assert f1_score("Adoption agencies", "adoption agency") == 1.0
+    assert f1_score("pottery", "camping") == 0.0
+    assert abs(f1_score("a big red dog", "red dog") - 0.8) < 1e-9
+    assert f1_multi("pottery, camping", "camping, pottery") == 1.0
+    assert abs(f1_multi("pottery", "pottery, camping") - 0.5) < 1e-9
+    assert score("x", "y; z", 3) == 0.0
