@@ -1,0 +1,159 @@
+{
+  "run_id": "R-2026-11-03-04",
+  "start_ist": "2026-11-03T11:44:40+05:30",
+  "end_ist": "2026-11-03T11:57:37+05:30",
+  "wall_clock_s": 776.7,
+  "status": "done",
+  "git": {
+    "commit": "879b5217eb010e2507220a50573cddcb67541ccb",
+    "short": "879b521",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/locomo_qa.py --run-id R-2026-11-03-04",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.7",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.1",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "reader": "Qwen/Qwen2.5-1.5B-Instruct"
+  },
+  "config": {
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "emb_sha256": "60dafbdab0796ee9aa6a8df9eafc91281fc0c27d46c7dd6eca59513d56ba9163",
+    "reader": "Qwen/Qwen2.5-1.5B-Instruct",
+    "k": 10,
+    "max_new_tokens": 32,
+    "decoding": "greedy, bf16, CPU",
+    "population": "category 1, >=2 valid evidence turns, ordered by sha1(qid); n=all",
+    "system_ctx": "You answer questions about a conversation between two people, using only the conversation excerpts provided. Reply with a short answer (a few words). If the answer has several items, list them separated by commas. Do not explain.",
+    "system_closed": "Answer the question about two people's conversation with a short answer (a few words); guess if you are unsure. If the answer has several items, list them separated by commas. Do not explain.",
+    "rerank_B": {
+      "overrides": {
+        "use_T": false,
+        "use_E": false,
+        "zeta": 0.5
+      },
+      "w": 0.1
+    },
+    "arms": [
+      "Z_closed_book",
+      "A_rrf",
+      "B_graph",
+      "C_sandwich_nodraft",
+      "D_sandwich_draft"
+    ],
+    "metric": "LoCoMo official partial-F1 (multi-answer for cat 1), conslayer.locomo_eval",
+    "primary": "B_graph - A_rrf",
+    "family_holm": [
+      "B-A",
+      "C-A",
+      "D-C"
+    ],
+    "bootstrap": "paired percentile B=10000 seed 0"
+  },
+  "files": [
+    "per_question_arm.csv",
+    "summary.csv",
+    "paired.csv",
+    "context_recall.csv"
+  ],
+  "notes": [],
+  "summary": {
+    "n": 277,
+    "llm_calls": 1150,
+    "wall_s": 775.2,
+    "arms": [
+      {
+        "arm": "A_rrf",
+        "n": 277,
+        "mean": 0.2581,
+        "lo": 0.2218,
+        "hi": 0.2958
+      },
+      {
+        "arm": "B_graph",
+        "n": 277,
+        "mean": 0.2575,
+        "lo": 0.2217,
+        "hi": 0.2954
+      },
+      {
+        "arm": "C_sandwich_nodraft",
+        "n": 277,
+        "mean": 0.2199,
+        "lo": 0.1851,
+        "hi": 0.2567
+      },
+      {
+        "arm": "D_sandwich_draft",
+        "n": 277,
+        "mean": 0.229,
+        "lo": 0.1941,
+        "hi": 0.2653
+      },
+      {
+        "arm": "Z_closed_book",
+        "n": 277,
+        "mean": 0.1449,
+        "lo": 0.1147,
+        "hi": 0.1785
+      }
+    ],
+    "paired": [
+      {
+        "a": "B_graph",
+        "b": "A_rrf",
+        "diff": -0.0006,
+        "lo": -0.015,
+        "hi": 0.0129,
+        "p_signflip": 0.9358,
+        "n_changed": 12,
+        "p_holm_family3": 0.9358
+      },
+      {
+        "a": "C_sandwich_nodraft",
+        "b": "A_rrf",
+        "diff": -0.0382,
+        "lo": -0.0746,
+        "hi": -0.0026,
+        "p_signflip": 0.0365,
+        "n_changed": 132,
+        "p_holm_family3": 0.1095
+      },
+      {
+        "a": "D_sandwich_draft",
+        "b": "C_sandwich_nodraft",
+        "diff": 0.0091,
+        "lo": -0.0136,
+        "hi": 0.032,
+        "p_signflip": 0.4463,
+        "n_changed": 81,
+        "p_holm_family3": 0.8926
+      },
+      {
+        "a": "A_rrf",
+        "b": "Z_closed_book",
+        "diff": 0.1133,
+        "lo": 0.0748,
+        "hi": 0.1527,
+        "p_signflip": 0.0,
+        "n_changed": 154,
+        "p_holm_family3": NaN
+      }
+    ]
+  }
+}

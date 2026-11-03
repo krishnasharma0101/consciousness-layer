@@ -1,0 +1,1351 @@
+qid,conv,arm,f1,pred,gold_answer,all_ev_in_ctx,frac_ev_in_ctx
+conv-41#32,conv-41,Z_closed_book,0.5,"hiking, camping, picnicking","Hiking, mountaineering",,
+conv-41#32,conv-41,A_rrf,0.0,swinging,"Hiking, mountaineering",0.0,0.0
+conv-41#32,conv-41,B_graph,0.0,swinging,"Hiking, mountaineering",0.0,0.0
+conv-41#32,conv-41,C_sandwich_nodraft,0.5,hiking,"Hiking, mountaineering",0.0,0.0
+conv-41#32,conv-41,D_sandwich_draft,0.5,"hiking, camping, picnicking","Hiking, mountaineering",0.0,0.0
+conv-42#81,conv-42,Z_closed_book,0.0,"Pasta, pizza, lasagna, risotto, soups","dairy free vanilla cake with strawberry filling and coconut cream frosting, parfait, strawberry chocolate cake, chocolate coconut cupcakes, chocolate raspberry tart, chocolate cake with raspberries, blueberry cheesecake bars",,
+conv-42#81,conv-42,A_rrf,0.15454545454545457,"cookies,pies,cakes","dairy free vanilla cake with strawberry filling and coconut cream frosting, parfait, strawberry chocolate cake, chocolate coconut cupcakes, chocolate raspberry tart, chocolate cake with raspberries, blueberry cheesecake bars",0.0,0.1111111111111111
+conv-42#81,conv-42,B_graph,0.15454545454545457,"cookies,pies,cakes","dairy free vanilla cake with strawberry filling and coconut cream frosting, parfait, strawberry chocolate cake, chocolate coconut cupcakes, chocolate raspberry tart, chocolate cake with raspberries, blueberry cheesecake bars",0.0,0.1111111111111111
+conv-42#81,conv-42,C_sandwich_nodraft,0.15454545454545457,"cookies, pies, cakes","dairy free vanilla cake with strawberry filling and coconut cream frosting, parfait, strawberry chocolate cake, chocolate coconut cupcakes, chocolate raspberry tart, chocolate cake with raspberries, blueberry cheesecake bars",0.0,0.0
+conv-42#81,conv-42,D_sandwich_draft,0.15454545454545457,"cookies, pies, cakes","dairy free vanilla cake with strawberry filling and coconut cream frosting, parfait, strawberry chocolate cake, chocolate coconut cupcakes, chocolate raspberry tart, chocolate cake with raspberries, blueberry cheesecake bars",0.0,0.0
+conv-26#32,conv-26,Z_closed_book,0.26666666666666666,"LGBTQ+ pride parade, festival","Pride parade, school speech, support group",,
+conv-26#32,conv-26,A_rrf,0.26666666666666666,"LGBTQ+ pride parade, art show","Pride parade, school speech, support group",0.0,0.5
+conv-26#32,conv-26,B_graph,0.26666666666666666,"LGBTQ+ pride parade, art show","Pride parade, school speech, support group",0.0,0.5
+conv-26#32,conv-26,C_sandwich_nodraft,0.26666666666666666,"LGBTQ+ pride parade, LGBT pride event last month","Pride parade, school speech, support group",0.0,0.5
+conv-26#32,conv-26,D_sandwich_draft,0.26666666666666666,"LGBTQ+ pride parade, pride event","Pride parade, school speech, support group",0.0,0.5
+conv-43#2,conv-43,Z_closed_book,0.0,"Postcards, stamps, coins, and jewelry.","sneakers, fantasy movie DVDs, jerseys",,
+conv-43#2,conv-43,A_rrf,0.0,books,"sneakers, fantasy movie DVDs, jerseys",0.0,0.3333333333333333
+conv-43#2,conv-43,B_graph,0.0,books,"sneakers, fantasy movie DVDs, jerseys",0.0,0.3333333333333333
+conv-43#2,conv-43,C_sandwich_nodraft,0.3333333333333333,jerseys,"sneakers, fantasy movie DVDs, jerseys",0.0,0.3333333333333333
+conv-43#2,conv-43,D_sandwich_draft,0.5,"dvds, games, jerseys","sneakers, fantasy movie DVDs, jerseys",0.0,0.3333333333333333
+conv-49#36,conv-49,Z_closed_book,0.0,"Italian pasta dishes, pizza, and lasagna.","grilled vegetables, grilled chicken and veggie stir-fry, poutine",,
+conv-49#36,conv-49,A_rrf,0.22857142857142856,"yummy grilled dish, recipes for adding more vegetables","grilled vegetables, grilled chicken and veggie stir-fry, poutine",0.0,0.0
+conv-49#36,conv-49,B_graph,0.22857142857142856,"yummy grilled dish, recipes for adding more vegetables","grilled vegetables, grilled chicken and veggie stir-fry, poutine",0.0,0.0
+conv-49#36,conv-49,C_sandwich_nodraft,0.39153439153439157,"flavorful grilled chicken and veggie stir-fry, flavorful and healthy grilled chicken and veggie stir-fry","grilled vegetables, grilled chicken and veggie stir-fry, poutine",0.0,0.3333333333333333
+conv-49#36,conv-49,D_sandwich_draft,0.4444444444444444,"grilled chicken and veggie stir-fry, flavorful and healthy grilled chicken and veggie stir-fry","grilled vegetables, grilled chicken and veggie stir-fry, poutine",0.0,0.3333333333333333
+conv-49#29,conv-49,Z_closed_book,0.37499999999999994,"Evan met someone in Toronto, came back with a woman.",Evan met the woman he fell in love with and returned with her.,,
+conv-49#29,conv-49,A_rrf,0.37499999999999994,"Evan met an awesome Canadian woman, and he came back from Canada with her.",Evan met the woman he fell in love with and returned with her.,0.0,0.5
+conv-49#29,conv-49,B_graph,0.37499999999999994,"Evan met an awesome Canadian woman, and he came back from Canada with her.",Evan met the woman he fell in love with and returned with her.,0.0,0.5
+conv-49#29,conv-49,C_sandwich_nodraft,0.16666666666666669,"awesome canadian woman, she, Evan",Evan met the woman he fell in love with and returned with her.,0.0,0.5
+conv-49#29,conv-49,D_sandwich_draft,0.5000000000000001,"Evan met a woman in Toronto, and he came back from Canada with her.",Evan met the woman he fell in love with and returned with her.,0.0,0.5
+conv-30#29,conv-30,Z_closed_book,0.0,"New York City, San Francisco","Paris, Rome",,
+conv-30#29,conv-30,A_rrf,0.0,"New York City, Los Angeles","Paris, Rome",0.0,0.0
+conv-30#29,conv-30,B_graph,0.0,"New York City, Los Angeles","Paris, Rome",0.0,0.0
+conv-30#29,conv-30,C_sandwich_nodraft,0.0,"New York City, Washington D.C.","Paris, Rome",0.0,0.0
+conv-30#29,conv-30,D_sandwich_draft,0.0,"New York City, San Francisco","Paris, Rome",0.0,0.0
+conv-48#73,conv-48,Z_closed_book,1.0,yes,yes,,
+conv-48#73,conv-48,A_rrf,1.0,yes,yes,1.0,1.0
+conv-48#73,conv-48,B_graph,1.0,yes,yes,1.0,1.0
+conv-48#73,conv-48,C_sandwich_nodraft,1.0,yes,yes,1.0,1.0
+conv-48#73,conv-48,D_sandwich_draft,1.0,yes,yes,1.0,1.0
+conv-41#25,conv-41,Z_closed_book,0.5,"Spain, France, Italy","Spain, England",,
+conv-41#25,conv-41,A_rrf,0.0,"France, Germany","Spain, England",0.0,0.0
+conv-41#25,conv-41,B_graph,0.5,"France, Germany, Italy, Spain","Spain, England",0.0,0.0
+conv-41#25,conv-41,C_sandwich_nodraft,0.5,Spain,"Spain, England",0.0,0.5
+conv-41#25,conv-41,D_sandwich_draft,0.5,"Spain, France, Italy","Spain, England",0.0,0.5
+conv-42#79,conv-42,Z_closed_book,0.0,10,three,,
+conv-42#79,conv-42,A_rrf,0.0,two,three,0.0,0.2
+conv-42#79,conv-42,B_graph,0.0,two,three,0.0,0.2
+conv-42#79,conv-42,C_sandwich_nodraft,0.0,two,three,0.0,0.4
+conv-42#79,conv-42,D_sandwich_draft,0.0,two,three,0.0,0.4
+conv-26#38,conv-26,Z_closed_book,0.3333333333333333,"hiking, camping, fishing","Pottery, painting, camping, museum, swimming, hiking",,
+conv-26#38,conv-26,A_rrf,0.0,"played games, ate good food, hung out","Pottery, painting, camping, museum, swimming, hiking",0.0,0.0
+conv-26#38,conv-26,B_graph,0.0,"played games, ate good food, hung out","Pottery, painting, camping, museum, swimming, hiking",0.0,0.0
+conv-26#38,conv-26,C_sandwich_nodraft,0.0,"played games, ate good food, hung out","Pottery, painting, camping, museum, swimming, hiking",0.0,0.0
+conv-26#38,conv-26,D_sandwich_draft,0.3333333333333333,"hiking, camping, fishing","Pottery, painting, camping, museum, swimming, hiking",0.0,0.0
+conv-49#69,conv-49,Z_closed_book,0.0,"Marriage, Birth of child",his partner gets pregnant and they get married,,
+conv-49#69,conv-49,A_rrf,0.0,"marriage, telling extended family about the marriage",his partner gets pregnant and they get married,0.0,0.0
+conv-49#69,conv-49,B_graph,0.0,"marriage, telling extended family about the marriage",his partner gets pregnant and they get married,0.0,0.0
+conv-49#69,conv-49,C_sandwich_nodraft,0.0,"long time no see, huh? lots has happened.",his partner gets pregnant and they get married,0.0,0.0
+conv-49#69,conv-49,D_sandwich_draft,0.0,"Marriage, Birth of child",his partner gets pregnant and they get married,0.0,0.0
+conv-44#23,conv-44,Z_closed_book,0.0,"Toby was born premature, had health issues, and needed special care.",Finding the right dog and pet-friendly apartments close to open spaces,,
+conv-44#23,conv-44,A_rrf,0.15384615384615383,"getting used to Toby, Toby needing some time to get along with him",Finding the right dog and pet-friendly apartments close to open spaces,0.0,0.0
+conv-44#23,conv-44,B_graph,0.15384615384615383,"getting used to Toby, Toby needing some time to get along with him",Finding the right dog and pet-friendly apartments close to open spaces,0.0,0.0
+conv-44#23,conv-44,C_sandwich_nodraft,0.0,"work, being stuck inside",Finding the right dog and pet-friendly apartments close to open spaces,0.0,0.0
+conv-44#23,conv-44,D_sandwich_draft,0.0,"city living, work, being stuck inside",Finding the right dog and pet-friendly apartments close to open spaces,0.0,0.0
+conv-26#40,conv-26,Z_closed_book,0.0,Once,2,,
+conv-26#40,conv-26,A_rrf,0.0,twice,2,1.0,1.0
+conv-26#40,conv-26,B_graph,0.0,twice,2,1.0,1.0
+conv-26#40,conv-26,C_sandwich_nodraft,0.0,twice,2,0.0,0.5
+conv-26#40,conv-26,D_sandwich_draft,0.0,twice,2,0.0,0.5
+conv-49#34,conv-49,Z_closed_book,0.0,A car accident and a fall from a tree.,"injured at a soccer game, fell off his bike",,
+conv-49#34,conv-49,A_rrf,0.5416666666666666,"soccer accident, soccer accident, fall off his bike","injured at a soccer game, fell off his bike",1.0,1.0
+conv-49#34,conv-49,B_graph,0.5416666666666666,"soccer accident, soccer accident, fall off his bike","injured at a soccer game, fell off his bike",1.0,1.0
+conv-49#34,conv-49,C_sandwich_nodraft,0.3333333333333333,"soccer accident, bike fall","injured at a soccer game, fell off his bike",1.0,1.0
+conv-49#34,conv-49,D_sandwich_draft,0.3333333333333333,"soccer accident, bike fall","injured at a soccer game, fell off his bike",1.0,1.0
+conv-43#36,conv-43,Z_closed_book,1.0,LeBron James,LeBron James,,
+conv-43#36,conv-43,A_rrf,0.0,John,LeBron James,0.0,0.0
+conv-43#36,conv-43,B_graph,0.0,John,LeBron James,0.0,0.0
+conv-43#36,conv-43,C_sandwich_nodraft,0.6666666666666666,"LeBron, John",LeBron James,0.0,0.3333333333333333
+conv-43#36,conv-43,D_sandwich_draft,1.0,LeBron James,LeBron James,0.0,0.3333333333333333
+conv-47#49,conv-47,Z_closed_book,0.2222222222222222,"Computer, mouse, keyboard, monitor, speakers","Sennheiser headphones, Logitech mouse, gaming desk",,
+conv-47#49,conv-47,A_rrf,0.16666666666666666,new headphones,"Sennheiser headphones, Logitech mouse, gaming desk",0.0,0.3333333333333333
+conv-47#49,conv-47,B_graph,0.16666666666666666,new headphones,"Sennheiser headphones, Logitech mouse, gaming desk",0.0,0.3333333333333333
+conv-47#49,conv-47,C_sandwich_nodraft,0.16666666666666666,"gaming PC, keyboard, gaming chair, headset","Sennheiser headphones, Logitech mouse, gaming desk",0.0,0.6666666666666666
+conv-47#49,conv-47,D_sandwich_draft,0.3333333333333333,"gaming PC, keyboard, headset, gaming desk","Sennheiser headphones, Logitech mouse, gaming desk",0.0,0.6666666666666666
+conv-42#51,conv-42,Z_closed_book,0.0,2013,"25 May, 2022",,
+conv-42#51,conv-42,A_rrf,0.25,6 October 2022,"25 May, 2022",0.0,0.0
+conv-42#51,conv-42,B_graph,0.25,6 October 2022,"25 May, 2022",0.0,0.0
+conv-42#51,conv-42,C_sandwich_nodraft,0.25,6 October 2022,"25 May, 2022",0.0,0.0
+conv-42#51,conv-42,D_sandwich_draft,0.45,25 October 2022,"25 May, 2022",0.0,0.0
+conv-42#47,conv-42,Z_closed_book,0.0,"coffee shop, park, library",A tournament and agaming convention.,,
+conv-42#47,conv-42,A_rrf,0.4,game convention,A tournament and agaming convention.,1.0,1.0
+conv-42#47,conv-42,B_graph,0.4,game convention,A tournament and agaming convention.,1.0,1.0
+conv-42#47,conv-42,C_sandwich_nodraft,0.28571428571428575,regional video game tournament,A tournament and agaming convention.,0.0,0.5
+conv-42#47,conv-42,D_sandwich_draft,0.3333333333333333,video game tournament,A tournament and agaming convention.,0.0,0.5
+conv-50#1,conv-50,Z_closed_book,0.0,"groceries, flowers, plants","mansion in Japan, luxury car Ferrari 488 GTB",,
+conv-50#1,conv-50,A_rrf,0.0,"tour, explore, grow brand","mansion in Japan, luxury car Ferrari 488 GTB",0.0,0.0
+conv-50#1,conv-50,B_graph,0.0,"tour, explore, grow brand","mansion in Japan, luxury car Ferrari 488 GTB",0.0,0.0
+conv-50#1,conv-50,C_sandwich_nodraft,0.0,carrots,"mansion in Japan, luxury car Ferrari 488 GTB",0.0,0.0
+conv-50#1,conv-50,D_sandwich_draft,0.0,"groceries, flowers, plants","mansion in Japan, luxury car Ferrari 488 GTB",0.0,0.0
+conv-48#82,conv-48,Z_closed_book,0.0,"New York City, Los Angeles","at her mother's old home, park, yoga studio, beach",,
+conv-48#82,conv-48,A_rrf,0.5,"park, yoga studio","at her mother's old home, park, yoga studio, beach",0.0,0.2
+conv-48#82,conv-48,B_graph,0.5,"park, beach","at her mother's old home, park, yoga studio, beach",0.0,0.2
+conv-48#82,conv-48,C_sandwich_nodraft,0.26666666666666666,"yoga in the park, near a park","at her mother's old home, park, yoga studio, beach",0.0,0.2
+conv-48#82,conv-48,D_sandwich_draft,0.25,the park,"at her mother's old home, park, yoga studio, beach",0.0,0.2
+conv-50#41,conv-50,Z_closed_book,0.0,Grandparents,Dad,,
+conv-50#41,conv-50,A_rrf,0.0,Dave,Dad,0.0,0.0
+conv-50#41,conv-50,B_graph,0.0,Dave,Dad,0.0,0.0
+conv-50#41,conv-50,C_sandwich_nodraft,0.0,Dave,Dad,0.0,0.0
+conv-50#41,conv-50,D_sandwich_draft,0.0,Dave,Dad,0.0,0.0
+conv-50#28,conv-50,Z_closed_book,0.0,reads books,"take long drives in his car, embrace nature, fixing cars",,
+conv-50#28,conv-50,A_rrf,0.31746031746031744,"drives in a red sports car, takes long drives","take long drives in his car, embrace nature, fixing cars",0.0,0.3333333333333333
+conv-50#28,conv-50,B_graph,0.31746031746031744,"drives in a red sports car, takes long drives","take long drives in his car, embrace nature, fixing cars",0.0,0.3333333333333333
+conv-50#28,conv-50,C_sandwich_nodraft,0.27705627705627706,drives in a red sports car,"take long drives in his car, embrace nature, fixing cars",0.0,0.3333333333333333
+conv-50#28,conv-50,D_sandwich_draft,0.35555555555555557,drives in a car,"take long drives in his car, embrace nature, fixing cars",0.0,0.3333333333333333
+conv-43#9,conv-43,Z_closed_book,0.0,"I'm sorry, but I don't know which John you're referring to. Could you please provide more context or specify?","basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",,
+conv-43#9,conv-43,A_rrf,0.3301767676767676,endorsement with a popular beverage company,"basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",0.0,0.25
+conv-43#9,conv-43,B_graph,0.3301767676767676,endorsement with a popular beverage company,"basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",0.0,0.25
+conv-43#9,conv-43,C_sandwich_nodraft,0.17142857142857143,"Nike, Gatorade","basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",0.0,0.75
+conv-43#9,conv-43,D_sandwich_draft,0.17142857142857143,"Nike, Gatorade","basketball shoes and gear deal with Nike, potential sponsorship with Gatorade, Moxie a popular beverage company, outdoor gear company",0.0,0.75
+conv-26#11,conv-26,Z_closed_book,0.0,New York City,Sweden,,
+conv-26#11,conv-26,A_rrf,0.0,New York City,Sweden,0.0,0.0
+conv-26#11,conv-26,B_graph,0.0,Melanie,Sweden,0.0,0.0
+conv-26#11,conv-26,C_sandwich_nodraft,0.0,Melbourne,Sweden,0.0,0.0
+conv-26#11,conv-26,D_sandwich_draft,0.0,New York City,Sweden,0.0,0.0
+conv-30#25,conv-30,Z_closed_book,0.14285714285714285,"Classes for all ages and levels, private lessons, group classes, social events, workshops, performances, competitions, exhibitions, demonstrations, masterclasses, special events,","one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",,
+conv-30#25,conv-30,A_rrf,0.0,dancing,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",0.0,0.0
+conv-30#25,conv-30,B_graph,0.0,teaching others,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",0.0,0.0
+conv-30#25,conv-30,C_sandwich_nodraft,0.0,teach others the joy that dancing brings him/her,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",0.0,0.0
+conv-30#25,conv-30,D_sandwich_draft,0.14285714285714285,"Classes for all ages and levels, private lessons, group classes, social events, workshops, performances, competitions, exhibitions, demonstrations, masterclasses, special events","one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",0.0,0.0
+conv-41#52,conv-41,Z_closed_book,0.0,"Maria, her mother and her sister","Cindy, Laura",,
+conv-41#52,conv-41,A_rrf,1.0,"Laura, Cindy","Cindy, Laura",1.0,1.0
+conv-41#52,conv-41,B_graph,1.0,"Laura, Cindy","Cindy, Laura",1.0,1.0
+conv-41#52,conv-41,C_sandwich_nodraft,1.0,"Laura, Cindy","Cindy, Laura",1.0,1.0
+conv-41#52,conv-41,D_sandwich_draft,0.5,Cindy,"Cindy, Laura",1.0,1.0
+conv-47#54,conv-47,Z_closed_book,0.0,"Hackathons, workshops, conferences","online programming competition, programming seminar",,
+conv-47#54,conv-47,A_rrf,0.7,programming seminar,"online programming competition, programming seminar",0.0,0.5
+conv-47#54,conv-47,B_graph,0.7,programming seminar,"online programming competition, programming seminar",0.0,0.5
+conv-47#54,conv-47,C_sandwich_nodraft,0.7,programming seminar,"online programming competition, programming seminar",0.0,0.5
+conv-47#54,conv-47,D_sandwich_draft,0.7,"programming seminars, hackathons, workshops, conferences","online programming competition, programming seminar",0.0,0.5
+conv-42#62,conv-42,Z_closed_book,0.0,10,Two,,
+conv-42#62,conv-42,A_rrf,0.0,4,Two,0.0,0.0
+conv-42#62,conv-42,B_graph,0.0,4,Two,0.0,0.0
+conv-42#62,conv-42,C_sandwich_nodraft,0.0,3,Two,0.0,0.0
+conv-42#62,conv-42,D_sandwich_draft,0.0,3,Two,0.0,0.0
+conv-43#57,conv-43,Z_closed_book,0.5,"Guitar, piano","piano, violin",,
+conv-43#57,conv-43,A_rrf,1.0,"violin, piano","piano, violin",0.0,0.5
+conv-43#57,conv-43,B_graph,1.0,"violin, piano","piano, violin",0.0,0.5
+conv-43#57,conv-43,C_sandwich_nodraft,0.5,"violin,jazz,film scores","piano, violin",0.0,0.5
+conv-43#57,conv-43,D_sandwich_draft,1.0,"violin, piano","piano, violin",0.0,0.5
+conv-47#8,conv-47,Z_closed_book,0.0,3,Three dogs.,,
+conv-47#8,conv-47,A_rrf,0.6666666666666666,three,Three dogs.,0.0,0.0
+conv-47#8,conv-47,B_graph,0.6666666666666666,three,Three dogs.,0.0,0.0
+conv-47#8,conv-47,C_sandwich_nodraft,0.6666666666666666,three,Three dogs.,0.0,0.0
+conv-47#8,conv-47,D_sandwich_draft,0.6666666666666666,three,Three dogs.,0.0,0.0
+conv-43#7,conv-43,Z_closed_book,0.0,"Europe, Asia","California, London, the Smoky Mountains",,
+conv-43#7,conv-43,A_rrf,0.3333333333333333,"London, The Cliffs of Moher","California, London, the Smoky Mountains",0.0,0.3333333333333333
+conv-43#7,conv-43,B_graph,0.3333333333333333,"London, The Cliffs of Moher","California, London, the Smoky Mountains",0.0,0.3333333333333333
+conv-43#7,conv-43,C_sandwich_nodraft,0.2222222222222222,mountains,"California, London, the Smoky Mountains",0.0,0.0
+conv-43#7,conv-43,D_sandwich_draft,0.0,"Europe, Asia","California, London, the Smoky Mountains",0.0,0.0
+conv-43#18,conv-43,Z_closed_book,0.2,"J.K. Rowling, Stephen King","J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",,
+conv-43#18,conv-43,A_rrf,0.2,Patrick Rothfuss,"J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",0.0,0.14285714285714285
+conv-43#18,conv-43,B_graph,0.36666666666666664,"Patrick Rothfuss, John, George R. R. Martin","J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",0.0,0.14285714285714285
+conv-43#18,conv-43,C_sandwich_nodraft,0.2,Patrick Rothfuss,"J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",0.0,0.14285714285714285
+conv-43#18,conv-43,D_sandwich_draft,0.36,"Patrick Rothfuss, George R.R. Martin","J.K. Rowling, R.R. Martin, Patrick Rothfuss, Paulo Coelho, and J. R. R. Tolkien.",0.0,0.14285714285714285
+conv-50#11,conv-50,Z_closed_book,0.0,"Bike fell off, got stuck in mud, tripped on rock.","flooding of his mansion, car accident",,
+conv-50#11,conv-50,A_rrf,0.0,"fame, balancing everything","flooding of his mansion, car accident",0.0,0.5
+conv-50#11,conv-50,B_graph,0.0,"fame, balancing everything","flooding of his mansion, car accident",0.0,0.5
+conv-50#11,conv-50,C_sandwich_nodraft,0.3333333333333333,"car, car running again","flooding of his mansion, car accident",0.0,0.0
+conv-50#11,conv-50,D_sandwich_draft,0.0,"bike, mud, rock","flooding of his mansion, car accident",0.0,0.0
+conv-49#50,conv-49,Z_closed_book,0.26666666666666666,"reading, painting, hiking","painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",,
+conv-49#50,conv-49,A_rrf,0.1,painting,"painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",0.0,0.0
+conv-49#50,conv-49,B_graph,0.1,painting,"painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",0.0,0.0
+conv-49#50,conv-49,C_sandwich_nodraft,0.3,"skiing, snowboarding, ice skating","painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",0.0,0.125
+conv-49#50,conv-49,D_sandwich_draft,0.3,"skiing, snowboarding, ice skating","painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",0.0,0.125
+conv-26#51,conv-26,Z_closed_book,0.0,A mural in her backyard.,"Horse, sunset, sunrise",,
+conv-26#51,conv-26,A_rrf,0.2222222222222222,lake sunrise,"Horse, sunset, sunrise",0.0,0.0
+conv-26#51,conv-26,B_graph,0.2222222222222222,lake sunrise,"Horse, sunset, sunrise",0.0,0.0
+conv-26#51,conv-26,C_sandwich_nodraft,0.2222222222222222,lake sunrise,"Horse, sunset, sunrise",0.0,0.0
+conv-26#51,conv-26,D_sandwich_draft,0.2222222222222222,lake sunrise,"Horse, sunset, sunrise",0.0,0.0
+conv-50#20,conv-50,Z_closed_book,0.5,His father,His Dad,,
+conv-50#20,conv-50,A_rrf,0.09999999999999999,"Dave's passion for car engineering was inspired by his fascination with how machines work starting from a young age, specifically when he fixed an old car in a neighbor's",His Dad,0.0,0.0
+conv-50#20,conv-50,B_graph,0.09999999999999999,"Dave's passion for car engineering was inspired by his fascination with how machines work starting from a young age, specifically when he fixed an old car in a neighbor's",His Dad,0.0,0.0
+conv-50#20,conv-50,C_sandwich_nodraft,0.0,Dave,His Dad,0.0,0.0
+conv-50#20,conv-50,D_sandwich_draft,0.0,Dave's father,His Dad,0.0,0.0
+conv-26#60,conv-26,Z_closed_book,0.6666666666666666,"Violin, piano",clarinet and violin,,
+conv-26#60,conv-26,A_rrf,0.6666666666666666,clarinet,clarinet and violin,0.0,0.5
+conv-26#60,conv-26,B_graph,0.6666666666666666,clarinet,clarinet and violin,0.0,0.5
+conv-26#60,conv-26,C_sandwich_nodraft,0.6666666666666666,clarinet,clarinet and violin,0.0,0.5
+conv-26#60,conv-26,D_sandwich_draft,0.6666666666666666,clarinet,clarinet and violin,0.0,0.5
+conv-26#47,conv-26,Z_closed_book,0.08333333333333333,Her mother and her sister support Caroline.,"Her mentors, family, and friends",,
+conv-26#47,conv-26,A_rrf,0.0,religious conservatives,"Her mentors, family, and friends",1.0,1.0
+conv-26#47,conv-26,B_graph,0.0,religious conservatives,"Her mentors, family, and friends",1.0,1.0
+conv-26#47,conv-26,C_sandwich_nodraft,0.0,Melanie,"Her mentors, family, and friends",0.0,0.0
+conv-26#47,conv-26,D_sandwich_draft,0.0,Melanie,"Her mentors, family, and friends",0.0,0.0
+conv-50#56,conv-50,Z_closed_book,0.0,"New York City, Los Angeles","San Francsico, Detroit",,
+conv-50#56,conv-50,A_rrf,0.0,Boston,"San Francsico, Detroit",0.0,0.0
+conv-50#56,conv-50,B_graph,0.0,Boston,"San Francsico, Detroit",0.0,0.0
+conv-50#56,conv-50,C_sandwich_nodraft,0.0,Mountainous region,"San Francsico, Detroit",0.0,0.0
+conv-50#56,conv-50,D_sandwich_draft,0.0,"New York City, Los Angeles","San Francsico, Detroit",0.0,0.0
+conv-44#40,conv-44,Z_closed_book,1.0,"park, park, dog park",The dog park,,
+conv-44#40,conv-44,A_rrf,0.0,doggy daycare,The dog park,0.0,0.0
+conv-44#40,conv-44,B_graph,0.0,doggy daycare,The dog park,0.0,0.0
+conv-44#40,conv-44,C_sandwich_nodraft,1.0,"park, dog park, woods",The dog park,0.0,0.3333333333333333
+conv-44#40,conv-44,D_sandwich_draft,1.0,dog park,The dog park,0.0,0.3333333333333333
+conv-49#11,conv-49,Z_closed_book,0.0,Smoking,Weight problem,,
+conv-49#11,conv-49,A_rrf,0.0,soda and candy intake,Weight problem,0.0,0.05263157894736842
+conv-49#11,conv-49,B_graph,0.3333333333333333,dealing with health problems,Weight problem,0.0,0.05263157894736842
+conv-49#11,conv-49,C_sandwich_nodraft,0.5,health problems,Weight problem,0.0,0.10526315789473684
+conv-49#11,conv-49,D_sandwich_draft,0.0,health issues,Weight problem,0.0,0.10526315789473684
+conv-42#19,conv-42,Z_closed_book,0.0,3 times,twice,,
+conv-42#19,conv-42,A_rrf,1.0,twice,twice,1.0,1.0
+conv-42#19,conv-42,B_graph,0.0,4,twice,1.0,1.0
+conv-42#19,conv-42,C_sandwich_nodraft,1.0,twice,twice,1.0,1.0
+conv-42#19,conv-42,D_sandwich_draft,0.0,3,twice,1.0,1.0
+conv-44#41,conv-44,Z_closed_book,0.0,"Golden Retriever, Labrador Retriever",Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.,,
+conv-44#41,conv-44,A_rrf,0.13333333333333333,"German Shepherds, Pixie, Toby",Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.,0.0,0.0
+conv-44#41,conv-44,B_graph,0.13333333333333333,"German Shepherds, Pixie, Toby",Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.,0.0,0.0
+conv-44#41,conv-44,C_sandwich_nodraft,0.0,German Shepherds,Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.,0.0,0.0
+conv-44#41,conv-44,D_sandwich_draft,0.0,"German Shepherd, Golden Retriever, Labrador Retriever",Mongrel mixed with Lab for Pepper and Panda. Mongrel mixed with Chihuahua for Precious and Pixie.,0.0,0.0
+conv-50#24,conv-50,Z_closed_book,1.0,"Yes, he can work on cars.",yes,,
+conv-50#24,conv-50,A_rrf,1.0,"Yes, he can work with engines.",yes,0.0,0.3333333333333333
+conv-50#24,conv-50,B_graph,1.0,Yes,yes,0.0,0.3333333333333333
+conv-50#24,conv-50,C_sandwich_nodraft,1.0,Yes,yes,0.0,0.0
+conv-50#24,conv-50,D_sandwich_draft,1.0,Yes,yes,0.0,0.0
+conv-48#88,conv-48,Z_closed_book,0.0,traveling,"biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",,
+conv-48#88,conv-48,A_rrf,0.037037037037037035,"teaching yoga, spending time with the community, organizing a yoga event","biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",0.0,0.0
+conv-48#88,conv-48,B_graph,0.037037037037037035,"teaching yoga, spending time with the community, organizing a yoga event","biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",0.0,0.0
+conv-48#88,conv-48,C_sandwich_nodraft,0.0,"mornings jog, spending time with loved ones","biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",0.0,0.0
+conv-48#88,conv-48,D_sandwich_draft,0.0,"meditation, exercise","biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",0.0,0.0
+conv-49#26,conv-49,Z_closed_book,0.0,Evan takes care of his health because he wants to live longer and be able to enjoy life more fully.,"family, fitness tracker, thirst for adventure on interesting hikes",,
+conv-49#26,conv-49,A_rrf,0.3333333333333333,"family, smart watch, strength and resilience, getting this","family, fitness tracker, thirst for adventure on interesting hikes",0.0,0.3333333333333333
+conv-49#26,conv-49,B_graph,0.3333333333333333,"family, smart watch, strength and resilience, getting this","family, fitness tracker, thirst for adventure on interesting hikes",0.0,0.3333333333333333
+conv-49#26,conv-49,C_sandwich_nodraft,0.0,"exercise, diet, lifestyle changes","family, fitness tracker, thirst for adventure on interesting hikes",0.0,0.3333333333333333
+conv-49#26,conv-49,D_sandwich_draft,0.0,live longer and be able to enjoy life more fully,"family, fitness tracker, thirst for adventure on interesting hikes",0.0,0.3333333333333333
+conv-26#34,conv-26,Z_closed_book,0.0,Caroline has organized camps and taught English classes for children.,"Mentoring program, school speech",,
+conv-26#34,conv-26,A_rrf,0.0,"talent show, beach trip","Mentoring program, school speech",0.0,0.0
+conv-26#34,conv-26,B_graph,0.0,"talent show, beach trip","Mentoring program, school speech",0.0,0.0
+conv-26#34,conv-26,C_sandwich_nodraft,0.0,"LGBTQ support group, adoption support group","Mentoring program, school speech",0.0,0.0
+conv-26#34,conv-26,D_sandwich_draft,0.0,"LGBTQ support group, adoption support group, teaching English classes","Mentoring program, school speech",0.0,0.0
+conv-44#18,conv-44,Z_closed_book,0.0,her mother,breeder,,
+conv-44#18,conv-44,A_rrf,0.0,adoption,breeder,0.0,0.5
+conv-44#18,conv-44,B_graph,0.0,adoption,breeder,0.0,0.5
+conv-44#18,conv-44,C_sandwich_nodraft,0.0,Adopted,breeder,0.0,0.5
+conv-44#18,conv-44,D_sandwich_draft,0.0,Adopted,breeder,0.0,0.5
+conv-42#52,conv-42,Z_closed_book,0.0,1,two,,
+conv-42#52,conv-42,A_rrf,0.0,3,two,1.0,1.0
+conv-42#52,conv-42,B_graph,0.0,3,two,1.0,1.0
+conv-42#52,conv-42,C_sandwich_nodraft,0.0,0,two,0.0,0.0
+conv-42#52,conv-42,D_sandwich_draft,0.0,0,two,0.0,0.0
+conv-42#69,conv-42,Z_closed_book,0.0,10,Three,,
+conv-42#69,conv-42,A_rrf,1.0,three,Three,0.0,0.0
+conv-42#69,conv-42,B_graph,1.0,three,Three,0.0,0.0
+conv-42#69,conv-42,C_sandwich_nodraft,1.0,three,Three,0.0,0.0
+conv-42#69,conv-42,D_sandwich_draft,1.0,three,Three,0.0,0.0
+conv-26#56,conv-26,Z_closed_book,0.0,"Heart, rose, butterfly, dove","Rainbow flag, transgender symbol",,
+conv-26#56,conv-26,A_rrf,0.5,"rainbow flag, eagle","Rainbow flag, transgender symbol",0.0,0.5
+conv-26#56,conv-26,B_graph,0.5,"rainbow flag, eagle","Rainbow flag, transgender symbol",0.0,0.5
+conv-26#56,conv-26,C_sandwich_nodraft,0.5,"rainbow flag, eagle","Rainbow flag, transgender symbol",0.0,0.5
+conv-26#56,conv-26,D_sandwich_draft,0.5,"eagle, rainbow flag","Rainbow flag, transgender symbol",0.0,0.5
+conv-49#0,conv-49,Z_closed_book,0.0,A red 2015 Toyota Camry.,Prius,,
+conv-49#0,conv-49,A_rrf,1.0,Prius,Prius,0.0,0.2
+conv-49#0,conv-49,B_graph,1.0,Prius,Prius,0.0,0.2
+conv-49#0,conv-49,C_sandwich_nodraft,0.0,trusty car,Prius,0.0,0.0
+conv-49#0,conv-49,D_sandwich_draft,0.0,trusty car,Prius,0.0,0.0
+conv-44#29,conv-44,Z_closed_book,0.0,"Audrey, Max, and Molly.","Pepper, Precious, Panda, and Pixie",,
+conv-44#29,conv-44,A_rrf,0.75,"Pepper, Precious, Panda","Pepper, Precious, Panda, and Pixie",0.0,0.3333333333333333
+conv-44#29,conv-44,B_graph,0.75,"Pepper, Precious, Panda","Pepper, Precious, Panda, and Pixie",0.0,0.3333333333333333
+conv-44#29,conv-44,C_sandwich_nodraft,0.25,"Pixie, Scout","Pepper, Precious, Panda, and Pixie",0.0,0.0
+conv-44#29,conv-44,D_sandwich_draft,0.25,"Pixie, Scout","Pepper, Precious, Panda, and Pixie",0.0,0.0
+conv-30#17,conv-30,Z_closed_book,0.07407407407407407,To make money and be creative,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,,
+conv-30#17,conv-30,A_rrf,0.13793103448275862,excited to see where it takes me!,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,0.0,0.0
+conv-30#17,conv-30,B_graph,0.13793103448275862,excited to see where it takes me!,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,0.0,0.0
+conv-30#17,conv-30,C_sandwich_nodraft,0.0,launching an ad campaign,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,0.0,0.0
+conv-30#17,conv-30,D_sandwich_draft,0.12500000000000003,starting my own store and taking risks is both scary and rewarding,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,0.0,0.0
+conv-44#32,conv-44,Z_closed_book,0.0,A rose.,Tattoos of her four dogs.,,
+conv-44#32,conv-44,A_rrf,0.28571428571428575,dog and sunflowers,Tattoos of her four dogs.,1.0,1.0
+conv-44#32,conv-44,B_graph,0.28571428571428575,dog and sunflowers,Tattoos of her four dogs.,1.0,1.0
+conv-44#32,conv-44,C_sandwich_nodraft,0.28571428571428575,dog and sunflowers,Tattoos of her four dogs.,1.0,1.0
+conv-44#32,conv-44,D_sandwich_draft,0.28571428571428575,dog and sunflowers,Tattoos of her four dogs.,1.0,1.0
+conv-26#71,conv-26,Z_closed_book,0.0,"""Harry Potter and the Sorcerer's Stone""","""Becoming Nicole""",,
+conv-26#71,conv-26,A_rrf,0.0,The book Melanie read from Caroline's suggestion is not mentioned directly in the conversation excerpt.,"""Becoming Nicole""",0.0,0.5
+conv-26#71,conv-26,B_graph,0.0,The book Melanie read from Caroline's suggestion is not mentioned directly in the conversation excerpt.,"""Becoming Nicole""",0.0,0.5
+conv-26#71,conv-26,C_sandwich_nodraft,0.0,Books have such an awesome power!,"""Becoming Nicole""",0.0,0.0
+conv-26#71,conv-26,D_sandwich_draft,0.0,"""Harry Potter and the Sorcerer's Stone""","""Becoming Nicole""",0.0,0.0
+conv-47#26,conv-47,Z_closed_book,0.4,"United States, Canada, Mexico","Italy, Mexico, Turkey, Canada, Greenland",,
+conv-47#26,conv-47,A_rrf,0.6,"Italy,Turkey,Mexico","Italy, Mexico, Turkey, Canada, Greenland",0.0,0.5
+conv-47#26,conv-47,B_graph,0.6,"Italy,Turkey,Mexico","Italy, Mexico, Turkey, Canada, Greenland",0.0,0.5
+conv-47#26,conv-47,C_sandwich_nodraft,0.6,"Italy, Turkey, Mexico","Italy, Mexico, Turkey, Canada, Greenland",1.0,1.0
+conv-47#26,conv-47,D_sandwich_draft,0.6,"Italy, Turkey, Mexico","Italy, Mexico, Turkey, Canada, Greenland",1.0,1.0
+conv-43#42,conv-43,Z_closed_book,0.0,He hasn't cooked anything yet.,"Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",,
+conv-43#42,conv-43,A_rrf,0.0,dinner out,"Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",0.0,0.0
+conv-43#42,conv-43,B_graph,0.0,dinner out,"Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",0.0,0.0
+conv-43#42,conv-43,C_sandwich_nodraft,0.3333333333333333,honey garlic chicken with roasted veg,"Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",0.0,0.5
+conv-43#42,conv-43,D_sandwich_draft,0.3333333333333333,honey garlic chicken with roasted veg,"Soup, a slow cooker meal, and honey garlic chicken with roasted veg.",0.0,0.5
+conv-43#59,conv-43,Z_closed_book,0.0,He made his MLB debut and won the batting title.,"highest point score, highest assist",,
+conv-43#59,conv-43,A_rrf,0.3333333333333333,assists,"highest point score, highest assist",0.0,0.0
+conv-43#59,conv-43,B_graph,0.3333333333333333,assists,"highest point score, highest assist",0.0,0.0
+conv-43#59,conv-43,C_sandwich_nodraft,0.0,not specified,"highest point score, highest assist",0.0,0.0
+conv-43#59,conv-43,D_sandwich_draft,0.0,not specified,"highest point score, highest assist",0.0,0.0
+conv-30#5,conv-30,Z_closed_book,0.22222222222222224,"Clean, spacious, well-lit, modern, comfortable seating, good acoustics, large mirrors, high ceilings, plenty of windows, lots of natural light","By the water, with natural light and Marley flooring",,
+conv-30#5,conv-30,A_rrf,0.25,great natural light,"By the water, with natural light and Marley flooring",0.0,0.6666666666666666
+conv-30#5,conv-30,B_graph,0.06666666666666667,a photography of a room with a view of the ocean and a few yoga mats,"By the water, with natural light and Marley flooring",0.0,0.6666666666666666
+conv-30#5,conv-30,C_sandwich_nodraft,0.07692307692307693,a room with a view of the ocean and a few yoga mats,"By the water, with natural light and Marley flooring",0.0,0.3333333333333333
+conv-30#5,conv-30,D_sandwich_draft,0.06666666666666667,a photography of a room with a view of the ocean and a few yoga mats,"By the water, with natural light and Marley flooring",0.0,0.3333333333333333
+conv-49#44,conv-49,Z_closed_book,0.5555555555555555,"landscape, still life, portraits","nature landscapes, portraits, abstract minimalism",,
+conv-49#44,conv-49,A_rrf,0.2222222222222222,"landscapes, cacti","nature landscapes, portraits, abstract minimalism",0.0,0.4
+conv-49#44,conv-49,B_graph,0.2222222222222222,"landscapes, cacti","nature landscapes, portraits, abstract minimalism",0.0,0.4
+conv-49#44,conv-49,C_sandwich_nodraft,0.5555555555555555,"landscapes, portraits, still life","nature landscapes, portraits, abstract minimalism",0.0,0.6
+conv-49#44,conv-49,D_sandwich_draft,0.5555555555555555,"landscape, still life, portraits","nature landscapes, portraits, abstract minimalism",0.0,0.6
+conv-50#33,conv-50,Z_closed_book,0.0,Working and sightseeing,attending a car modification workshop,,
+conv-50#33,conv-50,A_rrf,0.5,Dave was attending a car workshop in San Francisco.,attending a car modification workshop,1.0,1.0
+conv-50#33,conv-50,B_graph,0.5,Dave was attending a car workshop in San Francisco.,attending a car modification workshop,1.0,1.0
+conv-50#33,conv-50,C_sandwich_nodraft,0.28571428571428575,Dave got to go to a car workshop in San Francisco.,attending a car modification workshop,0.0,0.5
+conv-50#33,conv-50,D_sandwich_draft,0.30769230769230765,Dave was getting to a car workshop in San Francisco.,attending a car modification workshop,0.0,0.5
+conv-42#63,conv-42,Z_closed_book,0.0,"Call of Duty, Halo, Battlefield","Valorant, Counter Strike:Global Offensive,Xenoblade Chronicles, StreetFighter, Cyberpunk 2077",,
+conv-42#63,conv-42,A_rrf,0.0,"video games, video game tournaments","Valorant, Counter Strike:Global Offensive,Xenoblade Chronicles, StreetFighter, Cyberpunk 2077",0.0,0.0
+conv-42#63,conv-42,B_graph,0.0,"video game tournaments, video games","Valorant, Counter Strike:Global Offensive,Xenoblade Chronicles, StreetFighter, Cyberpunk 2077",0.0,0.0
+conv-42#63,conv-42,C_sandwich_nodraft,0.0,"CS: GO, Street Fighter","Valorant, Counter Strike:Global Offensive,Xenoblade Chronicles, StreetFighter, Cyberpunk 2077",0.0,0.4
+conv-42#63,conv-42,D_sandwich_draft,0.0,"CS: GO, Street Fighter","Valorant, Counter Strike:Global Offensive,Xenoblade Chronicles, StreetFighter, Cyberpunk 2077",0.0,0.4
+conv-50#3,conv-50,Z_closed_book,0.0,"The Beatles, Pink Floyd","Aerosmith, The Fireworks",,
+conv-50#3,conv-50,A_rrf,0.5,Aerosmith,"Aerosmith, The Fireworks",0.0,0.5
+conv-50#3,conv-50,B_graph,0.5,Aerosmith,"Aerosmith, The Fireworks",0.0,0.5
+conv-50#3,conv-50,C_sandwich_nodraft,0.0,classic rock,"Aerosmith, The Fireworks",0.0,0.0
+conv-50#3,conv-50,D_sandwich_draft,0.0,classic rock,"Aerosmith, The Fireworks",0.0,0.0
+conv-43#1,conv-43,Z_closed_book,0.0,becoming a coach,"get endorsements, build his brand, do charity work",,
+conv-43#1,conv-43,A_rrf,0.3333333333333333,building his brand,"get endorsements, build his brand, do charity work",0.0,0.0
+conv-43#1,conv-43,B_graph,0.3333333333333333,building his brand,"get endorsements, build his brand, do charity work",0.0,0.0
+conv-43#1,conv-43,C_sandwich_nodraft,0.07407407407407407,"making a difference away from the court, like through charity or inspiring people","get endorsements, build his brand, do charity work",0.0,0.5
+conv-43#1,conv-43,D_sandwich_draft,0.0,making a difference away from the court,"get endorsements, build his brand, do charity work",0.0,0.5
+conv-48#80,conv-48,Z_closed_book,0.0,"Yes, she has.",no,,
+conv-48#80,conv-48,A_rrf,0.0,"Yes, she has gotten a beginners' guide to surfing.",no,0.0,0.3333333333333333
+conv-48#80,conv-48,B_graph,0.0,"Yes, she has gotten a beginners' guide to surfing.",no,0.0,0.3333333333333333
+conv-48#80,conv-48,C_sandwich_nodraft,0.0,"Yes, she has tried surfing.",no,0.0,0.3333333333333333
+conv-48#80,conv-48,D_sandwich_draft,0.0,"Yes, she has.",no,0.0,0.3333333333333333
+conv-42#59,conv-42,Z_closed_book,0.14285714285714288,Joanna writes down notes.,"Hangs them on a corkboard, writes themin a notebook.",,
+conv-42#59,conv-42,A_rrf,0.125,write down her favorite memories,"Hangs them on a corkboard, writes themin a notebook.",0.0,0.5
+conv-42#59,conv-42,B_graph,0.125,write down her favorite memories,"Hangs them on a corkboard, writes themin a notebook.",0.0,0.5
+conv-42#59,conv-42,C_sandwich_nodraft,0.0,appreciating the journey and being aware of those happy moments,"Hangs them on a corkboard, writes themin a notebook.",0.0,0.0
+conv-42#59,conv-42,D_sandwich_draft,0.14285714285714288,Joanna writes down notes.,"Hangs them on a corkboard, writes themin a notebook.",0.0,0.0
+conv-42#67,conv-42,Z_closed_book,0.6666666666666666,"Dog, cat",A dog and threeturtles.,,
+conv-42#67,conv-42,A_rrf,0.6666666666666666,dog,A dog and threeturtles.,0.0,0.0
+conv-42#67,conv-42,B_graph,0.6666666666666666,dog,A dog and threeturtles.,0.0,0.0
+conv-42#67,conv-42,C_sandwich_nodraft,0.6666666666666666,dog,A dog and threeturtles.,0.0,0.3333333333333333
+conv-42#67,conv-42,D_sandwich_draft,0.6666666666666666,"dog, cat",A dog and threeturtles.,0.0,0.3333333333333333
+conv-50#49,conv-50,Z_closed_book,0.14285714285714288,played with toys,"tinkering with car engines, restoration and refurbishing cars",,
+conv-50#49,conv-50,A_rrf,0.1213235294117647,Dave found an old car in a neighbor's garage and asked if he could fix it.,"tinkering with car engines, restoration and refurbishing cars",0.0,0.0
+conv-50#49,conv-50,B_graph,0.1213235294117647,Dave found an old car in a neighbor's garage and asked if he could fix it.,"tinkering with car engines, restoration and refurbishing cars",0.0,0.0
+conv-50#49,conv-50,C_sandwich_nodraft,0.30952380952380953,work on a car,"tinkering with car engines, restoration and refurbishing cars",0.0,0.0
+conv-50#49,conv-50,D_sandwich_draft,0.30952380952380953,worked on a car,"tinkering with car engines, restoration and refurbishing cars",0.0,0.0
+conv-50#47,conv-50,Z_closed_book,0.0,10,two,,
+conv-50#47,conv-50,A_rrf,0.0,one,two,0.0,0.5
+conv-50#47,conv-50,B_graph,0.0,one,two,0.0,0.5
+conv-50#47,conv-50,C_sandwich_nodraft,0.0,one,two,0.0,0.0
+conv-50#47,conv-50,D_sandwich_draft,0.0,one,two,0.0,0.0
+conv-42#71,conv-42,Z_closed_book,1.0,nature,Nature,,
+conv-42#71,conv-42,A_rrf,1.0,nature,Nature,0.0,0.5
+conv-42#71,conv-42,B_graph,1.0,nature,Nature,0.0,0.5
+conv-42#71,conv-42,C_sandwich_nodraft,0.6666666666666666,nature's beauty,Nature,0.0,0.0
+conv-42#71,conv-42,D_sandwich_draft,1.0,nature,Nature,0.0,0.0
+conv-42#75,conv-42,Z_closed_book,0.08333333333333334,"Ice cream, cake","coconut milk icecream, dairy-free chocolate cake with berries, chocolate and mixed-berry icecream, dairy-free chocolate mousse",,
+conv-42#75,conv-42,A_rrf,0.0,rich and creamy,"coconut milk icecream, dairy-free chocolate cake with berries, chocolate and mixed-berry icecream, dairy-free chocolate mousse",0.0,0.0
+conv-42#75,conv-42,B_graph,0.0,rich and creamy,"coconut milk icecream, dairy-free chocolate cake with berries, chocolate and mixed-berry icecream, dairy-free chocolate mousse",0.0,0.0
+conv-42#75,conv-42,C_sandwich_nodraft,0.0,"ice cream, desserts","coconut milk icecream, dairy-free chocolate cake with berries, chocolate and mixed-berry icecream, dairy-free chocolate mousse",0.0,0.5
+conv-42#75,conv-42,D_sandwich_draft,0.08333333333333334,"ice cream, cake","coconut milk icecream, dairy-free chocolate cake with berries, chocolate and mixed-berry icecream, dairy-free chocolate mousse",0.0,0.5
+conv-44#35,conv-44,Z_closed_book,0.2222222222222222,Spot and Buddy,"Toby, Scout, Buddy",,
+conv-44#35,conv-44,A_rrf,0.0,"German Shepherd, pup","Toby, Scout, Buddy",0.0,0.0
+conv-44#35,conv-44,B_graph,0.0,"German Shepherd, pup","Toby, Scout, Buddy",0.0,0.0
+conv-44#35,conv-44,C_sandwich_nodraft,0.0,"German Shepherd, German Shepherd","Toby, Scout, Buddy",0.0,0.0
+conv-44#35,conv-44,D_sandwich_draft,0.2222222222222222,Spot and Buddy,"Toby, Scout, Buddy",0.0,0.0
+conv-49#81,conv-49,Z_closed_book,0.0,"reading, walking, listening to music","Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",,
+conv-49#81,conv-49,A_rrf,0.0,painting,"Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",0.0,0.5454545454545454
+conv-49#81,conv-49,B_graph,0.0,painting,"Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",0.0,0.5454545454545454
+conv-49#81,conv-49,C_sandwich_nodraft,0.0,nature,"Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",0.0,0.09090909090909091
+conv-49#81,conv-49,D_sandwich_draft,0.0,nature,"Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",0.0,0.09090909090909091
+conv-49#6,conv-49,Z_closed_book,1.0,Two,two,,
+conv-49#6,conv-49,A_rrf,0.0,one,two,0.0,0.0
+conv-49#6,conv-49,B_graph,0.0,one,two,0.0,0.0
+conv-49#6,conv-49,C_sandwich_nodraft,0.0,one,two,0.0,0.5
+conv-49#6,conv-49,D_sandwich_draft,0.0,1,two,0.0,0.5
+conv-47#2,conv-47,Z_closed_book,0.0,John and James plan to meet at the park and the museum.,"VR Club, McGee's, baseball game",,
+conv-47#2,conv-47,A_rrf,0.35555555555555557,"family game night, McGee's bar","VR Club, McGee's, baseball game",0.0,0.0
+conv-47#2,conv-47,B_graph,0.13333333333333333,family game night,"VR Club, McGee's, baseball game",0.0,0.0
+conv-47#2,conv-47,C_sandwich_nodraft,0.0,"Josh, Mark, road trip, exploring new places, taking in nature, family, dogs, visiting friends","VR Club, McGee's, baseball game",0.0,0.0
+conv-47#2,conv-47,D_sandwich_draft,0.0,"park, museum","VR Club, McGee's, baseball game",0.0,0.0
+conv-26#7,conv-26,Z_closed_book,1.0,Single,Single,,
+conv-26#7,conv-26,A_rrf,1.0,single,Single,0.0,0.0
+conv-26#7,conv-26,B_graph,1.0,single,Single,0.0,0.0
+conv-26#7,conv-26,C_sandwich_nodraft,1.0,single,Single,0.0,0.0
+conv-26#7,conv-26,D_sandwich_draft,1.0,Single,Single,0.0,0.0
+conv-47#20,conv-47,Z_closed_book,0.0,10,two,,
+conv-47#20,conv-47,A_rrf,0.0,2,two,0.0,0.0
+conv-47#20,conv-47,B_graph,0.0,2,two,0.0,0.0
+conv-47#20,conv-47,C_sandwich_nodraft,0.0,one,two,0.0,0.0
+conv-47#20,conv-47,D_sandwich_draft,0.0,2,two,0.0,0.0
+conv-43#13,conv-43,Z_closed_book,0.0,Tim writes stories.,Read fantasy books.,,
+conv-43#13,conv-43,A_rrf,0.5,"goes on road trips, explores, hikes, plays board games, reads, watches movies",Read fantasy books.,0.0,0.5
+conv-43#13,conv-43,B_graph,0.5,"goes on road trips, explores, hikes, plays board games, reads, watches movies",Read fantasy books.,0.0,0.5
+conv-43#13,conv-43,C_sandwich_nodraft,0.0,They're my escape from reality.,Read fantasy books.,0.0,0.0
+conv-43#13,conv-43,D_sandwich_draft,0.8,read books,Read fantasy books.,0.0,0.0
+conv-47#18,conv-47,Z_closed_book,0.0,"The Alchemist, The Four Seasons","The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",,
+conv-47#18,conv-47,A_rrf,0.0,"Epic fantasy series, immersive world-building, intricate storylines","The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",0.0,0.0
+conv-47#18,conv-47,B_graph,0.0,"Epic fantasy series, immersive world-building, intricate storylines","The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",0.0,0.0
+conv-47#18,conv-47,C_sandwich_nodraft,0.75,"""The Stormlight Archive"", ""Kingkiller Chronicle"", ""The Expanse""","The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",0.0,0.5
+conv-47#18,conv-47,D_sandwich_draft,0.75,"The Stormlight Archive, Kingkiller Chronicle, The Expanse","The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",0.0,0.5
+conv-44#60,conv-44,Z_closed_book,0.0,Four,3,,
+conv-44#60,conv-44,A_rrf,0.0,four,3,0.0,0.0
+conv-44#60,conv-44,B_graph,0.0,four,3,0.0,0.0
+conv-44#60,conv-44,C_sandwich_nodraft,0.0,none,3,0.0,0.0
+conv-44#60,conv-44,D_sandwich_draft,0.0,no,3,0.0,0.0
+conv-50#63,conv-50,Z_closed_book,0.26666666666666666,Acoustic and electric guitars,"custom-made yellow guitar with an octopus on it, shiny purple guitar",,
+conv-50#63,conv-50,A_rrf,0.3111111111111111,classical guitar,"custom-made yellow guitar with an octopus on it, shiny purple guitar",0.0,0.0
+conv-50#63,conv-50,B_graph,0.3111111111111111,classical guitar,"custom-made yellow guitar with an octopus on it, shiny purple guitar",0.0,0.0
+conv-50#63,conv-50,C_sandwich_nodraft,0.2337662337662338,Calvin owns an octopus-themed guitar.,"custom-made yellow guitar with an octopus on it, shiny purple guitar",0.0,0.75
+conv-50#63,conv-50,D_sandwich_draft,0.26666666666666666,acoustic and electric guitars,"custom-made yellow guitar with an octopus on it, shiny purple guitar",0.0,0.75
+conv-42#83,conv-42,Z_closed_book,0.0,"Writing, public speaking, time management","coconut milk ice cream recipe, reset high scores, tips to improve gaming skills",,
+conv-42#83,conv-42,A_rrf,0.11111111111111112,gaming,"coconut milk ice cream recipe, reset high scores, tips to improve gaming skills",0.0,0.0
+conv-42#83,conv-42,B_graph,0.11111111111111112,gaming,"coconut milk ice cream recipe, reset high scores, tips to improve gaming skills",0.0,0.0
+conv-42#83,conv-42,C_sandwich_nodraft,0.0,"CS: GO, Street Fighter","coconut milk ice cream recipe, reset high scores, tips to improve gaming skills",0.0,0.3333333333333333
+conv-42#83,conv-42,D_sandwich_draft,0.0,"public speaking, time management","coconut milk ice cream recipe, reset high scores, tips to improve gaming skills",0.0,0.3333333333333333
+conv-48#79,conv-48,Z_closed_book,1.0,"Yes, she has.",yes,,
+conv-48#79,conv-48,A_rrf,1.0,Yes,yes,0.0,0.5
+conv-48#79,conv-48,B_graph,1.0,Yes,yes,0.0,0.5
+conv-48#79,conv-48,C_sandwich_nodraft,1.0,"Yes, Deborah has tried surfing.",yes,1.0,1.0
+conv-48#79,conv-48,D_sandwich_draft,1.0,"Yes, she has.",yes,1.0,1.0
+conv-42#46,conv-42,Z_closed_book,0.0,"Monopoly, Scrabble","Chess, Catan.",,
+conv-42#46,conv-42,A_rrf,0.5,"Catan, a strategy game where you build settlements and trade resources.","Chess, Catan.",0.0,0.5
+conv-42#46,conv-42,B_graph,0.5,"Catan, a strategy game where you build settlements and trade resources.","Chess, Catan.",0.0,0.5
+conv-42#46,conv-42,C_sandwich_nodraft,0.0,Street Fighter,"Chess, Catan.",0.0,0.0
+conv-42#46,conv-42,D_sandwich_draft,0.0,"Counter-Strike: Global Offensive, Street Fighter","Chess, Catan.",0.0,0.0
+conv-43#30,conv-43,Z_closed_book,0.45,"New York City, Chicago, Los Angeles","Seattle, Chicago, New York, and Paris.",,
+conv-43#30,conv-43,A_rrf,0.2,New York City,"Seattle, Chicago, New York, and Paris.",0.0,0.25
+conv-43#30,conv-43,B_graph,0.2,New York City,"Seattle, Chicago, New York, and Paris.",0.0,0.25
+conv-43#30,conv-43,C_sandwich_nodraft,0.125,New city,"Seattle, Chicago, New York, and Paris.",0.0,0.25
+conv-43#30,conv-43,D_sandwich_draft,0.45,"New York City, Chicago, Los Angeles","Seattle, Chicago, New York, and Paris.",0.0,0.25
+conv-50#30,conv-50,Z_closed_book,0.25,Rock and pop.,"classic rock, Japanese music",,
+conv-50#30,conv-50,A_rrf,0.0,vinyl,"classic rock, Japanese music",0.0,0.0
+conv-50#30,conv-50,B_graph,0.0,vinyl,"classic rock, Japanese music",0.0,0.0
+conv-50#30,conv-50,C_sandwich_nodraft,0.5,classic rock,"classic rock, Japanese music",0.0,0.3333333333333333
+conv-50#30,conv-50,D_sandwich_draft,0.5,classic rock,"classic rock, Japanese music",0.0,0.3333333333333333
+conv-42#5,conv-42,Z_closed_book,0.25,"Reading, writing, cooking","Writing, watchingmovies, exploringnature, hanging withfriends.",,
+conv-42#5,conv-42,A_rrf,0.25,"cooking, writing","Writing, watchingmovies, exploringnature, hanging withfriends.",0.0,0.0
+conv-42#5,conv-42,B_graph,0.25,"cooking, writing","Writing, watchingmovies, exploringnature, hanging withfriends.",0.0,0.0
+conv-42#5,conv-42,C_sandwich_nodraft,0.35,"writing,hanging with friends","Writing, watchingmovies, exploringnature, hanging withfriends.",0.0,0.5
+conv-42#5,conv-42,D_sandwich_draft,0.25,"reading, writing, cooking","Writing, watchingmovies, exploringnature, hanging withfriends.",0.0,0.5
+conv-42#58,conv-42,Z_closed_book,0.1625,"books, movies, music","A pet,""The Lord of the Rings"" movies,a dragon book series,coconut flavoring,""Project Hail Mary"" book,Xenoblade Chronicles, dairy-free margarine, coconut oil",,
+conv-42#58,conv-42,A_rrf,0.0,find those little things and cherish them,"A pet,""The Lord of the Rings"" movies,a dragon book series,coconut flavoring,""Project Hail Mary"" book,Xenoblade Chronicles, dairy-free margarine, coconut oil",0.0,0.0
+conv-42#58,conv-42,B_graph,0.0,find those little things and cherish them,"A pet,""The Lord of the Rings"" movies,a dragon book series,coconut flavoring,""Project Hail Mary"" book,Xenoblade Chronicles, dairy-free margarine, coconut oil",0.0,0.0
+conv-42#58,conv-42,C_sandwich_nodraft,0.0,"games, DIYs","A pet,""The Lord of the Rings"" movies,a dragon book series,coconut flavoring,""Project Hail Mary"" book,Xenoblade Chronicles, dairy-free margarine, coconut oil",0.0,0.0
+conv-42#58,conv-42,D_sandwich_draft,0.0,games,"A pet,""The Lord of the Rings"" movies,a dragon book series,coconut flavoring,""Project Hail Mary"" book,Xenoblade Chronicles, dairy-free margarine, coconut oil",0.0,0.0
+conv-42#80,conv-42,Z_closed_book,0.0,1,seven,,
+conv-42#80,conv-42,A_rrf,0.0,4,seven,0.0,0.8571428571428571
+conv-42#80,conv-42,B_graph,0.0,4,seven,0.0,0.8571428571428571
+conv-42#80,conv-42,C_sandwich_nodraft,0.0,2,seven,0.0,0.42857142857142855
+conv-42#80,conv-42,D_sandwich_draft,0.0,2,seven,0.0,0.42857142857142855
+conv-49#18,conv-49,Z_closed_book,0.04081632653061225,Evan suggested fruits and vegetables.,"flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",,
+conv-49#18,conv-49,A_rrf,0.1142857142857143,"awesome recipes, healthy snacks","flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",0.0,0.2
+conv-49#18,conv-49,B_graph,0.1142857142857143,"awesome recipes, healthy snacks","flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",0.0,0.2
+conv-49#18,conv-49,C_sandwich_nodraft,0.0,"yogurt, nuts, seeds","flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",0.0,0.0
+conv-49#18,conv-49,D_sandwich_draft,0.05714285714285715,fruits and vegetables,"flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",0.0,0.0
+conv-50#66,conv-50,Z_closed_book,1.0,"No, they don't always go smoothly.",No,,
+conv-50#66,conv-50,A_rrf,1.0,no,No,0.0,0.0
+conv-50#66,conv-50,B_graph,1.0,no,No,0.0,0.0
+conv-50#66,conv-50,C_sandwich_nodraft,1.0,no,No,0.0,0.0
+conv-50#66,conv-50,D_sandwich_draft,1.0,No,No,0.0,0.0
+conv-49#33,conv-49,Z_closed_book,0.0,A man in a black suit,he's flying over a cityscape.,,
+conv-49#33,conv-49,A_rrf,0.5714285714285715,flying over skyscrapers,he's flying over a cityscape.,1.0,1.0
+conv-49#33,conv-49,B_graph,0.5714285714285715,flying over skyscrapers,he's flying over a cityscape.,1.0,1.0
+conv-49#33,conv-49,C_sandwich_nodraft,0.5714285714285715,flying over skyscrapers,he's flying over a cityscape.,1.0,1.0
+conv-49#33,conv-49,D_sandwich_draft,0.5714285714285715,flying over skyscrapers,he's flying over a cityscape.,1.0,1.0
+conv-41#12,conv-41,Z_closed_book,0.3333333333333333,Physical agility test,The military aptitude test,,
+conv-41#12,conv-41,A_rrf,1.0,military aptitude test,The military aptitude test,1.0,1.0
+conv-41#12,conv-41,B_graph,1.0,military aptitude test,The military aptitude test,1.0,1.0
+conv-41#12,conv-41,C_sandwich_nodraft,0.0,"tech stuff, workplace stuff",The military aptitude test,0.0,0.0
+conv-41#12,conv-41,D_sandwich_draft,0.3333333333333333,Physical agility test,The military aptitude test,0.0,0.0
+conv-48#20,conv-48,Z_closed_book,0.0,"Jenga, Monopoly","Detroit, Walking Dead, Battlefield 1, It Takes Two, Overcooked 2",,
+conv-48#20,conv-48,A_rrf,0.2,Detroit,"Detroit, Walking Dead, Battlefield 1, It Takes Two, Overcooked 2",0.0,0.2
+conv-48#20,conv-48,B_graph,0.2,Detroit,"Detroit, Walking Dead, Battlefield 1, It Takes Two, Overcooked 2",0.0,0.2
+conv-48#20,conv-48,C_sandwich_nodraft,0.0,console,"Detroit, Walking Dead, Battlefield 1, It Takes Two, Overcooked 2",0.0,0.0
+conv-48#20,conv-48,D_sandwich_draft,0.0,"Jenga, Monopoly","Detroit, Walking Dead, Battlefield 1, It Takes Two, Overcooked 2",0.0,0.0
+conv-42#82,conv-42,Z_closed_book,0.0,"Pasta, pizza, lasagna, chicken Alfredo, risotto","coconut milk icecream, chocolate and vanilla swirl",,
+conv-42#82,conv-42,A_rrf,0.16666666666666666,"dairy-free chocolate cake, vegan ice cream","coconut milk icecream, chocolate and vanilla swirl",0.0,0.0
+conv-42#82,conv-42,B_graph,0.16666666666666666,"dairy-free chocolate cake, vegan ice cream","coconut milk icecream, chocolate and vanilla swirl",0.0,0.0
+conv-42#82,conv-42,C_sandwich_nodraft,0.16666666666666666,"ice cream, chocolate and raspberry cake","coconut milk icecream, chocolate and vanilla swirl",0.0,0.0
+conv-42#82,conv-42,D_sandwich_draft,0.16666666666666666,"ice cream, chocolate and raspberry cake","coconut milk icecream, chocolate and vanilla swirl",0.0,0.0
+conv-47#56,conv-47,Z_closed_book,0.4,His mother and his sister.,"mother, sister",,
+conv-47#56,conv-47,A_rrf,0.0,"John, Ned","mother, sister",0.0,0.0
+conv-47#56,conv-47,B_graph,0.0,"John, Ned","mother, sister",0.0,0.0
+conv-47#56,conv-47,C_sandwich_nodraft,0.0,"Josh, Mark","mother, sister",0.0,0.0
+conv-47#56,conv-47,D_sandwich_draft,0.0,"John, Josh, Mark","mother, sister",0.0,0.0
+conv-48#85,conv-48,Z_closed_book,0.0,"Deborah - choir, dance class, drama club, Anna - book club, art classes","yoga, running",,
+conv-48#85,conv-48,A_rrf,0.5,"yoga, meditation, self-reflection","yoga, running",0.0,0.3333333333333333
+conv-48#85,conv-48,B_graph,0.5,"yoga, meditation, self-reflection","yoga, running",0.0,0.3333333333333333
+conv-48#85,conv-48,C_sandwich_nodraft,0.5,"yoga, meditation, self-reflection","yoga, running",0.0,0.3333333333333333
+conv-48#85,conv-48,D_sandwich_draft,0.0,"book club, art classes","yoga, running",0.0,0.3333333333333333
+conv-42#76,conv-42,Z_closed_book,0.0,posted on website,"teaching others, cooking show",,
+conv-42#76,conv-42,A_rrf,0.28571428571428575,on his own cooking show,"teaching others, cooking show",0.0,0.5
+conv-42#76,conv-42,B_graph,0.28571428571428575,on his own cooking show,"teaching others, cooking show",0.0,0.5
+conv-42#76,conv-42,C_sandwich_nodraft,0.0,shared with some people in his vegan diet group,"teaching others, cooking show",0.0,0.5
+conv-42#76,conv-42,D_sandwich_draft,0.0,shared with some people in his vegan diet group,"teaching others, cooking show",0.0,0.5
+conv-42#49,conv-42,Z_closed_book,0.0,3,Twice,,
+conv-42#49,conv-42,A_rrf,0.0,3,Twice,0.0,0.0
+conv-42#49,conv-42,B_graph,0.0,3,Twice,0.0,0.0
+conv-42#49,conv-42,C_sandwich_nodraft,0.0,two,Twice,1.0,1.0
+conv-42#49,conv-42,D_sandwich_draft,0.0,2,Twice,1.0,1.0
+conv-48#13,conv-48,Z_closed_book,0.04545454545454545,"home, church, nature, friends' house","sitting in a spot by the window in her Mom's house, sitting by the beach, Bali, forest trail in a nearby park",,
+conv-48#13,conv-48,A_rrf,0.16666666666666666,"old home, window by the window","sitting in a spot by the window in her Mom's house, sitting by the beach, Bali, forest trail in a nearby park",0.0,0.25
+conv-48#13,conv-48,B_graph,0.16666666666666666,"old home, window by the window","sitting in a spot by the window in her Mom's house, sitting by the beach, Bali, forest trail in a nearby park",0.0,0.25
+conv-48#13,conv-48,C_sandwich_nodraft,0.0909090909090909,"mom's house, old home","sitting in a spot by the window in her Mom's house, sitting by the beach, Bali, forest trail in a nearby park",0.0,0.25
+conv-48#13,conv-48,D_sandwich_draft,0.0909090909090909,"mom's house, old home, nature","sitting in a spot by the window in her Mom's house, sitting by the beach, Bali, forest trail in a nearby park",0.0,0.25
+conv-43#61,conv-43,Z_closed_book,0.0,"The Great Gatsby, To Kill a Mockingbird","inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",,
+conv-43#61,conv-43,A_rrf,0.27999999999999997,"George R. R. Martin's books, Fantasy series","inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",0.0,0.0
+conv-43#61,conv-43,B_graph,0.27999999999999997,"George R. R. Martin's books, Fantasy series","inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",0.0,0.0
+conv-43#61,conv-43,C_sandwich_nodraft,0.08000000000000002,George R. R. Martin's books,"inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",0.0,0.0
+conv-43#61,conv-43,D_sandwich_draft,0.0,"The Great Gatsby, To Kill a Mockingbird","inpsiring book on dreaming big, The Alchemist, fantasy series, non-fiction books on personal development, Dune",0.0,0.0
+conv-49#64,conv-49,Z_closed_book,0.0,Diabetes,gastritis,,
+conv-49#64,conv-49,A_rrf,0.0,ankle,gastritis,0.0,0.25
+conv-49#64,conv-49,B_graph,0.0,ankle,gastritis,0.0,0.25
+conv-49#64,conv-49,C_sandwich_nodraft,0.0,ankle,gastritis,0.0,0.0
+conv-49#64,conv-49,D_sandwich_draft,0.0,Diabetes,gastritis,0.0,0.0
+conv-44#31,conv-44,Z_closed_book,0.0,He took them to the park.,Taking walks and hiking,,
+conv-44#31,conv-44,A_rrf,0.4,"walked them, taken pictures",Taking walks and hiking,0.0,0.0
+conv-44#31,conv-44,B_graph,0.4,"walked them, taken pictures",Taking walks and hiking,0.0,0.0
+conv-44#31,conv-44,C_sandwich_nodraft,0.4,walks them,Taking walks and hiking,0.0,0.0
+conv-44#31,conv-44,D_sandwich_draft,0.4,walked them,Taking walks and hiking,0.0,0.0
+conv-47#51,conv-47,Z_closed_book,0.16666666666666666,"World of Warcraft, Diablo 3","AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",,
+conv-47#51,conv-47,A_rrf,0.08,new games,"AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",0.0,0.0
+conv-47#51,conv-47,B_graph,0.08,new games,"AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",0.0,0.0
+conv-47#51,conv-47,C_sandwich_nodraft,0.0,Mario,"AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",0.0,0.0
+conv-47#51,conv-47,D_sandwich_draft,0.0,Mario,"AC Valhalla, Witcher 3, FIFA 23, Dungeons of the Dragons, futuristic dystopian game",0.0,0.0
+conv-49#28,conv-49,Z_closed_book,0.5,"poetry, journaling","journalling, creative writing",,
+conv-49#28,conv-49,A_rrf,0.6000000000000001,"writing in his journal, doing creative writing","journalling, creative writing",0.0,0.0
+conv-49#28,conv-49,B_graph,0.6000000000000001,"writing in his journal, doing creative writing","journalling, creative writing",0.0,0.0
+conv-49#28,conv-49,C_sandwich_nodraft,0.0,Yoga,"journalling, creative writing",0.0,0.0
+conv-49#28,conv-49,D_sandwich_draft,0.5,"poetry, journaling","journalling, creative writing",0.0,0.0
+conv-49#62,conv-49,Z_closed_book,0.018518518518518517,"Heart attack, stroke","Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",,
+conv-49#62,conv-49,A_rrf,0.13518518518518519,"health scare, health scare","Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",0.0,0.25
+conv-49#62,conv-49,B_graph,0.13518518518518519,"health scare, health scare","Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",0.0,0.25
+conv-49#62,conv-49,C_sandwich_nodraft,0.185632183908046,"sudden heart palpitation incident, health scare","Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",0.0,0.5
+conv-49#62,conv-49,D_sandwich_draft,0.018518518518518517,"heart attack, stroke","Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",0.0,0.5
+conv-50#59,conv-50,Z_closed_book,0.0,One Ferrari,two,,
+conv-50#59,conv-50,A_rrf,0.0,one,two,0.0,0.5
+conv-50#59,conv-50,B_graph,0.0,one,two,0.0,0.5
+conv-50#59,conv-50,C_sandwich_nodraft,0.0,one,two,0.0,0.5
+conv-50#59,conv-50,D_sandwich_draft,0.0,one,two,0.0,0.5
+conv-50#58,conv-50,Z_closed_book,0.06666666666666667,Dave's father was an engineer and taught him at a young age.,"attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",,
+conv-50#58,conv-50,A_rrf,0.2531986531986532,"going to a car show, opening a shop, starting a journey","attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",0.0,0.0
+conv-50#58,conv-50,B_graph,0.2531986531986532,"going to a car show, opening a shop, starting a journey","attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",0.0,0.0
+conv-50#58,conv-50,C_sandwich_nodraft,0.2888888888888889,"fixing a car in a neighbor's garage, being fascinated with how machines work","attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",0.0,0.0
+conv-50#58,conv-50,D_sandwich_draft,0.2888888888888889,fixing a car in a neighbor's garage,"attending a car show with Dad, working on an old car in a neighbor's garage when he was young, spent a summer restoring an old car with Dad",0.0,0.0
+conv-26#43,conv-26,Z_closed_book,0.0,"Painting, sculpture",abstract art,,
+conv-26#43,conv-26,A_rrf,0.0,painting,abstract art,0.0,0.0
+conv-26#43,conv-26,B_graph,0.0,painting,abstract art,0.0,0.0
+conv-26#43,conv-26,C_sandwich_nodraft,0.0,"painting, self-portrait",abstract art,0.0,0.0
+conv-26#43,conv-26,D_sandwich_draft,0.0,"painting, sculpture",abstract art,0.0,0.0
+conv-50#64,conv-50,Z_closed_book,0.0625,"Playing football, going to concerts, hiking","weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",,
+conv-50#64,conv-50,A_rrf,0.2222222222222222,"celebrating his car opening, walking together in the park","weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",1.0,1.0
+conv-50#64,conv-50,B_graph,0.2222222222222222,"celebrating his car opening, walking together in the park","weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",1.0,1.0
+conv-50#64,conv-50,C_sandwich_nodraft,0.0,"driving, chatting, reconnecting","weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",0.0,0.25
+conv-50#64,conv-50,D_sandwich_draft,0.0,"driving, chatting, reconnecting, photography","weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights",0.0,0.25
+conv-42#74,conv-42,Z_closed_book,0.16825396825396824,"Read books, go to movies","""Eternal Sunshine of the Spotless Mind"" movie, ""A Court of Thorns and Roses"" book, pointers for making living room comfy, starting a cork board for memories, ""Little Women"" movie",,
+conv-42#74,conv-42,A_rrf,0.06666666666666668,books,"""Eternal Sunshine of the Spotless Mind"" movie, ""A Court of Thorns and Roses"" book, pointers for making living room comfy, starting a cork board for memories, ""Little Women"" movie",0.0,0.0
+conv-42#74,conv-42,B_graph,0.06666666666666668,books,"""Eternal Sunshine of the Spotless Mind"" movie, ""A Court of Thorns and Roses"" book, pointers for making living room comfy, starting a cork board for memories, ""Little Women"" movie",0.0,0.0
+conv-42#74,conv-42,C_sandwich_nodraft,0.0,self-discovery in it,"""Eternal Sunshine of the Spotless Mind"" movie, ""A Court of Thorns and Roses"" book, pointers for making living room comfy, starting a cork board for memories, ""Little Women"" movie",0.0,0.0
+conv-42#74,conv-42,D_sandwich_draft,0.0,self-discovery in it,"""Eternal Sunshine of the Spotless Mind"" movie, ""A Court of Thorns and Roses"" book, pointers for making living room comfy, starting a cork board for memories, ""Little Women"" movie",0.0,0.0
+conv-41#7,conv-41,Z_closed_book,0.0,"bed, bike, books, baseball, ball, blanket, boots, bicycle, baseball, bat, balls, socks, shoes, shirt, shorts, sweater,","A doll, a film camera",,
+conv-41#7,conv-41,A_rrf,0.0,a photo of a man holding a child on his shoulders,"A doll, a film camera",0.0,0.0
+conv-41#7,conv-41,B_graph,0.0,a photo of a man holding a child on his shoulders,"A doll, a film camera",0.0,0.0
+conv-41#7,conv-41,C_sandwich_nodraft,0.0,football,"A doll, a film camera",0.0,0.0
+conv-41#7,conv-41,D_sandwich_draft,0.0,"books, baseball, bat, balls, socks, shoes, shirt, shorts, sweater","A doll, a film camera",0.0,0.0
+conv-47#3,conv-47,Z_closed_book,0.0,yes,No,,
+conv-47#3,conv-47,A_rrf,0.0,yes,No,0.0,0.5
+conv-47#3,conv-47,B_graph,1.0,no,No,0.0,0.5
+conv-47#3,conv-47,C_sandwich_nodraft,0.0,yes,No,0.0,0.0
+conv-47#3,conv-47,D_sandwich_draft,0.0,yes,No,0.0,0.0
+conv-49#49,conv-49,Z_closed_book,0.3333333333333333,Evan's brother,Evan's son and Evan himself,,
+conv-49#49,conv-49,A_rrf,0.0,ankle,Evan's son and Evan himself,0.0,0.16666666666666666
+conv-49#49,conv-49,B_graph,0.0,ankle,Evan's son and Evan himself,0.0,0.16666666666666666
+conv-49#49,conv-49,C_sandwich_nodraft,0.6666666666666666,Evan's son,Evan's son and Evan himself,0.0,0.5
+conv-49#49,conv-49,D_sandwich_draft,0.6666666666666666,Evan's son,Evan's son and Evan himself,0.0,0.5
+conv-41#2,conv-41,Z_closed_book,0.0,"Tai Chi, Karate","Kickboxing, Taekwondo",,
+conv-41#2,conv-41,A_rrf,0.0,weight training,"Kickboxing, Taekwondo",0.0,0.0
+conv-41#2,conv-41,B_graph,0.0,weight training,"Kickboxing, Taekwondo",0.0,0.0
+conv-41#2,conv-41,C_sandwich_nodraft,0.5,taekwondo,"Kickboxing, Taekwondo",0.0,0.5
+conv-41#2,conv-41,D_sandwich_draft,0.5,Taekwondo,"Kickboxing, Taekwondo",0.0,0.5
+conv-26#23,conv-26,Z_closed_book,0.0,"The Hitchhiker's Guide to the Galaxy, The Da Vinci Code","""Nothing is Impossible"", ""Charlotte's Web""",,
+conv-26#23,conv-26,A_rrf,0.0,"kids', classics, stories from different cultures, educational books","""Nothing is Impossible"", ""Charlotte's Web""",0.0,0.0
+conv-26#23,conv-26,B_graph,0.0,"kids', classics, stories from different cultures, educational books","""Nothing is Impossible"", ""Charlotte's Web""",0.0,0.0
+conv-26#23,conv-26,C_sandwich_nodraft,0.5,Charlotte's Web,"""Nothing is Impossible"", ""Charlotte's Web""",0.0,0.5
+conv-26#23,conv-26,D_sandwich_draft,0.5,Charlotte's Web,"""Nothing is Impossible"", ""Charlotte's Web""",0.0,0.5
+conv-41#15,conv-41,Z_closed_book,0.4,English and creative writing,"Poetry, creative writing",,
+conv-41#15,conv-41,A_rrf,0.3333333333333333,creative,"Poetry, creative writing",0.0,0.5
+conv-41#15,conv-41,B_graph,0.3333333333333333,creative,"Poetry, creative writing",0.0,0.5
+conv-41#15,conv-41,C_sandwich_nodraft,0.5,creative writing,"Poetry, creative writing",0.0,0.5
+conv-41#15,conv-41,D_sandwich_draft,0.5,creative writing,"Poetry, creative writing",0.0,0.5
+conv-49#1,conv-49,Z_closed_book,0.0,"TV, stereo, and computer.",His old Prius and his new Prius.,,
+conv-49#1,conv-49,A_rrf,0.0,"job, health issues",His old Prius and his new Prius.,0.0,0.0
+conv-49#1,conv-49,B_graph,0.0,"job, health issues",His old Prius and his new Prius.,0.0,0.0
+conv-49#1,conv-49,C_sandwich_nodraft,0.0,job,His old Prius and his new Prius.,0.0,0.0
+conv-49#1,conv-49,D_sandwich_draft,0.0,"TV, stereo, and computer.",His old Prius and his new Prius.,0.0,0.0
+conv-42#50,conv-42,Z_closed_book,0.0,A new puppy.,stuffed toy pup,,
+conv-42#50,conv-42,A_rrf,0.0,little guys,stuffed toy pup,0.0,0.0
+conv-42#50,conv-42,B_graph,0.0,little guys,stuffed toy pup,0.0,0.0
+conv-42#50,conv-42,C_sandwich_nodraft,0.0,DIYs,stuffed toy pup,0.0,0.0
+conv-42#50,conv-42,D_sandwich_draft,0.0,DIYs,stuffed toy pup,0.0,0.0
+conv-44#15,conv-44,Z_closed_book,0.18181818181818182,not enough exercise,Not being able to find pet friendly spots.,,
+conv-44#15,conv-44,A_rrf,0.0,training,Not being able to find pet friendly spots.,0.0,0.0
+conv-44#15,conv-44,B_graph,0.0,training,Not being able to find pet friendly spots.,0.0,0.0
+conv-44#15,conv-44,C_sandwich_nodraft,0.0,hurting animals,Not being able to find pet friendly spots.,0.0,0.0
+conv-44#15,conv-44,D_sandwich_draft,0.18181818181818182,not enough exercise,Not being able to find pet friendly spots.,0.0,0.0
+conv-41#37,conv-41,Z_closed_book,0.08,"Veterans Day, Memorial Day","Petition, march, party, visiting veterans hospital, 5K charity run",,
+conv-41#37,conv-41,A_rrf,0.3333333333333333,"Marching event, 5K charity run","Petition, march, party, visiting veterans hospital, 5K charity run",0.0,0.4
+conv-41#37,conv-41,B_graph,0.3333333333333333,"Marching event, 5K charity run","Petition, march, party, visiting veterans hospital, 5K charity run",0.0,0.4
+conv-41#37,conv-41,C_sandwich_nodraft,0.13999999999999999,"throwing a small party, invited some veterans to share their stories","Petition, march, party, visiting veterans hospital, 5K charity run",0.0,0.4
+conv-41#37,conv-41,D_sandwich_draft,0.13999999999999999,"throwing a small party, invited some veterans to share their stories","Petition, march, party, visiting veterans hospital, 5K charity run",0.0,0.4
+conv-26#61,conv-26,Z_closed_book,0.0,"The Cars, The Smiths","Summer Sounds, Matt Patterson",,
+conv-26#61,conv-26,A_rrf,0.0,LGBTQ,"Summer Sounds, Matt Patterson",0.0,0.0
+conv-26#61,conv-26,B_graph,0.0,LGBTQ,"Summer Sounds, Matt Patterson",0.0,0.0
+conv-26#61,conv-26,C_sandwich_nodraft,0.0,"Ed Sheeran, Bach, Mozart, perfect","Summer Sounds, Matt Patterson",0.0,0.5
+conv-26#61,conv-26,D_sandwich_draft,0.0,"The Beatles, Queen","Summer Sounds, Matt Patterson",0.0,0.5
+conv-48#39,conv-48,Z_closed_book,0.0,"Deborah uses a planner, Jolene uses an app.","the Pomodoro Technique - 25 minutes work and 5-minute break, scheduler or to-do list, The Eisenhower Matrix, bullet journal",,
+conv-48#39,conv-48,A_rrf,0.25,bullet journal,"the Pomodoro Technique - 25 minutes work and 5-minute break, scheduler or to-do list, The Eisenhower Matrix, bullet journal",0.0,0.2
+conv-48#39,conv-48,B_graph,0.3611111111111111,"Pomodoro Technique, bullet journal","the Pomodoro Technique - 25 minutes work and 5-minute break, scheduler or to-do list, The Eisenhower Matrix, bullet journal",0.0,0.4
+conv-48#39,conv-48,C_sandwich_nodraft,0.11111111111111112,"Pomodoro Technique, planners/schedulers","the Pomodoro Technique - 25 minutes work and 5-minute break, scheduler or to-do list, The Eisenhower Matrix, bullet journal",0.0,0.2
+conv-48#39,conv-48,D_sandwich_draft,0.0,"planners, apps","the Pomodoro Technique - 25 minutes work and 5-minute break, scheduler or to-do list, The Eisenhower Matrix, bullet journal",0.0,0.2
+conv-41#57,conv-41,Z_closed_book,0.0,"fashion shows, charity galas, weddings","Toy drive, Community food drive, veterans, domestic violence",,
+conv-41#57,conv-41,A_rrf,0.23809523809523808,homeless shelter toy drive,"Toy drive, Community food drive, veterans, domestic violence",0.0,0.25
+conv-41#57,conv-41,B_graph,0.23809523809523808,homeless shelter toy drive,"Toy drive, Community food drive, veterans, domestic violence",0.0,0.25
+conv-41#57,conv-41,C_sandwich_nodraft,0.325,food drives,"Toy drive, Community food drive, veterans, domestic violence",0.0,0.0
+conv-41#57,conv-41,D_sandwich_draft,0.0,charity galas,"Toy drive, Community food drive, veterans, domestic violence",0.0,0.0
+conv-47#34,conv-47,Z_closed_book,0.5,"United States, Canada","Canada, Greenland",,
+conv-47#34,conv-47,A_rrf,0.5,"Turkey, Mexico, Canada","Canada, Greenland",0.0,0.5
+conv-47#34,conv-47,B_graph,0.5,"Turkey, Mexico, Canada","Canada, Greenland",0.0,0.5
+conv-47#34,conv-47,C_sandwich_nodraft,0.0,"Nuuk,Nuuk,Nuuk","Canada, Greenland",0.0,0.5
+conv-47#34,conv-47,D_sandwich_draft,0.5,"Canada, United States","Canada, Greenland",0.0,0.5
+conv-49#16,conv-49,Z_closed_book,0.0,"Long lines, crowds",Malfunctioning self-checkout machines.,,
+conv-49#16,conv-49,A_rrf,0.8,self-checkout machines,Malfunctioning self-checkout machines.,1.0,1.0
+conv-49#16,conv-49,B_graph,0.8,self-checkout machines,Malfunctioning self-checkout machines.,1.0,1.0
+conv-49#16,conv-49,C_sandwich_nodraft,0.0,sugary treats,Malfunctioning self-checkout machines.,0.0,0.0
+conv-49#16,conv-49,D_sandwich_draft,0.0,"Long lines, crowds",Malfunctioning self-checkout machines.,0.0,0.0
+conv-41#60,conv-41,Z_closed_book,0.0,Milo and Charlie,"Coco, Shadow",,
+conv-41#60,conv-41,A_rrf,0.5,"Coco, Coco","Coco, Shadow",0.0,0.5
+conv-41#60,conv-41,B_graph,0.5,"Coco, Coco","Coco, Shadow",0.0,0.5
+conv-41#60,conv-41,C_sandwich_nodraft,1.0,"Coco, Shadow","Coco, Shadow",1.0,1.0
+conv-41#60,conv-41,D_sandwich_draft,1.0,"Coco, Shadow","Coco, Shadow",1.0,1.0
+conv-47#22,conv-47,Z_closed_book,0.0,"The United Nations, World Wildlife Fund","animal shelter, homeless, children's hospital",,
+conv-47#22,conv-47,A_rrf,0.16666666666666666,dog shelter,"animal shelter, homeless, children's hospital",0.0,0.3333333333333333
+conv-47#22,conv-47,B_graph,0.16666666666666666,dog shelter,"animal shelter, homeless, children's hospital",0.0,0.3333333333333333
+conv-47#22,conv-47,C_sandwich_nodraft,0.0,James' organization,"animal shelter, homeless, children's hospital",0.0,0.0
+conv-47#22,conv-47,D_sandwich_draft,0.0,World Wildlife Fund,"animal shelter, homeless, children's hospital",0.0,0.0
+conv-50#29,conv-50,Z_closed_book,0.0,"Reading books, playing guitar","take a walk, go hiking, listen to favorite albums, live concerts, photography",,
+conv-50#29,conv-50,A_rrf,0.0,fixing things,"take a walk, go hiking, listen to favorite albums, live concerts, photography",0.0,0.0
+conv-50#29,conv-50,B_graph,0.0,fixing things,"take a walk, go hiking, listen to favorite albums, live concerts, photography",0.0,0.0
+conv-50#29,conv-50,C_sandwich_nodraft,0.0,"working on cars, creating something new, collaborating with others, getting away from daily stress","take a walk, go hiking, listen to favorite albums, live concerts, photography",0.0,0.0
+conv-50#29,conv-50,D_sandwich_draft,0.0,"fixing cars, reading books, playing guitar","take a walk, go hiking, listen to favorite albums, live concerts, photography",0.0,0.0
+conv-43#17,conv-43,Z_closed_book,0.0,Two,6,,
+conv-43#17,conv-43,A_rrf,0.0,one,6,0.0,0.2
+conv-43#17,conv-43,B_graph,0.0,one,6,0.0,0.2
+conv-43#17,conv-43,C_sandwich_nodraft,0.0,two,6,0.0,0.2
+conv-43#17,conv-43,D_sandwich_draft,0.0,two,6,0.0,0.2
+conv-41#62,conv-41,Z_closed_book,0.0,5,two,,
+conv-41#62,conv-41,A_rrf,1.0,two,two,1.0,1.0
+conv-41#62,conv-41,B_graph,1.0,two,two,1.0,1.0
+conv-41#62,conv-41,C_sandwich_nodraft,0.0,one,two,0.0,0.5
+conv-41#62,conv-41,D_sandwich_draft,0.0,1,two,0.0,0.5
+conv-49#14,conv-49,Z_closed_book,0.0,"Pizza, pasta, and ice cream",Ginger snaps,,
+conv-49#14,conv-49,A_rrf,0.0,lasagna,Ginger snaps,0.0,0.0
+conv-49#14,conv-49,B_graph,0.0,lasagna,Ginger snaps,0.0,0.0
+conv-49#14,conv-49,C_sandwich_nodraft,0.0,Yummy,Ginger snaps,0.0,0.0
+conv-49#14,conv-49,D_sandwich_draft,0.0,"Pizza, pasta, and ice cream",Ginger snaps,0.0,0.0
+conv-41#18,conv-41,Z_closed_book,0.0,His friend.,Rob,,
+conv-41#18,conv-41,A_rrf,1.0,Rob,Rob,1.0,1.0
+conv-41#18,conv-41,B_graph,1.0,Rob,Rob,1.0,1.0
+conv-41#18,conv-41,C_sandwich_nodraft,1.0,Rob,Rob,1.0,1.0
+conv-41#18,conv-41,D_sandwich_draft,1.0,Rob,Rob,1.0,1.0
+conv-41#3,conv-41,Z_closed_book,0.0,"Animal rescue, tutoring",Volunteering at a homeless shelter,,
+conv-41#3,conv-41,A_rrf,1.0,volunteering at homeless shelters,Volunteering at a homeless shelter,0.0,0.0
+conv-41#3,conv-41,B_graph,1.0,volunteering at homeless shelters,Volunteering at a homeless shelter,0.0,0.0
+conv-41#3,conv-41,C_sandwich_nodraft,0.4,"charity,event,volunteering",Volunteering at a homeless shelter,0.0,0.0
+conv-41#3,conv-41,D_sandwich_draft,0.0,"animal rescue, tutoring",Volunteering at a homeless shelter,0.0,0.0
+conv-44#14,conv-44,Z_closed_book,0.0,his freedom,being in nature,,
+conv-44#14,conv-44,A_rrf,0.0,connection and companionship,being in nature,0.0,0.5
+conv-44#14,conv-44,B_graph,0.0,connection and companionship,being in nature,0.0,0.5
+conv-44#14,conv-44,C_sandwich_nodraft,0.0,companionship,being in nature,0.0,0.5
+conv-44#14,conv-44,D_sandwich_draft,0.0,connection and companionship,being in nature,0.0,0.5
+conv-43#41,conv-43,Z_closed_book,0.25,Science fiction and fantasy,Fantasy stories with plot twists,,
+conv-43#41,conv-43,A_rrf,0.5714285714285715,fantasy stories,Fantasy stories with plot twists,0.0,0.0
+conv-43#41,conv-43,B_graph,0.5714285714285715,fantasy stories,Fantasy stories with plot twists,0.0,0.0
+conv-43#41,conv-43,C_sandwich_nodraft,0.28571428571428575,fantasy novels,Fantasy stories with plot twists,0.0,0.5
+conv-43#41,conv-43,D_sandwich_draft,0.28571428571428575,fantasy novels,Fantasy stories with plot twists,0.0,0.5
+conv-41#35,conv-41,Z_closed_book,0.5,"Florida, California","Oregon, Florida",,
+conv-41#35,conv-41,A_rrf,0.0,not specified,"Oregon, Florida",0.0,0.0
+conv-41#35,conv-41,B_graph,0.0,not specified,"Oregon, Florida",0.0,0.0
+conv-41#35,conv-41,C_sandwich_nodraft,0.0,Spain,"Oregon, Florida",0.0,0.0
+conv-41#35,conv-41,D_sandwich_draft,0.5,"Florida, California","Oregon, Florida",0.0,0.0
+conv-50#22,conv-50,Z_closed_book,1.0,"Yes, he wants to expand his brand globally.",yes,,
+conv-50#22,conv-50,A_rrf,1.0,"Yes, he wants to expand his brand worldwide and grow his fanbase.",yes,1.0,1.0
+conv-50#22,conv-50,B_graph,1.0,"Yes, he wants to expand his brand worldwide and grow his fanbase.",yes,1.0,1.0
+conv-50#22,conv-50,C_sandwich_nodraft,1.0,Yes,yes,0.0,0.0
+conv-50#22,conv-50,D_sandwich_draft,1.0,"Yes, he wants to expand his brand globally.",yes,0.0,0.0
+conv-30#23,conv-30,Z_closed_book,0.0,She advertised on social media and in local newspapers.,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",,
+conv-30#23,conv-30,A_rrf,0.0,launched an ad campaign,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",0.0,0.0
+conv-30#23,conv-30,B_graph,0.0,launched an ad campaign,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",0.0,0.0
+conv-30#23,conv-30,C_sandwich_nodraft,0.0,launched an ad campaign,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",0.0,0.0
+conv-30#23,conv-30,D_sandwich_draft,0.0,advertisements,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",0.0,0.0
+conv-49#72,conv-49,Z_closed_book,0.0,Running,hiking,,
+conv-49#72,conv-49,A_rrf,0.0,exercising,hiking,0.0,0.0
+conv-49#72,conv-49,B_graph,0.0,exercising,hiking,0.0,0.0
+conv-49#72,conv-49,C_sandwich_nodraft,1.0,hiking,hiking,0.0,0.0
+conv-49#72,conv-49,D_sandwich_draft,1.0,hiking,hiking,0.0,0.0
+conv-43#38,conv-43,Z_closed_book,0.0,"Japan, South Korea",UK,,
+conv-43#38,conv-43,A_rrf,0.0,Ireland,UK,0.0,0.3333333333333333
+conv-43#38,conv-43,B_graph,0.0,Ireland,UK,0.0,0.3333333333333333
+conv-43#38,conv-43,C_sandwich_nodraft,0.0,Italy,UK,0.0,0.0
+conv-43#38,conv-43,D_sandwich_draft,0.0,"Japan, South Korea",UK,0.0,0.0
+conv-49#78,conv-49,Z_closed_book,0.25,His best friend,"To Sam, to his friends from work, and to his and his wife's families.",,
+conv-49#78,conv-49,A_rrf,0.0,extended fam,"To Sam, to his friends from work, and to his and his wife's families.",0.0,0.8
+conv-49#78,conv-49,B_graph,0.1904761904761905,his partner,"To Sam, to his friends from work, and to his and his wife's families.",0.0,0.8
+conv-49#78,conv-49,C_sandwich_nodraft,0.0,extended fam,"To Sam, to his friends from work, and to his and his wife's families.",0.0,0.6
+conv-49#78,conv-49,D_sandwich_draft,0.1904761904761905,his partner,"To Sam, to his friends from work, and to his and his wife's families.",0.0,0.6
+conv-43#49,conv-43,Z_closed_book,0.5,3 times,two times,,
+conv-43#49,conv-43,A_rrf,0.0,once,two times,1.0,1.0
+conv-43#49,conv-43,B_graph,0.0,once,two times,1.0,1.0
+conv-43#49,conv-43,C_sandwich_nodraft,0.0,once,two times,1.0,1.0
+conv-43#49,conv-43,D_sandwich_draft,0.0,1,two times,1.0,1.0
+conv-42#61,conv-42,Z_closed_book,0.3333333333333333,"PC, console","Gamecube, PC,Playstation.",,
+conv-42#61,conv-42,A_rrf,0.0,"video games, street fighter tournaments","Gamecube, PC,Playstation.",0.0,0.0
+conv-42#61,conv-42,B_graph,0.0,"video games, street fighter tournaments","Gamecube, PC,Playstation.",0.0,0.0
+conv-42#61,conv-42,C_sandwich_nodraft,0.0,"video game, movie","Gamecube, PC,Playstation.",0.0,0.0
+conv-42#61,conv-42,D_sandwich_draft,0.3333333333333333,"PC, console","Gamecube, PC,Playstation.",0.0,0.0
+conv-42#34,conv-42,Z_closed_book,0.0,"""Harry Potter"", ""The Alchemist"".","""Little Women"",'A Court of Thorns andRoses'.",,
+conv-42#34,conv-42,A_rrf,0.0,fantasy book series,"""Little Women"",'A Court of Thorns andRoses'.",0.0,0.3333333333333333
+conv-42#34,conv-42,B_graph,0.0,fantasy book series,"""Little Women"",'A Court of Thorns andRoses'.",0.0,0.3333333333333333
+conv-42#34,conv-42,C_sandwich_nodraft,0.0,The series,"""Little Women"",'A Court of Thorns andRoses'.",0.0,0.0
+conv-42#34,conv-42,D_sandwich_draft,0.0,"""The Alchemist""","""Little Women"",'A Court of Thorns andRoses'.",0.0,0.0
+conv-44#54,conv-44,Z_closed_book,0.33333333333333337,"Running, playing, fetching","Play fetch with ball and frisbee, run around and meet other dogs",,
+conv-44#54,conv-44,A_rrf,0.33333333333333337,"playing, running, chasing, sniffing","Play fetch with ball and frisbee, run around and meet other dogs",0.0,0.2
+conv-44#54,conv-44,B_graph,0.33333333333333337,"playing, running, chasing, sniffing","Play fetch with ball and frisbee, run around and meet other dogs",0.0,0.2
+conv-44#54,conv-44,C_sandwich_nodraft,0.28571428571428575,"running around, meeting other pups, getting lots of exercise","Play fetch with ball and frisbee, run around and meet other dogs",0.0,0.4
+conv-44#54,conv-44,D_sandwich_draft,0.33333333333333337,"running, playing, fetching","Play fetch with ball and frisbee, run around and meet other dogs",0.0,0.4
+conv-30#18,conv-30,Z_closed_book,1.0,"Yes, both Jon and Gina start their own companies because they love what they do.",Yes,,
+conv-30#18,conv-30,A_rrf,1.0,Yes,Yes,0.0,0.0
+conv-30#18,conv-30,B_graph,1.0,Yes,Yes,0.0,0.0
+conv-30#18,conv-30,C_sandwich_nodraft,1.0,Yes,Yes,0.0,0.0
+conv-30#18,conv-30,D_sandwich_draft,1.0,Yes,Yes,0.0,0.0
+conv-44#2,conv-44,Z_closed_book,0.0,"Cooking, painting","boardgames, volunteering at pet shelter, wine tasting, growing flowers",,
+conv-44#2,conv-44,A_rrf,0.0,discovering new places to eat,"boardgames, volunteering at pet shelter, wine tasting, growing flowers",0.0,0.0
+conv-44#2,conv-44,B_graph,0.0,discovering new places to eat,"boardgames, volunteering at pet shelter, wine tasting, growing flowers",0.0,0.0
+conv-44#2,conv-44,C_sandwich_nodraft,0.0,discovering new places to eat around town,"boardgames, volunteering at pet shelter, wine tasting, growing flowers",0.0,0.0
+conv-44#2,conv-44,D_sandwich_draft,0.0,None,"boardgames, volunteering at pet shelter, wine tasting, growing flowers",0.0,0.0
+conv-43#0,conv-43,Z_closed_book,0.0,To become a professional player,"improve shooting percentage, win a championship",,
+conv-43#0,conv-43,A_rrf,0.0,building his brand,"improve shooting percentage, win a championship",0.0,0.0
+conv-43#0,conv-43,B_graph,0.0,building his brand,"improve shooting percentage, win a championship",0.0,0.0
+conv-43#0,conv-43,C_sandwich_nodraft,0.5,"winning a championship, making a difference off the court","improve shooting percentage, win a championship",0.0,0.3333333333333333
+conv-43#0,conv-43,D_sandwich_draft,0.5,"winning a championship, making a difference off the court","improve shooting percentage, win a championship",0.0,0.3333333333333333
+conv-44#51,conv-44,Z_closed_book,0.6666666666666666,"bedding, toys, treats, collars, leashes","dog tags, toys, dog beds, collars",,
+conv-44#51,conv-44,A_rrf,0.25,"toys, Frisbee, Fetch","dog tags, toys, dog beds, collars",0.0,0.25
+conv-44#51,conv-44,B_graph,0.25,"toys, Frisbee, Fetch","dog tags, toys, dog beds, collars",0.0,0.25
+conv-44#51,conv-44,C_sandwich_nodraft,0.0,"Frisbee, puzzle, training, hide-and-seek","dog tags, toys, dog beds, collars",0.0,0.0
+conv-44#51,conv-44,D_sandwich_draft,0.6666666666666666,"puzzles, training, hide-and-seek, bedding, toys, treats, collars, leashes","dog tags, toys, dog beds, collars",0.0,0.0
+conv-30#31,conv-30,Z_closed_book,0.0,A few days,six months,,
+conv-30#31,conv-30,A_rrf,0.5,11 months,six months,0.0,0.0
+conv-30#31,conv-30,B_graph,0.5,11 months,six months,0.0,0.0
+conv-30#31,conv-30,C_sandwich_nodraft,0.5,1 month,six months,0.0,0.5
+conv-30#31,conv-30,D_sandwich_draft,0.5,two months,six months,0.0,0.5
+conv-26#24,conv-26,Z_closed_book,0.0,"reads books, meditates","Running, pottery",,
+conv-26#24,conv-26,A_rrf,0.0,family time,"Running, pottery",0.0,0.0
+conv-26#24,conv-26,B_graph,0.0,family time,"Running, pottery",0.0,0.0
+conv-26#24,conv-26,C_sandwich_nodraft,0.25,runs a charity race,"Running, pottery",0.0,0.0
+conv-26#24,conv-26,D_sandwich_draft,0.25,runs a charity race,"Running, pottery",0.0,0.0
+conv-42#70,conv-42,Z_closed_book,0.35,"feeds them, cleans their habitat, plays with them","takes them onwalks, holds them,feeds themstrawberries, givesthem baths.",,
+conv-42#70,conv-42,A_rrf,0.24285714285714288,"hanging with them, taking them for walks, watching them slowly walk around","takes them onwalks, holds them,feeds themstrawberries, givesthem baths.",0.0,0.3333333333333333
+conv-42#70,conv-42,B_graph,0.24285714285714288,"hanging with them, taking them for walks, watching them slowly walk around","takes them onwalks, holds them,feeds themstrawberries, givesthem baths.",0.0,0.3333333333333333
+conv-42#70,conv-42,C_sandwich_nodraft,0.22619047619047622,"takes them for walks, takes them to the beach","takes them onwalks, holds them,feeds themstrawberries, givesthem baths.",0.0,0.0
+conv-42#70,conv-42,D_sandwich_draft,0.24285714285714288,"take them for walks, clean their habitat, play with them","takes them onwalks, holds them,feeds themstrawberries, givesthem baths.",0.0,0.0
+conv-50#40,conv-50,Z_closed_book,0.0,rock and roll,Tupac and Dr. Dre,,
+conv-50#40,conv-50,A_rrf,0.0,California Love,Tupac and Dr. Dre,0.0,0.5
+conv-50#40,conv-50,B_graph,0.0,California Love,Tupac and Dr. Dre,0.0,0.5
+conv-50#40,conv-50,C_sandwich_nodraft,1.0,Tupac and Dr. Dre,Tupac and Dr. Dre,1.0,1.0
+conv-50#40,conv-50,D_sandwich_draft,1.0,Tupac and Dr. Dre,Tupac and Dr. Dre,1.0,1.0
+conv-48#77,conv-48,Z_closed_book,0.0,"Baja California, Mexico",Phuket,,
+conv-48#77,conv-48,A_rrf,0.0,cool dive spot,Phuket,0.0,0.5
+conv-48#77,conv-48,B_graph,0.0,cool dive spot,Phuket,0.0,0.5
+conv-48#77,conv-48,C_sandwich_nodraft,0.0,Paris,Phuket,0.0,0.0
+conv-48#77,conv-48,D_sandwich_draft,0.0,Mexico,Phuket,0.0,0.0
+conv-41#23,conv-41,Z_closed_book,0.0,"Tiramisu, chocolate cake, fruit tart.","Banana split sundae, Peach cobbler",,
+conv-41#23,conv-41,A_rrf,1.0,"peach cobbler, banana split sundae","Banana split sundae, Peach cobbler",1.0,1.0
+conv-41#23,conv-41,B_graph,1.0,"peach cobbler, banana split sundae","Banana split sundae, Peach cobbler",1.0,1.0
+conv-41#23,conv-41,C_sandwich_nodraft,1.0,"peach cobbler, apple pie, banana split sundae","Banana split sundae, Peach cobbler",1.0,1.0
+conv-41#23,conv-41,D_sandwich_draft,1.0,"peach cobbler, apple pie, banana split sundae","Banana split sundae, Peach cobbler",1.0,1.0
+conv-30#27,conv-30,Z_closed_book,1.0,Yes,Yes,,
+conv-30#27,conv-30,A_rrf,1.0,Yes,Yes,0.0,0.2
+conv-30#27,conv-30,B_graph,1.0,Yes,Yes,0.0,0.2
+conv-30#27,conv-30,C_sandwich_nodraft,0.0,no,Yes,0.0,0.0
+conv-30#27,conv-30,D_sandwich_draft,0.0,No,Yes,0.0,0.0
+conv-41#30,conv-41,Z_closed_book,0.75,"Homeless shelter, food bank","The homeless shelter, the dog shelter",,
+conv-41#30,conv-41,A_rrf,0.75,"homeless shelter, shelter I volunteer at","The homeless shelter, the dog shelter",0.0,0.6666666666666666
+conv-41#30,conv-41,B_graph,0.75,"homeless shelter, homeless shelter","The homeless shelter, the dog shelter",0.0,0.6666666666666666
+conv-41#30,conv-41,C_sandwich_nodraft,0.75,homeless shelter,"The homeless shelter, the dog shelter",0.0,0.0
+conv-41#30,conv-41,D_sandwich_draft,0.75,homeless shelter,"The homeless shelter, the dog shelter",0.0,0.0
+conv-48#86,conv-48,Z_closed_book,0.09523809523809525,"A necklace, a book, and some flowers.","an appreciate letter from her community, a flower bouqet from her friend, a motivational quote from a friend",,
+conv-48#86,conv-48,A_rrf,0.11111111111111112,"letter,pendant","an appreciate letter from her community, a flower bouqet from her friend, a motivational quote from a friend",0.0,0.2
+conv-48#86,conv-48,B_graph,0.11111111111111112,"letter, pendant","an appreciate letter from her community, a flower bouqet from her friend, a motivational quote from a friend",0.0,0.2
+conv-48#86,conv-48,C_sandwich_nodraft,0.0,"amulet,pendant","an appreciate letter from her community, a flower bouqet from her friend, a motivational quote from a friend",0.0,0.0
+conv-48#86,conv-48,D_sandwich_draft,0.09523809523809525,"an amulet, a pendant, a book, and some flowers","an appreciate letter from her community, a flower bouqet from her friend, a motivational quote from a friend",0.0,0.0
+conv-48#14,conv-48,Z_closed_book,0.0,"knitting, gardening","reading, traveling, art, cooking",,
+conv-48#14,conv-48,A_rrf,0.0,painting,"reading, traveling, art, cooking",0.0,0.0
+conv-48#14,conv-48,B_graph,0.0,painting,"reading, traveling, art, cooking",0.0,0.0
+conv-48#14,conv-48,C_sandwich_nodraft,0.5,"reading, travel","reading, traveling, art, cooking",0.0,0.5
+conv-48#14,conv-48,D_sandwich_draft,0.5,"reading, travel","reading, traveling, art, cooking",0.0,0.5
+conv-44#49,conv-44,Z_closed_book,0.0,friends,Family,,
+conv-44#49,conv-44,A_rrf,1.0,family,Family,0.0,0.0
+conv-44#49,conv-44,B_graph,1.0,family,Family,0.0,0.0
+conv-44#49,conv-44,C_sandwich_nodraft,0.0,cuddle buddies,Family,0.0,0.0
+conv-44#49,conv-44,D_sandwich_draft,0.0,cuddle buddies,Family,0.0,0.0
+conv-41#9,conv-41,Z_closed_book,0.0,Grandfather,Her aunt,,
+conv-41#9,conv-41,A_rrf,0.0,Auntie,Her aunt,0.0,0.5
+conv-41#9,conv-41,B_graph,0.0,Auntie,Her aunt,0.0,0.5
+conv-41#9,conv-41,C_sandwich_nodraft,0.0,Auntie,Her aunt,0.0,0.5
+conv-41#9,conv-41,D_sandwich_draft,0.0,Auntie,Her aunt,0.0,0.5
+conv-49#42,conv-49,Z_closed_book,0.0,He was an art student.,His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.,,
+conv-49#42,conv-49,A_rrf,0.0,helping a lost tourist find their way,His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.,0.0,0.25
+conv-49#42,conv-49,B_graph,0.0,helping a lost tourist find their way,His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.,0.0,0.25
+conv-49#42,conv-49,C_sandwich_nodraft,0.0,expressing himself through art,His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.,0.0,0.0
+conv-49#42,conv-49,D_sandwich_draft,0.15384615384615383,painting what's on his mind or something he's feeling,His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.,0.0,0.0
+conv-44#28,conv-44,Z_closed_book,0.0,collars and leashes,Hats,,
+conv-44#28,conv-44,A_rrf,0.0,leashes,Hats,0.0,0.0
+conv-44#28,conv-44,B_graph,0.0,leashes,Hats,0.0,0.0
+conv-44#28,conv-44,C_sandwich_nodraft,0.0,teddy bears,Hats,0.0,0.3333333333333333
+conv-44#28,conv-44,D_sandwich_draft,0.0,collars and leashes,Hats,0.0,0.3333333333333333
+conv-49#54,conv-49,Z_closed_book,0.16666666666666666,"Heart attack, stroke, cancer","heart palpitations, twisted ankle, twisted ankle",,
+conv-49#54,conv-49,A_rrf,0.2222222222222222,"sudden heart palpitation incident, life was a rollercoaster, a health scare","heart palpitations, twisted ankle, twisted ankle",0.0,0.3333333333333333
+conv-49#54,conv-49,B_graph,0.2222222222222222,"sudden heart palpitation incident, life was a rollercoaster, a health scare","heart palpitations, twisted ankle, twisted ankle",0.0,0.3333333333333333
+conv-49#54,conv-49,C_sandwich_nodraft,0.2222222222222222,"sudden heart palpitation incident, health scare, went to the hospital, health scare, misunderstood issue","heart palpitations, twisted ankle, twisted ankle",0.0,0.3333333333333333
+conv-49#54,conv-49,D_sandwich_draft,0.3333333333333333,"heart palpitations, health scare, heart attack, stroke, cancer","heart palpitations, twisted ankle, twisted ankle",0.0,0.3333333333333333
+conv-50#60,conv-50,Z_closed_book,0.0,"A framed painting, a sketchbook, and some postcards.","gold chain, custom-made guitar with an octopus on it",,
+conv-50#60,conv-50,A_rrf,0.0,gift from another artist as a gift,"gold chain, custom-made guitar with an octopus on it",0.0,0.3333333333333333
+conv-50#60,conv-50,B_graph,0.0,gift from another artist as a gift,"gold chain, custom-made guitar with an octopus on it",0.0,0.3333333333333333
+conv-50#60,conv-50,C_sandwich_nodraft,0.0,"inspiration, encouragement","gold chain, custom-made guitar with an octopus on it",0.0,0.0
+conv-50#60,conv-50,D_sandwich_draft,0.0,postcards,"gold chain, custom-made guitar with an octopus on it",0.0,0.0
+conv-48#83,conv-48,Z_closed_book,0.0,"volunteering, internships, networking events","present work at virtual conference, attend workshops  and intern at firms",,
+conv-48#83,conv-48,A_rrf,0.5555555555555556,presenting at a virtual conference,"present work at virtual conference, attend workshops  and intern at firms",1.0,1.0
+conv-48#83,conv-48,B_graph,0.5555555555555556,presenting at a virtual conference,"present work at virtual conference, attend workshops  and intern at firms",1.0,1.0
+conv-48#83,conv-48,C_sandwich_nodraft,0.4,interning at a well-known engineering firm,"present work at virtual conference, attend workshops  and intern at firms",0.0,0.5
+conv-48#83,conv-48,D_sandwich_draft,0.4,interning at a well-known engineering firm,"present work at virtual conference, attend workshops  and intern at firms",0.0,0.5
+conv-48#24,conv-48,Z_closed_book,0.6333333333333333,"Downward facing dog, warrior 2, tree pose","Warrior II, Dancer Pose (Natarajasana), Tree pose",,
+conv-48#24,conv-48,A_rrf,0.7999999999999999,"Warrior II, Dancer Pose (Natarajasana)","Warrior II, Dancer Pose (Natarajasana), Tree pose",0.0,0.6666666666666666
+conv-48#24,conv-48,B_graph,0.7999999999999999,"Warrior II, Dancer Pose (Natarajasana)","Warrior II, Dancer Pose (Natarajasana), Tree pose",0.0,0.6666666666666666
+conv-48#24,conv-48,C_sandwich_nodraft,0.6666666666666666,"Dancer Pose (Natarajasana), Tree Pose","Warrior II, Dancer Pose (Natarajasana), Tree pose",1.0,1.0
+conv-48#24,conv-48,D_sandwich_draft,0.6666666666666666,"Dancer Pose (Natarajasana), Tree Pose","Warrior II, Dancer Pose (Natarajasana), Tree pose",1.0,1.0
+conv-47#9,conv-47,Z_closed_book,0.0,Spot and Buddy,"Ned, Daisy, Max",,
+conv-47#9,conv-47,A_rrf,0.0,"James: The source of my joy, so I will always take care of them!","Ned, Daisy, Max",0.0,0.0
+conv-47#9,conv-47,B_graph,0.0,"James: The source of my joy, so I will always take care of them!","Ned, Daisy, Max",0.0,0.0
+conv-47#9,conv-47,C_sandwich_nodraft,0.3333333333333333,"Daisy, Luna","Ned, Daisy, Max",0.0,0.0
+conv-47#9,conv-47,D_sandwich_draft,0.3333333333333333,"Daisy, Luna","Ned, Daisy, Max",0.0,0.0
+conv-49#56,conv-49,Z_closed_book,0.0,"Missing battery, dropped calls, and lost data.","His new phone malfunctioning, particularly with the navigation app.",,
+conv-49#56,conv-49,A_rrf,0.4285714285714286,navigation app malfunctioning,"His new phone malfunctioning, particularly with the navigation app.",0.0,0.5
+conv-49#56,conv-49,B_graph,0.4285714285714286,navigation app malfunctioning,"His new phone malfunctioning, particularly with the navigation app.",0.0,0.5
+conv-49#56,conv-49,C_sandwich_nodraft,0.0,frustration,"His new phone malfunctioning, particularly with the navigation app.",0.0,0.0
+conv-49#56,conv-49,D_sandwich_draft,0.0,lost data,"His new phone malfunctioning, particularly with the navigation app.",0.0,0.0
+conv-44#48,conv-44,Z_closed_book,0.0,friends,Family,,
+conv-44#48,conv-44,A_rrf,0.0,friends and confidantes,Family,0.0,0.5
+conv-44#48,conv-44,B_graph,0.0,friends and confidantes,Family,0.0,0.5
+conv-44#48,conv-44,C_sandwich_nodraft,0.0,"lovely, joyful, loving, intelligent, faithful, companion, cherished, beloved, adored, treasured, special, precious, endearing, loved,",Family,0.0,0.0
+conv-44#48,conv-44,D_sandwich_draft,0.0,animals,Family,0.0,0.0
+conv-44#17,conv-44,Z_closed_book,0.0,twice,three times,,
+conv-44#17,conv-44,A_rrf,0.0,twice,three times,0.0,0.0
+conv-44#17,conv-44,B_graph,0.0,twice,three times,0.0,0.0
+conv-44#17,conv-44,C_sandwich_nodraft,0.0,couple of months,three times,0.0,0.0
+conv-44#17,conv-44,D_sandwich_draft,0.0,twice,three times,0.0,0.0
+conv-26#78,conv-26,Z_closed_book,0.0,"clothes, books, food","Figurines, shoes",,
+conv-26#78,conv-26,A_rrf,0.0,"necklace, stack of bowls with different designs","Figurines, shoes",0.0,0.0
+conv-26#78,conv-26,B_graph,0.0,"necklace, stack of bowls with different designs","Figurines, shoes",0.0,0.0
+conv-26#78,conv-26,C_sandwich_nodraft,0.0,"books, necklaces, bowls","Figurines, shoes",0.0,0.0
+conv-26#78,conv-26,D_sandwich_draft,0.0,"books, food","Figurines, shoes",0.0,0.0
+conv-48#41,conv-48,Z_closed_book,0.0,"yoga blocks, straps, blankets","candles, music, essential oils",,
+conv-48#41,conv-48,A_rrf,0.6666666666666666,"yoga mats, candles, essential oils","candles, music, essential oils",0.0,0.0
+conv-48#41,conv-48,B_graph,0.6666666666666666,"yoga mats, candles, essential oils","candles, music, essential oils",0.0,0.0
+conv-48#41,conv-48,C_sandwich_nodraft,0.0,"yoga, meditation, exercise, connecting with nature","candles, music, essential oils",0.0,0.0
+conv-48#41,conv-48,D_sandwich_draft,0.0,"yoga blocks, straps, blankets","candles, music, essential oils",0.0,0.0
+conv-50#23,conv-50,Z_closed_book,0.0,Writing and reading novels.,auto engineering,,
+conv-50#23,conv-50,A_rrf,0.0,music,auto engineering,0.0,0.0
+conv-50#23,conv-50,B_graph,0.0,music,auto engineering,0.0,0.0
+conv-50#23,conv-50,C_sandwich_nodraft,0.0,fixing up things,auto engineering,0.0,0.0
+conv-50#23,conv-50,D_sandwich_draft,0.0,fixing up things,auto engineering,0.0,0.0
+conv-44#50,conv-44,Z_closed_book,0.5,Dog walking and grooming.,Grooming,,
+conv-44#50,conv-44,A_rrf,0.6666666666666666,dog grooming,Grooming,0.0,0.0
+conv-44#50,conv-44,B_graph,0.6666666666666666,dog grooming,Grooming,0.0,0.0
+conv-44#50,conv-44,C_sandwich_nodraft,0.6666666666666666,dog grooming,Grooming,0.0,0.0
+conv-44#50,conv-44,D_sandwich_draft,0.6666666666666666,dog grooming,Grooming,0.0,0.0
+conv-43#43,conv-43,Z_closed_book,0.225,His athleticism and leadership.,"His heart, determination, skills, and leadership.",,
+conv-43#43,conv-43,A_rrf,0.7916666666666666,"skills, leadership, moments of determination, heart","His heart, determination, skills, and leadership.",1.0,1.0
+conv-43#43,conv-43,B_graph,0.7916666666666666,"skills, leadership, moments of determination, heart","His heart, determination, skills, and leadership.",1.0,1.0
+conv-43#43,conv-43,C_sandwich_nodraft,0.5,"skills, leadership, work ethic, dedication, inspiration","His heart, determination, skills, and leadership.",1.0,1.0
+conv-43#43,conv-43,D_sandwich_draft,0.225,His athleticism and leadership.,"His heart, determination, skills, and leadership.",1.0,1.0
+conv-50#18,conv-50,Z_closed_book,0.0,twice,two times,,
+conv-50#18,conv-50,A_rrf,0.0,three,two times,0.0,0.5
+conv-50#18,conv-50,B_graph,0.0,twice,two times,0.0,0.5
+conv-50#18,conv-50,C_sandwich_nodraft,0.6666666666666666,two,two times,0.0,0.5
+conv-50#18,conv-50,D_sandwich_draft,0.6666666666666666,two,two times,0.0,0.5
+conv-26#15,conv-26,Z_closed_book,0.0,"Reading, hiking, and playing tennis.","pottery, camping, painting, swimming",,
+conv-26#15,conv-26,A_rrf,0.0,music,"pottery, camping, painting, swimming",0.0,0.0
+conv-26#15,conv-26,B_graph,0.0,music,"pottery, camping, painting, swimming",0.0,0.0
+conv-26#15,conv-26,C_sandwich_nodraft,0.0,"playing games, eating good food, hanging out","pottery, camping, painting, swimming",0.0,0.0
+conv-26#15,conv-26,D_sandwich_draft,0.0,"hiking, reading, playing tennis","pottery, camping, painting, swimming",0.0,0.0
+conv-26#39,conv-26,Z_closed_book,0.125,"Caroline attends Pride parades, volunteers at local LGBTQ organizations, and supports LGBTQ rights causes.","Joining activist group, going to pride parades, participating in an art show, mentoring program",,
+conv-26#39,conv-26,A_rrf,0.4541666666666666,"joining a mentorship program, joining a transgender conference, attending a LGBTQ support group, joining a new LGBTQ activist group, creating an art piece, participating in a","Joining activist group, going to pride parades, participating in an art show, mentoring program",0.0,0.75
+conv-26#39,conv-26,B_graph,0.4541666666666666,"joining a mentorship program, joining a transgender conference, attending a LGBTQ support group, joining a new LGBTQ activist group, creating an art piece, participating in a","Joining activist group, going to pride parades, participating in an art show, mentoring program",0.0,0.75
+conv-26#39,conv-26,C_sandwich_nodraft,0.35,"joining a mentorship program, attending conferences, joining an activist group, mentoring a transgender teen, being part of a connected LGBTQ activists group","Joining activist group, going to pride parades, participating in an art show, mentoring program",0.0,0.75
+conv-26#39,conv-26,D_sandwich_draft,0.16666666666666666,"Pride parades, volunteering, supporting rights","Joining activist group, going to pride parades, participating in an art show, mentoring program",0.0,0.75
+conv-41#44,conv-41,Z_closed_book,0.0,"Visits museums, plays in the park, attends concerts.","Hiking, picnic, volunteer work",,
+conv-41#44,conv-41,A_rrf,0.3333333333333333,"picnic, playing games, eating yummy food","Hiking, picnic, volunteer work",0.0,0.3333333333333333
+conv-41#44,conv-41,B_graph,0.3333333333333333,"picnic, playing games, eating yummy food","Hiking, picnic, volunteer work",0.0,0.3333333333333333
+conv-41#44,conv-41,C_sandwich_nodraft,0.0,helping with getting everything ready,"Hiking, picnic, volunteer work",0.0,0.0
+conv-41#44,conv-41,D_sandwich_draft,0.0,None,"Hiking, picnic, volunteer work",0.0,0.0
+conv-43#14,conv-43,Z_closed_book,0.0,Poetry and fiction.,"comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",,
+conv-43#14,conv-43,A_rrf,0.7777777777777778,"fantasy novels, studying characters, themes, making book recommendations","comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",0.0,0.25
+conv-43#14,conv-43,B_graph,0.7777777777777778,"fantasy novels, studying characters, themes, making book recommendations","comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",0.0,0.25
+conv-43#14,conv-43,C_sandwich_nodraft,0.2777777777777778,fantasy novels,"comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",0.0,0.5
+conv-43#14,conv-43,D_sandwich_draft,0.2777777777777778,fantasy novels,"comments on favorite books in a fantasy literature forum, articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",0.0,0.5
+conv-43#26,conv-43,Z_closed_book,0.0,"Breaking Bad, Dexter","That, Wheel of Time",,
+conv-43#26,conv-43,A_rrf,0.5,"""The Wheel of Time""","That, Wheel of Time",0.0,0.3333333333333333
+conv-43#26,conv-43,B_graph,0.5,"""The Wheel of Time""","That, Wheel of Time",0.0,0.3333333333333333
+conv-43#26,conv-43,C_sandwich_nodraft,0.5,"""The Wheel of Time""","That, Wheel of Time",0.0,0.3333333333333333
+conv-43#26,conv-43,D_sandwich_draft,0.5,"""The Wheel of Time""","That, Wheel of Time",0.0,0.3333333333333333
+conv-50#32,conv-50,Z_closed_book,0.0,Italy,San Francisco,,
+conv-50#32,conv-50,A_rrf,1.0,San Francisco,San Francisco,1.0,1.0
+conv-50#32,conv-50,B_graph,1.0,San Francisco,San Francisco,1.0,1.0
+conv-50#32,conv-50,C_sandwich_nodraft,1.0,San Francisco,San Francisco,1.0,1.0
+conv-50#32,conv-50,D_sandwich_draft,1.0,San Francisco,San Francisco,1.0,1.0
+conv-47#5,conv-47,Z_closed_book,0.0,"Chess, checkers","John's favorite game is CS:GO, and James's is Apex Legends.",,
+conv-47#5,conv-47,A_rrf,0.14285714285714288,"video games, family game nights","John's favorite game is CS:GO, and James's is Apex Legends.",0.0,0.0
+conv-47#5,conv-47,B_graph,0.14285714285714288,"RPGs, strategy games","John's favorite game is CS:GO, and James's is Apex Legends.",0.0,0.0
+conv-47#5,conv-47,C_sandwich_nodraft,0.14285714285714288,"video games, video games","John's favorite game is CS:GO, and James's is Apex Legends.",0.0,0.0
+conv-47#5,conv-47,D_sandwich_draft,0.14285714285714288,"video games, chess, checkers","John's favorite game is CS:GO, and James's is Apex Legends.",0.0,0.0
+conv-42#56,conv-42,Z_closed_book,0.0,"dog, cat",Turtles.,,
+conv-42#56,conv-42,A_rrf,0.0,"dogs, cats",Turtles.,0.0,0.0
+conv-42#56,conv-42,B_graph,0.0,"dogs, cats",Turtles.,0.0,0.0
+conv-42#56,conv-42,C_sandwich_nodraft,0.0,fish,Turtles.,0.0,0.0
+conv-42#56,conv-42,D_sandwich_draft,0.0,"dog, cat",Turtles.,0.0,0.0
+conv-49#37,conv-49,Z_closed_book,0.19444444444444442,"Vegetables, fruits, whole grains, lean proteins","salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",,
+conv-49#37,conv-49,A_rrf,0.0,more energy and less sluggishness,"salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",0.0,0.14285714285714285
+conv-49#37,conv-49,B_graph,0.0,more energy and less sluggishness,"salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",0.0,0.2857142857142857
+conv-49#37,conv-49,C_sandwich_nodraft,0.10317460317460318,yummy grilled dish,"salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",0.0,0.42857142857142855
+conv-49#37,conv-49,D_sandwich_draft,0.10317460317460318,yummy grilled dish,"salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",0.0,0.42857142857142855
+conv-50#15,conv-50,Z_closed_book,0.1818181818181818,To get away from work and relax.,because it relaxes and calms him,,
+conv-50#15,conv-50,A_rrf,0.0,hangs out with friends,because it relaxes and calms him,0.0,0.0
+conv-50#15,conv-50,B_graph,0.0,hangs out with friends,because it relaxes and calms him,0.0,0.0
+conv-50#15,conv-50,C_sandwich_nodraft,0.33333333333333337,calming,because it relaxes and calms him,0.0,0.5
+conv-50#15,conv-50,D_sandwich_draft,0.33333333333333337,calming,because it relaxes and calms him,0.0,0.5
+conv-49#48,conv-49,Z_closed_book,0.225,"Eating more fruits, vegetables, whole grains, reducing meat consumption, exercising regularly.","Healthy eating, exercise routine, running, hiking",,
+conv-49#48,conv-49,A_rrf,0.2678571428571429,"eating healthier, starting a new diet and exercise routine","Healthy eating, exercise routine, running, hiking",0.0,0.75
+conv-49#48,conv-49,B_graph,0.2678571428571429,"eating healthier, starting a new diet and exercise routine","Healthy eating, exercise routine, running, hiking",0.0,0.75
+conv-49#48,conv-49,C_sandwich_nodraft,0.325,"eating healthier, starting an exercise routine","Healthy eating, exercise routine, running, hiking",0.0,0.25
+conv-49#48,conv-49,D_sandwich_draft,0.20833333333333331,"eating healthier, starting to exercise regularly","Healthy eating, exercise routine, running, hiking",0.0,0.25
+conv-43#11,conv-43,Z_closed_book,0.0,soccer,surfing,,
+conv-43#11,conv-43,A_rrf,0.0,"seminars, helping people with their sports and marketing",surfing,0.0,0.0
+conv-43#11,conv-43,B_graph,0.0,"seminars, helping people with their sports and marketing",surfing,0.0,0.0
+conv-43#11,conv-43,C_sandwich_nodraft,0.0,"books, movies",surfing,0.0,0.0
+conv-43#11,conv-43,D_sandwich_draft,0.0,soccer,surfing,0.0,0.0
+conv-41#49,conv-41,Z_closed_book,0.0,Canned tuna,Cakes,,
+conv-41#49,conv-41,A_rrf,0.0,baked goods,Cakes,0.0,0.5
+conv-41#49,conv-41,B_graph,0.0,clothes,Cakes,0.0,0.5
+conv-41#49,conv-41,C_sandwich_nodraft,0.0,meal,Cakes,0.0,0.0
+conv-41#49,conv-41,D_sandwich_draft,0.0,canned tuna,Cakes,0.0,0.0
+conv-26#75,conv-26,Z_closed_book,0.0,Two,3,,
+conv-26#75,conv-26,A_rrf,0.0,three,3,0.0,0.0
+conv-26#75,conv-26,B_graph,0.0,three,3,0.0,0.0
+conv-26#75,conv-26,C_sandwich_nodraft,0.0,one,3,0.0,0.0
+conv-26#75,conv-26,D_sandwich_draft,0.0,one,3,0.0,0.0
+conv-41#6,conv-41,Z_closed_book,0.0,In school,"homeless shelter, gym, church",,
+conv-41#6,conv-41,A_rrf,0.0,volunteers,"homeless shelter, gym, church",0.0,0.25
+conv-41#6,conv-41,B_graph,0.0,volunteers,"homeless shelter, gym, church",0.0,0.25
+conv-41#6,conv-41,C_sandwich_nodraft,0.0,at her place,"homeless shelter, gym, church",0.0,0.0
+conv-41#6,conv-41,D_sandwich_draft,0.0,at my place,"homeless shelter, gym, church",0.0,0.0
+conv-44#12,conv-44,Z_closed_book,0.16666666666666666,climbing mountains,"rock climbing, fishing, camping",,
+conv-44#12,conv-44,A_rrf,0.3333333333333333,"rock climbing, kayaking, bungee jumping","rock climbing, fishing, camping",0.0,0.0
+conv-44#12,conv-44,B_graph,0.3333333333333333,rock climbing,"rock climbing, fishing, camping",0.0,0.3333333333333333
+conv-44#12,conv-44,C_sandwich_nodraft,0.3333333333333333,rock climbing,"rock climbing, fishing, camping",0.0,0.0
+conv-44#12,conv-44,D_sandwich_draft,0.16666666666666666,climbing mountains,"rock climbing, fishing, camping",0.0,0.0
+conv-47#45,conv-47,Z_closed_book,0.5,Lager,"Stout, lager",,
+conv-47#45,conv-47,A_rrf,0.5,stout,"Stout, lager",0.0,0.6666666666666666
+conv-47#45,conv-47,B_graph,0.5,stout,"Stout, lager",0.0,0.6666666666666666
+conv-47#45,conv-47,C_sandwich_nodraft,0.5,stout,"Stout, lager",1.0,1.0
+conv-47#45,conv-47,D_sandwich_draft,0.5,"Stout, light","Stout, lager",1.0,1.0
+conv-42#10,conv-42,Z_closed_book,0.0,"Annoyed, frustrated, disappointed","Relief, excitement,worry, hope,anxiety.",,
+conv-42#10,conv-42,A_rrf,0.6,"relief, excitement, worry","Relief, excitement,worry, hope,anxiety.",1.0,1.0
+conv-42#10,conv-42,B_graph,0.6,"relief, excitement, worry","Relief, excitement,worry, hope,anxiety.",1.0,1.0
+conv-42#10,conv-42,C_sandwich_nodraft,0.6,"relief, excitement, worry","Relief, excitement,worry, hope,anxiety.",0.0,0.5
+conv-42#10,conv-42,D_sandwich_draft,0.6,"relief, excitement, worry","Relief, excitement,worry, hope,anxiety.",0.0,0.5
+conv-26#13,conv-26,Z_closed_book,0.0,Lawyer,counseling or mental health for Transgender people,,
+conv-26#13,conv-26,A_rrf,0.6,counseling and mental health,counseling or mental health for Transgender people,0.0,0.0
+conv-26#13,conv-26,B_graph,0.6,counseling and mental health,counseling or mental health for Transgender people,0.0,0.0
+conv-26#13,conv-26,C_sandwich_nodraft,0.0,check out career options,counseling or mental health for Transgender people,0.0,0.0
+conv-26#13,conv-26,D_sandwich_draft,0.0,edu,counseling or mental health for Transgender people,0.0,0.0
+conv-41#33,conv-41,Z_closed_book,0.0,"Hatha, Vinyasa","Aerial, kundalini",,
+conv-41#33,conv-41,A_rrf,0.6666666666666666,"kundalini yoga, aerial yoga","Aerial, kundalini",1.0,1.0
+conv-41#33,conv-41,B_graph,0.6666666666666666,"Aerial yoga, kundalini yoga","Aerial, kundalini",1.0,1.0
+conv-41#33,conv-41,C_sandwich_nodraft,0.3333333333333333,Aerial yoga,"Aerial, kundalini",0.0,0.0
+conv-41#33,conv-41,D_sandwich_draft,0.0,Vinyasa,"Aerial, kundalini",0.0,0.0
+conv-43#25,conv-43,Z_closed_book,0.0,"Baseball cards, football cards",signed basketball,,
+conv-43#25,conv-43,A_rrf,0.5,"basketball ball, basketball hoop",signed basketball,0.0,0.0
+conv-43#25,conv-43,B_graph,0.5,"basketball ball, basketball hoop",signed basketball,0.0,0.0
+conv-43#25,conv-43,C_sandwich_nodraft,0.0,jerseys,signed basketball,0.0,0.0
+conv-43#25,conv-43,D_sandwich_draft,0.5,basketball jerseys,signed basketball,0.0,0.0
+conv-26#70,conv-26,Z_closed_book,0.0,Caroline has attended Transgender Day of Remembrance and Gendercon.,"Poetry reading, conference",,
+conv-26#70,conv-26,A_rrf,0.3333333333333333,"LGBTQ+ pride parade, transgender conference","Poetry reading, conference",0.0,0.5
+conv-26#70,conv-26,B_graph,0.3333333333333333,"LGBTQ+ pride parade, transgender conference","Poetry reading, conference",0.0,0.5
+conv-26#70,conv-26,C_sandwich_nodraft,0.7333333333333334,"LGBTQ+ pride parade, transgender conference, transgender poetry reading","Poetry reading, conference",0.0,0.5
+conv-26#70,conv-26,D_sandwich_draft,0.0,"Transgender Day of Remembrance, Gendercon","Poetry reading, conference",0.0,0.5
+conv-50#5,conv-50,Z_closed_book,0.0,To be continued,"open a car maintenance shop, work on classic cars, build a custom car from scratch",,
+conv-50#5,conv-50,A_rrf,0.0,chasing his dreams,"open a car maintenance shop, work on classic cars, build a custom car from scratch",0.0,0.0
+conv-50#5,conv-50,B_graph,0.0,chasing his dreams,"open a car maintenance shop, work on classic cars, build a custom car from scratch",0.0,0.0
+conv-50#5,conv-50,C_sandwich_nodraft,0.0,make a positive difference,"open a car maintenance shop, work on classic cars, build a custom car from scratch",0.0,0.0
+conv-50#5,conv-50,D_sandwich_draft,0.0,make his dreams come true,"open a car maintenance shop, work on classic cars, build a custom car from scratch",0.0,0.0
+conv-41#26,conv-41,Z_closed_book,0.2,"Prayed, read Bible, attended church","Join a local church, buy a cross necklace",,
+conv-41#26,conv-41,A_rrf,0.3333333333333333,bought a cross necklace,"Join a local church, buy a cross necklace",1.0,1.0
+conv-41#26,conv-41,B_graph,0.3333333333333333,bought a cross necklace,"Join a local church, buy a cross necklace",1.0,1.0
+conv-41#26,conv-41,C_sandwich_nodraft,0.3333333333333333,joined a nearby church,"Join a local church, buy a cross necklace",0.0,0.5
+conv-41#26,conv-41,D_sandwich_draft,0.3333333333333333,joined a nearby church,"Join a local church, buy a cross necklace",0.0,0.5
+conv-43#50,conv-43,Z_closed_book,0.0,The Chronicles of Narnia,The Alchemist,,
+conv-43#50,conv-43,A_rrf,0.0,George R. R. Martin's books,The Alchemist,0.0,0.0
+conv-43#50,conv-43,B_graph,0.0,George R. R. Martin's books,The Alchemist,0.0,0.0
+conv-43#50,conv-43,C_sandwich_nodraft,0.0,Lord of the Rings,The Alchemist,0.0,0.0
+conv-43#50,conv-43,D_sandwich_draft,0.0,The Chronicles of Narnia,The Alchemist,0.0,0.0
+conv-48#1,conv-48,Z_closed_book,0.22857142857142856,Her mother and her brother.,"mother, father, her friend Karlie",,
+conv-48#1,conv-48,A_rrf,0.35555555555555557,her mother,"mother, father, her friend Karlie",0.0,0.6666666666666666
+conv-48#1,conv-48,B_graph,0.35555555555555557,her mother,"mother, father, her friend Karlie",0.0,0.6666666666666666
+conv-48#1,conv-48,C_sandwich_nodraft,0.2222222222222222,Deborah's father,"mother, father, her friend Karlie",0.0,0.3333333333333333
+conv-48#1,conv-48,D_sandwich_draft,0.35555555555555557,her mother,"mother, father, her friend Karlie",0.0,0.3333333333333333
+conv-43#21,conv-43,Z_closed_book,0.6,"New York City, Chicago","Seattle, Chicago, New York",,
+conv-43#21,conv-43,A_rrf,0.26666666666666666,New York City,"Seattle, Chicago, New York",0.0,0.3333333333333333
+conv-43#21,conv-43,B_graph,0.26666666666666666,New York City,"Seattle, Chicago, New York",0.0,0.3333333333333333
+conv-43#21,conv-43,C_sandwich_nodraft,0.26666666666666666,"New York City, Washington DC","Seattle, Chicago, New York",0.0,0.0
+conv-43#21,conv-43,D_sandwich_draft,0.6,"New York City, Chicago","Seattle, Chicago, New York",0.0,0.0
+conv-30#3,conv-30,Z_closed_book,0.125,They are both from New York.,They lost their jobs and decided to start their own businesses.,,
+conv-30#3,conv-30,A_rrf,0.0,"dance, magic",They lost their jobs and decided to start their own businesses.,0.0,0.0
+conv-30#3,conv-30,B_graph,0.0,"dance, magic",They lost their jobs and decided to start their own businesses.,0.0,0.0
+conv-30#3,conv-30,C_sandwich_nodraft,0.0,"dance, magic, dreams",They lost their jobs and decided to start their own businesses.,0.0,0.0
+conv-30#3,conv-30,D_sandwich_draft,0.125,They are both from New York.,They lost their jobs and decided to start their own businesses.,0.0,0.0
+conv-50#53,conv-50,Z_closed_book,0.28571428571428575,His friends and family support him.,friends and team,,
+conv-50#53,conv-50,A_rrf,0.0,Dave,friends and team,0.0,0.5
+conv-50#53,conv-50,B_graph,0.0,Dave,friends and team,0.0,0.5
+conv-50#53,conv-50,C_sandwich_nodraft,0.0,Dave,friends and team,0.0,0.5
+conv-50#53,conv-50,D_sandwich_draft,0.0,Dave,friends and team,0.0,0.5
+conv-50#54,conv-50,Z_closed_book,0.0,"coffee, music, art supplies",Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.,,
+conv-50#54,conv-50,A_rrf,0.0,music notebooks,Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.,1.0,1.0
+conv-50#54,conv-50,B_graph,0.0,music notebooks,Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.,1.0,1.0
+conv-50#54,conv-50,C_sandwich_nodraft,0.21052631578947367,world events,Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.,0.0,0.5
+conv-50#54,conv-50,D_sandwich_draft,0.21052631578947367,world events,Calvin stays connected to the creative process by always staying up-to-date on world events and watching documentaries about artists.,0.0,0.5
+conv-44#42,conv-44,Z_closed_book,0.0,Hitting them,Positive reinforcement,,
+conv-44#42,conv-44,A_rrf,0.0,punishment,Positive reinforcement,0.0,0.0
+conv-44#42,conv-44,B_graph,0.0,punishment,Positive reinforcement,0.0,0.0
+conv-44#42,conv-44,C_sandwich_nodraft,0.0,punishment,Positive reinforcement,0.0,0.5
+conv-44#42,conv-44,D_sandwich_draft,0.0,punishment,Positive reinforcement,0.0,0.5
+conv-26#19,conv-26,Z_closed_book,0.0,"Sports, music, and reading.","dinosaurs, nature",,
+conv-26#19,conv-26,A_rrf,0.0,"family outings, music, playing guitar","dinosaurs, nature",0.0,0.0
+conv-26#19,conv-26,B_graph,0.0,"family outings, music, playing guitar","dinosaurs, nature",0.0,0.0
+conv-26#19,conv-26,C_sandwich_nodraft,0.0,"playing games, eating good food, hanging out","dinosaurs, nature",0.0,0.0
+conv-26#19,conv-26,D_sandwich_draft,0.0,"games, ate good food, and just hung out together","dinosaurs, nature",0.0,0.0
+conv-47#24,conv-47,Z_closed_book,0.0,video games,"football simulator, virtual world inspired by Witcher 3",,
+conv-47#24,conv-47,A_rrf,0.0,Civilization and Total War,"football simulator, virtual world inspired by Witcher 3",0.0,0.0
+conv-47#24,conv-47,B_graph,0.0,Civilization and Total War,"football simulator, virtual world inspired by Witcher 3",0.0,0.0
+conv-47#24,conv-47,C_sandwich_nodraft,0.0,strategy games,"football simulator, virtual world inspired by Witcher 3",0.0,0.0
+conv-47#24,conv-47,D_sandwich_draft,0.0,strategy games,"football simulator, virtual world inspired by Witcher 3",0.0,0.0
+conv-49#2,conv-49,Z_closed_book,0.0,"California, Nevada","Rockies, Jasper",,
+conv-49#2,conv-49,A_rrf,0.5,"Jasper, Banff","Rockies, Jasper",0.0,0.6666666666666666
+conv-49#2,conv-49,B_graph,0.5,"Jasper, Banff","Rockies, Jasper",0.0,0.6666666666666666
+conv-49#2,conv-49,C_sandwich_nodraft,0.5,Jasper,"Rockies, Jasper",0.0,0.3333333333333333
+conv-49#2,conv-49,D_sandwich_draft,0.5,Jasper,"Rockies, Jasper",0.0,0.3333333333333333
+conv-26#37,conv-26,Z_closed_book,0.0,A landscape painting,sunset,,
+conv-26#37,conv-26,A_rrf,0.0,a painting of a sunflower on a canvas,sunset,0.0,0.0
+conv-26#37,conv-26,B_graph,0.0,a painting of a sunflower on a canvas,sunset,0.0,0.0
+conv-26#37,conv-26,C_sandwich_nodraft,0.0,lake sunrise,sunset,0.0,0.0
+conv-26#37,conv-26,D_sandwich_draft,0.0,lake sunrise,sunset,0.0,0.0
+conv-49#32,conv-49,Z_closed_book,0.15384615384615383,Waiting for his turn at the gym.,Evan consistently misplaces his keys every week.,,
+conv-49#32,conv-49,A_rrf,0.0,embarrassment,Evan consistently misplaces his keys every week.,0.0,0.0
+conv-49#32,conv-49,B_graph,0.0,embarrassment,Evan consistently misplaces his keys every week.,0.0,0.0
+conv-49#32,conv-49,C_sandwich_nodraft,0.0,unrealistic expectations,Evan consistently misplaces his keys every week.,0.0,0.0
+conv-49#32,conv-49,D_sandwich_draft,0.0,Unrealistic expectations,Evan consistently misplaces his keys every week.,0.0,0.0
+conv-44#26,conv-44,Z_closed_book,1.0,"Work, family, finances",work,,
+conv-44#26,conv-44,A_rrf,0.5,work life balance,work,0.0,0.0
+conv-44#26,conv-44,B_graph,0.5,work life balance,work,0.0,0.0
+conv-44#26,conv-44,C_sandwich_nodraft,0.0,not being able to hike frequently,work,0.0,0.0
+conv-44#26,conv-44,D_sandwich_draft,0.0,"family, finances",work,0.0,0.0
+conv-50#45,conv-50,Z_closed_book,0.0,"Playing video games, watching movies",Working on cars,,
+conv-50#45,conv-50,A_rrf,0.4,"working together, staying motivated",Working on cars,0.0,0.0
+conv-50#45,conv-50,B_graph,0.4,"working together, staying motivated",Working on cars,0.0,0.0
+conv-50#45,conv-50,C_sandwich_nodraft,0.0,"collaborations, creating music",Working on cars,0.0,0.0
+conv-50#45,conv-50,D_sandwich_draft,0.0,"watching movies, playing video games",Working on cars,0.0,0.0
+conv-49#8,conv-49,Z_closed_book,0.0,Playing guitar,Watercolor painting,,
+conv-49#8,conv-49,A_rrf,0.0,"exercise, diet, lifestyle changes",Watercolor painting,0.0,0.0
+conv-49#8,conv-49,B_graph,0.0,"exercise, diet, lifestyle changes",Watercolor painting,0.0,0.0
+conv-49#8,conv-49,C_sandwich_nodraft,0.0,"skiing, snowboarding, and ice skating",Watercolor painting,0.0,0.0
+conv-49#8,conv-49,D_sandwich_draft,0.0,Playing guitar,Watercolor painting,0.0,0.0
+conv-42#78,conv-42,Z_closed_book,0.0,10,nine,,
+conv-42#78,conv-42,A_rrf,0.0,four,nine,0.0,0.5555555555555556
+conv-42#78,conv-42,B_graph,0.0,four,nine,0.0,0.5555555555555556
+conv-42#78,conv-42,C_sandwich_nodraft,0.0,four,nine,0.0,0.4444444444444444
+conv-42#78,conv-42,D_sandwich_draft,0.0,four,nine,0.0,0.4444444444444444
+conv-43#4,conv-43,Z_closed_book,0.0,"The Hitchhiker's Guide to the Galaxy, The Da Vinci Code","Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",,
+conv-43#4,conv-43,A_rrf,0.0,"Patrick Rothfuss, John","Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",0.0,0.0
+conv-43#4,conv-43,B_graph,0.23809523809523808,"Patrick Rothfuss, The Name of the Wind","Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",0.0,0.0
+conv-43#4,conv-43,C_sandwich_nodraft,0.23809523809523808,"Patrick Rothfuss, Game of Thrones","Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",0.0,0.0
+conv-43#4,conv-43,D_sandwich_draft,0.0,"The Hitchhiker's Guide to the Galaxy, The Da Vinci Code","Harry Potter, Game of Thrones, the Name of the Wind, The Alchemist, The Hobbit, A Dance with Dragons, and the Wheel of Time.",0.0,0.0
+conv-43#29,conv-43,Z_closed_book,0.4358974358974359,"St. Joseph's High School, 4 years","Middle school, high school, and college and he was with his high school team for 4 years.",,
+conv-43#29,conv-43,A_rrf,0.6025641025641025,"high school, four years","Middle school, high school, and college and he was with his high school team for 4 years.",1.0,1.0
+conv-43#29,conv-43,B_graph,0.6025641025641025,"high school, four years","Middle school, high school, and college and he was with his high school team for 4 years.",1.0,1.0
+conv-43#29,conv-43,C_sandwich_nodraft,0.6285714285714287,middle and high school,"Middle school, high school, and college and he was with his high school team for 4 years.",1.0,1.0
+conv-43#29,conv-43,D_sandwich_draft,0.4358974358974359,"St. Joseph's High School, 4 years","Middle school, high school, and college and he was with his high school team for 4 years.",1.0,1.0
+conv-50#6,conv-50,Z_closed_book,0.0,Sedans and SUVs,classic vintage cars,,
+conv-50#6,conv-50,A_rrf,0.8,classic cars,classic vintage cars,0.0,0.5
+conv-50#6,conv-50,B_graph,0.8,classic cars,classic vintage cars,0.0,0.5
+conv-50#6,conv-50,C_sandwich_nodraft,0.8,"classic cars, restoration, classic cars",classic vintage cars,0.0,0.5
+conv-50#6,conv-50,D_sandwich_draft,0.8,classic cars,classic vintage cars,0.0,0.5
+conv-41#21,conv-41,Z_closed_book,0.0,"California, New York, Florida","Pacific northwest, east coast",,
+conv-41#21,conv-41,A_rrf,0.5,East Coast,"Pacific northwest, east coast",0.0,0.5
+conv-41#21,conv-41,B_graph,0.5,East Coast,"Pacific northwest, east coast",0.0,0.5
+conv-41#21,conv-41,C_sandwich_nodraft,0.5,East Coast,"Pacific northwest, east coast",0.0,0.5
+conv-41#21,conv-41,D_sandwich_draft,0.0,"California, New York, Florida","Pacific northwest, east coast",0.0,0.5
+conv-49#7,conv-49,Z_closed_book,0.6,"Painting, hiking, cooking","Painting, kayaking, hiking, cooking, running",,
+conv-49#7,conv-49,A_rrf,0.2,painting,"Painting, kayaking, hiking, cooking, running",0.0,0.2
+conv-49#7,conv-49,B_graph,0.2,painting,"Painting, kayaking, hiking, cooking, running",0.0,0.2
+conv-49#7,conv-49,C_sandwich_nodraft,0.0,fitness goals,"Painting, kayaking, hiking, cooking, running",0.0,0.0
+conv-49#7,conv-49,D_sandwich_draft,0.4,"hiking, cooking","Painting, kayaking, hiking, cooking, running",0.0,0.0
+conv-44#36,conv-44,Z_closed_book,0.0,"pizza, pasta, salad","chicken pot pie, chicken roast, blueberry muffins, sushi",,
+conv-44#36,conv-44,A_rrf,0.25,"sushi, pastries","chicken pot pie, chicken roast, blueberry muffins, sushi",0.0,0.0
+conv-44#36,conv-44,B_graph,0.25,"sushi, pastries","chicken pot pie, chicken roast, blueberry muffins, sushi",0.0,0.0
+conv-44#36,conv-44,C_sandwich_nodraft,0.16666666666666666,"croissants, muffins, tarts","chicken pot pie, chicken roast, blueberry muffins, sushi",0.0,0.25
+conv-44#36,conv-44,D_sandwich_draft,0.16666666666666666,"muffins, pastries","chicken pot pie, chicken roast, blueberry muffins, sushi",0.0,0.25
+conv-48#19,conv-48,Z_closed_book,0.0,Once,two times,,
+conv-48#19,conv-48,A_rrf,0.0,once,two times,0.0,0.0
+conv-48#19,conv-48,B_graph,0.0,1,two times,0.0,0.0
+conv-48#19,conv-48,C_sandwich_nodraft,0.0,1,two times,0.0,0.5
+conv-48#19,conv-48,D_sandwich_draft,0.0,1,two times,0.0,0.5
+conv-44#27,conv-44,Z_closed_book,1.0,"Annoyed, frustrated, stressed",Stressful,,
+conv-44#27,conv-44,A_rrf,0.0,amazing,Stressful,0.0,0.0
+conv-44#27,conv-44,B_graph,0.0,amazing,Stressful,0.0,0.0
+conv-44#27,conv-44,C_sandwich_nodraft,0.0,amazing,Stressful,0.0,0.0
+conv-44#27,conv-44,D_sandwich_draft,0.0,"grateful, appreciative",Stressful,0.0,0.0
+conv-41#29,conv-41,Z_closed_book,0.0,"fundraising event, dinner, games, raffle","Chili cook-off, ring-toss tournament",,
+conv-41#29,conv-41,A_rrf,0.5,ring-toss tournament,"Chili cook-off, ring-toss tournament",0.0,0.5
+conv-41#29,conv-41,B_graph,0.5,ring-toss tournament,"Chili cook-off, ring-toss tournament",0.0,0.5
+conv-41#29,conv-41,C_sandwich_nodraft,0.0,organizing a meal,"Chili cook-off, ring-toss tournament",0.0,0.0
+conv-41#29,conv-41,D_sandwich_draft,0.0,volunteering,"Chili cook-off, ring-toss tournament",0.0,0.0
+conv-47#60,conv-47,Z_closed_book,0.0,"Chess, checkers, backgammon","CS:GO, Fortnite, Overwatch and Apex Legends",,
+conv-47#60,conv-47,A_rrf,0.0,CS: GO,"CS:GO, Fortnite, Overwatch and Apex Legends",0.0,0.3333333333333333
+conv-47#60,conv-47,B_graph,0.0,CS: GO,"CS:GO, Fortnite, Overwatch and Apex Legends",0.0,0.3333333333333333
+conv-47#60,conv-47,C_sandwich_nodraft,0.6,"Fortnite, Overwatch, Apex Legends","CS:GO, Fortnite, Overwatch and Apex Legends",1.0,1.0
+conv-47#60,conv-47,D_sandwich_draft,0.6,"Fortnite, Overwatch, Apex Legends","CS:GO, Fortnite, Overwatch and Apex Legends",1.0,1.0
+conv-44#9,conv-44,Z_closed_book,0.23636363636363633,"Dog training class, obedience school, doggy day care","positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",,
+conv-44#9,conv-44,A_rrf,0.5296969696969697,"dog training course, dog owners group","positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",0.0,0.4
+conv-44#9,conv-44,B_graph,0.22666666666666666,"agility classes, dog owners group","positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",0.0,0.6
+conv-44#9,conv-44,C_sandwich_nodraft,0.24444444444444446,"training, obedience, teaching tricks","positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",0.0,0.0
+conv-44#9,conv-44,D_sandwich_draft,0.23636363636363633,"dog training class, obedience school, doggy day care","positive reinforcement training workshop to bond with pets, dog training course, agility training course, grooming course, dog-owners group",0.0,0.0
+conv-48#84,conv-48,Z_closed_book,0.0,"Bridge construction, road maintenance, dam repair.","electrical engineering, robotics, sustainable water purifier, productive and affordable aerial surveillance system",,
+conv-48#84,conv-48,A_rrf,0.1,sustainable solutions,"electrical engineering, robotics, sustainable water purifier, productive and affordable aerial surveillance system",0.0,0.0
+conv-48#84,conv-48,B_graph,0.1,sustainable solutions,"electrical engineering, robotics, sustainable water purifier, productive and affordable aerial surveillance system",0.0,0.0
+conv-48#84,conv-48,C_sandwich_nodraft,0.1,"sustainable initiatives, innovative solutions for environmental issues","electrical engineering, robotics, sustainable water purifier, productive and affordable aerial surveillance system",0.0,0.2
+conv-48#84,conv-48,D_sandwich_draft,0.0,"bridge construction, road maintenance, dam repair","electrical engineering, robotics, sustainable water purifier, productive and affordable aerial surveillance system",0.0,0.2
+conv-49#55,conv-49,Z_closed_book,0.18181818181818182,Going on adventures,Helping lost tourists and experiencing unexpected adventures in the city.,,
+conv-49#55,conv-49,A_rrf,0.42857142857142855,helping a lost tourist find their way,Helping lost tourists and experiencing unexpected adventures in the city.,0.0,0.5
+conv-49#55,conv-49,B_graph,0.42857142857142855,helping a lost tourist find their way,Helping lost tourists and experiencing unexpected adventures in the city.,0.0,0.5
+conv-49#55,conv-49,C_sandwich_nodraft,0.0,hiking,Helping lost tourists and experiencing unexpected adventures in the city.,0.0,0.0
+conv-49#55,conv-49,D_sandwich_draft,0.0,hiking trails,Helping lost tourists and experiencing unexpected adventures in the city.,0.0,0.0
+conv-42#42,conv-42,Z_closed_book,0.0,"The Dark Knight, The Social Network","""Little Women"", ""Lord of the Rings""",,
+conv-42#42,conv-42,A_rrf,0.0,movies,"""Little Women"", ""Lord of the Rings""",0.0,0.0
+conv-42#42,conv-42,B_graph,0.0,movies,"""Little Women"", ""Lord of the Rings""",0.0,0.0
+conv-42#42,conv-42,C_sandwich_nodraft,0.0,"drama, romance","""Little Women"", ""Lord of the Rings""",0.0,0.0
+conv-42#42,conv-42,D_sandwich_draft,0.0,"The Dark Knight, The Social Network","""Little Women"", ""Lord of the Rings""",0.0,0.0
+conv-41#42,conv-41,Z_closed_book,0.0,"I'm sorry, but I don't know which area was hit by a flood.",West County,,
+conv-41#42,conv-41,A_rrf,0.0,John's old area,West County,0.0,0.5
+conv-41#42,conv-41,B_graph,0.0,John's old area,West County,0.0,0.5
+conv-41#42,conv-41,C_sandwich_nodraft,0.0,old area,West County,0.0,0.5
+conv-41#42,conv-41,D_sandwich_draft,0.0,old area,West County,0.0,0.5
+conv-44#56,conv-44,Z_closed_book,0.0,"Yes, he bought one.",No,,
+conv-44#56,conv-44,A_rrf,0.0,"Yes, he has moved into a new apartment for his dogs.",No,0.0,0.5
+conv-44#56,conv-44,B_graph,0.0,"Yes, he has moved into a new apartment for his dogs.",No,0.0,0.5
+conv-44#56,conv-44,C_sandwich_nodraft,0.0,Yes,No,0.0,0.0
+conv-44#56,conv-44,D_sandwich_draft,0.0,Yes,No,0.0,0.0
+conv-41#19,conv-41,Z_closed_book,0.0,The roof is damaged and the paint is chipped.,"Broken windshield, Car broke down",,
+conv-41#19,conv-41,A_rrf,0.45,broken down,"Broken windshield, Car broke down",0.0,0.5
+conv-41#19,conv-41,B_graph,0.45,broken down,"Broken windshield, Car broke down",0.0,0.5
+conv-41#19,conv-41,C_sandwich_nodraft,0.0,potholes,"Broken windshield, Car broke down",0.0,0.0
+conv-41#19,conv-41,D_sandwich_draft,0.0,potholes,"Broken windshield, Car broke down",0.0,0.0
+conv-50#19,conv-50,Z_closed_book,0.25,"Shinjuku, Tsukiji Fish Market","music festival, car museum, Shibuya crossing, Shinjuku",,
+conv-50#19,conv-50,A_rrf,0.0,"Tokyo skyline, busy streets, nighttime city view","music festival, car museum, Shibuya crossing, Shinjuku",0.0,0.3333333333333333
+conv-50#19,conv-50,B_graph,0.0,"Tokyo skyline, busy streets, nighttime city view","music festival, car museum, Shibuya crossing, Shinjuku",0.0,0.3333333333333333
+conv-50#19,conv-50,C_sandwich_nodraft,0.5,"Shibuya Crossing, Shinjuku","music festival, car museum, Shibuya crossing, Shinjuku",0.0,0.3333333333333333
+conv-50#19,conv-50,D_sandwich_draft,0.5,"Shibuya Crossing, Shinjuku","music festival, car museum, Shibuya crossing, Shinjuku",0.0,0.3333333333333333
+conv-26#65,conv-26,Z_closed_book,0.125,"Moving to a new country, learning a new language, adjusting to a different culture.","Changes to her body, losing unsupportive friends",,
+conv-26#65,conv-26,A_rrf,0.2,"acceptance, growth, change, transitioning, moving","Changes to her body, losing unsupportive friends",0.0,0.5
+conv-26#65,conv-26,B_graph,0.2,"acceptance, growth, change, transitioning, moving","Changes to her body, losing unsupportive friends",0.0,0.5
+conv-26#65,conv-26,C_sandwich_nodraft,0.3333333333333333,"changing body, exploring art, transitioning","Changes to her body, losing unsupportive friends",0.0,0.5
+conv-26#65,conv-26,D_sandwich_draft,0.125,"transitioning, accepting one's true self, growing into a changed person, exploring art as a form of expression, finding self-acceptance, helping others with","Changes to her body, losing unsupportive friends",0.0,0.5
+conv-49#3,conv-49,Z_closed_book,0.0,One,two,,
+conv-49#3,conv-49,A_rrf,0.0,one,two,1.0,1.0
+conv-49#3,conv-49,B_graph,0.0,one,two,1.0,1.0
+conv-49#3,conv-49,C_sandwich_nodraft,0.0,one,two,1.0,1.0
+conv-49#3,conv-49,D_sandwich_draft,0.0,one,two,1.0,1.0
+conv-43#62,conv-43,Z_closed_book,0.0,writes books,"gives seminars, mentors younger players.",,
+conv-43#62,conv-43,A_rrf,0.0,shared his knowledge and helped out,"gives seminars, mentors younger players.",0.0,0.0
+conv-43#62,conv-43,B_graph,0.0,shared his knowledge and helped out,"gives seminars, mentors younger players.",0.0,0.0
+conv-43#62,conv-43,C_sandwich_nodraft,0.0,writes articles,"gives seminars, mentors younger players.",0.0,0.0
+conv-43#62,conv-43,D_sandwich_draft,0.0,writes books,"gives seminars, mentors younger players.",0.0,0.0
+conv-41#40,conv-41,Z_closed_book,0.0,John and Jane have three daughters.,"Kyle, Sara",,
+conv-41#40,conv-41,A_rrf,0.0,not mentioned,"Kyle, Sara",0.0,0.0
+conv-41#40,conv-41,B_graph,0.0,not mentioned,"Kyle, Sara",0.0,0.0
+conv-41#40,conv-41,C_sandwich_nodraft,0.0,kids,"Kyle, Sara",0.0,0.0
+conv-41#40,conv-41,D_sandwich_draft,0.0,John and Jane have three daughters.,"Kyle, Sara",0.0,0.0
+conv-42#55,conv-42,Z_closed_book,0.1111111111111111,"Nature, music, and art.","Personal experiences,her own journey ofself discovery, Nate,nature, validation,stories about findingcourage and takingrisks, people she knows, stuff she sees, imagination",,
+conv-42#55,conv-42,A_rrf,0.2222222222222222,"personal experiences, nature, hiking","Personal experiences,her own journey ofself discovery, Nate,nature, validation,stories about findingcourage and takingrisks, people she knows, stuff she sees, imagination",0.0,0.16666666666666666
+conv-42#55,conv-42,B_graph,0.2222222222222222,"personal experiences, nature, hiking","Personal experiences,her own journey ofself discovery, Nate,nature, validation,stories about findingcourage and takingrisks, people she knows, stuff she sees, imagination",0.0,0.16666666666666666
+conv-42#55,conv-42,C_sandwich_nodraft,0.2296296296296296,"people she knows, stuff she saw, even what she imagined","Personal experiences,her own journey ofself discovery, Nate,nature, validation,stories about findingcourage and takingrisks, people she knows, stuff she sees, imagination",0.0,0.16666666666666666
+conv-42#55,conv-42,D_sandwich_draft,0.2296296296296296,"people she knows, stuff she saw, even what she imagined","Personal experiences,her own journey ofself discovery, Nate,nature, validation,stories about findingcourage and takingrisks, people she knows, stuff she sees, imagination",0.0,0.16666666666666666
+conv-26#66,conv-26,Z_closed_book,0.0,She takes pictures,"Roast marshmallows, tell stories",,
+conv-26#66,conv-26,A_rrf,0.0,walking through a forest with a toddler,"Roast marshmallows, tell stories",0.0,0.0
+conv-26#66,conv-26,B_graph,0.0,walking through a forest with a toddler,"Roast marshmallows, tell stories",0.0,0.0
+conv-26#66,conv-26,C_sandwich_nodraft,0.2,roasted marshmallows around the campfire and even went on a hike.,"Roast marshmallows, tell stories",0.0,0.0
+conv-26#66,conv-26,D_sandwich_draft,0.3333333333333333,roasts marshmallows around the campfire,"Roast marshmallows, tell stories",0.0,0.0
+conv-48#6,conv-48,Z_closed_book,0.0,"A silver necklace, a pair of earrings",pendants,,
+conv-48#6,conv-48,A_rrf,0.0,"photograph, selfie",pendants,0.0,0.0
+conv-48#6,conv-48,B_graph,0.0,"photograph, selfie",pendants,0.0,0.0
+conv-48#6,conv-48,C_sandwich_nodraft,1.0,"pendant, necklace",pendants,0.0,0.0
+conv-48#6,conv-48,D_sandwich_draft,0.0,"silver necklace, a pair of earrings",pendants,0.0,0.0
+conv-30#24,conv-30,Z_closed_book,0.5,"Entrepreneurship competitions, networking events, product launches","fair, networking events, dance competition",,
+conv-30#24,conv-30,A_rrf,0.3333333333333333,networking events,"fair, networking events, dance competition",0.0,0.3333333333333333
+conv-30#24,conv-30,B_graph,0.3333333333333333,networking events,"fair, networking events, dance competition",0.0,0.3333333333333333
+conv-30#24,conv-30,C_sandwich_nodraft,0.0,promotion,"fair, networking events, dance competition",0.0,0.0
+conv-30#24,conv-30,D_sandwich_draft,0.5,"promotion, entrepreneurship competitions, networking events, product launches","fair, networking events, dance competition",0.0,0.0
+conv-42#11,conv-42,Z_closed_book,0.0,"Pollen, dust, and mold.","Most reptiles,animals with fur,cockroaches, dairy",,
+conv-42#11,conv-42,A_rrf,0.29166666666666663,"reptiles,fur","Most reptiles,animals with fur,cockroaches, dairy",0.0,0.6666666666666666
+conv-42#11,conv-42,B_graph,0.29166666666666663,"reptiles,fur","Most reptiles,animals with fur,cockroaches, dairy",0.0,0.6666666666666666
+conv-42#11,conv-42,C_sandwich_nodraft,0.29166666666666663,"reptiles,fur","Most reptiles,animals with fur,cockroaches, dairy",0.0,0.3333333333333333
+conv-42#11,conv-42,D_sandwich_draft,0.29166666666666663,"reptiles,fur","Most reptiles,animals with fur,cockroaches, dairy",0.0,0.3333333333333333
+conv-43#35,conv-43,Z_closed_book,0.5,"Hiking, camping, fishing","Hiking, surfing",,
+conv-43#35,conv-43,A_rrf,0.5,"hiking, playing board games","Hiking, surfing",0.0,0.0
+conv-43#35,conv-43,B_graph,0.5,"hiking, playing board games","Hiking, surfing",0.0,0.0
+conv-43#35,conv-43,C_sandwich_nodraft,1.0,"surfing, hiking, camping","Hiking, surfing",0.0,0.5
+conv-43#35,conv-43,D_sandwich_draft,1.0,"surfing, hiking, camping, fishing","Hiking, surfing",0.0,0.5
+conv-44#39,conv-44,Z_closed_book,0.0,"responsibility, loneliness, stress",Companionship,,
+conv-44#39,conv-44,A_rrf,0.0,"Joy, peace",Companionship,0.0,0.0
+conv-44#39,conv-44,B_graph,0.0,"Joy, peace",Companionship,0.0,0.0
+conv-44#39,conv-44,C_sandwich_nodraft,0.0,fun,Companionship,0.0,0.0
+conv-44#39,conv-44,D_sandwich_draft,0.0,"fun, adventures",Companionship,0.0,0.0
+conv-26#48,conv-26,Z_closed_book,0.5,"clay, bowls, vases","bowls, cup",,
+conv-26#48,conv-26,A_rrf,1.0,"bowl, cup","bowls, cup",0.0,0.6666666666666666
+conv-26#48,conv-26,B_graph,1.0,"bowl, cup","bowls, cup",0.0,0.6666666666666666
+conv-26#48,conv-26,C_sandwich_nodraft,0.0,pots,"bowls, cup",0.0,0.6666666666666666
+conv-26#48,conv-26,D_sandwich_draft,0.5,"bowls, vases","bowls, cup",0.0,0.6666666666666666
+conv-42#1,conv-42,Z_closed_book,0.0,"books, travel, music","Watching movies, making desserts",,
+conv-42#1,conv-42,A_rrf,0.0,"drama, romance","Watching movies, making desserts",0.0,0.14285714285714285
+conv-42#1,conv-42,B_graph,0.0,"drama, romance","Watching movies, making desserts",0.0,0.14285714285714285
+conv-42#1,conv-42,C_sandwich_nodraft,0.0,DIYS,"Watching movies, making desserts",0.0,0.0
+conv-42#1,conv-42,D_sandwich_draft,0.0,"DIYS, travel, music","Watching movies, making desserts",0.0,0.0
+conv-49#82,conv-49,Z_closed_book,0.0,reading books,"Unhealthy snacks, sweets, yoga, places with beautiful views",,
+conv-49#82,conv-49,A_rrf,0.0,painting,"Unhealthy snacks, sweets, yoga, places with beautiful views",0.0,0.5
+conv-49#82,conv-49,B_graph,0.0,painting,"Unhealthy snacks, sweets, yoga, places with beautiful views",0.0,0.5
+conv-49#82,conv-49,C_sandwich_nodraft,0.0,trip,"Unhealthy snacks, sweets, yoga, places with beautiful views",0.0,0.16666666666666666
+conv-49#82,conv-49,D_sandwich_draft,0.0,trips,"Unhealthy snacks, sweets, yoga, places with beautiful views",0.0,0.16666666666666666
+conv-43#65,conv-43,Z_closed_book,0.6666666666666666,"The Lord of the Rings, Harry Potter","Lord of the Rings, Harry Potter, and Star Wars.",,
+conv-43#65,conv-43,A_rrf,0.6666666666666666,"Star Wars, Harry Potter","Lord of the Rings, Harry Potter, and Star Wars.",0.0,0.2
+conv-43#65,conv-43,B_graph,0.6666666666666666,"Star Wars, Harry Potter","Lord of the Rings, Harry Potter, and Star Wars.",0.0,0.2
+conv-43#65,conv-43,C_sandwich_nodraft,0.3333333333333333,Star Wars,"Lord of the Rings, Harry Potter, and Star Wars.",0.0,0.2
+conv-43#65,conv-43,D_sandwich_draft,0.3333333333333333,Star Wars,"Lord of the Rings, Harry Potter, and Star Wars.",0.0,0.2
+conv-47#27,conv-47,Z_closed_book,0.0,"Mathematics, computer science, and physics.","game design course, cooking classes",,
+conv-47#27,conv-47,A_rrf,0.0,chess,"game design course, cooking classes",0.0,0.0
+conv-47#27,conv-47,B_graph,0.0,chess,"game design course, cooking classes",0.0,0.0
+conv-47#27,conv-47,C_sandwich_nodraft,0.0,seminar,"game design course, cooking classes",0.0,0.0
+conv-47#27,conv-47,D_sandwich_draft,0.0,"mathematics, computer science, and physics","game design course, cooking classes",0.0,0.0
+conv-42#23,conv-42,Z_closed_book,0.0,"""Shadows"", ""The Last Days"".","first screenplay on drama and romance, third screenplay on loss identity and connection",,
+conv-42#23,conv-42,A_rrf,0.0,the other one,"first screenplay on drama and romance, third screenplay on loss identity and connection",0.0,0.4
+conv-42#23,conv-42,B_graph,0.0,the other one,"first screenplay on drama and romance, third screenplay on loss identity and connection",0.0,0.4
+conv-42#23,conv-42,C_sandwich_nodraft,0.0,the second one,"first screenplay on drama and romance, third screenplay on loss identity and connection",0.0,0.6
+conv-42#23,conv-42,D_sandwich_draft,0.0,another,"first screenplay on drama and romance, third screenplay on loss identity and connection",0.0,0.6
+conv-42#30,conv-42,Z_closed_book,0.0,Poetry and fiction.,"Screenplays,books, online blog posts, journal",,
+conv-42#30,conv-42,A_rrf,0.0,writing,"Screenplays,books, online blog posts, journal",0.0,0.0
+conv-42#30,conv-42,B_graph,0.0,writing,"Screenplays,books, online blog posts, journal",0.0,0.0
+conv-42#30,conv-42,C_sandwich_nodraft,0.0,"dramas, romcoms, creative projects","Screenplays,books, online blog posts, journal",0.0,0.5
+conv-42#30,conv-42,D_sandwich_draft,0.0,"dramas and romcoms, poetry and fiction","Screenplays,books, online blog posts, journal",0.0,0.5
+conv-44#21,conv-44,Z_closed_book,0.21666666666666667,"Canine Good Citizen, Obedience Training","Positive reinforcement training class for bonding, dog training course, agility class",,
+conv-44#21,conv-44,A_rrf,0.40740740740740744,"dog training course, dog grooming course","Positive reinforcement training class for bonding, dog training course, agility class",0.0,0.3333333333333333
+conv-44#21,conv-44,B_graph,0.40740740740740744,"dog training course, dog grooming course","Positive reinforcement training class for bonding, dog training course, agility class",0.0,0.3333333333333333
+conv-44#21,conv-44,C_sandwich_nodraft,0.0,"obedience, teach them tricks","Positive reinforcement training class for bonding, dog training course, agility class",0.0,0.0
+conv-44#21,conv-44,D_sandwich_draft,0.21666666666666667,Obedience Training,"Positive reinforcement training class for bonding, dog training course, agility class",0.0,0.0
+conv-41#36,conv-41,Z_closed_book,0.0,"Lollapalooza, Coachella, Bonnaroo","Live music event, violin concert",,
+conv-41#36,conv-41,A_rrf,0.5,violin concert,"Live music event, violin concert",1.0,1.0
+conv-41#36,conv-41,B_graph,0.5,violin concert,"Live music event, violin concert",1.0,1.0
+conv-41#36,conv-41,C_sandwich_nodraft,0.5,live music event,"Live music event, violin concert",1.0,1.0
+conv-41#36,conv-41,D_sandwich_draft,0.0,"Lollapalooza, Coachella, Bonnaroo","Live music event, violin concert",1.0,1.0
+conv-26#18,conv-26,Z_closed_book,0.0,In the woods.,"beach, mountains, forest",,
+conv-26#18,conv-26,A_rrf,0.0,lake,"beach, mountains, forest",0.0,0.0
+conv-26#18,conv-26,B_graph,0.0,Caroline,"beach, mountains, forest",0.0,0.0
+conv-26#18,conv-26,C_sandwich_nodraft,0.0,campground,"beach, mountains, forest",0.0,0.0
+conv-26#18,conv-26,D_sandwich_draft,0.0,in the woods,"beach, mountains, forest",0.0,0.0
+conv-41#28,conv-41,Z_closed_book,0.0,"Love, freedom, justice","Veterans, schools, infrastructure",,
+conv-41#28,conv-41,A_rrf,0.6666666666666666,"veterans, education, infrastructure, running for office","Veterans, schools, infrastructure",0.0,0.25
+conv-41#28,conv-41,B_graph,0.6666666666666666,"veterans, education, infrastructure, running for office","Veterans, schools, infrastructure",0.0,0.25
+conv-41#28,conv-41,C_sandwich_nodraft,0.2222222222222222,"military, veterans' rights","Veterans, schools, infrastructure",0.0,0.0
+conv-41#28,conv-41,D_sandwich_draft,0.0,"military, activism","Veterans, schools, infrastructure",0.0,0.0
+conv-50#46,conv-50,Z_closed_book,0.0,Reading books,Restoring cars,,
+conv-50#46,conv-50,A_rrf,0.0,Having a place to stay,Restoring cars,0.0,0.0
+conv-50#46,conv-50,B_graph,0.0,Having a place to stay,Restoring cars,0.0,0.0
+conv-50#46,conv-50,C_sandwich_nodraft,0.0,fixing up things,Restoring cars,0.0,0.0
+conv-50#46,conv-50,D_sandwich_draft,0.0,fixing up things,Restoring cars,0.0,0.0
+conv-49#77,conv-49,Z_closed_book,0.041666666666666664,They go on honeymoon together.,"family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",,
+conv-49#77,conv-49,A_rrf,0.041666666666666664,kissing in front of a tree,"family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",0.0,0.0
+conv-49#77,conv-49,B_graph,0.041666666666666664,kissing in front of a tree,"family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",0.0,0.0
+conv-49#77,conv-49,C_sandwich_nodraft,0.0,standing on a rocky beach,"family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",0.0,0.0
+conv-49#77,conv-49,D_sandwich_draft,0.041666666666666664,They go on honeymoon together.,"family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",0.0,0.0
+conv-42#27,conv-42,Z_closed_book,0.0,Joanna has submitted her work to The New Yorker and The Atlantic.,"film contest, film festival.",,
+conv-42#27,conv-42,A_rrf,0.0,producer meetings,"film contest, film festival.",0.0,0.0
+conv-42#27,conv-42,B_graph,0.0,producer meetings,"film contest, film festival.",0.0,0.0
+conv-42#27,conv-42,C_sandwich_nodraft,0.0,last week,"film contest, film festival.",0.0,0.0
+conv-42#27,conv-42,D_sandwich_draft,0.0,"The New Yorker, The Atlantic","film contest, film festival.",0.0,0.0
+conv-47#38,conv-47,Z_closed_book,0.3333333333333333,He lost his job.,"quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",,
+conv-47#38,conv-47,A_rrf,0.1111111111111111,John's job situation was affected by frustrations and changes.,"quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",0.0,0.0
+conv-47#38,conv-47,B_graph,0.1111111111111111,John's job situation was affected by frustrations and changes.,"quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",0.0,0.0
+conv-47#38,conv-47,C_sandwich_nodraft,0.0,unforgettable for all of us! What's new with you?,"quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",0.0,0.0
+conv-47#38,conv-47,D_sandwich_draft,0.380952380952381,lost his job,"quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",0.0,0.0
+conv-43#52,conv-43,Z_closed_book,0.0,John plays pickup games.,"Yoga, strength training",,
+conv-43#52,conv-43,A_rrf,0.5,strength training,"Yoga, strength training",0.0,0.0
+conv-43#52,conv-43,B_graph,0.5,strength training,"Yoga, strength training",0.0,0.5
+conv-43#52,conv-43,C_sandwich_nodraft,0.16666666666666666,practicing and training every day,"Yoga, strength training",0.0,0.0
+conv-43#52,conv-43,D_sandwich_draft,0.16666666666666666,practicing and training every day,"Yoga, strength training",0.0,0.0
+conv-41#47,conv-41,Z_closed_book,0.0,"Running, swimming, cycling","Weight training, Circuit training, Kickboxing, yoga",,
+conv-41#47,conv-41,A_rrf,0.625,"weight training, yoga","Weight training, Circuit training, Kickboxing, yoga",0.0,0.25
+conv-41#47,conv-41,B_graph,0.625,"weight training, yoga","Weight training, Circuit training, Kickboxing, yoga",0.0,0.25
+conv-41#47,conv-41,C_sandwich_nodraft,0.875,"yoga, kickboxing, and circuit training","Weight training, Circuit training, Kickboxing, yoga",0.0,0.25
+conv-41#47,conv-41,D_sandwich_draft,0.375,circuit training,"Weight training, Circuit training, Kickboxing, yoga",0.0,0.25
+conv-42#53,conv-42,Z_closed_book,0.0,Once,Twice.,,
+conv-42#53,conv-42,A_rrf,0.0,Once,Twice.,0.0,0.5
+conv-42#53,conv-42,B_graph,0.0,Once,Twice.,0.0,0.5
+conv-42#53,conv-42,C_sandwich_nodraft,0.0,2,Twice.,0.0,0.5
+conv-42#53,conv-42,D_sandwich_draft,0.0,Once,Twice.,0.0,0.5
+conv-47#40,conv-47,Z_closed_book,0.09523809523809523,"Rolling over, shaking head, sitting up","swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",,
+conv-47#40,conv-47,A_rrf,0.5714285714285714,"sit, stay, paw, rollover","swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",0.0,0.25
+conv-47#40,conv-47,B_graph,0.5714285714285714,"sit, stay, paw, rollover","swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",0.0,0.25
+conv-47#40,conv-47,C_sandwich_nodraft,0.0,"dogs, cats","swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",0.0,0.0
+conv-47#40,conv-47,D_sandwich_draft,0.0,"dogs, cats","swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover",0.0,0.0
+conv-30#9,conv-30,Z_closed_book,0.0,New York City,Rome,,
+conv-30#9,conv-30,A_rrf,0.0,Paris,Rome,0.0,0.5
+conv-30#9,conv-30,B_graph,0.0,Paris,Rome,0.0,0.5
+conv-30#9,conv-30,C_sandwich_nodraft,0.0,Paris,Rome,0.0,0.5
+conv-30#9,conv-30,D_sandwich_draft,1.0,"Paris, Rome",Rome,0.0,0.5
+conv-49#21,conv-49,Z_closed_book,0.05357142857142858,"beautiful, attracted to her","He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",,
+conv-49#21,conv-49,A_rrf,0.3003921568627451,"awesome, incredible, makes him feel alive","He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",0.0,0.3333333333333333
+conv-49#21,conv-49,B_graph,0.3003921568627451,"awesome, incredible, makes him feel alive","He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",0.0,0.3333333333333333
+conv-49#21,conv-49,C_sandwich_nodraft,0.30666666666666664,"awesome, incredible, energetic, amazing, feels alive, makes him feel alive.","He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",0.0,0.6666666666666666
+conv-49#21,conv-49,D_sandwich_draft,0.28410256410256407,"incredible, feels alive","He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",0.0,0.6666666666666666

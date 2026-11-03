@@ -95,3 +95,22 @@ scoring (lenient for answers that mention both values on non-update probes), 15-
 k=4 retrieval is trivially sufficient. The graph's possible advantages (multi-hop, long histories,
 learning via R) are not exercised by this task. These results say the v0 design choices
 (draft-in-prompt, low-C trigger) are bad; they do not say the graph can never help — that needs E3–E5.
+
+## 2026-11-03 — LoCoMo (new dataset; all pre-registered in LAB_NOTEBOOK.md before running)
+
+**R-2026-11-03-01 — LoCoMo embedding cache.** 5,882 turns, 7,854 unique texts, 1,986 QA; 13.2 s on CPU; 0 % of texts truncated by the 256-piece limit.
+Primary multi-hop population (category 1, ≥ 2 valid evidence turns): N = 277. Malformed evidence ids repaired by regex; 4 questions lost an evidence id.
+
+**R-2026-11-03-02 — Confirmatory RRF(BM25, cosine) on LoCoMo (H1: confirmed).** N = 1,536 (categories 1–4, ≥ 1 valid evidence turn), metric all_ev@10:
+cosine 0.391 [0.367, 0.415], BM25 0.467 [0.443, 0.492], RRF 0.493 [0.469, 0.518]. RRF − cosine +0.102 [0.081, 0.124] (Holm p = 1e-4);
+RRF − BM25 +0.026 [0.007, 0.045] (Holm p = 0.010). Prediction check: RRF − cosine larger than predicted ([+0.02, +0.08]); RRF − BM25 inside [0, +0.06].
+**Conclusion.** RRF is a strong, replicated baseline. **Limitations.** Different dataset, not a held-out split of LongMemEval-S. The RRF − BM25 gain is small and
+not robust to clustering by conversation (+0.027 [−0.006, 0.063], better in 7/10 conversations). On the multi-evidence subset all methods are low (RRF 0.121).
+
+**R-2026-11-03-03 — LoCoMo multi-hop: graph vs RRF with controls and ablations (H2: FALSIFIED).** N = 277, all_ev@10: RRF 0.105 [0.072, 0.141]; S-only graph rerank 0.105
+(Δ 0.000 [0.000, 0.000]); aggressive full-W rerank 0.123 (Δ +0.018 [−0.004, +0.043], below the +0.03 margin, Holm 1.0); v1 first stage 0.079 (Δ −0.025 [−0.058, +0.007]).
+Shuffled-W, random-topology and S/T/E/A* ablations are all within ±0.02 of the full model on the primary metric; `noR` equals the full model exactly (sanity check). No comparison
+in the 20-test family survives Holm. Secondary frac@10 hints that real W beats shuffled W by ~0.025 and kNN topology beats random edges by ~0.06 (uncorrected).
+Aborted attempt 1 (BLAS thread oversubscription) is logged and its directory kept as `results/R-2026-11-03-03_ABORTED_attempt1/`.
+**Conclusion.** On a second dataset and a multi-hop subset the graph layer does not meet the pre-registered bar (extends V-12). **Limitations.** MiniLM kNN graph only, config
+transferred from LongMemEval-S dev (not tuned on LoCoMo), N = 277 gives wide CIs (±0.03), only 10.5 % of multi-hop questions have all evidence in the top-10 for any method.

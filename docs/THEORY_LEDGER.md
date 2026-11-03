@@ -51,15 +51,22 @@ Updated after every run; the change log at the bottom records what changed and w
 | V-10 | Recency-weighted input helps knowledge-update questions | refuted (R-2026-10-26-02, exploratory) | Knowledge-update questions: recency 0.889 vs plain v1 0.944 recall@10; overall nDCG −0.017 [−0.028, −0.006]. |
 | V-11 | Every −log W path cost is invariant to rescaling R (THEORY_V1 v1.0 §4) | refuted (spec error, R-2026-10-26-02) | The −log cost adds a per-hop penalty of log W_max; 11/470 paths changed. Corrected in v1.1. Invariance holds for P and A only. |
 | V-12 | Graph activation as a re-ranking bonus on a first stage improves recall@10 (v1.2 candidate) | refuted (R-2026-10-26-04) | Test half n=247, dev-chosen config: cosine Δ 0.000 [−0.016, 0.016]; RRF Δ 0.000 [0.000, 0.000]; Holm 1.0 both; shuffled W identical recall; larger w hurts (RRF w0.5 ζ0.85: 0.874 vs 0.907). |
+| V-13 | RRF(BM25, cosine) beats each single retriever as a first stage (replication on a new dataset) | supported (R-2026-11-03-01/02, LoCoMo) | all_ev@10 over N=1,536: RRF 0.493 [0.469, 0.518]; −cosine +0.102 [0.081, 0.124], p_Holm 1e-4; −BM25 +0.026 [0.007, 0.045], p_Holm 0.010. Caveat: RRF−BM25 over conversation clusters +0.027 [−0.006, 0.063], better in 7/10; on the multi-hop ≥2-evidence subset (R-03, N=277) RRF−BM25 +0.047 [0.014, 0.079], Holm 0.13 and RRF−cosine +0.025 [−0.007, 0.061], Holm 1.0. |
+| V-14 | Graph activation as a re-ranking bonus beats RRF on LoCoMo multi-hop all-evidence@10 by ≥ 0.03 (pre-registered H2) | refuted (R-2026-11-03-03) | N=277. S-only bonus (dev config): Δ 0.000 [0.000, 0.000] (identical outcome on all 277). Aggressive full-W config: +0.018 [−0.004, 0.043], Holm 1.0, below margin. v1 as first stage −0.025 [−0.058, 0.007]. Extends V-12 to a second dataset. |
+| V-15 | Real association weights W beat shuffled W | mixed (R-2026-11-03-03) | Primary all_ev@10: rr_strong − shuffled +0.022 [0.000, 0.043] (p 0.11); S-only identical to shuffled. Secondary frac@10 (uncorrected, one shuffle seed): +0.024 [+0.004, +0.045]; opposite sign from LongMemEval-S (P-05). No single S/T/E ablation reproduces it. |
+| V-16 | kNN topology beats random edges (LoCoMo) | weak evidence (R-2026-11-03-03) | v1 − random topology all_ev@10 +0.022 [+0.007, +0.040], raw p 0.030, Holm 0.57; frac@10 +0.058 [+0.038, +0.078] (secondary, uncorrected). |
+| V-17 | Graph-reranked context (rr_sonly) improves a small reader's LoCoMo multi-hop answer F1 over RRF context | refuted (R-2026-11-03-04) | N=277, Qwen2.5-1.5B, partial-F1. B − A = −0.0006 [−0.015, +0.013], Holm 0.94; pre-registered falsifier (CI upper < +0.02) fired. Low power by construction: contexts identical in order for most questions (12/277 answers differ). |
+| V-18 | A draft in the secondary prompt hurts relative to no draft (anchoring; extends V-09 to LoCoMo) | mixed (R-2026-11-03-04) | D − C = +0.009 [−0.014, +0.032], Holm 0.89: no anchoring detected here; prediction (D − C < 0) not met. V-09 (synthetic, 114/120 vs 94/120) stands only for that synthetic task. The closed-book draft is weak (F1 0.145) and the 1.5B reader mostly ignores it when context is present. |
+| V-19 | The Sandwich pipeline (v1 retrieval, with or without draft) answers better than plain RRF context | refuted (R-2026-11-03-04) | C − A = −0.038 [−0.075, −0.003], raw p 0.037, Holm 0.11 (pre-registered); D − A = −0.029 [−0.067, +0.008], p 0.13 (exploratory). Not significant after Holm, but no sign of a gain. Retrieval upstream is worse (all-evidence in context 0.079 vs 0.105). |
 
-## Counts (36 claims: 24 paper, 12 v1)
+## Counts (43 claims: 24 paper, 19 v1)
 
 | Status | Count |
 |---|---|
-| supported | 5 (P-03, V-01, V-02, V-03, V-09) |
-| refuted (empirical, math, or spec error) | 16 (P-04, P-05, P-06, P-07, P-08, P-10, P-12, P-13, P-15, P-19, V-04, V-06, V-07, V-10, V-11, V-12) |
-| mixed | 3 (P-11, P-20, V-05) |
-| weak evidence | 2 (P-18, V-08) |
+| supported | 6 (P-03, V-01, V-02, V-03, V-09, V-13) |
+| refuted (empirical, math, or spec error) | 19 (P-04, P-05, P-06, P-07, P-08, P-10, P-12, P-13, P-15, P-19, V-04, V-06, V-07, V-10, V-11, V-12, V-14, V-17, V-19) |
+| mixed | 5 (P-11, P-20, V-05, V-15, V-18) |
+| weak evidence | 3 (P-18, V-08, V-16) |
 | untested | 3 (P-09, P-16, P-22) |
 | not testable | 7 (P-01, P-02, P-14, P-17, P-21, P-23, P-24) |
 
@@ -71,3 +78,5 @@ Updated after every run; the change log at the bottom records what changed and w
 | 2026-10-26 | P-04, V-04 refuted on LongMemEval-S. P-05 refuted for weights (topology matters), V-05 mixed. P-06/07/08, V-06 refuted (removing S/T/E raises nDCG). P-11 usefulness ✗ for recall; V-07 refuted. P-12 refuted as first stage. V-10 refuted. V-11 added (spec error, fixed in THEORY_V1 v1.1). V-12 added (pre-registered hybrid). Counts redone; P-14 now counted under not testable only. | R-2026-10-26-02 |
 | 2026-10-26 | P-18, V-08 → weak evidence (AUROC > 0.5, but explained mostly by probe type / max-cosine). P-14: Φ_dyn = C_norm at convergence. | R-2026-10-26-03 |
 | 2026-10-26 | V-12 refuted (graph bonus adds 0.000 on held-out half); P-12 extended to "refuted as bonus". Not a ledger claim, but noted: RRF(BM25, cosine) 0.913 beats both singles by +0.055–0.057 (exploratory). | R-2026-10-26-04 |
+| 2026-11-03 | V-13..V-16 added (LoCoMo). V-13 supported (RRF baseline replicates, with cluster caveat). V-14 refuted (graph rerank, H2 falsified; extends V-12). V-15 mixed (W vs shuffled: null on primary, small uncorrected secondary hint). V-16 weak (topology vs random). No change to THEORY_V1 (design unchanged). Counts redone. | R-2026-11-03-02, R-2026-11-03-03 |
+| 2026-11-03 | V-17..V-19 added (LoCoMo QA, 1.5B reader). V-17 refuted (graph context = RRF context: −0.0006 [−0.015, 0.013]). V-18 mixed (no draft anchoring detected on LoCoMo, unlike synthetic V-09). V-19 refuted (Sandwich retrieval answers no better than RRF; Holm-ns). No change to THEORY_V1. Counts redone. | R-2026-11-03-04 |

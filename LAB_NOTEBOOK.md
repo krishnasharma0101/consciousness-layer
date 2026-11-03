@@ -593,3 +593,20 @@ CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well 
 - Interpretation: on LoCoMo multi-hop, the graph layer does not meet the pre-registered bar. The best graph config (+0.018) is within noise and below the margin; weights are not demonstrably useful; kNN topology is better than random edges (as on LME-S). The absolute headroom is large (RRF gets all evidence in the top-10 for only 10.5 % of multi-hop questions), so the failure is not a ceiling effect: seeds from a weak first stage give the graph little to spread from.
 - Intuition update: a graph over MiniLM kNN edges adds at most a small topology benefit. The lever is the first-stage retriever and evidence-aware retrieval (query decomposition), not association weights.
 - Decision: no theory version change (nothing in the design changed; v1.1 stays). Ledger updated with L-claims for LoCoMo. Proceed to -04 (QA) as pre-registered.
+
+### R-2026-11-03-04 — results (written after the run; 776.7 s wall-clock = 12.9 min, commit 879b521, clean tree)
+- Command as pre-registered, N = 277 (all of them, no cap needed), Qwen2.5-1.5B-Instruct bf16 CPU greedy. 1,150-ish unique generations (progress log: 1,121 calls at 270/277). Files: `results/R-2026-11-03-04/{summary,paired,per_question_arm,context_recall}.csv`. `partial_rows.csv` is the script's checkpoint.
+- Mean LoCoMo partial-F1 (bootstrap 95 % CI): **A_rrf 0.258 [0.222, 0.296]**; B_graph 0.258 [0.222, 0.295]; C_sandwich_nodraft 0.220 [0.185, 0.257]; D_sandwich_draft 0.229 [0.194, 0.265]; Z_closed_book 0.145 [0.115, 0.179].
+- Paired (Holm over {B−A, C−A, D−C}):
+  - **B − A = −0.0006 [−0.015, +0.013]**, p 0.94 (answers differ on 12/277). Primary label. **Falsifier fired** (CI upper +0.013 < +0.02): no evidence that graph context helps the reader.
+  - C − A = −0.038 [−0.075, −0.003], raw p 0.037, Holm 0.11 (answers differ on 132).
+  - D − C = +0.009 [−0.014, +0.032], Holm 0.89.
+  - A − Z = +0.113 [+0.075, +0.153], p < 1e-4 (sanity arm; context helps).
+- Exploratory (not pre-registered, not Holm-adjusted): D − A = −0.029 [−0.067, +0.008], p 0.13; D − Z = +0.084 [+0.051, +0.118]; C − Z = +0.075 [+0.035, +0.114]. Share of zero-F1 answers: A 45.5 %, B 44.4 %, C 53.1 %, D 50.2 %, Z 64.3 %. Context recall (all evidence in the 10 turns): A 0.105, B 0.105, C 0.079; frac: A 0.282, B 0.287, C 0.243 (same as R-03).
+  - For A, F1 is 0.565 (n = 29) when all evidence is in context and 0.222 (n = 248) otherwise: retrieval recall drives the reader score, and 90 % of the multi-hop questions are missing at least one evidence turn.
+- **Prediction check:** ✓ A − Z ≥ +0.10 (+0.113); ✓ B − A ∈ [−0.02, +0.02]; ✓ C − A < 0 (−0.038, but Holm 0.11); **✗ D − C < 0** (observed +0.009, CI spans 0: no anchoring on the draft); ✓ A's F1 in [0.15, 0.35] (0.258); ✓ falsifier for "graph helps the reader" fired.
+- Surprises: D ≥ C. In v0 (synthetic) the draft anchored the refine pass; here the closed-book draft (F1 0.145) is rarely right and the 1.5B reader seems to mostly ignore it. I did not inspect individual answers beyond a 3-question smoke test, so "mostly ignores it" is a guess.
+- Bugs: none. Smoke test with `--n 3` (run id SMOKE-TEST, directory deleted) before the real run; no issue found.
+- Interpretation: end-to-end, graph context is indistinguishable from RRF context (by construction nearly the same context), and the full Sandwich retrieval path is no better, point-estimate worse, than plain RRF. Reader quality is bounded by retrieval recall.
+- Intuition update: the useful lever is retrieval recall for multi-evidence questions (RRF still misses ≥ 1 evidence turn on ~90 %), not the layer on top. A bigger reader would help the absolute numbers but this run can not say whether it changes the graph comparisons.
+- Decision: stop the graph-effectiveness experiments here; no theory version change. Paper frames the work as formalism + audit + pre-registered negative evaluation.
