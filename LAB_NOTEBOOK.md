@@ -428,3 +428,38 @@ Reason:
 
 Left for Krishna's decision: a GPU or paid judge for end-to-end QA, and a multi-hop dataset where association could matter.
 CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well under the 8 h budget.
+
+---
+
+## Session 2026-11-03 — infra note (written 2026-11-03 before any run)
+- The `.venv/` that the previous session used was **not present** on the box at session start (only `data/cache`, `models/`, and the
+  repo). Rebuilt: `python3 -m venv .venv`, CPU torch 2.15.0, transformers 5.22.1, sentence-transformers 6.2.0, numpy 2.5.4, pandas 3.1.0,
+  scipy 1.18.1, rank-bm25 0.2.2, nltk 3.10.4. Package versions differ from the 2026-10-26 runs (not recorded then beyond config.json),
+  so numeric results of a re-run could differ in the last digits. After the rebuild `pytest` = **51 passed**, same as before.
+- Data cache `data/cache/lme_s_minilm.npy` was still there (sha256 not re-checked here; the E3b config recorded it).
+- LoCoMo (snap-research/locomo, repo commit 3eb6f2c, 2024-08-13) downloaded to `data/locomo/locomo10.json`,
+  sha256 `79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4`. **License: CC BY-NC 4.0** (LICENSE.txt in the repo;
+  attribution + non-commercial). Academic evaluation is allowed; we do not redistribute the data (`data/` is git-ignored).
+  Access: public raw GitHub URL, no login, no cost.
+- What I looked at before writing the pre-registrations below (honest disclosure): per-category counts, evidence-list lengths, a few
+  example QA items, the list of malformed evidence strings, and the official `task_eval/evaluation.py` F1 code. **No retrieval result
+  of any kind on LoCoMo has been seen.**
+- Run ID scheme this session: R-2026-11-03-NN.
+  - -01 LoCoMo embedding cache + dataset stats (preprocessing)
+  - -02 confirmatory RRF(BM25, cosine) on LoCoMo (Run 1 of the brief)
+  - -03 LoCoMo multi-hop graph retrieval, pre-registered graph-vs-RRF test (Run 2)
+  - -04 end-to-end QA, Qwen2.5-1.5B reader, token-F1 (Run 3; pre-registered after -03 results, design fixed in advance below)
+
+## R-2026-11-03-01 — LoCoMo embedding cache + dataset stats (preprocessing)
+
+**PRE-REGISTRATION (written before running)**
+- Purpose: embed every LoCoMo turn and question once with all-MiniLM-L6-v2 (normalised, max 256 word-pieces) so all LoCoMo retrievers share
+  vectors; write category/evidence statistics. No hypothesis, no retrieval metrics.
+- Fixed preprocessing rules (also in `experiments/locomo_common.py` docstring): node = one turn; text = "`<speaker>: <text>`" plus
+  " [image: <blip_caption>]" when the turn has a BLIP caption; node time = days since session_1 + turn_index/1440 (session timestamps parsed
+  from e.g. "1:56 pm on 8 May, 2023"); evidence strings cleaned with regex `D:?(\d+):0*(\d+)` → `D<a>:<b>`, ids absent from the conversation
+  dropped (9 malformed strings are known: e.g. 'D8:6; D9:17', 'D:11:26', 'D30:05', 'D', and 'D4:36'/'D10:19' that do not exist);
+  category names 1 multi-hop, 2 temporal, 3 open-domain, 4 single-hop, 5 adversarial (taken from the official eval code, which treats 1 with
+  multi-answer F1, 3 as open-domain with ';' split, 5 as adversarial; content spot-checked; the README does not give the mapping).
+- Expectation: 10 conversations, 5,882 turns, 1,986 QA; < 2 min on CPU; < 5 % of turns above 256 word-pieces (LoCoMo turns are short).
+- Command: `.venv/bin/python experiments/locomo_embed.py --run-id R-2026-11-03-01`. Seed: n/a.
