@@ -48,3 +48,6 @@ supported 6 · refuted 19 · mixed 5 · weak evidence 3 · untested 3 · not tes
 docs/{THEORY_V1.md, THEORY_LEDGER.md, STATUS.md, MATH_AUDIT.md, EXPERIMENT_PLAN.md} · LAB_NOTEBOOK.md · EXPERIMENTS.md ·
 src/conslayer/{theory_v1.py, runlog.py, stats.py} · tests/test_v1.py · experiments/{e3_lme_retrieval.py, e2_cnorm_signal.py,
 e2_posthoc_within_ptype.py, e3b_hybrid.py, lme_common.py, lme_embed.py} · results/<run_id>/ (config.json + CSVs)
+
+## Paper (drafted 2026-11-03 IST)
+- paper/main.tex, paper/main.pdf (7 pages), paper/refs.bib (16 entries, all cited), paper/SUBMISSION_NOTES.md. Build: .venv/bin/python paper/make_figs.py; cd paper && ~/bin/tectonic main.tex. Not submitted anywhere. Affiliation is a TODO.
