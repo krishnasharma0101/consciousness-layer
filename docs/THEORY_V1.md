@@ -119,6 +119,7 @@ Known structural facts (follow from the definitions, verified by unit tests):
 | C_norm as failure signal | E2: AUROC 0.65–0.68 pooled, but max-cosine 0.72–0.74; residual 0.56–0.59 | weak; mostly retrieval confidence (R-2026-10-26-03) |
 | A as a re-ranking bonus on cosine or RRF (12 configs each, dev-chosen) | E3b test n=247: Δ @10 0.000 [−0.016, 0.016] (cosine), 0.000 [0, 0] (RRF); larger w hurts | refuted (R-2026-10-26-04) |
 | Retrieval layer recommended instead | E3b exploratory: RRF(BM25, cosine) 0.913 vs cosine 0.855, Δ +0.057 [0.028, 0.087] | use RRF; not a graph result |
+| Graph rerank on RRF, LoCoMo multi-hop (N=277) | R-2026-11-03-03: S-only bonus 0.000 [0, 0]; full-W (w 0.5, ζ 0.85) +0.018 [−0.004, 0.043] all_ev@10; v1 first stage −0.025 [−0.058, 0.007] | refuted vs the +0.03 pre-registered margin (R-2026-11-03-03); QA with a 1.5B reader: graph ctx − RRF ctx −0.0006 [−0.015, 0.013] (R-2026-11-03-04) |
 | λ trigger "refine iff C_norm < λ" | v0: 44/120 vs always 94/120 | default changed to *always refine* (λ = +∞) until a confirmatory E2 shows AUROC ≳ 0.75 |
 
 ## 6. Dropped or re-labelled paper claims
@@ -134,3 +135,4 @@ Known structural facts (follow from the definitions, verified by unit tests):
 | v1.0 | 2026-10-26 | First full specification (this document) | MATH_AUDIT #1–#17; R-2026-10-20-01 (no-draft prompt) |
 | v1.1 | 2026-10-26 | (a) R-rescaling claim restricted to P/A; −log cost has an implicit per-hop penalty log W_max. (b) C_norm not comparable across configurations. (c) Φ_dyn redundant at convergence. (d) Status table added as §5: ranking by A (ζ = 0.85) refuted as a first-stage retriever; S/T/E weights not useful; λ trigger default "always". Code: `lam_direction` default changed to "always"; `hybrid_rank` and `rrf` added for the v1.2 candidate (not part of v1.1 claims). Definitions of W, A, C_norm unchanged. | R-2026-10-26-02, R-2026-10-26-03 |
 | v1.1 (unchanged after E3b) | 2026-10-26 | v1.2 candidate (graph as re-ranking bonus) refuted, so no v1.2 was written. §5 gains the row "re-ranking bonus: refuted (R-2026-10-26-04)". The recommended retrieval layer for the Sandwich is RRF(BM25, dense); the graph is optional and tested-negative on LongMemEval-S. | R-2026-10-26-04 |
+| v1.1 (unchanged after LoCoMo) | 2026-11-03 | No design change. §5 gains the LoCoMo row. The no-draft Secondary prompt default is kept, but its justification is now only the synthetic task: on LoCoMo QA with a 1.5B reader a draft did not hurt (D − C = +0.009 [−0.014, +0.032], R-2026-11-03-04). | R-2026-11-03-02/03/04 |
