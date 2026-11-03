@@ -114,3 +114,9 @@ in the 20-test family survives Holm. Secondary frac@10 hints that real W beats s
 Aborted attempt 1 (BLAS thread oversubscription) is logged and its directory kept as `results/R-2026-11-03-03_ABORTED_attempt1/`.
 **Conclusion.** On a second dataset and a multi-hop subset the graph layer does not meet the pre-registered bar (extends V-12). **Limitations.** MiniLM kNN graph only, config
 transferred from LongMemEval-S dev (not tuned on LoCoMo), N = 277 gives wide CIs (±0.03), only 10.5 % of multi-hop questions have all evidence in the top-10 for any method.
+
+**R-2026-11-03-04 — End-to-end QA, Qwen2.5-1.5B reader, LoCoMo partial-F1 (graph context: falsified).** N = 277, 12.9 min on CPU. Mean F1: RRF context 0.258 [0.222, 0.296];
+graph (S-only rerank) 0.258; Sandwich retrieval without draft 0.220 [0.185, 0.257]; Sandwich with closed-book draft 0.229 [0.194, 0.265]; closed-book 0.145 [0.115, 0.179].
+B − A = −0.0006 [−0.015, +0.013] (falsifier fired); C − A = −0.038 [−0.075, −0.003] (Holm 0.11); D − C = +0.009 [−0.014, +0.032] (predicted negative; not observed); A − Z = +0.113 [+0.075, +0.153].
+Reader F1 is 0.565 when all evidence is in the context (n = 29) and 0.222 otherwise (n = 248). **Conclusion.** Graph context ≈ RRF context; the Sandwich retrieval path is no better than RRF.
+**Limitations.** 1.5B reader, greedy, one seed, partial-F1 (lexical), B and A share nearly all contexts (low power), draft effect untested with a stronger reader.

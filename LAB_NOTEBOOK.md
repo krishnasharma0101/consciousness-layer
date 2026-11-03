@@ -595,7 +595,7 @@ CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well 
 - Decision: no theory version change (nothing in the design changed; v1.1 stays). Ledger updated with L-claims for LoCoMo. Proceed to -04 (QA) as pre-registered.
 
 ### R-2026-11-03-04 — results (written after the run; 776.7 s wall-clock = 12.9 min, commit 879b521, clean tree)
-- Command as pre-registered, N = 277 (all of them, no cap needed), Qwen2.5-1.5B-Instruct bf16 CPU greedy. 1,150-ish unique generations (progress log: 1,121 calls at 270/277). Files: `results/R-2026-11-03-04/{summary,paired,per_question_arm,context_recall}.csv`. `partial_rows.csv` is the script's checkpoint.
+- Command as pre-registered, N = 277 (all of them, no cap needed), Qwen2.5-1.5B-Instruct bf16 CPU greedy. unique prompts were answered once (progress log: 1,121 generation calls after 270/277 questions). Files: `results/R-2026-11-03-04/{summary,paired,per_question_arm,context_recall}.csv`. `partial_rows.csv` is the script's checkpoint.
 - Mean LoCoMo partial-F1 (bootstrap 95 % CI): **A_rrf 0.258 [0.222, 0.296]**; B_graph 0.258 [0.222, 0.295]; C_sandwich_nodraft 0.220 [0.185, 0.257]; D_sandwich_draft 0.229 [0.194, 0.265]; Z_closed_book 0.145 [0.115, 0.179].
 - Paired (Holm over {B−A, C−A, D−C}):
   - **B − A = −0.0006 [−0.015, +0.013]**, p 0.94 (answers differ on 12/277). Primary label. **Falsifier fired** (CI upper +0.013 < +0.02): no evidence that graph context helps the reader.
