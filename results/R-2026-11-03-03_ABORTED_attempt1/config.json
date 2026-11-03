@@ -1,0 +1,300 @@
+{
+  "run_id": "R-2026-11-03-03",
+  "start_ist": "2026-11-03T11:31:24+05:30",
+  "end_ist": null,
+  "wall_clock_s": null,
+  "status": "running",
+  "git": {
+    "commit": "85e5c302ea7d72c7b2faeddea2e927e89a03b55e",
+    "short": "85e5c30",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/locomo_graph.py --run-id R-2026-11-03-03",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.7",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.1",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "emb_sha256": "60dafbdab0796ee9aa6a8df9eafc91281fc0c27d46c7dd6eca59513d56ba9163",
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "ks": [
+      5,
+      10
+    ],
+    "half_life_days": 7.0,
+    "graph_base": {
+      "use_S": true,
+      "use_T": true,
+      "use_E": true,
+      "use_R": true,
+      "half_life": 7.0,
+      "time_unit": "days",
+      "kappa_E": 1.0,
+      "r_init": 1.0,
+      "r_max": 2.0,
+      "eta": 0.1,
+      "r_decay": 0.0,
+      "alpha": 0.2,
+      "beta": 0.7,
+      "rho": 0.1,
+      "theta": 0.2,
+      "mood": 0.0,
+      "mood_omega": 0.1,
+      "k_edges": 8,
+      "zeta": 0.85,
+      "seed_k": 5,
+      "max_iter": 100,
+      "tol": 1e-08,
+      "use_recency": false,
+      "recency_half_life": 30.0,
+      "use_astar": true,
+      "cost_mode": "neglog",
+      "mu": 0.7,
+      "eps": 1e-06,
+      "lam": 0.05,
+      "lam_direction": "always",
+      "success_threshold": 0.5,
+      "control": "none",
+      "control_seed": 0
+    },
+    "first_stage_graphs": {
+      "v1": {},
+      "v1_shuffledW": {
+        "control": "shuffle"
+      },
+      "v1_randomtopo": {
+        "control": "random_topology"
+      },
+      "v1_noS": {
+        "use_S": false
+      },
+      "v1_noT": {
+        "use_T": false
+      },
+      "v1_noE": {
+        "use_E": false
+      },
+      "v1_noR": {
+        "use_R": false
+      },
+      "v1_noAstar": {
+        "use_astar": false
+      }
+    },
+    "rerank": {
+      "rr_sonly": {
+        "overrides": {
+          "use_T": false,
+          "use_E": false,
+          "zeta": 0.5
+        },
+        "w": 0.1
+      },
+      "rr_sonly_shuf": {
+        "overrides": {
+          "use_T": false,
+          "use_E": false,
+          "zeta": 0.5,
+          "control": "shuffle",
+          "control_seed": 0
+        },
+        "w": 0.1
+      },
+      "rr_sonly_shuf_s1": {
+        "overrides": {
+          "use_T": false,
+          "use_E": false,
+          "zeta": 0.5,
+          "control": "shuffle",
+          "control_seed": 1
+        },
+        "w": 0.1
+      },
+      "rr_sonly_shuf_s2": {
+        "overrides": {
+          "use_T": false,
+          "use_E": false,
+          "zeta": 0.5,
+          "control": "shuffle",
+          "control_seed": 2
+        },
+        "w": 0.1
+      },
+      "rr_sonly_rand": {
+        "overrides": {
+          "use_T": false,
+          "use_E": false,
+          "zeta": 0.5,
+          "control": "random_topology"
+        },
+        "w": 0.1
+      },
+      "rr_v1W": {
+        "overrides": {
+          "zeta": 0.5
+        },
+        "w": 0.1
+      },
+      "rr_strong": {
+        "overrides": {
+          "zeta": 0.85
+        },
+        "w": 0.5
+      },
+      "rr_strong_shuf": {
+        "overrides": {
+          "zeta": 0.85,
+          "control": "shuffle"
+        },
+        "w": 0.5
+      },
+      "rr_strong_rand": {
+        "overrides": {
+          "zeta": 0.85,
+          "control": "random_topology"
+        },
+        "w": 0.5
+      },
+      "rr_strong_noS": {
+        "overrides": {
+          "zeta": 0.85,
+          "use_S": false
+        },
+        "w": 0.5
+      },
+      "rr_strong_noT": {
+        "overrides": {
+          "zeta": 0.85,
+          "use_T": false
+        },
+        "w": 0.5
+      },
+      "rr_strong_noE": {
+        "overrides": {
+          "zeta": 0.85,
+          "use_E": false
+        },
+        "w": 0.5
+      },
+      "rr_strong_noR": {
+        "overrides": {
+          "zeta": 0.85,
+          "use_R": false
+        },
+        "w": 0.5
+      }
+    },
+    "rrf_k": 60,
+    "t_now": "max node time (only used if use_recency)",
+    "primary_metric": "all_ev@10",
+    "primary_subset": "category 1 (multi-hop) with >=2 valid evidence turns",
+    "margin": 0.03,
+    "primary_pair": [
+      "rr_sonly",
+      "rrf"
+    ],
+    "family_holm": [
+      [
+        "rrf",
+        "cosine"
+      ],
+      [
+        "rrf",
+        "bm25"
+      ],
+      [
+        "v1",
+        "rrf"
+      ],
+      [
+        "rr_strong",
+        "rrf"
+      ],
+      [
+        "rr_v1W",
+        "rrf"
+      ],
+      [
+        "rr_sonly",
+        "rr_sonly_shuf"
+      ],
+      [
+        "rr_sonly",
+        "rr_sonly_rand"
+      ],
+      [
+        "rr_strong",
+        "rr_strong_shuf"
+      ],
+      [
+        "rr_strong",
+        "rr_strong_rand"
+      ],
+      [
+        "v1",
+        "v1_shuffledW"
+      ],
+      [
+        "v1",
+        "v1_randomtopo"
+      ],
+      [
+        "v1_noS",
+        "v1"
+      ],
+      [
+        "v1_noT",
+        "v1"
+      ],
+      [
+        "v1_noE",
+        "v1"
+      ],
+      [
+        "v1_noR",
+        "v1"
+      ],
+      [
+        "v1_noAstar",
+        "v1"
+      ],
+      [
+        "rr_strong_noS",
+        "rr_strong"
+      ],
+      [
+        "rr_strong_noT",
+        "rr_strong"
+      ],
+      [
+        "rr_strong_noE",
+        "rr_strong"
+      ],
+      [
+        "rr_strong_noR",
+        "rr_strong"
+      ]
+    ],
+    "bootstrap": "paired percentile, B=10000, seed 0 over questions",
+    "sign_flip": "two-sided paired, B=20000, seed 0"
+  },
+  "files": [],
+  "notes": []
+}

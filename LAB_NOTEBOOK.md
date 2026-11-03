@@ -562,3 +562,34 @@ CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well 
 - Attempt 1 was started at 11:31 IST (box clock) with the pre-registered command. After ~10 min wall-clock the pool's 3 slowest workers had used 20+ CPU-minutes each (load average 24 on 8 cores) and no result file existed, while the other workers had finished their conversations in 30–50 CPU-s.
 - Diagnosis (py-spy + a single-process timing): `locomo_graph.py` imports numpy **before** `locomo_retr.py` sets `OMP_NUM_THREADS=1`, so 8 worker processes each ran multi-threaded BLAS on tiny (≈600×600) matmuls — oversubscription. With threads pinned to 1, one `v1` retrieval costs 14 ms.
 - Action: killed the run, moved its half-written directory to `results/R-2026-11-03-03_ABORTED_attempt1/` (contains only config.json), pinned the BLAS env vars at the top of `locomo_graph.py` (no change to any retriever, metric, config, population or statistic), committed, re-ran under the same run ID. The pre-registration above is unchanged.
+
+### R-2026-11-03-03 — results (written after the run; attempt 2, 77 s wall-clock, commit bf8ddb9, clean tree)
+- Command as pre-registered. N = 277 (category 1, ≥ 2 valid evidence turns). Files: `results/R-2026-11-03-03/{per_question,summary,paired_all,family_holm}.csv`, `all_ev_at10_cat1.png`.
+- **VERDICT (pre-registered rule): H2 FALSIFIED.** Both falsifiers fired: (A) CI upper bound of `rr_sonly − rrf` = 0.000 < 0.03; (B) `rr_sonly` = `rr_sonly_shuf` (not better; ≤ holds).
+- **Primary:** all_ev@10 `rr_sonly` 0.105 [0.072, 0.141] vs `rrf` 0.105 [0.072, 0.141]; Δ = **0.000** [0.000, 0.000], sign-flip p = 1.0.
+  - The all_ev@10 outcome is identical on all 277 questions. The CI is degenerate because every paired difference is 0; it is not evidence of "precisely zero effect of any graph", only that this config (w = 0.1) never flips the 10-turn all-evidence outcome.
+  - The graph did change the top-10 turn set on some questions (frac@10 differs from RRF on 5/277 questions; any@10 on 2/277). frac@10: 0.287 vs 0.282, Δ +0.005 [+0.001, +0.010], raw p = 0.063.
+  - `rr_sonly_shuf` (seeds 0, 1, 2), `rr_sonly_rand` and `rr_v1W` give 0.105 on all_ev@10 as well. In a 32-question spot check in conversation 1, the shuffled-W graph (5,192 of the W entries differ from real W) produced the same top-10 set as real W on every question.
+- Other all_ev@10 (cat 1, ≥ 2 evidence, N = 277), with 95 % CIs:
+  - cosine 0.079 [0.051, 0.112]; BM25 0.058 [0.032, 0.087]; RRF 0.105 [0.072, 0.141].
+  - `rr_strong` (full W, ζ 0.85, w 0.5) 0.123 [0.087, 0.162]; Δ vs RRF +0.018 [−0.004, +0.043], p = 0.23, Holm 1.0 → **below the 0.03 margin and not significant**.
+  - `v1` first stage 0.079 [0.051, 0.112]; Δ vs RRF −0.025 [−0.058, +0.007], p = 0.21, Holm 1.0.
+  - `rr_strong − rr_strong_shuf` +0.022 [0.000, 0.043] (p 0.11); `rr_strong − rr_strong_rand` +0.025 [+0.004, +0.051] (p 0.067); `v1 − v1_shuffledW` +0.014 [0.000, 0.033]; `v1 − v1_randomtopo` +0.022 [+0.007, +0.040] (p 0.030 raw, Holm 0.57).
+  - Ablations: all S/T/E/A* removals within ±0.011 of the full model, every CI contains 0 (largest: v1_noT +0.011 [−0.011, +0.033], v1_noAstar −0.007 [−0.018, 0.000]). `*_noR` = full model exactly (0.000 [0, 0]) as pre-registered.
+  - RRF − BM25 +0.047 [+0.014, +0.079], raw p 0.0065, **Holm-adjusted 0.13**. RRF − cosine +0.025 [−0.007, +0.061], Holm 1.0. On this multi-hop subset RRF is not distinguishable from cosine.
+  - Every pairwise comparison in the 20-test pre-registered family is non-significant after Holm (smallest p_Holm = 0.13).
+- Secondary metrics (not Holm-adjusted, descriptive): frac@10 `rr_strong − rr_strong_shuf` +0.024 [+0.004, +0.045] (raw p 0.018); `v1 − v1_shuffledW` +0.026 [+0.005, +0.048] (raw p 0.015); `v1 − v1_randomtopo` +0.058 [+0.038, +0.078]; `v1 − rrf` −0.039 [−0.075, −0.002] (raw p 0.039).
+  - So on a graded metric, real W may beat shuffled W by ~0.025 on this dataset — the opposite sign from LongMemEval-S (where shuffled was equal or better). It is not corrected for multiplicity, one shuffle seed for those controls, and no single S/T/E ablation reproduces it. I read it as a hint to follow up, not a finding.
+- **Prediction check:**
+  - ✓ `rr_sonly − rrf` ∈ [−0.01, +0.01] (0.000).
+  - ✓ `rr_strong − rrf` ∈ [−0.06, +0.02] (+0.018; point estimate only just inside, CI upper bound +0.043 is outside).
+  - ✗ `v1 − rrf` ≤ −0.05 (observed −0.025; the first-stage graph is worse than RRF but by less than predicted, and the CI includes 0).
+  - ✓ real ≈ shuffled within ±0.02 for `rr_sonly` and `v1`; ✗ marginally for `rr_strong` (+0.022).
+  - ✓ random topology worse than real topology (all three pairs, CIs mostly excluding 0 only uncorrected).
+  - ✓ each S/T/E ablation within ±0.02; ✓ noR identical.
+  - ✓ H2 falsified (my probability was ~7 % supported).
+- Surprises: (1) `rr_sonly` and the shuffled/random/full-W variants are indistinguishable at w = 0.1; the "bonus" is too small to change the 10-set. (2) The strong config gains +0.018, my prior was negative. (3) v1 first stage is closer to cosine than predicted.
+- Bugs: attempt 1 aborted (BLAS oversubscription, see above). No metric or retriever bug found; sanity checks passed (noR = full; shuffled W differs from real W entrywise; RRF in `locomo_graph` reproduces -02's RRF on the overlapping questions: the cat-1 ≥ 2 RRF number 0.105 is the same population slice).
+- Interpretation: on LoCoMo multi-hop, the graph layer does not meet the pre-registered bar. The best graph config (+0.018) is within noise and below the margin; weights are not demonstrably useful; kNN topology is better than random edges (as on LME-S). The absolute headroom is large (RRF gets all evidence in the top-10 for only 10.5 % of multi-hop questions), so the failure is not a ceiling effect: seeds from a weak first stage give the graph little to spread from.
+- Intuition update: a graph over MiniLM kNN edges adds at most a small topology benefit. The lever is the first-stage retriever and evidence-aware retrieval (query decomposition), not association weights.
+- Decision: no theory version change (nothing in the design changed; v1.1 stays). Ledger updated with L-claims for LoCoMo. Proceed to -04 (QA) as pre-registered.
