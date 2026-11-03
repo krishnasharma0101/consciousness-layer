@@ -463,3 +463,79 @@ CPU used in this session: ≈ 18 min embedding + ≈ 2 min of experiments, well 
   multi-answer F1, 3 as open-domain with ';' split, 5 as adversarial; content spot-checked; the README does not give the mapping).
 - Expectation: 10 conversations, 5,882 turns, 1,986 QA; < 2 min on CPU; < 5 % of turns above 256 word-pieces (LoCoMo turns are short).
 - Command: `.venv/bin/python experiments/locomo_embed.py --run-id R-2026-11-03-01`. Seed: n/a.
+
+### R-2026-11-03-01 — results (written after the run)
+- Command as pre-registered. 5,882 turns, 7,854 unique texts (turns + questions), 1,986 QA, 13.2 s embedding, **0.0 % texts above 256 word-pieces**
+  (so the LongMemEval truncation confound does not exist here). emb sha256 `60dafbda…ba9163`.
+- Category table (valid-evidence counts after cleaning): cat 1 multi-hop n=282 (277 with ≥2 evidence turns, mean 3.13 evidence turns, 2 with >10);
+  cat 2 temporal n=321 (40 with ≥2); cat 3 open-domain n=96 (50 with ≥2; **4 with 0 valid evidence → excluded**); cat 4 single-hop n=841 (46 with ≥2);
+  cat 5 adversarial n=446 (14 with ≥2).
+- 4 questions lost one or more evidence ids to cleaning (evidence ids that do not exist in the conversation, or the bare token 'D'). The other
+  malformed strings were recovered by the regex (e.g. 'D8:6; D9:17' → 2 ids, 'D:11:26' → D11:26, 'D30:05' → D30:5).
+  Consequence: for those few questions the all-evidence target is slightly easier than the authors intended. Impact ≤ 4 of 1,986 questions.
+- Surprise: none. Observation: only 277 + 50 + 40 + 46 + 14 questions need ≥ 2 evidence turns, so every per-category multi-evidence CI outside category 1 is wide.
+- Decision: proceed to pre-registration of -02/-03/-04. Primary multi-hop population = category 1 with ≥ 2 valid evidence turns (N = 277).
+
+## R-2026-11-03-02 — Confirmatory RRF(BM25, cosine) on LoCoMo
+
+**PRE-REGISTRATION (written and committed before running; no LoCoMo retrieval result has been seen)**
+- Why LoCoMo: LongMemEval-S has no clean held-out split. E3/E3b looked at all 470 non-abstention questions and RRF's gain was found there (R-2026-10-26-04, exploratory).
+  LoCoMo is a **different dataset** (multi-session two-person chat, short turns, no truncation confound). This is a replication on a different distribution, not a held-out
+  split of the same one, and it will be described that way.
+- Hypothesis H1: RRF(BM25, cosine; k=60) retrieves the full evidence set more often than cosine alone and than BM25 alone.
+- Population: categories 1–4 (multi-hop, temporal, open-domain, single-hop) with ≥ 1 valid evidence turn (expected N = 282 + 321 + 92 + 841 = 1,536); category 5 (adversarial) excluded because its evidence turns
+  support a distractor answer, not the question's target.
+- **Primary metric: `all_ev@10`** = 1 if every valid evidence turn is in the top-10 turns of the retriever's ranking, else 0 (impossible for the 4 questions with > 10 evidence turns; kept in the denominator).
+  **Primary label: the mean of all_ev@10 over the 1,536 questions**; the two primary comparisons are RRF − cosine and RRF − BM25 (paired by question).
+- Secondary (reported, not decision-bearing): all_ev@5, any@10, frac@10 (evidence recall), per-category and ≥ 2-evidence subsets, conversation-cluster bootstrap (10 clusters).
+- Prediction (numeric): RRF − cosine ∈ [+0.02, +0.08]; RRF − BM25 ∈ [+0.00, +0.06] on all_ev@10. My probability that H1 is confirmed: ~70 %. BM25 on entity-heavy chat may be strong enough to make RRF − BM25 small.
+- **Falsifier / decision rule**: H1 confirmed iff both paired differences are > 0 **and** both two-sided paired sign-flip p-values (B = 20,000, seed 0), Holm-adjusted over these 2 comparisons, are < 0.05.
+  If either comparison fails, H1 is "not confirmed" and the LME-S gain is reported as not replicating (or replicating for only one baseline).
+- CIs: paired percentile bootstrap over questions (B = 10,000, seed 0).
+- Config: BM25Okapi defaults on lowercase `[a-z0-9]+` tokens over "`<speaker>: <text>` [+ image caption]", MiniLM cosine on the cached embeddings, RRF k = 60 (`theory_v1.rrf`), ties broken by stable argsort. Seed 0 (no randomness besides the bootstrap).
+- Command: `.venv/bin/python experiments/locomo_rrf.py --run-id R-2026-11-03-02`.
+
+## R-2026-11-03-03 — LoCoMo multi-hop evidence retrieval: graph vs RRF (+ controls, ablations)
+
+**PRE-REGISTRATION (written and committed before running -02 or -03)**
+- Hypothesis H2: the v1 graph layer (activation spreading seeded from the first stage, rescoring RRF) retrieves the full evidence set of multi-hop questions more often than RRF alone, by ≥ 0.03 absolute.
+- Population: **category 1 (multi-hop) with ≥ 2 valid evidence turns, expected N = 277**. Secondary populations: all categories 1–4 with ≥ 2 evidence turns, and each category separately (all and ≥ 2 evidence).
+- **Primary metric: `all_ev@10`.** **Primary label: mean all_ev@10 of `rr_sonly` minus mean all_ev@10 of `rrf`, paired over the 277 questions.**
+  `rr_sonly` = `V1Graph.hybrid_rank(RRF score, w = 0.1)`, graph with W = S only (T, E off), ζ = 0.5, 8-nearest-neighbour edges with τ > 0.2, seeds = top-5 of RRF. This config is the one **selected on the LongMemEval dev half** (R-2026-10-26-04); it is **not tuned on LoCoMo**.
+- Retrievers (each ranks all turns of the conversation; one graph per conversation, ≈ 370–690 nodes, half-life 7 days, T from session timestamps):
+  - first stages: `bm25`, `cosine`, `rrf`
+  - graph as first stage (v1 `retrieve`: argmax-activation goal, A* path, then activation order): `v1`, controls `v1_shuffledW`, `v1_randomtopo`, ablations `v1_noS`, `v1_noT`, `v1_noE`, `v1_noR`, `v1_noAstar`
+  - graph as rerank over RRF: `rr_sonly` (**primary**), controls `rr_sonly_shuf` (seed 0; extra seeds 1, 2 reported for variance), `rr_sonly_rand`; `rr_v1W` (full W, ζ=0.5, w=0.1); `rr_strong` (full W, ζ=0.85, **w = 0.5**, deliberately aggressive so the graph has a fair chance to matter), controls `rr_strong_shuf`, `rr_strong_rand`, ablations `rr_strong_noS/T/E/R`.
+  - Note (known before running, from THEORY_V1 §4): R ≡ 1 without learning, so `*_noR` must equal its full model exactly. That is a sanity check, not a finding.
+- Prediction (numeric/directional), on cat-1 ≥ 2-evidence all_ev@10:
+  - `rr_sonly − rrf` ∈ [−0.01, +0.01] (w = 0.1 rarely changes the top-10 set).
+  - `rr_strong − rrf` ∈ [−0.06, +0.02]. `v1 − rrf` ≤ −0.05 (first-stage activation ranking was worse than cosine on LME-S).
+  - Real W vs shuffled W within ±0.02 of each other; random topology worse than real topology; each S/T/E ablation within ±0.02 of the full model.
+  - My probability that H2 is supported (Δ ≥ 0.03 with the rule below): ~7 %. I expect H2 to be falsified.
+- **Falsifier** (both pre-registered): (A) the 95 % CI upper bound of `rr_sonly − rrf` is < 0.03; or (B) `rr_sonly` ≤ `rr_sonly_shuf` on all_ev@10 (point estimate). Either one ⇒ H2 FALSIFIED.
+  H2 SUPPORTED only if neither falsifier fires, point Δ ≥ 0.03 and the CI lower bound > 0. Otherwise INCONCLUSIVE.
+- Statistics: paired percentile bootstrap (B = 10,000, seed 0) over questions; two-sided paired sign-flip (B = 20,000, seed 0). The primary comparison is a single pre-registered test (α = 0.05, no adjustment). All other comparisons
+  (listed in `FAMILY` in `locomo_graph.py`: rrf vs cosine/bm25, v1 vs rrf, rr_strong/rr_v1W vs rrf, real vs shuffled/random for both graphs, 5 `v1` ablations, 4 `rr_strong` ablations; 20 tests) are corrected together with **Holm**, and are labelled exploratory-confirmatory (their direction was predicted but not their size).
+  Secondary metrics: all_ev@5, frac@10, any@10. Per-category tables are descriptive.
+- Honest caveats fixed in advance: one shuffle seed for the main control (seeds 1–2 for the primary one only); 1 dataset; 10 conversations ⇒ questions are not independent (conversation-cluster sensitivity is reported in -02 only);
+  v1 rankings come from `retrieve(k=10)`, so v1-first-stage numbers exist only at k ≤ 10.
+- Command: `.venv/bin/python experiments/locomo_graph.py --run-id R-2026-11-03-03`.
+
+## R-2026-11-03-04 — End-to-end QA, Qwen2.5-1.5B reader, LoCoMo token-F1 (design fixed now; run after -02/-03)
+
+**PRE-REGISTRATION (written before -02/-03 results exist; code for this run is committed separately before it is run)**
+- Question: does graph context or the Sandwich design change answer quality of a small reader on LoCoMo multi-hop questions?
+- Population: category 1, ≥ 2 valid evidence turns (N = 277, all of them; if the run exceeds ~3 h wall-clock the cap is reduced to the first n by sha1(qid) order and **logged**).
+- Reader: Qwen2.5-1.5B-Instruct (bf16, CPU, greedy, ≤ 32 new tokens), same model for draft and refine. Metric: LoCoMo official partial-F1 for category 1 (answer split on ',', mean over gold sub-answers of max F1 over predicted sub-answers, Porter stemming, article/punctuation normalisation; reimplemented because the official file imports bert_score/rouge). **No LLM judge, no paid API.**
+- Arms (k = 10 turns, shown in chronological order with their session date):
+  - `A_rrf`: RRF top-10 context.
+  - `B_graph`: `rr_sonly` ranking top-10 (the primary graph arm of -03).
+  - `C_sandwich_nodraft`: Sandwich retrieval = v1 first-stage graph ranking top-10, secondary prompt without any draft.
+  - `D_sandwich_draft`: as C, plus the "draft" = closed-book answer of the primary pass, shown in the prompt (the original Sandwich design).
+  - `Z_closed_book`: no context (this is also D's draft). Sanity arm.
+  - Identical prompts are answered once (greedy ⇒ deterministic) and reused; B = A for questions where the top-10 sets in the same order coincide.
+- **Primary label: mean F1 of `B_graph` − `A_rrf`** (paired bootstrap). Other comparisons: C − A, D − C, A − Z (Holm over {B−A, C−A, D−C}; A−Z is a sanity check).
+- Prediction: A − Z ≥ +0.10 (context helps a 1.5B reader a lot); B − A ∈ [−0.02, +0.02]; C − A < 0 (the v1 first-stage ranking retrieves worse); D − C < 0 (a wrong closed-book draft anchors the refine pass, as in R-2026-10-20-01).
+  Absolute F1 for A: 0.15–0.35. Falsifier for "graph helps the reader": CI upper bound of B − A < +0.02.
+- Caveat fixed in advance: B and A share most of their context, so B − A has low power by construction; C is the real test of the original retrieval design. 1.5B reader, one seed (greedy), one dataset, partial-F1 rewards lexical overlap.
+- Command (script to be added): `.venv/bin/python experiments/locomo_qa.py --run-id R-2026-11-03-04`.

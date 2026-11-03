@@ -63,7 +63,7 @@ def load_convs():
         c = x["conversation"]
         sess = sorted((int(k.split("_")[1]) for k in c if re.fullmatch(r"session_\d+", k)))
         t0 = parse_time(c["session_1_date_time"])
-        texts, dia, times, spk = [], [], [], []
+        texts, dia, times, spk, dates = [], [], [], [], []
         for s in sess:
             base = (parse_time(c[f"session_{s}_date_time"]) - t0).total_seconds() / 86400
             for ti, t in enumerate(c[f"session_{s}"]):
@@ -71,6 +71,7 @@ def load_convs():
                 if t.get("blip_caption"):
                     txt += f" [image: {t['blip_caption']}]"
                 texts.append(txt); dia.append(t["dia_id"]); times.append(base + ti / 1440.0); spk.append(t["speaker"])
+                dates.append(parse_time(c[f"session_{s}_date_time"]).strftime("%d %B %Y").lstrip("0"))
         pos = {d: i for i, d in enumerate(dia)}
         qa = []
         for qi, q in enumerate(x["qa"]):
@@ -78,7 +79,7 @@ def load_convs():
             qa.append(dict(qid=f"{x['sample_id']}#{qi}", question=q["question"], answer=q.get("answer", q.get("adversarial_answer")),
                            adv_answer=q.get("adversarial_answer"), category=q["category"], gold=sorted(pos[e] for e in ev),
                            n_ev_raw=len(q.get("evidence", [])), n_ev_valid=len(ev), dropped=dropped))
-        convs.append(dict(sample_id=x["sample_id"], texts=texts, dia_ids=dia, times=times, speakers=spk, qa=qa))
+        convs.append(dict(sample_id=x["sample_id"], texts=texts, dia_ids=dia, times=times, speakers=spk, dates=dates, qa=qa))
     return convs
 
 

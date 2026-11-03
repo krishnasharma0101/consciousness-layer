@@ -1,0 +1,56 @@
+{
+  "run_id": "R-2026-11-03-01",
+  "start_ist": "2026-11-03T11:27:39+05:30",
+  "end_ist": "2026-11-03T11:27:56+05:30",
+  "wall_clock_s": 17.3,
+  "status": "done",
+  "git": {
+    "commit": "7575119ab3f09a0c92e028f58c8e165623475e3b",
+    "short": "7575119",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "command": "experiments/locomo_embed.py --run-id R-2026-11-03-01",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "cpu_count": 8,
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "networkx": "3.7",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.1",
+    "sentence-transformers": "6.2.0",
+    "rank-bm25": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": null,
+  "models": {
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "config": {
+    "dataset": "snap-research/locomo data/locomo10.json (repo commit 3eb6f2c, 2024-08-13)",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "license": "CC BY-NC 4.0 (non-commercial, attribution) -- research use OK; data/ is not redistributed in this repo",
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "normalize": true,
+    "node_text": "'<speaker>: <text>' + ' [image: <blip_caption>]' if captioned"
+  },
+  "files": [
+    "qa_stats.csv",
+    "conv_stats.csv",
+    "category_table.csv"
+  ],
+  "notes": [],
+  "summary": {
+    "n_texts": 7854,
+    "n_turns": 5882,
+    "n_qa": 1986,
+    "embed_s": 13.2,
+    "emb_sha256": "60dafbdab0796ee9aa6a8df9eafc91281fc0c27d46c7dd6eca59513d56ba9163",
+    "frac_truncated_256": 0.0,
+    "n_questions_with_dropped_evidence": 4
+  }
+}
