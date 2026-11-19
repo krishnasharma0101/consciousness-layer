@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Consciousness Layer v1.1: 3D memory graph (LoCoMo conv-26)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#f7f6f2;--panel:#ffffff;--ink:#1f2933;--muted:#5b6670;--line:#d9d6cf;--blue:#2b6cb0;--orange:#d9822b;--slate:#334155}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Arial,"Segoe UI",sans-serif;font-size:15px}
+#wrap{display:flex;height:100vh}
+#side{width:390px;min-width:390px;overflow-y:auto;background:var(--panel);border-right:1px solid var(--line);padding:14px 16px 30px}
+#main{flex:1;position:relative}
+#graph{position:absolute;inset:0}
+h1{font-size:19px;margin:0 0 4px;font-weight:600}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 6px;font-weight:600}
+.small{font-size:12.5px;color:var(--muted);line-height:1.4}
+select,input[type=text]{width:100%;font-size:14px;padding:6px 7px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink)}
+button{font-size:13.5px;padding:6px 10px;margin:3px 3px 3px 0;border:1px solid #9aa5b1;background:#fff;color:var(--ink);border-radius:3px;cursor:pointer}
+button:hover{background:#eef2f6}
+button.primary{border-color:var(--blue);color:var(--blue)}
+button:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+label.tg{display:inline-flex;align-items:center;gap:4px;margin-right:10px;font-size:14px}
+.eq{font-family:"Times New Roman",Georgia,serif;font-size:16px;background:#f3f1ec;border:1px solid var(--line);padding:7px 9px;border-radius:3px;line-height:1.5}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:14px}
+.kv b{font-weight:600}
+#cchart{width:100%;height:110px;border:1px solid var(--line);background:#fff}
+#retr{font-size:13px;margin:0;padding-left:20px}
+#retr li{margin:2px 0}
+.gold{color:var(--orange);font-weight:600}
+.legend span.sw{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+.legend div{margin:3px 0;font-size:13.5px}
+#info{position:absolute;right:12px;top:12px;width:340px;max-height:60vh;overflow-y:auto;background:rgba(255,255,255,.96);border:1px solid var(--line);padding:10px 12px;font-size:13.5px;display:none}
+#topbar{position:absolute;left:12px;top:10px;background:rgba(255,255,255,.92);border:1px solid var(--line);padding:6px 10px;font-size:13.5px;max-width:62%}
+#axis{position:absolute;left:12px;bottom:10px;background:rgba(255,255,255,.92);border:1px solid var(--line);padding:5px 9px;font-size:12.5px;color:var(--muted)}
+.scene-tooltip{color:var(--ink)!important;background:#fff!important;border:1px solid var(--line);padding:6px 8px!important;font-size:13px!important;max-width:360px;white-space:normal!important;border-radius:3px}
+table.lg{border-collapse:collapse;font-size:13px;width:100%}
+table.lg td,table.lg th{border-bottom:1px solid #ece9e2;padding:2px 4px;text-align:left}
+.yes{color:var(--blue);font-weight:600}.no{color:#8a939b}
+</style></head>
+<body>
+<div id="wrap">
+<div id="side">
+  <h1>The Consciousness Layer as a memory graph</h1>
+  <div class="small">Theory v1.1 (<code>src/conslayer/theory_v1.py</code>), built on a <b>real</b> conversation: <b>LoCoMo conv-26</b> (Caroline &amp; Melanie, 19 sessions, <span id="nN"></span> turns, <span id="nE"></span> edges). One node per dialogue turn. Embeddings: MiniLM-L6-v2 (cached), half-life 7 days, k=8 edges per node, ζ=0.85. The same settings as runs R-2026-11-03-03/-04.</div>
+
+  <h2>1. Query</h2>
+  <select id="preset"></select>
+  <div class="small" id="presetInfo" style="margin-top:4px"></div>
+  <div style="margin-top:6px"><input type="text" id="free" placeholder="…or type words (keyword seeding, see note)"></div>
+  <div class="row"><button id="useFree">Use typed query</button></div>
+
+  <h2>2. Spreading activation</h2>
+  <div class="eq">A<sub>t+1</sub> = ζ P<sup>T</sup>A<sub>t</sub> + (1−ζ) I &nbsp;&nbsp; C<sub>norm</sub> = A<sup>T</sup>WA / (ΣA)<sup>2</sup></div>
+  <div class="row" style="margin-top:6px">
+    <button id="reset">Reset (t=0)</button><button id="step" class="primary">Step +1</button><button id="run" class="primary">Run to convergence</button>
+  </div>
+  <div class="kv" style="margin-top:4px"><b>t</b><span id="tval">0</span><b>C<sub>norm</sub>(t)</b><span id="cval">–</span><b>‖ΔA‖<sub>1</sub></b><span id="dval">–</span><b>Φ<sub>dyn</sub></b><span id="phival">–</span></div>
+  <canvas id="cchart"></canvas>
+  <div class="small">C<sub>norm</sub>(t) over iterations. Φ<sub>dyn</sub> = mean of C<sub>norm</sub> over the trajectory.</div>
+
+  <h2>3. Retrieval (A* and top-10)</h2>
+  <div class="row"><button id="astar" class="primary">Show A* path (seed → goal)</button><button id="clearPath">Clear path</button></div>
+  <div class="small" id="astarInfo"></div>
+  <ol id="retr"></ol>
+  <div class="small" id="retrInfo"></div>
+
+  <h2>4. Random walk (Eq. 6)</h2>
+  <div class="row"><button id="walk" class="primary">Animate 30-step walk</button><button id="stopWalk">Stop</button></div>
+  <div class="small">P(i→j) = W<sub>ij</sub> / Σ<sub>k</sub>W<sub>ik</sub>, starting from the top seed, restart 0.15. Seeded RNG, so it repeats exactly.</div>
+  <div class="small" id="walkInfo"></div>
+
+  <h2>5. Edge weight W<sub>ij</sub></h2>
+  <div class="eq">W<sub>ij</sub> = S<sub>ij</sub> · T<sub>ij</sub> · F<sub>ij</sub> · R<sub>ij</sub> / W<sub>max</sub><br><span style="font-size:13.5px">S = max(0, cos) · T = 2<sup>−|t<sub>i</sub>−t<sub>j</sub>|/h</sup> · F = 1 + κ(|e<sub>i</sub>|+|e<sub>j</sub>|)/2 · R ∈ [1, 2]</span></div>
+  <div style="margin-top:6px">
+    <label class="tg"><input type="checkbox" id="uS" checked> S</label>
+    <label class="tg"><input type="checkbox" id="uT" checked> T</label>
+    <label class="tg"><input type="checkbox" id="uE" checked> E (F)</label>
+    <label class="tg"><input type="checkbox" id="uR" checked> R</label>
+  </div>
+  <div style="margin-top:2px"><label class="tg"><input type="checkbox" id="shuf"> Shuffled-W control (permute W over the same edges, seed 0)</label></div>
+  <div class="row"><button id="reinforce">Reinforce current A* path (η=0.1, s=1)</button></div>
+  <div class="small">Ablated factors are set to 1 and dropped from W<sub>max</sub>, as in the code. R ≡ 1 in every logged experiment (no learning). The reinforce button only shows the bounded update rule; no run used it. The edge set (top-k by τ) does not change when you toggle factors. Only the weights change.</div>
+  <div class="small" id="wInfo"></div>
+
+  <h2>6. View</h2>
+  <div class="row">
+    <label class="tg"><input type="radio" name="lay" value="time" checked> Time axis (sessions left → right)</label>
+    <label class="tg"><input type="radio" name="lay" value="free"> Free layout</label>
+  </div>
+  <div class="row"><label class="tg"><input type="checkbox" id="showGold" checked> Mark gold evidence turns</label><label class="tg">Edges <select id="edgeMode" style="width:auto"><option value="top">strongest 30% by W</option><option value="all">all edges</option><option value="none">none</option></select></label></div>
+  <div class="row"><button id="fit">Fit view</button></div>
+
+  <h2>Legend</h2>
+  <div class="legend">
+    <div><span class="sw" style="background:#c9ced4"></span>memory turn (size, colour = activation A<sub>i</sub>)</div>
+    <div><span class="sw" style="background:#2b6cb0"></span>high activation</div>
+    <div><span class="sw" style="background:#d9822b"></span>gold evidence turn for the question (LoCoMo labels)</div>
+    <div><span class="sw" style="background:#111827"></span>A* path / random walker</div>
+    <div>Edge thickness and darkness ∝ W<sub>ij</sub></div>
+  </div>
+
+  <h2>What the experiments found (logged runs)</h2>
+  <div class="small">On LoCoMo multi-hop (N=277, R-2026-11-03-03), all-evidence@10: RRF 0.105, graph re-rank (S-only) 0.105 (Δ 0.000 [0, 0]), strong graph re-rank 0.123 (Δ +0.018 [−0.004, +0.043], not significant). The graph as first stage scored 0.079. Real W was no better than shuffled W. This page shows <i>how</i> the layer works. It does not show that it beats retrieval.</div>
+  <h2>Notes</h2>
+  <div class="small" id="notes"></div>
+</div>
+<div id="main">
+  <div id="graph"></div>
+  <div id="topbar"></div>
+  <div id="axis"></div>
+  <div id="info"></div>
+</div>
+</div>
+<script>/*__LIB__*/</script>
+<script>const D = /*__DATA__*/;</script>
+<script>
+"use strict";
+const N = D.N, cfg = D.cfg, nodes = D.nodes, E = D.edges, U = D.U;
+const ZETA = cfg.zeta, SEEDK = cfg.seed_k, MAXIT = cfg.max_iter, TOL = cfg.tol, MU = cfg.mu, EPS = cfg.eps;
+document.getElementById('nN').textContent = N; document.getElementById('nE').textContent = E.length;
+// directed adjacency (both directions per undirected edge)
+const R = new Map(); // key i*N+j -> R value (directional)
+const nbr = Array.from({length:N}, () => []);
+E.forEach((e, k) => { nbr[e[0]].push([e[1], k]); nbr[e[1]].push([e[0], k]); });
+let state = {uS:true,uT:true,uE:true,uR:true,shuf:false};
+let Wd = null;      // Map key -> W directed
+let P = null;       // array of arrays [j, p]
+function rget(i,j){ const v = R.get(i*N+j); return v === undefined ? cfg.r_init : v; }
+function wmax(){ return (state.uE ? 1+cfg.kappa_E : 1) * (state.uR ? cfg.r_max : 1); }
+function computeW(){
+  const wm = wmax(); Wd = new Map();
+  for (let k=0;k<E.length;k++){ const [i,j,S,T,F] = E[k];
+    const base = (state.uS?S:1)*(state.uT?T:1)*(state.uE?F:1);
+    Wd.set(i*N+j, base*(state.uR?rget(i,j):1)/wm); Wd.set(j*N+i, base*(state.uR?rget(j,i):1)/wm); }
+  if (state.shuf){ // same as V1Graph.recompute_W control='shuffle': permute upper-triangle values, symmetrise
+    const vals = E.map(e => Wd.get(e[0]*N+e[1])); const W2 = new Map();
+    E.forEach((e,k) => { const v = vals[D.shuffle_perm[k]]; W2.set(e[0]*N+e[1], v); W2.set(e[1]*N+e[0], v); });
+    Wd = W2; }
+  P = Array.from({length:N}, () => []);
+  for (let i=0;i<N;i++){ let s=0; for (const [j] of nbr[i]) s += Wd.get(i*N+j);
+    if (s>0) for (const [j] of nbr[i]) P[i].push([j, Wd.get(i*N+j)/s]); else P[i].push([i,1]); }
+  let sum=0; for (const v of Wd.values()) sum+=v;
+  document.getElementById('wInfo').innerHTML = `Mean W over ${E.length} edges: <b>${(sum/Wd.size).toFixed(4)}</b>; W<sub>max</sub> = ${wm}.`;
+}
+function wOf(i,j){ return Wd.get(i*N+j) || 0; }
+// ---------- query / input vector ----------
+let cue = null; // {scores, label, gold}
+function inputVector(s){ const sc = s.map(x => Math.max(0,x)); const idx = sc.map((v,i)=>i).sort((a,b)=> sc[b]-sc[a] || a-b);
+  const I = new Float64Array(N); let tot=0; for (let k=0;k<Math.min(SEEDK,N);k++){ I[idx[k]] = sc[idx[k]]; tot += sc[idx[k]]; }
+  if (tot<=0){ I.fill(1/N); return I; } for (let i=0;i<N;i++) I[i]/=tot; return I; }
+function stepA(A, I){ const nw = new Float64Array(N); for (let i=0;i<N;i++){ const a=A[i]; if (a===0) continue; for (const [j,p] of P[i]) nw[j]+=p*a; }
+  for (let j=0;j<N;j++) nw[j] = ZETA*nw[j] + (1-ZETA)*I[j]; return nw; }
+function cnorm(A){ let s=0; for (let i=0;i<N;i++) s+=Math.max(0,A[i]); if (s<=0) return 0; let q=0;
+  for (let i=0;i<N;i++){ const a=Math.max(0,A[i]); if (!a) continue; for (const [j] of nbr[i]) q += a*wOf(i,j)*Math.max(0,A[j]); } return q/(s*s); }
+function converge(I){ let A = Float64Array.from(I); const traj=[cnorm(A)]; let it=0;
+  for (; it<MAXIT; it++){ const nw = stepA(A,I); let d=0; for (let i=0;i<N;i++) d+=Math.abs(nw[i]-A[i]); A=nw; traj.push(cnorm(A)); if (d<TOL){it++; break;} }
+  return {A, traj, n_iter: it}; }
+function argmax(a){ let b=0; for (let i=1;i<a.length;i++) if (a[i]>a[b]) b=i; return b; }
+// ---------- A* (cost = -log W, admissible H = c_min * blend) ----------
+function dotU(i,j){ const a=U[i], b=U[j]; let s=0; for (let k=0;k<a.length;k++) s+=a[k]*b[k]; return s; }
+function astar(start, goal){
+  if (start===goal) return {path:[start], cost:0, expanded:0};
+  let cmin = Infinity; for (const v of Wd.values()) cmin = Math.min(cmin, -Math.log(Math.min(Math.max(v,EPS),1)));
+  const h = new Float64Array(N); for (let i=0;i<N;i++) h[i] = cmin*(MU*(1-dotU(i,goal))/2 + (1-MU)*(1-nodes[i].val)/2); h[goal]=0;
+  const g = new Map([[start,0]]), par = new Map([[start,null]]), closed = new Set(); let open = [[h[start],0,start]], exp=0;
+  while (open.length){ let bi=0; for (let k=1;k<open.length;k++){ const a=open[k], b=open[bi]; if (a[0]<b[0] || (a[0]===b[0] && (a[1]<b[1] || (a[1]===b[1] && a[2]<b[2])))) bi=k; }
+    const [, gc, u] = open.splice(bi,1)[0]; if (closed.has(u)) continue;
+    if (u===goal){ const path=[u]; while (par.get(path[path.length-1])!==null) path.push(par.get(path[path.length-1])); return {path:path.reverse(), cost:gc, expanded:exp}; }
+    closed.add(u); exp++;
+    for (const [v] of nbr[u]){ const c = -Math.log(Math.min(Math.max(wOf(u,v),EPS),1)); const ng = gc + c;
+      if (ng < (g.has(v)?g.get(v):Infinity)){ g.set(v,ng); par.set(v,u); open.push([ng+h[v], ng, v]); } } }
+  return {path:[], cost:Infinity, expanded:exp}; }
+function retrieve(I){ const {A, traj, n_iter} = converge(I); const goal = argmax(A), start = argmax(I); const as = astar(start, goal);
+  const order=[]; const byA = Array.from(A.keys()).sort((a,b)=> A[b]-A[a] || a-b);
+  for (const n of [goal, ...as.path, ...byA]){ if (!order.includes(n)) order.push(n); if (order.length>=10) break; }
+  return {ids:order, A, goal, start, path:as.path, c_norm:cnorm(A), phi: traj.reduce((a,b)=>a+b,0)/traj.length, n_iter, traj, expanded: as.expanded}; }
+// ---------- keyword seeding for typed queries (BM25 Okapi, k1=1.5, b=0.75) ----------
+const tok = s => (s.toLowerCase().match(/[a-z0-9]+/g) || []);
+const docs = nodes.map(n => tok(n.text)); const avgdl = docs.reduce((a,d)=>a+d.length,0)/N; const df = new Map();
+docs.forEach(d => new Set(d).forEach(w => df.set(w,(df.get(w)||0)+1)));
+function bm25(q){ const qs = tok(q); return docs.map(d => { const tf=new Map(); d.forEach(w=>tf.set(w,(tf.get(w)||0)+1)); let s=0;
+  for (const w of qs){ const f=tf.get(w)||0; if (!f) continue; const n=df.get(w); const idf=Math.max(Math.log((N-n+0.5)/(n+0.5)), 0.01);
+    s += idf*f*2.5/(f+1.5*(1-0.75+0.75*d.length/avgdl)); } return s; }); }
+// ---------- graph view ----------
+const el = document.getElementById('graph');
+let layout = 'time';
+const gnodes = nodes.map((n,i) => ({id:i}));
+const glinks = E.map((e,k) => ({source:e[0], target:e[1], k}));
+function placeNodes(){ const L = layout==='time' ? D.layout_time : D.layout_free; gnodes.forEach((n,i)=>{ n.fx=L[i][0]; n.fy=L[i][1]; n.fz=L[i][2]; n.x=L[i][0]; n.y=L[i][1]; n.z=L[i][2]; }); }
+placeNodes();
+let A = new Float64Array(N), I = new Float64Array(N), t = 0, ctraj = [], pathSet = new Set(), pathEdges = new Set(), walker = -1, walkEdges = new Set(), goldSet = new Set();
+let Amax = 1e-9;
+function lerp(a,b,x){ return Math.round(a+(b-a)*x); }
+function nodeColor(n){ const i=n.id;
+  if (i===walker) return '#111827';
+  if (pathSet.has(i)) return '#111827';
+  if (document.getElementById('showGold').checked && goldSet.has(i)) return '#d9822b';
+  const x = Math.min(1, Math.sqrt(A[i]/Amax)); // grey -> blue
+  return `rgb(${lerp(222,43,x)},${lerp(226,108,x)},${lerp(230,176,x)})`; }
+function nodeVal(n){ const i=n.id; const x = Math.sqrt(A[i]/Amax); let v = 0.6 + 16*x; if (goldSet.has(i) && document.getElementById('showGold').checked) v=Math.max(v,7); if (pathSet.has(i)||i===walker) v=Math.max(v,10); return v; }
+function linkKey(l){ const s = typeof l.source==='object'?l.source.id:l.source, t2 = typeof l.target==='object'?l.target.id:l.target; return Math.min(s,t2)*N+Math.max(s,t2); }
+function linkW(l){ const e=E[l.k]; return Math.max(wOf(e[0],e[1]), wOf(e[1],e[0])); }
+let Wq = 1, W70 = 0, edgeMode = 'top'; // 95th / 70th percentiles of W for scaling and the default filter
+function updWq(){ const v = E.map((e)=>Math.max(wOf(e[0],e[1]),wOf(e[1],e[0]))).sort((a,b)=>a-b); Wq = v[Math.floor(v.length*0.95)] || 1; W70 = v[Math.floor(v.length*0.70)] || 0; }
+function linkVis(l){ const key=linkKey(l); if (pathEdges.has(key) || walkEdges.has(key)) return true; if (edgeMode==='none') return false; if (edgeMode==='all') return true; return linkW(l) >= W70; }
+function linkColor(l){ const key=linkKey(l); if (pathEdges.has(key)) return '#111827'; if (walkEdges.has(key)) return '#111827';
+  const x = Math.min(1, linkW(l)/Wq); const c = lerp(205, 70, x); return `rgb(${c},${c+3},${c+8})`; }
+function linkWidth(l){ const key=linkKey(l); if (pathEdges.has(key)) return 3; if (walkEdges.has(key)) return 2.2; const x=Math.min(1, linkW(l)/Wq); return x>0.6 ? 0.3+0.9*x : 0; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function snippet(s, m=180){ return s.length>m ? s.slice(0,m)+'…' : s; }
+function nodeLabel(n){ const d=nodes[n.id]; return `<b>${d.dia}</b> · ${esc(d.spk)} · session ${d.sess}, ${esc(d.date)}<br>${esc(snippet(d.text))}<br><span style="color:#5b6670">valence e = ${d.val.toFixed(2)} · t = day ${d.t.toFixed(1)} · A = ${A[n.id].toExponential(2)}${goldSet.has(n.id)?' · <b style="color:#d9822b">gold evidence</b>':''}</span>`; }
+const Graph = ForceGraph3D({controlType:'trackball'})(el)
+  .backgroundColor('#f7f6f2').showNavInfo(false)
+  .graphData({nodes:gnodes, links:glinks})
+  .nodeRelSize(2.6).nodeResolution(12).nodeOpacity(0.95)
+  .nodeColor(nodeColor).nodeVal(nodeVal).nodeLabel(nodeLabel)
+  .linkColor(linkColor).linkWidth(linkWidth).linkVisibility(linkVis).linkOpacity(0.45)
+  .cooldownTicks(0).warmupTicks(0).enableNodeDrag(false)
+  .onNodeClick(focusNode);
+function refresh(){ Graph.nodeColor(nodeColor).nodeVal(nodeVal).linkColor(linkColor).linkWidth(linkWidth).linkVisibility(linkVis); }
+function focusNode(n, noMove){ const d=nodes[n.id];
+  if (!noMove){ const cam = Graph.camera().position; let dx=cam.x-n.x, dy=cam.y-n.y, dz=cam.z-n.z; const L2=Math.hypot(dx,dy,dz)||1; const dist=170;
+    Graph.cameraPosition({x:n.x+dx/L2*dist, y:n.y+dy/L2*dist, z:n.z+dz/L2*dist}, {x:n.x, y:n.y, z:n.z}, 900); }
+  const nb = nbr[n.id].map(([j])=>[j, wOf(n.id,j)]).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const box=document.getElementById('info'); box.style.display='block';
+  box.innerHTML = `<div style="float:right;cursor:pointer" onclick="this.parentNode.style.display='none'">✕</div><b>${d.dia}</b> · ${esc(d.spk)} · session ${d.sess} (${esc(d.date)})<p style="margin:6px 0">${esc(d.text)}</p>
+   <div class="kv"><b>valence e</b><span>${d.val.toFixed(3)}</span><b>A<sub>i</sub></b><span>${A[n.id].toExponential(3)}</span><b>degree</b><span>${nbr[n.id].length}</span></div>
+   <div style="margin-top:6px"><b>Strongest edges (W<sub>ij</sub>)</b></div>
+   <table class="lg">${nb.map(([j,w])=>`<tr><td>${nodes[j].dia}</td><td>${w.toFixed(4)}</td><td>${esc(snippet(nodes[j].text,70))}</td></tr>`).join('')}</table>`; }
+// ---------- C chart ----------
+const cv = document.getElementById('cchart');
+function drawChart(){ const dpr = window.devicePixelRatio||1; const w=cv.clientWidth, h=cv.clientHeight; cv.width=w*dpr; cv.height=h*dpr; const c=cv.getContext('2d'); c.scale(dpr,dpr);
+  c.fillStyle='#fff'; c.fillRect(0,0,w,h); const pad={l:46,r:8,t:8,b:20}; const xs=Math.max(ctraj.length-1, 10); const ymax = Math.max(...ctraj, 1e-6)*1.1;
+  c.strokeStyle='#d9d6cf'; c.lineWidth=1; c.beginPath(); c.moveTo(pad.l,pad.t); c.lineTo(pad.l,h-pad.b); c.lineTo(w-pad.r,h-pad.b); c.stroke();
+  c.fillStyle='#5b6670'; c.font='11px Arial'; c.fillText(ymax.toFixed(4), 2, pad.t+8); c.fillText('0', 34, h-pad.b); c.fillText('t='+xs, w-pad.r-34, h-5); c.fillText('iteration', pad.l+4, h-5);
+  if (!ctraj.length) return; c.strokeStyle='#2b6cb0'; c.lineWidth=2; c.beginPath();
+  ctraj.forEach((v,k)=>{ const x=pad.l+(w-pad.l-pad.r)*k/xs, y=h-pad.b-(h-pad.t-pad.b)*v/ymax; k?c.lineTo(x,y):c.moveTo(x,y); }); c.stroke(); }
+function updReadout(d){ document.getElementById('tval').textContent=t; document.getElementById('cval').textContent=ctraj.length?ctraj[ctraj.length-1].toFixed(5):'–';
+  document.getElementById('dval').textContent = d===undefined?'–':d.toExponential(2); document.getElementById('phival').textContent = ctraj.length?(ctraj.reduce((a,b)=>a+b,0)/ctraj.length).toFixed(5):'–'; drawChart(); }
+// ---------- controls ----------
+const sel = document.getElementById('preset');
+D.presets.forEach((p,k)=>{ const o=document.createElement('option'); o.value=k; o.textContent=`[${p.category}] ${p.question}`; sel.appendChild(o); });
+let curPreset = 0, freeQuery = null, running = null, walkTimer = null;
+function setCue(){ stopAll(); pathSet=new Set(); pathEdges=new Set(); walkEdges=new Set(); walker=-1;
+  if (freeQuery===null){ const p=D.presets[curPreset]; cue={scores:p.cos, label:p.question, gold:p.gold, preset:p}; }
+  else { cue={scores:bm25(freeQuery), label:freeQuery, gold:[], preset:null}; }
+  goldSet = new Set(cue.gold); I = inputVector(cue.scores); resetA(); showRetrieval(); showPresetInfo(); }
+function resetA(){ stopAll(); A = Float64Array.from(I); t=0; ctraj=[cnorm(A)]; Amax = Math.max(...A); updReadout(); refresh();
+  document.getElementById('topbar').innerHTML = `<b>Query:</b> ${esc(cue.label)}<br><span class="small">t = 0: activation = input I (top-${SEEDK} most similar turns). Press <i>Step</i> or <i>Run</i>.</span>`; }
+function doStep(){ const nw = stepA(A,I); let d=0; for (let i=0;i<N;i++) d+=Math.abs(nw[i]-A[i]); A=nw; t++; ctraj.push(cnorm(A)); Amax=Math.max(...A); updReadout(d); refresh();
+  document.getElementById('topbar').innerHTML = `<b>Query:</b> ${esc(cue.label)}<br><span class="small">t = ${t}: activation spread ${t} hop(s) along P = row-normalised W. ${d<TOL?'<b>Converged</b> (‖ΔA‖₁ &lt; 1e-8).':''}</span>`; return d; }
+function stopAll(){ if (running){ clearInterval(running); running=null; } if (walkTimer){ clearInterval(walkTimer); walkTimer=null; } }
+document.getElementById('step').onclick = () => { stopAll(); doStep(); };
+document.getElementById('reset').onclick = resetA;
+document.getElementById('run').onclick = () => { stopAll(); running = setInterval(()=>{ const d=doStep(); if (d<TOL || t>=MAXIT){ clearInterval(running); running=null; } }, t<1?120:90); };
+sel.onchange = () => { curPreset=+sel.value; freeQuery=null; setCue(); };
+document.getElementById('useFree').onclick = () => { const v=document.getElementById('free').value.trim(); if (!v) return; freeQuery=v; setCue(); };
+document.getElementById('free').addEventListener('keydown', e => { if (e.key==='Enter') document.getElementById('useFree').click(); });
+let lastRes = null;
+function showRetrieval(){ const r = retrieve(I); lastRes = r; const ol=document.getElementById('retr');
+  ol.innerHTML = r.ids.map(i=>`<li class="${goldSet.has(i)?'gold':''}" title="${esc(nodes[i].text)}">${nodes[i].dia} ${goldSet.has(i)?'✓ ':''}${esc(snippet(nodes[i].text,72))}</li>`).join('');
+  const hit = cue.gold.filter(g=>r.ids.includes(g)).length;
+  let html = cue.gold.length ? `Graph (v1) top-10 contains <b>${hit} / ${cue.gold.length}</b> gold turns. Converged C<sub>norm</sub> = ${r.c_norm.toFixed(5)}, ${r.n_iter} iterations. Goal = argmax A = ${nodes[r.goal].dia} (degree ${nbr[r.goal].length}).` : `Keyword-seeded query: no gold labels. C<sub>norm</sub> = ${r.c_norm.toFixed(5)}.`;
+  if (cue.preset){ const lg = cue.preset.logged_R_2026_11_03_03; const nm={cosine:'cosine',bm25:'BM25',rrf:'RRF',v1:'graph v1 (first stage)',rr_sonly:'graph re-rank S-only',rr_strong:'graph re-rank strong'};
+    html += `<div style="margin-top:6px"><b>Logged result for this question</b> (R-2026-11-03-03, all-evidence@10 / fraction@10):</div><table class="lg">` + Object.keys(nm).filter(k=>lg[k]).map(k=>`<tr><td>${nm[k]}</td><td class="${lg[k].all_ev10?'yes':'no'}">${lg[k].all_ev10?'all found':'missed'}</td><td>${lg[k].frac10.toFixed(2)}</td></tr>`).join('') + `</table>`; }
+  document.getElementById('retrInfo').innerHTML = html; document.getElementById('astarInfo').innerHTML=''; }
+function showPresetInfo(){ const el2=document.getElementById('presetInfo'); if (!cue.preset){ el2.innerHTML='Typed query. Seeds come from BM25-style keyword scores, because the MiniLM encoder cannot run offline in a browser. Preset questions use the real cached MiniLM embeddings.'; return; }
+  const p=cue.preset; el2.innerHTML = `${p.qid} · ${p.category} · gold answer: <i>${esc(p.answer)}</i> · gold evidence: ${p.gold.map(g=>nodes[g].dia).join(', ')}`; }
+document.getElementById('astar').onclick = () => { stopAll(); const r = lastRes || retrieve(I); const as = astar(r.start, r.goal);
+  pathSet = new Set(as.path); pathEdges = new Set(); for (let k=0;k+1<as.path.length;k++){ const a=as.path[k], b=as.path[k+1]; pathEdges.add(Math.min(a,b)*N+Math.max(a,b)); }
+  refresh(); document.getElementById('astarInfo').innerHTML = `A* from seed ${nodes[r.start].dia} to goal ${nodes[r.goal].dia}: ${as.path.map(i=>nodes[i].dia).join(' → ')} (${as.path.length} nodes, cost −Σlog W = ${as.cost.toFixed(3)}, ${as.expanded} nodes expanded). The goal is the most activated turn, which is often a well-connected hub rather than the evidence. On LongMemEval-S the goal was a gold turn in only 16.4% of questions, against 35.3% for cosine top-1 (R-2026-10-26-02).`;
+  };
+document.getElementById('clearPath').onclick = () => { pathSet=new Set(); pathEdges=new Set(); walkEdges=new Set(); walker=-1; refresh(); };
+// seeded RNG (mulberry32) for reproducible walks
+function rng(seed){ return function(){ seed|=0; seed=seed+0x6D2B79F5|0; let t2=Math.imul(seed^seed>>>15,1|seed); t2=t2+Math.imul(t2^t2>>>7,61|t2)^t2; return ((t2^t2>>>14)>>>0)/4294967296; }; }
+document.getElementById('walk').onclick = () => { stopAll(); document.getElementById('info').style.display='none'; pathSet=new Set(); pathEdges=new Set(); walkEdges=new Set(); const r=rng(7); const start=argmax(I); walker=start; let steps=0; const visited=[start];
+  walkTimer = setInterval(()=>{ if (steps>=30){ clearInterval(walkTimer); walkTimer=null; return; } let nx;
+    if (r()<0.15) nx=start; else { const u=r(); let acc=0; nx=P[walker][P[walker].length-1][0]; for (const [j,p] of P[walker]){ acc+=p; if (u<=acc){ nx=j; break; } } }
+    if (nx!==walker) walkEdges.add(Math.min(nx,walker)*N+Math.max(nx,walker)); walker=nx; visited.push(nx); steps++; refresh();
+    const d=nodes[walker]; document.getElementById('walkInfo').innerHTML = `Step ${steps}/30: at <b>${d.dia}</b> (session ${d.sess}): ${esc(snippet(d.text,110))}<br>Distinct turns visited: ${new Set(visited).size}; gold turns visited: ${[...new Set(visited)].filter(x=>goldSet.has(x)).length}/${cue.gold.length}.`; }, 450); };
+document.getElementById('stopWalk').onclick = () => { if (walkTimer){ clearInterval(walkTimer); walkTimer=null; } };
+['uS','uT','uE','uR','shuf'].forEach(id => document.getElementById(id).onchange = (e) => { state[id]=e.target.checked; computeW(); updWq(); I = inputVector(cue.scores); resetA(); showRetrieval(); });
+document.getElementById('reinforce').onclick = () => { const r = lastRes || retrieve(I); const as = astar(r.start, r.goal); const p=as.path; if (p.length<2){ document.getElementById('wInfo').innerHTML += '<br>A* path has one node (seed = goal), so there is nothing to reinforce.'; return; }
+  for (let k=0;k+1<p.length;k++){ const key=p[k]*N+p[k+1]; let v=rget(p[k],p[k+1]); v = v + cfg.eta*1*(cfg.r_max-v); R.set(key, Math.min(Math.max(v,cfg.r_init),cfg.r_max)); }
+  computeW(); updWq(); resetA(); showRetrieval(); document.getElementById('wInfo').innerHTML += `<br>Reinforced ${p.length-1} directed edge(s) on the A* path: R now ${p.slice(0,-1).map((a,k)=>rget(a,p[k+1]).toFixed(3)).join(', ')}.`; };
+document.querySelectorAll('input[name=lay]').forEach(r => r.onchange = (e) => { layout=e.target.value; placeNodes(); Graph.graphData({nodes:gnodes, links:glinks}); setTimeout(fit, 50);
+  document.getElementById('axis').style.display = layout==='time'?'block':'none'; });
+document.getElementById('showGold').onchange = refresh;
+document.getElementById('edgeMode').onchange = (e) => { edgeMode = e.target.value; refresh(); };
+function fit(){ Graph.zoomToFit(600, 30); }
+document.getElementById('fit').onclick = fit;
+document.getElementById('axis').innerHTML = `Time axis: left → right = turn order, grouped by session (session 1, ${esc(nodes[0].date)} → session ${nodes[N-1].sess}, ${esc(nodes[N-1].date)}). Up/down and depth = first two principal components of the MiniLM embeddings, so turns on similar topics sit close.`;
+document.getElementById('notes').innerHTML = `Graph built in Python by <code>V1Graph</code> (presentation/_build/prep_graph.py) and exported with node layouts. Activation, C<sub>norm</sub>, A*, the ablation toggles and the shuffle control are re-computed live in this page with a JavaScript port of <code>theory_v1.py</code>. The port was checked against the Python reference on all 8 presets (top-10, goal, A* path, C<sub>norm</sub>). Data: LoCoMo (Maharana et al., 2024), CC BY-NC 4.0, non-commercial use only. Valence comes from a crude word lexicon, so most turns have e = 0 or ±1.`;
+window.addEventListener('resize', () => { Graph.width(el.clientWidth).height(el.clientHeight); drawChart(); });
+// ---------- init ----------
+computeW(); updWq(); setCue(); Graph.width(el.clientWidth).height(el.clientHeight);
+// flat, matte shading: keep only the ambient light (no directional highlight)
+try { const amb = Graph.lights().find(l => l.isAmbientLight); if (amb){ amb.intensity = Math.PI; Graph.lights([amb]); } } catch(e) {}
+setTimeout(fit, 300);
+// verification hook (used by the headless check; harmless)
+window.__verify = function(){ const out=[]; const keep={...state};
+  D.presets.forEach((p,k)=>{ state={uS:true,uT:true,uE:true,uR:true,shuf:false}; computeW(); const r=retrieve(inputVector(p.cos));
+    out.push({qid:p.qid, top10_match: JSON.stringify(r.ids)===JSON.stringify(p.py_ref.top10), goal_match: r.goal===p.py_ref.goal, path_match: JSON.stringify(r.path)===JSON.stringify(p.py_ref.path), c_js:r.c_norm, c_py:p.py_ref.c_norm, iter_js:r.n_iter, iter_py:p.py_ref.n_iter}); });
+  const p0=D.presets[0]; const vmap={full:{}, noS:{uS:false}, noT:{uT:false}, noE:{uE:false}, noR:{uR:false}, shuffle:{shuf:true}};
+  for (const [nm,ov] of Object.entries(vmap)){ state={uS:true,uT:true,uE:true,uR:true,shuf:false,...ov}; computeW(); const r=retrieve(inputVector(p0.cos)); const ref=D.py_variants_preset0[nm];
+    out.push({variant:nm, top10_match: JSON.stringify(r.ids)===JSON.stringify(ref.top10), goal_match:r.goal===ref.goal, c_js:r.c_norm, c_py:ref.c_norm}); }
+  state=keep; computeW(); updWq(); return out; };
+</script>
+</body></html>

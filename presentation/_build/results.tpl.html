@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Sandwich Model / Consciousness Layer: experiment results</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#f7f6f2;--ink:#1f2933;--muted:#5b6670;--line:#d9d6cf;--blue:#2b6cb0;--orange:#d9822b;--slate:#334155}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Arial,"Segoe UI",sans-serif;font-size:16px;line-height:1.45}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);padding:8px 18px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+nav b{margin-right:10px}
+nav a{color:var(--slate);text-decoration:none;font-size:14px;padding:2px 0;border-bottom:2px solid transparent}
+nav a.on{border-bottom-color:var(--blue);color:var(--blue)}
+section{max-width:1240px;margin:0 auto;padding:30px 22px 26px;border-bottom:1px solid var(--line)}
+h2{font-size:25px;margin:0 0 4px;font-weight:600}
+h3{font-size:17px;margin:18px 0 4px;font-weight:600}
+.lead{font-size:17px;color:#2d3742;max-width:980px}
+.small{font-size:13.5px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);padding:10px 12px;margin:10px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:1000px){.grid2{grid-template-columns:1fr}}
+.take{border-left:4px solid var(--blue);background:#fff;padding:8px 12px;margin:12px 0;font-size:16px}
+.take.neg{border-left-color:var(--orange)}
+.tag{display:inline-block;font-size:12px;padding:1px 6px;border:1px solid var(--line);border-radius:2px;margin-left:6px;color:var(--muted);vertical-align:2px}
+.btns button{font-size:13.5px;padding:5px 10px;margin:2px 4px 2px 0;border:1px solid #9aa5b1;background:#fff;border-radius:3px;cursor:pointer;color:var(--ink)}
+.btns button.on{border-color:var(--blue);color:var(--blue);background:#eef4fb}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+th,td{border-bottom:1px solid #ece9e2;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#f3f1ec;font-weight:600}
+.st{font-weight:600}
+.st-supported{color:#2b6cb0}.st-refuted{color:#b4561b}.st-mixed{color:#6b5b95}.st-weak{color:#7a6a2b}.st-untested{color:#5b6670}.st-not{color:#334155}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.flow div.b{background:#fff;border:1px solid var(--slate);padding:8px 12px;font-size:15px}
+.flow div.b.hl{border-color:var(--orange);border-width:2px}
+.flow span{color:var(--muted);font-size:20px}
+input[type=text],select{font-size:14px;padding:5px 7px;border:1px solid var(--line);border-radius:3px}
+.plot{width:100%;background:#fff;border:1px solid var(--line)}
+.held{color:#2b6cb0}.failed{color:#b4561b}
+ul.tight{margin:4px 0;padding-left:20px}
+code{font-size:90%}
+</style></head>
+<body>
+<nav id="nav"><b>Results</b>
+<a href="#s1">1 Question</a><a href="#s2">2 v0 synthetic</a><a href="#s3">3 LongMemEval-S</a><a href="#s4">4 Graph as re-ranker</a><a href="#s5">5 C<sub>norm</sub> as error signal</a><a href="#s6">6 LoCoMo multi-hop</a><a href="#s7">7 QA (1.5B reader)</a><a href="#s8">8 Theory ledger</a><a href="#s9">9 Research process</a><a href="index.html" style="margin-left:auto">← overview</a>
+</nav>
+
+<section id="s1">
+<h2>1. The question</h2>
+<p class="lead">The Sandwich Model puts a graph memory (the "Consciousness Layer") between two LLM calls. Memory turns are nodes, and the edges are weighted by W<sub>ij</sub> = S·T·F·R (semantic, temporal, emotional, reinforcement). Retrieval spreads activation over the graph and follows an A* path. <b>Testable question: does this layer retrieve the right memories, or produce better answers, than plain retrieval?</b></p>
+<div class="flow"><div class="b">User query</div><span>→</span><div class="b">Primary LLM (draft)</div><span>→</span><div class="b hl">Consciousness Layer: graph W, activation A, C<sub>norm</sub>, A*</div><span>→</span><div class="b">Secondary LLM (refine)</div><span>→</span><div class="b">Answer</div></div>
+<div class="grid2">
+<div class="card"><b>Compared against</b><ul class="tight"><li>No memory (plain LLM, self-refine)</li><li>BM25 keyword search, MiniLM cosine (dense) search</li><li>RRF = reciprocal-rank fusion of BM25 + cosine (hybrid)</li><li>Controls: <b>shuffled W</b> (same edges, permuted weights) and <b>random topology</b> (same number of edges, random pairs)</li><li>Ablations: drop S, T, E, R or A*</li></ul></div>
+<div class="card"><b>Data and protocol</b><ul class="tight"><li>v0 synthetic dialogues (120 probes), LongMemEval-S (470 questions), LoCoMo (10 conversations, 1,536 questions; 277 multi-hop)</li><li>Every experiment after v0 was pre-registered, with a numeric prediction and a falsifier written down before the run</li><li>Paired bootstrap 95% CIs, sign-flip tests, Holm correction</li><li>CPU only: MiniLM-L6 encoder, Qwen2.5-1.5B reader</li></ul></div>
+</div>
+<p class="small">Colour code used on every chart: <span style="color:#334155"><b>slate</b></span> = single baselines, <span style="color:#2b6cb0"><b>blue</b></span> = hybrid RRF, <span style="color:#d9822b"><b>orange</b></span> = the graph layer (the thing being tested), light grey = controls. Every number is read from <code>results/</code> at build time. Hover over any point for exact values and n.</p>
+</section>
+
+<section id="s2">
+<h2>2. v0 synthetic dialogues <span class="tag">R-2026-10-20-01 · backfilled, not pre-registered</span></h2>
+<p class="lead">40 dialogues × 3 probe types (recall, update, contradiction), Qwen2.5-1.5B, n = 120.</p>
+<div class="btns" id="v0btns"></div>
+<div id="p_v0" class="plot" style="height:430px"></div>
+<div class="take neg"><b>Draft contamination.</b> The full Sandwich (always refine) scored 94/120 against RAG's 113/120. Its retrieval was perfect (gold fact retrieved in 120/120 cases for every retriever), so the loss came from the prompt. Passing the Primary LLM's wrong draft to the Secondary LLM pulled it toward the wrong answer, mostly on contradiction probes (19/40 vs 34/40). With the same graph retrieval and no draft, it scored 114/120. Shuffled W scored 95, the same as real W. The λ trigger as written scored 44.</div>
+<p class="small">CIs are 95% Wilson intervals from <code>results/v0/summary.csv</code>. For "no draft" the interval is computed here from 114/120 (<code>per_probe_nodraft.csv</code>). The no-draft run was exploratory. This benchmark saturates retrieval, so it cannot tell retrievers apart. That is why the later runs use real benchmarks.</p>
+</section>
+
+<section id="s3">
+<h2>3. LongMemEval-S retrieval <span class="tag">R-2026-10-26-02 · pre-registered · n = 470</span></h2>
+<p class="lead">Each retriever ranks every turn of a ~500-turn chat history. The metric is whether a gold evidence turn lands in the top-k.</p>
+<div class="btns" id="e3btns"></div>
+<div id="p_e3" class="plot" style="height:520px"></div>
+<div class="grid2">
+<div><h3>Paired difference vs the full graph (v1)</h3><div class="btns" id="e3abtns"></div><div id="p_e3abl" class="plot" style="height:400px"></div></div>
+<div><h3>By question type (turn_any@10)</h3><div id="p_e3q" class="plot" style="height:440px"></div></div>
+</div>
+<div class="take neg">The graph as a first-stage retriever is <b>3.6 points worse</b> than plain cosine (0.819 vs 0.855; Δ −0.036 [−0.062, −0.011], Holm p 0.055). Shuffled weights are no worse, and removing S, T or E <i>raises</i> nDCG. Only the topology helps: random edges are clearly worse (−0.098 vs cosine).</div>
+<div class="take">The largest gain in any run had nothing to do with the graph. <b>RRF(BM25, cosine) = 0.913</b> [0.887, 0.938], +0.057 [0.028, 0.087] over cosine. This was exploratory here, so it was re-tested in a pre-registered run on LoCoMo (section 6).</div>
+<p class="small">RRF on LongMemEval-S comes from R-2026-10-26-04 (first-stage rows, all 470 questions). Its CI is the one logged in LAB_NOTEBOOK.md. RRF nDCG has no logged CI, so it is shown as a point only. x_* rows are exploratory sweeps (ζ, recency).</p>
+</section>
+
+<section id="s4">
+<h2>4. Graph as a re-ranking bonus <span class="tag">R-2026-10-26-04 · pre-registered · dev 223 / test 247</span></h2>
+<p class="lead">score = (1−w)·first-stage + w·activation. Configurations were tuned on the dev half and tested once on the held-out half.</p>
+<div class="grid2">
+<div><h3>Primary: chosen hybrid − its own first stage (test)</h3><div id="p_e3b" class="plot" style="height:300px"></div></div>
+<div><h3>All 12 configurations on the test half</h3><div class="btns" id="e3bbtns"></div><div id="p_e3bgrid" class="plot" style="height:380px"></div></div>
+</div>
+<div class="take neg">Gain <b>exactly +0.000</b> for both first stages (cosine: [−0.016, +0.016]; RRF: [0, 0]). The interval rules out any gain above ~1.6 points. A small bonus never changes the top 10, a large bonus hurts, and real W ≈ shuffled W.</div>
+</section>
+
+<section id="s5">
+<h2>5. Is C<sub>norm</sub> an error signal? <span class="tag">R-2026-10-26-03 · pre-registered</span></h2>
+<p class="lead">The paper says to refine when C is low. Test: does −C<sub>norm</sub> predict retrieval misses (AUROC, 0.5 = chance)? Baselines: −max cosine (plain retrieval confidence), and the residual of C<sub>norm</sub> once max cosine is accounted for.</p>
+<div class="btns" id="e2btns"></div>
+<div id="p_e2" class="plot" style="height:430px"></div>
+<div class="take neg"><b>Weak.</b> AUROC 0.63–0.68 on LongMemEval-S, <i>below</i> plain max-cosine for v1 and cosine misses (0.72, 0.74). After removing max-cosine, only 0.56–0.59 is left. Φ<sub>dyn</sub> gives the same AUROC as C<sub>norm</sub>, because it is the trajectory mean of a converging C<sub>norm</sub>. The high synthetic AUROCs (0.89–0.94) rest on only 6–7 errors and a probe-type confound.</div>
+</section>
+
+<section id="s6">
+<h2>6. LoCoMo: hybrid confirmation and multi-hop graph test <span class="tag">R-2026-11-03-02 / -03 · pre-registered</span></h2>
+<p class="lead">LoCoMo is a second, independent dataset: long two-person chats over 19–32 sessions. Metric: <b>all-evidence@10</b>, meaning every gold evidence turn is in the top 10.</p>
+<h3>(a) H1, the hybrid retrieval confirmation (N = 1,536): <span style="color:#2b6cb0">confirmed</span></h3>
+<div id="p_lc02" class="plot" style="height:420px"></div>
+<div class="take">RRF − cosine = <b>+0.102</b> [0.081, 0.124], RRF − BM25 = +0.026 [0.007, 0.045], both with Holm p &lt; 0.05. RRF beat cosine in 10/10 conversations. Against BM25 it won in 7/10, and the conversation-clustered CI includes 0 [−0.006, +0.063], so the BM25 comparison is the fragile one.</div>
+<p class="small">In (b): blue line = RRF, orange dashed line = the pre-registered +0.03 bar.</p><h3>(b) H2, the graph's last fair chance: multi-hop questions (category 1, ≥ 2 evidence turns, N = 277): <span style="color:#d9822b">falsified</span></h3>
+<div class="grid2">
+<div><div id="p_lc03" class="plot" style="height:620px"></div></div>
+<div><div id="p_lc03f" class="plot" style="height:620px"></div></div>
+</div>
+<div class="take neg">Pre-registered bar: the graph re-rank must beat RRF by ≥ +0.03. Primary S-only re-rank: <b>Δ 0.000 [0, 0]</b>. Both falsifiers fired. The most aggressive graph setting gained +0.018 [−0.004, +0.043], below the bar, and none of the 20 family tests survives Holm (smallest p<sub>Holm</sub> = 0.13). The headroom is large (RRF gets all the evidence for only 10.5% of these questions), so this is not a ceiling effect.</div>
+</section>
+
+<section id="s7">
+<h2>7. End-to-end QA with a small reader <span class="tag">R-2026-11-03-04 · pre-registered · N = 277</span></h2>
+<p class="lead">Qwen2.5-1.5B-Instruct reads the 10 retrieved turns and answers LoCoMo multi-hop questions. Metric: LoCoMo partial token-F1. No LLM judge, no paid API.</p>
+<div class="grid2">
+<div><h3>Mean F1 by arm (95% CI)</h3><div id="p_qa" class="plot" style="height:360px"></div></div>
+<div><h3>Paired differences</h3><div id="p_qad" class="plot" style="height:360px"></div></div>
+</div>
+<div class="take neg">Graph context = RRF context: <b>−0.0006</b> [−0.015, +0.013] (answers differ on 12/277). The full Sandwich retrieval path is no better (−0.038, Holm 0.11). Unlike v0, the draft did not anchor the answer here (+0.009, CI spans 0). Reader quality is limited by retrieval recall: F1 is 0.565 when all evidence is in context and 0.222 when it is not.</div>
+</section>
+
+<section id="s8">
+<h2>8. Theory ledger: every claim, with its status <span class="tag">docs/THEORY_LEDGER.md · 43 claims</span></h2>
+<p class="lead">24 claims from the paper (P-*) and 19 from the fully specified theory v1.1 (V-*). Each status cites the runs behind it. Click a bar to filter.</p>
+<div id="p_led" class="plot" style="height:280px"></div>
+<div style="margin:10px 0" class="row">Status <select id="ledSel"><option value="">all</option></select> &nbsp; Search <input type="text" id="ledQ" placeholder="e.g. emotion, A*, LoCoMo" style="width:280px"> <span class="small" id="ledN"></span></div>
+<table id="ledT" style="table-layout:fixed"><thead><tr><th style="width:62px">ID</th><th style="width:28%">Claim</th><th style="width:19%">Status</th><th>Evidence / note</th></tr></thead><tbody></tbody></table>
+</section>
+
+<section id="s9">
+<h2>9. The research process: pre-register → run → log</h2>
+<p class="lead">Before each run, the hypothesis, a numeric prediction and a falsifier were written into LAB_NOTEBOOK.md. Afterwards the real numbers and a prediction check were appended, each tied to a git commit. Failed predictions, a spec error, a pre-registration flaw and an aborted run are all logged rather than hidden.</p>
+<div class="flow"><div class="b">Pre-register: hypothesis, prediction, falsifier</div><span>→</span><div class="b">Commit code (clean tree)</div><span>→</span><div class="b">Run (config + git hash saved)</div><span>→</span><div class="b">Log results + prediction check</div><span>→</span><div class="b">Update ledger + theory version</div></div>
+<div id="p_tl" class="plot" style="height:470px"></div>
+<div class="small" style="margin:6px 0">Bars show how many pre-registered predictions held and how many failed in each run, transcribed item by item from the notebook's "Prediction check" sections. Hover for the exact predictions. Run times come from each run's config.json, shown in IST (UTC+5:30).</div>
+<table id="runT"><thead><tr><th>Run</th><th>Start (IST)</th><th>Type</th><th>What</th><th>Verdict</th><th>Predictions</th></tr></thead><tbody></tbody></table>
+</section>
+<section><p class="small">Generated from the repository <code>consciousness-layer</code> (results/, docs/THEORY_LEDGER.md, LAB_NOTEBOOK.md) by <code>presentation/_build/prep_results.py</code>. Datasets: LongMemEval (Wu et al., 2024), LoCoMo (Maharana et al., 2024, CC BY-NC 4.0). Nothing on this page claims anything about consciousness. Φ, Φ<sub>dyn</sub> and C<sub>norm</sub> are engineering quantities.</p></section>
+
+<script>/*__LIB__*/</script>
+<script>const D = /*__DATA__*/;</script>
+<script>
+"use strict";
+const C = {slate:'#334155', blue:'#2b6cb0', orange:'#d9822b', grey:'#9aa5b1', lgrey:'#c3c9cf', ink:'#1f2933'};
+const FONT = {family:'"Helvetica Neue", Arial, sans-serif', size:15, color:C.ink};
+const CFG = {displaylogo:false, responsive:true, modeBarButtonsToRemove:['lasso2d','select2d','autoScale2d'], toImageButtonOptions:{format:'png', scale:2}};
+function L(extra){ return Object.assign({font:FONT, paper_bgcolor:'#fff', plot_bgcolor:'#fff', margin:{l:60,r:20,t:40,b:50}, hoverlabel:{bgcolor:'#fff', bordercolor:'#9aa5b1', font:{family:FONT.family, size:14, color:C.ink}},
+  xaxis:{gridcolor:'#ebe8e1', zerolinecolor:'#b8b3a8', linecolor:'#b8b3a8'}, yaxis:{gridcolor:'#ebe8e1', zerolinecolor:'#b8b3a8', linecolor:'#b8b3a8', automargin:true}, showlegend:false}, extra||{}); }
+const f3 = x => (x===null||x===undefined||x==='')?'–':(+x).toFixed(3);
+const sgn = x => (x>=0?'+':'')+(+x).toFixed(3);
+function btns(id, items, onSel, init){ const el=document.getElementById(id); el.innerHTML=''; items.forEach(([k,lab])=>{ const b=document.createElement('button'); b.textContent=lab; b.onclick=()=>{ [...el.children].forEach(c=>c.classList.remove('on')); b.classList.add('on'); onSel(k); }; if (k===init) b.classList.add('on'); el.appendChild(b); }); onSel(init); }
+function colorFor(name){ if (/^rrf$|RRF/.test(name)) return C.blue; if (/shuf|rand|random/i.test(name)) return C.lgrey; if (/^v1|^rr_|graph|sandwich|Sandwich|^x_v1/.test(name)) return C.orange; return C.slate; }
+// forest plot helper: rows {label, est, lo, hi, color, hover}
+function forest(div, rows, opts){ opts=opts||{}; const y=rows.map(r=>r.label);
+  const tr={type:'scatter', mode:'markers', x:rows.map(r=>r.est), y, orientation:'h', marker:{size:11, color:rows.map(r=>r.color||C.slate), line:{width:0}},
+    error_x:{type:'data', symmetric:false, array:rows.map(r=>r.hi==null?0:r.hi-r.est), arrayminus:rows.map(r=>r.lo==null?0:r.est-r.lo), color:'#6b7680', thickness:1.6, width:5},
+    hovertext:rows.map(r=>r.hover), hoverinfo:'text'};
+  const shapes=[]; if (opts.zero!==undefined) shapes.push({type:'line', x0:opts.zero, x1:opts.zero, yref:'paper', y0:0, y1:1, line:{color:'#8a8478', width:1.2, dash:'dot'}});
+  (opts.extraLines||[]).forEach(v=>shapes.push({type:'line', x0:v.x, x1:v.x, yref:'paper', y0:0, y1:1, line:{color:v.color, width:1.5, dash:'dash'}}));
+  Plotly.react(div, [tr], L({margin:{l:opts.ml||230, r:20, t:opts.title?40:20, b:50}, title:opts.title?{text:opts.title, font:{size:15}, x:0.01}:undefined, xaxis:{title:{text:opts.xtitle||''}, gridcolor:'#ebe8e1', zerolinecolor:'#b8b3a8', range:opts.xrange}, yaxis:{autorange:'reversed', automargin:true, gridcolor:'#f3f1ec'}, shapes, annotations:opts.ann||[]}), CFG); }
+
+// ---------- 2. v0 ----------
+const V0NAMES = {plain:'Plain LLM', self_refine:'Self-refine (no memory)', rag:'Vector RAG (k=4)', sandwich_lambda:'Sandwich, λ trigger', sandwich_always:'Sandwich, always refine', sandwich_shuffled:'Sandwich, shuffled W', sandwich_nodraft:'Sandwich retrieval, no draft', full_context:'Full history in context'};
+const V0ORDER = ['plain','self_refine','rag','full_context','sandwich_always','sandwich_shuffled','sandwich_lambda','sandwich_nodraft'];
+function drawV0(pt){ const rows = D.v0.summary.concat(D.v0.nodraft).filter(r=>r.ptype===pt); const by={}; rows.forEach(r=>by[r.system]=r);
+  const sys = V0ORDER.filter(s=>by[s]); const n = by[sys[0]].n;
+  const col = s => s==='sandwich_shuffled'?C.lgrey : (s.startsWith('sandwich')?C.orange : (s==='full_context'?'#64748b':C.slate));
+  Plotly.react('p_v0', [{type:'bar', orientation:'h', y:sys.map(s=>`${V0NAMES[s]}  <b>${by[s].correct}/${n}</b>`), x:sys.map(s=>by[s].correct), marker:{color:sys.map(col)},
+     error_x:{type:'data', symmetric:false, array:sys.map(s=>by[s].ci_hi*n-by[s].correct), arrayminus:sys.map(s=>by[s].correct-by[s].ci_lo*n), color:'#6b7680', thickness:1.5},
+     hovertext:sys.map(s=>`<b>${V0NAMES[s]}</b><br>${by[s].correct}/${n} correct (${(100*by[s].acc).toFixed(1)}%)<br>95% Wilson CI ${(100*by[s].ci_lo).toFixed(1)}–${(100*by[s].ci_hi).toFixed(1)}%`+(by[s].latency_mean_s!==undefined?`<br>latency mean ${by[s].latency_mean_s} s · LLM calls ${by[s].llm_calls_mean}`:'<br>(exploratory follow-up run)')), hoverinfo:'text'}],
+    L({margin:{l:270,r:30,t:30,b:50}, xaxis:{title:{text:`correct answers (of ${n}), probe type: ${pt}`}, range:[0, n*1.08], gridcolor:'#ebe8e1'}, yaxis:{autorange:'reversed', automargin:true}}), CFG); }
+btns('v0btns', [['all','All probes (120)'],['recall','Recall (40)'],['update','Update (40)'],['contradiction','Contradiction (40)']], drawV0, 'all');
+
+// ---------- 3. E3 ----------
+const E3NAMES = {bm25:'BM25 (keyword)', cosine:'Cosine (MiniLM dense)', rrf:'RRF(BM25, cosine)', v1:'Graph v1 (full)', v1_shuffledW:'Graph, shuffled W (control)', v1_randomtopo:'Graph, random topology (control)', v1_noS:'Graph − S', v1_noT:'Graph − T', v1_noE:'Graph − E', v1_noR:'Graph − R', v1_noAstar:'Graph − A*', x_v1_recency:'Graph + recency (expl.)', 'x_v1_zeta0.5':'Graph ζ=0.5 (expl.)', 'x_v1_zeta0.15':'Graph ζ=0.15 (expl.)'};
+const E3ORDER = ['bm25','cosine','rrf','v1','v1_shuffledW','v1_randomtopo','v1_noS','v1_noT','v1_noE','v1_noR','v1_noAstar','x_v1_recency','x_v1_zeta0.5','x_v1_zeta0.15'];
+function drawE3(metric){ const rows=[]; const pv={}; D.e3.paired_vs_cosine.filter(r=>r.metric===metric).forEach(r=>pv[r.retriever]=r); const holm={}; D.e3.primary_holm.forEach(r=>holm[r.retriever]=r.p_holm);
+  E3ORDER.forEach(k=>{ let r = D.e3.summary.find(s=>s.retriever===k && s.metric===metric); if (k==='rrf'){ const q=D.e3.rrf_470; const v = metric==='turn_any@10'?q.turn_any10:(metric==='turn_ndcg@10'?q.turn_ndcg10:null); if (v===null) return;
+      r={mean:v, lo: metric==='turn_any@10'?q.logged_ci_turn_any10[0]:null, hi: metric==='turn_any@10'?q.logged_ci_turn_any10[1]:null, n:q.n}; }
+    if (!r) return; const p=pv[k];
+    rows.push({label:E3NAMES[k]||k, est:r.mean, lo:r.lo, hi:r.hi, color:colorFor(k), hover:`<b>${E3NAMES[k]||k}</b><br>${metric} = ${f3(r.mean)}`+(r.lo!=null?` [${f3(r.lo)}, ${f3(r.hi)}]`:' (no logged CI)')+`<br>n = ${r.n||470}`+(p?`<br>vs cosine: ${sgn(p.diff_vs_cosine)} [${f3(p.lo)}, ${f3(p.hi)}], sign-flip p ${(+p.p_signflip).toPrecision(2)}`:'')+(holm[k]!==undefined&&metric==='turn_any@10'?`, Holm ${(+holm[k]).toFixed(3)}`:'')+(k==='rrf'?'<br>source: R-2026-10-26-04 (exploratory)':'')}); });
+  const cos = D.e3.summary.find(s=>s.retriever==='cosine'&&s.metric===metric).mean;
+  forest('p_e3', rows, {xtitle:metric+' (95% bootstrap CI), LongMemEval-S, n = 470', extraLines:[{x:cos, color:C.slate}], ml:250}); }
+btns('e3btns', [['turn_any@10','Recall@10 (primary)'],['turn_ndcg@10','nDCG@10'],['turn_any@5','Recall@5'],['turn_any@1','Recall@1']], drawE3, 'turn_any@10');
+function drawE3abl(metric){ const rows = D.e3.ablation_vs_v1.filter(r=>r.metric===metric).map(r=>({label:E3NAMES[r.variant]||r.variant, est:r.diff_vs_v1, lo:r.lo, hi:r.hi, color:colorFor(r.variant),
+   hover:`<b>${E3NAMES[r.variant]||r.variant} − full graph</b><br>${metric}: ${sgn(r.diff_vs_v1)} [${f3(r.lo)}, ${f3(r.hi)}]<br>sign-flip p ${(+r.p_signflip).toPrecision(2)} · n = 470<br>${r.diff_vs_v1>0?'variant is better than the full graph':'variant is worse/equal'}`}));
+  forest('p_e3abl', rows, {zero:0, xtitle:`Δ ${metric} vs full graph (>0: change helps)`, ml:210}); }
+btns('e3abtns', [['turn_any@10','Recall@10'],['turn_ndcg@10','nDCG@10']], drawE3abl, 'turn_ndcg@10');
+(function(){ const qt=[...new Set(D.e3.by_qtype.map(r=>r.qtype))]; const show=['bm25','cosine','v1','v1_shuffledW','v1_randomtopo'];
+  const tr = show.map(k=>({type:'bar', name:E3NAMES[k], x:qt, y:qt.map(q=>{ const r=D.e3.by_qtype.find(x=>x.retriever===k&&x.qtype===q); return r?r['turn_any@10']:null; }), marker:{color: k==='bm25'?'#64748b':(k==='cosine'?C.slate:(k==='v1'?C.orange:(k==='v1_shuffledW'?'#e8b98a':C.lgrey)))},
+    hovertemplate:`<b>${E3NAMES[k]}</b><br>%{x}<br>turn_any@10 = %{y:.3f}<extra></extra>`}));
+  Plotly.react('p_e3q', tr, L({barmode:'group', showlegend:true, legend:{orientation:'h', y:1.14, font:{size:12.5}}, margin:{l:50,r:10,t:60,b:70}, yaxis:{range:[0,1.05], title:{text:'turn_any@10'}, gridcolor:'#ebe8e1'}, xaxis:{tickangle:0, tickvals:qt, ticktext:qt.map(q=>q.replace('single-session-','single-session<br>').replace('knowledge-','knowledge-<br>').replace('multi-','multi-<br>').replace('temporal-','temporal-<br>')), tickfont:{size:12}}}), CFG); })();
+
+// ---------- 4. E3b ----------
+(function(){ const rows = D.e3b.primary.map(r=>({label:`${r.first==='rrf'?'RRF':'cosine'} + graph (${r.W}, ζ ${r.zeta}, w ${r.w})`, est:r.diff, lo:r.lo, hi:r.hi, color:C.orange,
+   hover:`<b>first stage: ${r.first}</b><br>base ${f3(r.base)} → hybrid ${f3(r.hybrid)}<br>Δ ${sgn(r.diff)} [${f3(r.lo)}, ${f3(r.hi)}]<br>p ${r.p_signflip}, Holm ${r.p_holm}<br>test n = ${r.n}; config chosen on dev (dev best ${f3(r.dev_best_turn_any10)})`}));
+  forest('p_e3b', rows, {zero:0, xtitle:'Δ turn_any@10 on held-out test half', xrange:[-0.05,0.05], ml:260}); })();
+function drawGrid(first){ const g = D.e3b.grid.filter(r=>r.split==='test' && r.first===first); const base = g.find(r=>r.w===0||r.W==='-');
+  const combos=[['v1W',0.5],['v1W',0.85],['Sonly',0.5],['Sonly',0.85]]; const tr=[];
+  combos.forEach(([W,z],ci)=>['none','shuffle'].forEach(ctl=>{ const pts=g.filter(r=>r.W===W && r.zeta===z && r.control===ctl).sort((a,b)=>a.w-b.w); if (!pts.length) return;
+    tr.push({type:'scatter', mode:'lines+markers', name:`${W} ζ${z}${ctl==='shuffle'?' (shuffled W)':''}`, x:pts.map(p=>p.w), y:pts.map(p=>p['turn_any@10']),
+      line:{color: ctl==='shuffle'?C.lgrey:(W==='v1W'?C.orange:'#a0522d'), dash: z===0.85?'dash':'solid', width:2}, marker:{size:7},
+      hovertemplate:`<b>${first} + ${W}, ζ ${z}${ctl==='shuffle'?', shuffled W':''}</b><br>w = %{x}<br>test turn_any@10 = %{y:.3f} (n = 247)<extra></extra>`}); }));
+  const shapes = base?[{type:'line', xref:'paper', x0:0, x1:1, y0:base['turn_any@10'], y1:base['turn_any@10'], line:{color:first==='rrf'?C.blue:C.slate, width:2}}]:[];
+  Plotly.react('p_e3bgrid', tr, L({showlegend:true, legend:{font:{size:12}}, margin:{l:60,r:10,t:20,b:50}, shapes, annotations: base?[{xref:'paper', x:0.01, y:base['turn_any@10'], text:`${first} alone ${f3(base['turn_any@10'])}`, showarrow:false, yshift:10, xanchor:'left', font:{size:13, color:first==='rrf'?C.blue:C.slate}}]:[],
+    xaxis:{title:{text:'graph weight w'}, tickvals:[0.1,0.25,0.5], gridcolor:'#ebe8e1'}, yaxis:{title:{text:'test turn_any@10'}, gridcolor:'#ebe8e1'}}), CFG); }
+btns('e3bbtns', [['rrf','First stage: RRF'],['cosine','First stage: cosine']], drawGrid, 'rrf');
+
+// ---------- 5. E2 ----------
+const E2SC = {'-c_norm':'−C_norm (graph)', '-c_norm[q+draft]':'−C_norm (graph)', '-maxcos':'−max cosine (baseline)', '-maxcos[q+draft]':'−max cosine (baseline)', '-resid(c_norm|maxcos)':'−C_norm residual | max cos', '-phi_dyn':'−Φ_dyn', '-phi_dyn[q+draft]':'−Φ_dyn'};
+function drawE2(part){ let rows = D.e2.auroc.filter(r=>r.part===part);
+  if (part==='A_synthetic') rows = rows.filter(r=>['-c_norm[q+draft]','-maxcos[q+draft]','-phi_dyn[q+draft]'].includes(r.score));
+  else rows = rows.filter(r=>['-c_norm','-maxcos','-resid(c_norm|maxcos)','-phi_dyn'].includes(r.score));
+  const labels=[...new Set(rows.map(r=>r.label))]; const scs=[...new Set(rows.map(r=>E2SC[r.score]))];
+  const colr = s => s.startsWith('−C_norm (')?C.orange:(s.startsWith('−max')?C.slate:(s.includes('residual')?'#e8b98a':C.lgrey));
+  const tr = scs.map(s=>{ const rr = labels.map(l=>rows.find(r=>r.label===l && E2SC[r.score]===s));
+    return {type:'bar', name:s, x:labels.map(l=>l.replace('miss@10','miss@10 of').replace('wrong','wrong answer of')), y:rr.map(r=>r?r.auroc:null), marker:{color:colr(s)},
+      error_y:{type:'data', symmetric:false, array:rr.map(r=>r&&r.hi!==''?r.hi-r.auroc:0), arrayminus:rr.map(r=>r&&r.lo!==''?r.auroc-r.lo:0), color:'#6b7680', thickness:1.4},
+      hovertext:rr.map(r=>r?`<b>${s}</b> predicting ${r.label}<br>AUROC ${f3(r.auroc)} [${f3(r.lo)}, ${f3(r.hi)}]<br>n = ${r.n}, failures = ${r.n_pos}`:''), hoverinfo:'text'}; });
+  Plotly.react('p_e2', tr, L({barmode:'group', showlegend:true, legend:{orientation:'h', y:1.12}, margin:{l:60,r:10,t:50,b:70}, yaxis:{range:[0.3,1.0], title:{text:'AUROC (0.5 = chance)'}, gridcolor:'#ebe8e1'},
+    shapes:[{type:'line', xref:'paper', x0:0, x1:1, y0:0.5, y1:0.5, line:{color:'#8a8478', dash:'dot', width:1.3}}]}), CFG); }
+btns('e2btns', [['B_longmemeval','LongMemEval-S (n = 470, primary)'],['A_synthetic','v0 synthetic (n = 120)']], drawE2, 'B_longmemeval');
+
+// ---------- 6. LoCoMo ----------
+(function(){ const subs=[['all_cat1-4','All (1,536)'],['cat4_single-hop','Single-hop (841)'],['cat2_temporal','Temporal (321)'],['cat3_open-domain','Open-domain (92)'],['multi_ev(>=2)','≥ 2 evidence (413)'],['cat1_multi-hop','Multi-hop (282)']];
+  const tr = [['cosine',C.slate],['bm25','#64748b'],['rrf',C.blue]].map(([k,c])=>{ const rr=subs.map(([s])=>D.lc02.summary.find(r=>r.subset===s && r.metric==='all_ev@10' && r.retriever===k));
+    return {type:'bar', name:k==='rrf'?'RRF(BM25, cosine)':(k==='bm25'?'BM25':'cosine'), x:subs.map(s=>s[1]), y:rr.map(r=>r.mean), marker:{color:c},
+      error_y:{type:'data', symmetric:false, array:rr.map(r=>r.hi-r.mean), arrayminus:rr.map(r=>r.mean-r.lo), color:'#6b7680', thickness:1.4},
+      hovertext:rr.map(r=>`<b>${k}</b> · ${r.subset}<br>all_ev@10 = ${f3(r.mean)} [${f3(r.lo)}, ${f3(r.hi)}]<br>n = ${r.n}`), hoverinfo:'text'}; });
+  Plotly.react('p_lc02', tr, L({barmode:'group', showlegend:true, legend:{orientation:'h', y:1.12}, margin:{l:60,r:10,t:50,b:50}, yaxis:{title:{text:'all-evidence@10 (95% CI)'}, range:[0,0.72], gridcolor:'#ebe8e1'}}), CFG); })();
+const LCN = {bm25:'BM25', cosine:'cosine', rrf:'RRF (baseline to beat)', rr_sonly:'RRF + graph S-only, w 0.1 (PRIMARY)', rr_sonly_shuf:'  … shuffled W, seed 0', rr_sonly_shuf_s1:'  … shuffled W, seed 1', rr_sonly_shuf_s2:'  … shuffled W, seed 2', rr_sonly_rand:'  … random topology', rr_v1W:'RRF + graph full W, w 0.1',
+  rr_strong:'RRF + graph strong (ζ .85, w 0.5)', rr_strong_shuf:'  … strong, shuffled W', rr_strong_rand:'  … strong, random topology', rr_strong_noS:'  … strong − S', rr_strong_noT:'  … strong − T', rr_strong_noE:'  … strong − E', rr_strong_noR:'  … strong − R',
+  v1:'Graph v1 as first stage', v1_shuffledW:'  … v1 shuffled W', v1_randomtopo:'  … v1 random topology', v1_noS:'  … v1 − S', v1_noT:'  … v1 − T', v1_noE:'  … v1 − E', v1_noR:'  … v1 − R', v1_noAstar:'  … v1 − A*'};
+(function(){ const order=Object.keys(LCN); const rows = order.map(k=>{ const r=D.lc03.summary.find(x=>x.retriever===k && x.metric==='all_ev@10'); if (!r) return null;
+    return {label:LCN[k], est:r.mean, lo:r.lo, hi:r.hi, color: /shuf|rand/.test(k)?C.lgrey:colorFor(k), hover:`<b>${LCN[k].trim()}</b><br>all_ev@10 = ${f3(r.mean)} [${f3(r.lo)}, ${f3(r.hi)}]<br>n = ${r.n} multi-hop questions`}; }).filter(Boolean);
+  const rrf = D.lc03.summary.find(x=>x.retriever==='rrf'&&x.metric==='all_ev@10').mean;
+  forest('p_lc03', rows, {title:'all-evidence@10 per retriever (95% CI)', extraLines:[{x:rrf, color:C.blue},{x:rrf+0.03, color:C.orange}], ml:270, xtitle:'all-evidence@10',
+    ann:[{x:rrf+0.03, yref:'paper', y:1.0, text:'pre-reg. bar', showarrow:false, yshift:8, font:{size:12, color:C.orange}}]}); })();
+(function(){ const SN = {rrf:'RRF', cosine:'cosine', bm25:'BM25', v1:'graph v1 (1st stage)', rr_strong:'graph strong', rr_v1W:'graph full W', rr_sonly:'graph S-only', rr_sonly_shuf:'S-only shuffled W', rr_sonly_rand:'S-only random topo', rr_strong_shuf:'strong shuffled W', rr_strong_rand:'strong random topo', v1_shuffledW:'v1 shuffled W', v1_randomtopo:'v1 random topo', v1_noS:'v1 − S', v1_noT:'v1 − T', v1_noE:'v1 − E', v1_noR:'v1 − R', v1_noAstar:'v1 − A*', rr_strong_noS:'strong − S', rr_strong_noT:'strong − T', rr_strong_noE:'strong − E', rr_strong_noR:'strong − R'};
+  const rows = D.lc03.family.map(r=>({label:`${SN[r.a]||r.a}  vs  ${SN[r.b]||r.b}`, est:r.diff, lo:r.lo, hi:r.hi,
+   color: (r.a==='rrf')?C.blue:C.orange, hover:`<b>${r.a} − ${r.b}</b><br>Δ all_ev@10 = ${sgn(r.diff)} [${f3(r.lo)}, ${f3(r.hi)}]<br>sign-flip p ${(+r.p_signflip).toPrecision(2)} · Holm p ${(+r.p_holm).toFixed(2)}<br>n = ${r.n}`}));
+  const prim = D.lc03.summary; // primary pair rr_sonly - rrf is identically 0 (all paired diffs 0)
+  rows.unshift({label:'PRIMARY: graph S-only  vs  RRF', est:0, lo:0, hi:0, color:C.orange, hover:'<b>Primary (pre-registered, single test)</b><br>rr_sonly − rrf = 0.000 [0.000, 0.000], p = 1.0<br>identical outcome on all 277 questions<br>falsifier A: CI upper 0.000 < 0.03 → fired<br>falsifier B: rr_sonly ≤ shuffled → fired'});
+  forest('p_lc03f', rows, {title:'Paired differences (A vs B = A − B), 20-test Holm family + primary', zero:0, extraLines:[{x:0.03, color:C.orange}], ml:250, xtitle:'Δ all-evidence@10'}); })();
+
+// ---------- 7. QA ----------
+(function(){ const AN = {Z_closed_book:'Closed book<br>(no memory)', A_rrf:'RRF<br>context', B_graph:'Graph<br>context', C_sandwich_nodraft:'Sandwich<br>no draft', D_sandwich_draft:'Sandwich<br>+ draft'};
+  const ord=['Z_closed_book','A_rrf','B_graph','C_sandwich_nodraft','D_sandwich_draft']; const m={}; D.lc04.means.forEach(r=>m[r.arm]=r); const cr={}; D.lc04.context_recall.forEach(r=>cr[r.arm]=r);
+  const col = a => a==='A_rrf'?C.blue:(a==='Z_closed_book'?C.lgrey:C.orange);
+  Plotly.react('p_qa', [{type:'bar', x:ord.map(a=>AN[a]), y:ord.map(a=>m[a].mean), marker:{color:ord.map(col)},
+    error_y:{type:'data', symmetric:false, array:ord.map(a=>D.lc04.logged_ci[a][1]-m[a].mean), arrayminus:ord.map(a=>m[a].mean-D.lc04.logged_ci[a][0]), color:'#6b7680', thickness:1.4},
+    text:ord.map(a=>m[a].mean.toFixed(3)), textposition:'inside', insidetextanchor:'start', textfont:{color:ord.map(a=>a==='Z_closed_book'?C.ink:'#fff'), size:15},
+    hovertext:ord.map(a=>`<b>${AN[a]}</b><br>mean F1 ${f3(m[a].mean)} [${f3(D.lc04.logged_ci[a][0])}, ${f3(D.lc04.logged_ci[a][1])}]<br>n = ${m[a].count}`+(cr[a]?`<br>all evidence in context: ${f3(cr[a].all_ev_in_ctx)}`:'')), hoverinfo:'text'}],
+    L({margin:{l:60,r:10,t:20,b:60}, yaxis:{title:{text:'LoCoMo partial F1'}, range:[0,0.33], gridcolor:'#ebe8e1'}, xaxis:{tickangle:0}}), CFG);
+  const nm = {A_rrf:'RRF', B_graph:'Graph', C_sandwich_nodraft:'Sandwich no-draft', D_sandwich_draft:'Sandwich + draft', Z_closed_book:'Closed book'};
+  const rows = D.lc04.paired.map(r=>({label:`${nm[r.a]} − ${nm[r.b]}`, est:r.diff, lo:r.lo, hi:r.hi, color: r.a==='A_rrf'?C.blue:C.orange,
+    hover:`<b>${nm[r.a]} − ${nm[r.b]}</b><br>ΔF1 ${sgn(r.diff)} [${f3(r.lo)}, ${f3(r.hi)}]<br>sign-flip p ${(+r.p_signflip).toPrecision(2)}`+(r.p_holm_family3!==''?` · Holm ${(+r.p_holm_family3).toFixed(2)}`:' (sanity arm)')+`<br>answers changed: ${r.n_changed}/277`}));
+  forest('p_qad', rows, {zero:0, xtitle:'paired ΔF1 (95% bootstrap CI)', ml:220}); })();
+
+// ---------- 8. Ledger ----------
+const ST = [['supported','supported',C.blue],['refuted','refuted',C.orange],['mixed','mixed','#8e7cc3'],['weak evidence','weak evidence','#c9a227'],['untested','untested','#9aa5b1'],['not testable','not testable',C.slate]];
+const stClass = s => 'st-'+(s==='not testable'?'not':(s==='weak evidence'?'weak':s));
+(function(){ const cnt = ST.map(([k])=>D.ledger.filter(r=>r.status===k).length);
+  Plotly.react('p_led', [{type:'bar', orientation:'h', y:ST.map(s=>s[1]), x:cnt, marker:{color:ST.map(s=>s[2])}, text:cnt.map(String), textposition:'outside', cliponaxis:false,
+    hovertext:ST.map(([k],i)=>`<b>${k}</b>: ${cnt[i]} claims<br>${D.ledger.filter(r=>r.status===k).map(r=>r.id).join(', ')}<br>(click to filter)`), hoverinfo:'text'}],
+    L({margin:{l:120,r:40,t:10,b:40}, xaxis:{title:{text:'number of claims (43 total)'}, gridcolor:'#ebe8e1', range:[0,22]}, yaxis:{autorange:'reversed'}}), CFG);
+  document.getElementById('p_led').on('plotly_click', ev => { const k = ST[ev.points[0].pointIndex][0]; document.getElementById('ledSel').value=k; drawLed(); });
+  const sel=document.getElementById('ledSel'); ST.forEach(([k])=>{ const o=document.createElement('option'); o.value=k; o.textContent=k; sel.appendChild(o); });
+  sel.onchange=drawLed; document.getElementById('ledQ').oninput=drawLed; drawLed(); })();
+function md(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>').replace(/`(.+?)`/g,'<code>$1</code>'); }
+function drawLed(){ const k=document.getElementById('ledSel').value, q=document.getElementById('ledQ').value.toLowerCase();
+  const rows=D.ledger.filter(r=>(!k||r.status===k) && (!q || (r.id+r.claim+r.evidence+r.status_raw).toLowerCase().includes(q)));
+  document.querySelector('#ledT tbody').innerHTML = rows.map(r=>`<tr><td><b>${r.id}</b></td><td>${md(r.claim)}</td><td class="st ${stClass(r.status)}">${md(r.status_raw)}</td><td>${md(r.evidence)}</td></tr>`).join('');
+  document.getElementById('ledN').textContent = `${rows.length} of ${D.ledger.length} claims`; }
+
+// ---------- 9. Timeline ----------
+(function(){ const R = D.runs; const KC = {preregistered:C.blue, backfilled:C.slate, preprocessing:'#9aa5b1', smoke:'#c3c9cf', aborted:C.orange, skipped:'#c3c9cf'};
+  const KL = {preregistered:'pre-registered', backfilled:'backfilled (not pre-registered)', preprocessing:'preprocessing', smoke:'smoke test', aborted:'aborted (logged)', skipped:'skipped (decision logged)'};
+  const lab = R.map(r=>r.id);
+  const hov = r => `<b>${r.id}</b> · ${KL[r.kind]}<br>${r.title}<br>${r.start?(r.date_note?('date '+r.start.slice(0,10)):('start '+r.start.replace('T',' ').slice(0,16)+' IST')):''}${r.commit?(' · commit '+r.commit):''}${r.wall_s?(' · '+r.wall_s+' s'):''}`+(r.date_note?`<br><i>${r.date_note}</i>`:'')+
+    `<br><b>Verdict:</b> ${r.verdict}`+(r.held.length?`<br><span style="color:#2b6cb0"><b>Held (${r.held.length}):</b><br>• ${r.held.join('<br>• ')}</span>`:'')+(r.failed.length?`<br><span style="color:#b4561b"><b>Failed (${r.failed.length}):</b><br>• ${r.failed.join('<br>• ')}</span>`:'');
+  const tr = [
+    {type:'bar', name:'predictions held', y:lab, x:R.map(r=>r.held.length), orientation:'h', marker:{color:C.blue}, hovertext:R.map(hov), hoverinfo:'text'},
+    {type:'bar', name:'predictions failed', y:lab, x:R.map(r=>r.failed.length), orientation:'h', marker:{color:C.orange}, hovertext:R.map(hov), hoverinfo:'text'},
+    {type:'scatter', mode:'text', name:'', y:lab, x:R.map(r=>r.held.length+r.failed.length), text:R.map(r=>r.held.length+r.failed.length?'':'  '+KL[r.kind]), textposition:'middle right', textfont:{size:12.5, color:'#5b6670'}, hovertext:R.map(hov), hoverinfo:'text', showlegend:false}];
+  Plotly.react('p_tl', tr, L({barmode:'stack', showlegend:true, legend:{orientation:'h', y:1.08}, margin:{l:210,r:30,t:40,b:50}, yaxis:{autorange:'reversed', automargin:true}, xaxis:{title:{text:'pre-registered predictions (count) · hover for each one'}, gridcolor:'#ebe8e1', range:[0,13]}}), CFG);
+  document.querySelector('#runT tbody').innerHTML = R.map(r=>`<tr><td><b>${r.id}</b>${r.commit?`<br><span class="small">${r.commit}</span>`:''}</td><td>${r.start?(r.date_note?r.start.slice(0,10)+'<br><span class="small">(time not logged)</span>':r.start.replace('T',' ').slice(0,16)):'–'}</td><td><span style="color:${KC[r.kind]};font-weight:600">${KL[r.kind]}</span></td><td>${r.title}</td><td>${r.verdict}</td><td>${r.held.length||r.failed.length?`<span class="held">${r.held.length} held</span> / <span class="failed">${r.failed.length} failed</span>`:'–'}</td></tr>`).join(''); })();
+
+// nav highlight
+const secs=[...document.querySelectorAll('section[id]')]; const links=[...document.querySelectorAll('nav a[href^="#"]')];
+window.addEventListener('scroll', ()=>{ let cur=secs[0].id; secs.forEach(s=>{ if (s.getBoundingClientRect().top < 120) cur=s.id; }); links.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+cur)); });
+</script>
+</body></html>

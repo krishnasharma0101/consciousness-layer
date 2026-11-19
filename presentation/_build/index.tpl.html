@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>A graph-theoretic memory layer for LLMs: formalism, self-audit and pre-registered evaluation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#f7f6f2;--ink:#1f2933;--muted:#5b6670;--line:#d9d6cf;--blue:#2b6cb0;--orange:#d9822b;--slate:#334155}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Arial,"Segoe UI",sans-serif;font-size:16px;line-height:1.45}
+.wrap{max-width:1280px;margin:0 auto;padding:26px 26px 30px}
+h1{font-size:28px;margin:0 0 4px;font-weight:600;line-height:1.2}
+.sub{color:var(--muted);font-size:15.5px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1100px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);padding:14px 16px}
+.card h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px;font-weight:600}
+.card ul{margin:0;padding-left:18px}.card li{margin:5px 0}
+.num{font-size:26px;font-weight:600;color:var(--blue)}
+.num.o{color:var(--orange)}.num.s{color:var(--slate)}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+a.big{display:block;background:#fff;border:1px solid var(--slate);padding:12px 14px;text-decoration:none;color:var(--ink)}
+a.big:hover{border-color:var(--blue)}
+a.big b{font-size:18px;color:var(--blue)}
+a.big img{width:100%;height:210px;object-fit:cover;object-position:top left;border:1px solid var(--line);margin-top:8px;display:block}
+.lab{font-size:13.5px;color:var(--muted)}
+.not{border-left:4px solid var(--orange);background:#fff;padding:10px 14px;margin-top:16px;font-size:15px}
+.small{font-size:13px;color:var(--muted)}
+</style></head>
+<body><div class="wrap">
+<h1>A graph-theoretic memory layer between two LLM calls: formalism, self-audit and pre-registered evaluation</h1>
+<div class="sub">Krishna Sharma · the "Sandwich Model" and its Consciousness Layer (theory v1.1) · repository <code>consciousness-layer</code> · CPU only, no paid APIs</div>
+<div class="grid">
+ <div class="card"><h2>1 · Formalism</h2>
+  <div><span class="num s">20</span> <span class="lab">math issues found in a self-audit, each with a fix</span></div>
+  <ul><li>A self-audit of the original paper found <b>20 math issues</b> (static Φ, no activation rule, λ pointing both ways, unbounded C and R, an undefined A* heuristic, and (1+E) ≤ 0). Each one has a concrete fix.</li>
+  <li>Theory v1.1: every quantity is defined and bounded. Activation is personalised PageRank, C<sub>norm</sub> ∈ [0, 1], and the A* heuristic never overestimates.</li>
+  <li>52 unit tests pass (STATUS.md, 3 Nov 2026).</li></ul></div>
+ <div class="card"><h2>2 · Evaluation protocol</h2>
+  <div><span class="num s">6</span> <span class="lab">pre-registered experiments</span></div>
+  <ul><li>Every experiment after v0 was <b>pre-registered</b>: hypothesis, numeric prediction and falsifier written down before running. Across those runs, <b>28 predictions held and 10 failed</b>.</li>
+  <li>Three datasets (v0 synthetic, LongMemEval-S, LoCoMo), shuffled-W and random-topology controls, S/T/E/R/A* ablations, paired bootstrap CIs, Holm correction.</li>
+  <li>Full audit trail: lab notebook, a git commit per run, a 43-claim ledger, and one aborted run that is logged rather than hidden.</li></ul>
+  <div class="small">6 pre-registered experiments, plus the v0 backfill, 2 preprocessing runs, 1 smoke test and 1 aborted attempt. Prediction counts are transcribed item by item from the notebook's prediction checks.</div></div>
+ <div class="card"><h2>3 · Findings</h2>
+  <div><span class="num">+0.102</span> <span class="lab">all-evidence@10, RRF over cosine (LoCoMo)</span></div>
+  <ul><li><b>Hybrid retrieval wins.</b> RRF(BM25, cosine) beats dense cosine by +0.102 [0.081, 0.124] on LoCoMo (N = 1,536) and BM25 by +0.026, both pre-registered.</li>
+  <li><b>The graph layer gave no significant gain</b>, as a first stage, a weighting or a re-ranker. Multi-hop: +0.018 [−0.004, +0.043], below the +0.03 bar. Real W ≈ shuffled W.</li>
+  <li><b>Draft contamination:</b> passing a wrong draft to the refine step cost 94 vs 114/120 on v0. It did not show up on LoCoMo.</li>
+  <li><b>C<sub>norm</sub> is a weak error signal</b> (AUROC 0.63–0.68, below plain max-cosine).</li></ul></div>
+ <div class="card"><h2>4 · What's next</h2>
+  <div><span class="num o">7B</span> <span class="lab">reader run is the next test</span></div>
+  <ul><li>Run one 7B reader (e.g. on a free Colab/Kaggle GPU) to answer "maybe it needs a bigger model".</li>
+  <li>Multi-hop retrieval that is aware of evidence (query decomposition), since RRF still misses ≥ 1 evidence turn on ~90% of multi-hop questions.</li>
+  <li>A held-out confirmation of the small real-W vs shuffled-W hint on LoCoMo frac@10 (uncorrected).</li>
+  <li>Write-up as a workshop or arXiv paper: an honest negative result plus the formalism.</li></ul></div>
+</div>
+<div class="links">
+ <a class="big" href="graph3d.html"><b>Interactive 3D memory graph →</b><br><span class="small">A real LoCoMo conversation (conv-26, 419 turns) built with theory_v1.py. Step through spreading activation, show the A* path, animate a random walk, toggle S/T/E/R and the shuffled-W control.</span><img src="data:image/jpeg;base64,/*__THUMB_GRAPH__*/" alt="3D graph preview"></a>
+ <a class="big" href="results.html"><b>Experiment results dashboard →</b><br><span class="small">Nine sections from the question to the research process, with every number taken from results/: v0, LongMemEval-S, re-ranker, C<sub>norm</sub> AUROC, LoCoMo, QA, theory ledger and run timeline.</span><img src="data:image/jpeg;base64,/*__THUMB_RESULTS__*/" alt="Results preview"></a>
+</div>
+<div class="not"><b>What this work does not claim.</b> It does not show that the graph layer beats retrieval baselines. On every pre-registered test it did not. It says nothing about consciousness either. Φ, Φ<sub>dyn</sub> and C<sub>norm</sub> are engineering quantities on a memory graph, and "consciousness" appears only as the motivation of the original paper. The contribution is a precise, testable formalism and an honest, auditable evaluation of it.</div>
+<p class="small">All three pages are self-contained and work offline. Data: LongMemEval (Wu et al., 2024), LoCoMo (Maharana et al., 2024; CC BY-NC 4.0, non-commercial use). Static PNG versions for slides are in <code>png/</code>.</p>
+</div></body></html>
